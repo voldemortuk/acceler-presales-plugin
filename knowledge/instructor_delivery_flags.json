@@ -1,0 +1,25 @@
+{
+  "_doc": "Delivery-availability overrides for KG instructors. The KG ranks on topic/credibility and cannot know who Acceler can ACTUALLY staff. This file encodes that human knowledge. 'pre_sales_only' = strong proposal/marquee credibility but NOT reliably staffable for delivery (post-sales). The /instructors command MUST exclude these from any post-sales / deliverable shortlist, and may still list them for pre-sales proposal credibility — clearly labelled 'pre-sales only'. Keep this list updated as engagements succeed or fall through.",
+  "pre_sales_only": [
+    {
+      "name": "Cassie Kozyrkov",
+      "linkedin": "https://www.linkedin.com/in/kozyrkov",
+      "reason": "Marquee keynote name (Google ex-Chief Decision Scientist). Never actually hired by Acceler for delivery — proposal credibility only."
+    },
+    {
+      "name": "Michelle K. Lee",
+      "linkedin": "https://www.linkedin.com/in/mlee95070/",
+      "reason": "Marquee C-suite AI advisor (ex-VP AI/ML Amazon). In the pool for credibility, not engaged for delivery."
+    },
+    {
+      "name": "Eric Siegel",
+      "linkedin": "https://www.linkedin.com/in/predictiveanalytics/",
+      "reason": "Commercials/terms did not align. Fine to show in pre-sales proposals, difficult for post-sales delivery."
+    }
+  ],
+  "deliverable_anchors": {
+    "_doc": "Known-staffable SMEs by track, for fast post-sales shortlisting. Active IK instructors and/or dense real proposed-for delivery footprints.",
+    "AI for Leaders / Strategy": ["Omkar Deshpande", "Anand Rao", "Sasidhar Kasturi", "Felix Wong", "Faiza Ghazanfar", "Neil Daswani", "Shweta Singh"],
+    "AI Builders / Agentic": ["Anshaj Khare", "Kuldeep Singh Sidhu", "Savio Fernandes", "Felix Wong", "Shweta Singh"]
+  }
+}
