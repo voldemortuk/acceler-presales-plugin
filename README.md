@@ -36,7 +36,7 @@ Or run the whole pipeline at once: **`/acceler-presales:full-cycle`**.
   - `requirement-mapping/` — 3-col coverage matrix with gap flagging
   - `proposal-deck/` — pre-sales pitch deck on the KASE engine (data-driven `SLIDE_DATA` slides · ~80 templates · engine + e& reference bundled)
   - `live-session-deck/` — post-sales live delivery deck (4-movement arc · 15 slide types)
-  - `pptx-deck/` — match-a-reference PPTX rebuild pattern
+  - `pptx-deck/` — HTML→PPTX image-fidelity converter for the proposal deck (`build_pptx.py` bundled · per-slide 2× PNG → 16:9 PPTX)
   - `mini-ut-context/` — Utkarsh's operating profile + Mini-UT principles
 - **Commands** (`commands/`) — slash commands for each pipeline step
 - **Knowledge** (`knowledge/`) — the Acceler Knowledge Graph

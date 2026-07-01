@@ -2,6 +2,16 @@
 
 All notable changes to the `acceler-presales` plugin. Bump `.claude-plugin/plugin.json` `version` on every release so teammates' `/plugin marketplace update` picks up the change.
 
+## [0.4.0] — 2026-07-01
+
+### HTML→PPTX converter is now bundled + deck sources locked to canonical folders
+- **`skills/pptx-deck/build_pptx.py`** (NEW) — the image-fidelity assembler (per-slide 2× PNGs → 16:9 PPTX) is now bundled next to its SKILL.md, so the converter is self-contained. Previously the SKILL referenced `build_pptx.py` "in this folder" but the script was missing — teammates couldn't run the export.
+- **Deck sources verified byte-identical** to the canonical Pre-Sales Product builder folders:
+  - `skills/proposal-deck/` ← `Deck Proposal Builder /HTML-Deck-Builder/` (KASE engine + Images + e& reference)
+  - `skills/pptx-deck/` ← `Deck Proposal Builder /HTML-to-PPTX Converter/` (HTML→PPTX)
+  - `skills/live-session-deck/` ← `Live Session-Deck-Builder/`
+- README: corrected the `pptx-deck/` description (it is the HTML→PPTX image-fidelity converter that exports the **proposal-deck**, not a match-a-reference rebuild).
+
 ## [0.3.0] — 2026-07-01
 
 ### Deck commands split — pre-sales vs post-sales
