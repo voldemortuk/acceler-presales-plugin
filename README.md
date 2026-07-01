@@ -13,9 +13,11 @@ Requirement (notes / RFP)
    ↓
 /acceler-presales:similar     →  find closest precedents in the Knowledge Graph
    ↓
-/acceler-presales:proposal    →  draft program document (IK-Acceler house style)
+/acceler-presales:proposal      →  draft program document (IK-Acceler house style)
    ↓
-/acceler-presales:deck        →  generate live session deck (HTML, sister to PPTX)
+/acceler-presales:proposal-deck →  pre-sales PITCH deck (KASE HTML · client-facing)
+   ↓
+/acceler-presales:session-deck  →  post-sales DELIVERY deck (live session · sister to PPTX)
    ↓
 /acceler-presales:pricing     →  bottom-up cost stack (INR India · USD US strict)
    ↓
@@ -32,7 +34,8 @@ Or run the whole pipeline at once: **`/acceler-presales:full-cycle`**.
   - `doc-proposal/` — IK-Acceler proposal house style v2
   - `pricing/` — bottom-up cost stack, INR/USD strict, first-time vs repeat
   - `requirement-mapping/` — 3-col coverage matrix with gap flagging
-  - `live-session-deck/` — HTML deck builder (4-movement arc · 15 slide types)
+  - `proposal-deck/` — pre-sales pitch deck on the KASE engine (data-driven `SLIDE_DATA` slides · ~80 templates · engine + e& reference bundled)
+  - `live-session-deck/` — post-sales live delivery deck (4-movement arc · 15 slide types)
   - `pptx-deck/` — match-a-reference PPTX rebuild pattern
   - `mini-ut-context/` — Utkarsh's operating profile + Mini-UT principles
 - **Commands** (`commands/`) — slash commands for each pipeline step
@@ -99,7 +102,8 @@ Then run any of:
 /acceler-presales:discovery       Score a brief against the 33-question checklist
 /acceler-presales:similar         Find the closest past Acceler precedents (KG-powered)
 /acceler-presales:proposal        Draft the program document (IK-Acceler house style)
-/acceler-presales:deck            Generate the live session HTML deck
+/acceler-presales:proposal-deck   Generate the pre-sales pitch deck (KASE HTML)
+/acceler-presales:session-deck    Generate the post-sales live delivery deck (HTML)
 /acceler-presales:pricing         Compute the cost stack (INR India · USD US strict)
 /acceler-presales:instructors     Rank SMEs from the indexed pool
 ```
