@@ -76,7 +76,7 @@ The plugin stays installed as `acceler-presales@acceler-local`, now sourced from
 
 ### Verify
 ```bash
-/plugin list                # should show: acceler-presales (0.2.0)
+/plugin list                # should show: acceler-presales (0.3.0)
 /plugin marketplace list     # 'acceler-local' should point to voldemortuk/acceler-presales-plugin (not a local path)
 ```
 
