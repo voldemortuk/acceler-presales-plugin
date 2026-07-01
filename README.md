@@ -142,4 +142,4 @@ cd "$HOME/acceler-presales-plugin" && git add -A && git commit -m "KG refresh" &
 
 ---
 
-*v0.2.0 · Jun 2026 · Utkarsh Raj · Acceler / Interview Kickstart B2B · [CHANGELOG](CHANGELOG.md) · [CONTRIBUTING](CONTRIBUTING.md)*
+*v0.3.0 · Jul 2026 · Utkarsh Raj · Acceler / Interview Kickstart B2B · [CHANGELOG](CHANGELOG.md) · [CONTRIBUTING](CONTRIBUTING.md)*

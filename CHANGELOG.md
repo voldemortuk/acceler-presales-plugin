@@ -2,6 +2,15 @@
 
 All notable changes to the `acceler-presales` plugin. Bump `.claude-plugin/plugin.json` `version` on every release so teammates' `/plugin marketplace update` picks up the change.
 
+## [0.3.0] — 2026-07-01
+
+### Deck commands split — pre-sales vs post-sales
+- **`/acceler-presales:proposal-deck`** (NEW) — the pre-sales PITCH deck. Client-facing proposal/solution deck on the KASE engine (data-driven `SLIDE_DATA` slides, ~80 templates). The engine (`Slide_Library_v2/kase-render.js` + `kase-styles.css`), brand images, and the e& AI Builder reference deck are bundled in `skills/proposal-deck/` so the command is self-contained.
+- **`/acceler-presales:session-deck`** (RENAMED from `/deck`) — the post-sales DELIVERY deck. The live hands-on session deck an instructor presents during delivery (VM setup, screenshots, build steps).
+- **Why:** the old single `/deck` command only built the delivery deck and was mislabeled "live session deck," while the KASE proposal deck — the thing you actually pitch with — had no command at all.
+- `full-cycle` Stage 4 now generates the pre-sales proposal deck; the session deck is documented as a later post-sales artifact.
+- README, setup listing, plugin + marketplace descriptions updated.
+
 ## [0.2.0] — 2026-06-26
 
 ### Pricing skill
