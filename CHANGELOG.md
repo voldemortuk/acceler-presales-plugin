@@ -2,6 +2,13 @@
 
 All notable changes to the `acceler-presales` plugin. Bump `.claude-plugin/plugin.json` `version` on every release so teammates' `/plugin marketplace update` picks up the change.
 
+## [0.4.1] — 2026-07-16
+
+### Fix: doc-proposal tables collapsed to vertical columns in Apple Pages
+- **`skills/doc-proposal/SKILL.md`** — added mandatory table-layout rule (§4.0): every `new Table(...)` must use `layout: TableLayoutType.FIXED` + explicit `columnWidths` (DXA twips summing to content width), and all cell widths must be `WidthType.DXA`, never `WidthType.PERCENTAGE`.
+- **Why:** percentage-width tables with no fixed grid render fine in MS Word but **collapse to minimum content width in Apple Pages** — a single-cell navy cover became a one-character-wide vertical column ("B/Y/U/n/O…") and a 2-page proposal ballooned to ~19 pages. Hit live on the DPR Construction proposal.
+- Added the fix to the §10 Quality Checklist (assert `w:type="pct"` count is 0; `tblLayout w:type="fixed"` equals table count) and the §12 build-script pattern (CW + `pct()` helper, post-build XML asserts).
+
 ## [0.4.0] — 2026-07-01
 
 ### HTML→PPTX converter is now bundled + deck sources locked to canonical folders
