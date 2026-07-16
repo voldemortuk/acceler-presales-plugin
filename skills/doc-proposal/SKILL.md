@@ -146,6 +146,30 @@ FONT_MONO    = none         // monospace not used — keep tooling lists in Manr
 
 ## 4. Component Library
 
+### 4.0 Table Layout — MANDATORY (Apple-Pages-safe)
+
+**Every `new Table(...)` MUST set `layout: TableLayoutType.FIXED` AND an explicit `columnWidths` array (DXA twips) that sums to the content width. Cell widths must be `WidthType.DXA`, never `WidthType.PERCENTAGE`.**
+
+Why: percentage-only tables with no fixed grid render fine in MS Word but **collapse to minimum content width in Apple Pages** — a single-cell navy cover table becomes a one-character-wide vertical column ("B/Y/U/n/O…") and a 2-page doc balloons to ~19 pages. This is the single most common way a generated proposal renders broken on a Mac.
+
+```javascript
+const { WidthType, TableLayoutType } = docx;
+// Content width = page width − left − right margins.
+// Letter (12240) − 2×1440 (1.0") = 9360 ·  − 2×1080 (0.75") = 10080
+const CW  = 10080;
+const pct = (p) => Math.round(CW * p / 100);   // percent → DXA twips (columns must sum to CW)
+
+new Table({
+  width: { size: CW, type: WidthType.DXA },
+  layout: TableLayoutType.FIXED,               // ← required
+  columnWidths: [pct(30), pct(70)],            // ← required; must sum to CW
+  rows: [...],
+});
+// Each TableCell: width: { size: pct(30), type: WidthType.DXA }  — matches its column, never PERCENTAGE.
+```
+
+Rule of thumb: pick the column percentages, run `pct()` on each, and assert the array sums to `CW` before building. See §10 checklist.
+
 ### 4.1 Borders
 
 ```javascript
@@ -596,6 +620,7 @@ For queries:    [reviewer]@interviewkickstart.com
 
 Before marking a generated proposal review-ready, the agent must self-verify:
 
+- [ ] **Every table has `layout: TableLayoutType.FIXED` + explicit `columnWidths` (DXA) summing to content width (§4.0). No `WidthType.PERCENTAGE` anywhere — grep the build output XML: `w:type="pct"` count must be 0.** (Apple-Pages-safe — prevents the vertical-column / 19-page collapse.)
 - [ ] Cover has: navy bg, "BY UnO UPWARD AND ONWARD" eyebrow, partnering line, tagline, "Proposal For" + client + month-year, big bold title, positioning subtitle, 4-icon stats strip.
 - [ ] Primary section headings use `#1C4587`.
 - [ ] Day-header colour is consistent throughout (either `#1A2B4A` **or** `#0D1F3C`, not mixed).
@@ -647,7 +672,8 @@ Every proposal is built as a single Node.js script using the `docx` npm package:
 // 2. Define BORDERS (bd, bds, nb, nbs)
 // 3. Define typography helpers (sp, pb, div, h1, h2, h3, body, bl, ftr)
 // 4. Define table helpers (hc, dc, dvc, rc, emojiCell)
-// 5. Define NUM (§6) and PAGE (§7) constants
+//    ⚠ EVERY table MUST be fixed-layout with explicit DXA columnWidths (§4.0) — never PERCENTAGE.
+// 5. Define NUM (§6), PAGE (§7), and CW (content width) + pct() helper (§4.0)
 // 6. Build content array:
 //    coverPage()
 //    → objective()
@@ -661,6 +687,8 @@ Every proposal is built as a single Node.js script using the `docx` npm package:
 //    → closingPage()
 // 7. Wrap in Document, call Packer.toBuffer, write to /sessions/.../outputs/
 // 8. Validate: python3 validate.py <file> 2>&1 | grep -E "Paragraphs|PASSED|FAILED"
+//    Also assert Apple-Pages safety: unzip -p <file> word/document.xml | grep -c 'w:type="pct"'  → MUST be 0
+//    and: grep -c 'tblLayout w:type="fixed"'  → MUST equal the table count.
 // 9. Copy to /Users/voldemort/Downloads/1. PowerUp/APR - Pre-Sales Product/Outputs/
 ```
 
