@@ -19,6 +19,9 @@ Requirement (notes / RFP)
    ↓
 /acceler-presales:session-deck  →  post-sales DELIVERY deck (live session · sister to PPTX)
    ↓
+/acceler-presales:session-recap        →  post-delivery LEARNER recap (per session day)
+/acceler-presales:session-recap-report →  post-delivery STAKEHOLDER report (per session day)
+   ↓
 /acceler-presales:pricing     →  bottom-up cost stack (INR India · USD US strict)
    ↓
 /acceler-presales:instructors →  rank SMEs from the indexed pool (773 profiles)
@@ -36,6 +39,7 @@ Or run the whole pipeline at once: **`/acceler-presales:full-cycle`**.
   - `requirement-mapping/` — 3-col coverage matrix with gap flagging
   - `proposal-deck/` — pre-sales pitch deck on the KASE engine (data-driven `SLIDE_DATA` slides · ~80 templates · engine + e& reference bundled)
   - `live-session-deck/` — post-sales live delivery deck (4-movement arc · 15 slide types)
+  - `session-recap/` — post-delivery recap pair: learner-facing `dayN-learner-recap` + stakeholder-facing `dayN-recap-report`
   - `pptx-deck/` — HTML→PPTX image-fidelity converter for the proposal deck (`build_pptx.py` bundled · per-slide 2× PNG → 16:9 PPTX)
   - `mini-ut-context/` — Utkarsh's operating profile + Mini-UT principles
 - **Commands** (`commands/`) — slash commands for each pipeline step
@@ -104,6 +108,8 @@ Then run any of:
 /acceler-presales:proposal        Draft the program document (IK-Acceler house style)
 /acceler-presales:proposal-deck   Generate the pre-sales pitch deck (KASE HTML)
 /acceler-presales:session-deck    Generate the post-sales live delivery deck (HTML)
+/acceler-presales:session-recap        Generate the post-delivery learner recap (HTML)
+/acceler-presales:session-recap-report Generate the post-delivery stakeholder report (HTML)
 /acceler-presales:pricing         Compute the cost stack (INR India · USD US strict)
 /acceler-presales:instructors     Rank SMEs from the indexed pool
 ```

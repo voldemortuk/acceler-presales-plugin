@@ -2,6 +2,15 @@
 
 All notable changes to the `acceler-presales` plugin. Bump `.claude-plugin/plugin.json` `version` on every release so teammates' `/plugin marketplace update` picks up the change.
 
+## [0.5.0] — 2026-07-28
+
+### Session recap skill (NEW) — post-delivery, learner + stakeholder artifacts
+- **`skills/session-recap/SKILL.md`** (NEW) — how to build the two artifacts that follow every live delivery day: the learner-facing `dayN-learner-recap` (topics covered, quiz/discussion, cheat sheet, hands-on labs, parked Q&A, resources) and the stakeholder-facing `dayN-recap-report` (KPIs, per-learner tier categorisation with evidence, engagement by topic, feedback breakdown, action items). Documents the exact data pointers to ask for upfront for each, the design system/component library for each (they're deliberately distinct palettes), section-by-section structure with last-day branching logic (Wrapping Up + assessment link vs Before Day N+1), and the tier-assignment rule (behavior that day, never tenure).
+- **`/acceler-presales:session-recap`** (NEW) — learner recap command.
+- **`/acceler-presales:session-recap-report`** (NEW) — stakeholder report command.
+- Both reference the standing prose style rules (no em-dashes, no 3-item rhetorical cadence, no antithesis-as-crutch constructions) so recap prose stays consistent with house style.
+- Extracted from the LVT AI-Assisted Development Program's 4-day recap series (learner recaps + Day 3 stakeholder report) as the worked reference.
+
 ## [0.4.0] — 2026-07-01
 
 ### HTML→PPTX converter is now bundled + deck sources locked to canonical folders
