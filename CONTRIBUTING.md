@@ -1,12 +1,13 @@
-# Contributing to acceler-presales
+# Contributing to acceler-presales / acceler-post-sales
 
-This repo **is** the Claude Code marketplace (`.claude-plugin/marketplace.json` at the root) and the plugin source. It is the single source of truth — edit here, not in any local `…/APR - Pre-Sales Product/acceler-presales-plugin` copy.
+This repo **is** the Claude Code marketplace (`.claude-plugin/marketplace.json` at the root) and hosts **two plugin sources**: `acceler-presales` (repo root) and `acceler-post-sales` (`post-sales/` subdirectory, its own `.claude-plugin/plugin.json`). It is the single source of truth for both — edit here, not in any local `…/APR - Pre-Sales Product/acceler-presales-plugin` copy.
 
 ## Install (teammates)
 
 ```
 /plugin marketplace add voldemortuk/acceler-presales-plugin
-/plugin install acceler-presales@acceler-local
+/plugin install acceler-presales@acceler-local      # pre-sales
+/plugin install acceler-post-sales@acceler-local    # delivery / post-sales, if you need it too
 ```
 
 Private repo — authenticate first with `gh auth login` (or SSH). To get updates later:
@@ -18,8 +19,8 @@ Private repo — authenticate first with `gh auth login` (or SSH). To get update
 ## Make a change (contributors)
 
 1. Get added as a **collaborator** on the repo (ask Utkarsh), then branch + PR.
-2. Edit the relevant `commands/*.md`, `skills/*/SKILL.md`, or `knowledge/*` files.
-3. **Bump the version** in `.claude-plugin/plugin.json` (e.g. `0.2.0` → `0.3.0`) and add a `CHANGELOG.md` entry. *If you don't bump the version, teammates keep the cached copy and your change won't ship.*
+2. Edit the relevant files: pre-sales commands/skills live at `commands/*.md` and `skills/*/SKILL.md`; post-sales/delivery ones live at `post-sales/commands/*.md` and `post-sales/skills/*/SKILL.md`. `knowledge/*` is pre-sales-only (the KG).
+3. **Bump the version** in the plugin you actually changed: `.claude-plugin/plugin.json` for `acceler-presales`, `post-sales/.claude-plugin/plugin.json` for `acceler-post-sales` (e.g. `0.5.0` → `0.6.0`). Add a `CHANGELOG.md` entry labeled with the plugin name. *If you don't bump the version, teammates keep the cached copy and your change won't ship.* The two plugins version independently — don't bump one for a change to the other.
 4. Validate before pushing: `claude plugin validate .`
 5. Open a PR. On merge, teammates pick it up with `/plugin marketplace update acceler-local`.
 

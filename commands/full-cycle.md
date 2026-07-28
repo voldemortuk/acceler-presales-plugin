@@ -63,7 +63,7 @@ Fonts: DM Serif Display + DM Sans. Palette sampled from `kase-styles.css` (accen
 
 Save the web root to `~/Downloads/1. PowerUp/APR - Pre-Sales Product/Outputs/[Client]-proposal-deck/`.
 
-> **Post-sales / delivery deck** (the live hands-on session deck) is a *later* artifact — generate it after the deal closes with `/acceler-presales:session-deck` (`skills/live-session-deck/SKILL.md`, 4-movement arc). Not part of the pre-sales pipeline.
+> **Post-sales / delivery deck** (the live hands-on session deck) is a *later* artifact, generated after the deal closes, and lives in the separate **`acceler-post-sales`** plugin (same repo, `post-sales/` subdirectory): `/acceler-post-sales:session-deck` (`post-sales/skills/live-session-deck/SKILL.md`, 4-movement arc). Not part of this pre-sales pipeline. Once delivery wraps, that plugin's `/acceler-post-sales:session-recap` and `/acceler-post-sales:session-recap-report` generate the per-day learner recap and stakeholder report.
 
 ### Stage 5 — PPTX deck (optional, when client wants editable .pptx)
 If the client explicitly wants a PPTX, follow the pptx-deck skill (`skills/pptx-deck/SKILL.md`):

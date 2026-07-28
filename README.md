@@ -1,10 +1,10 @@
-# Acceler B2B Pre-Sales — Claude Code Plugin
+# Acceler B2B — Claude Code Plugins (Pre-Sales + Post-Sales)
 
-Turns the full Acceler pre-sales workflow into one Claude Code plugin you install in any terminal (Warp, iTerm, Terminal.app, VS Code, JetBrains). Uses your existing Claude Max / Pro / API subscription — no separate API key needed.
+This repo hosts **two** Claude Code plugins in one Git marketplace: **`acceler-presales`** (repo root — discovery through proposal/pricing) and **`acceler-post-sales`** (`post-sales/` subdirectory — delivery deck through post-delivery recaps). Install one or both from the same `git clone`/marketplace add; fork or update either from this single repo. Uses your existing Claude Max / Pro / API subscription — no separate API key needed.
 
 ## What it does
 
-When a client requirement lands, the plugin orchestrates the full pipeline:
+When a client requirement lands, `acceler-presales` orchestrates the pre-sales pipeline:
 
 ```
 Requirement (notes / RFP)
@@ -17,37 +17,48 @@ Requirement (notes / RFP)
    ↓
 /acceler-presales:proposal-deck →  pre-sales PITCH deck (KASE HTML · client-facing)
    ↓
-/acceler-presales:session-deck  →  post-sales DELIVERY deck (live session · sister to PPTX)
-   ↓
-/acceler-presales:session-recap        →  post-delivery LEARNER recap (per session day)
-/acceler-presales:session-recap-report →  post-delivery STAKEHOLDER report (per session day)
-   ↓
 /acceler-presales:pricing     →  bottom-up cost stack (INR India · USD US strict)
    ↓
 /acceler-presales:instructors →  rank SMEs from the indexed pool (773 profiles)
 ```
 
-Or run the whole pipeline at once: **`/acceler-presales:full-cycle`**.
+Or run the whole pre-sales pipeline at once: **`/acceler-presales:full-cycle`**.
 
-> Slash commands are namespaced by the plugin: `/acceler-presales:<command>`.
+Once the deal closes, **`acceler-post-sales`** (separate plugin, same repo) picks up delivery and wrap-up:
+
+```
+Deal closed → program delivery begins
+   ↓
+/acceler-post-sales:session-deck         →  live DELIVERY deck an instructor presents (per session day)
+   ↓
+/acceler-post-sales:session-recap        →  post-delivery LEARNER recap (per session day)
+/acceler-post-sales:session-recap-report →  post-delivery STAKEHOLDER report (per session day)
+```
+
+> Slash commands are namespaced by plugin: `/acceler-presales:<command>` or `/acceler-post-sales:<command>`.
 
 ## What's inside
 
-- **Skills** (`skills/`) — every Acceler skill markdown, auto-loaded by Claude Code when relevant
+### `acceler-presales` (repo root)
+- **Skills** (`skills/`) — every Acceler pre-sales skill markdown, auto-loaded by Claude Code when relevant
   - `doc-proposal/` — IK-Acceler proposal house style v2
   - `pricing/` — bottom-up cost stack, INR/USD strict, first-time vs repeat
   - `requirement-mapping/` — 3-col coverage matrix with gap flagging
   - `proposal-deck/` — pre-sales pitch deck on the KASE engine (data-driven `SLIDE_DATA` slides · ~80 templates · engine + e& reference bundled)
-  - `live-session-deck/` — post-sales live delivery deck (4-movement arc · 15 slide types)
-  - `session-recap/` — post-delivery recap pair: learner-facing `dayN-learner-recap` + stakeholder-facing `dayN-recap-report`
   - `pptx-deck/` — HTML→PPTX image-fidelity converter for the proposal deck (`build_pptx.py` bundled · per-slide 2× PNG → 16:9 PPTX)
   - `mini-ut-context/` — Utkarsh's operating profile + Mini-UT principles
-- **Commands** (`commands/`) — slash commands for each pipeline step
+- **Commands** (`commands/`) — slash commands for each pre-sales pipeline step
 - **Knowledge** (`knowledge/`) — the Acceler Knowledge Graph
   - `graph.json` (2.6 MB) · `files.json` (761 KB) · `instr_candidates.json` (14 KB)
   - `INDEX.md` — one-page digest of all 61 clients with pricing bands
   - `USING_THE_KG.md` — how the agent should query the graph
 - **Samples** (`samples/`) — reference proposals to lift patterns from
+
+### `acceler-post-sales` (`post-sales/` subdirectory)
+- **Skills** (`post-sales/skills/`)
+  - `live-session-deck/` — post-sales live delivery deck (4-movement arc · 15 slide types)
+  - `session-recap/` — post-delivery recap pair: learner-facing `dayN-learner-recap` + stakeholder-facing `dayN-recap-report`, including the data pointers to ask for upfront and both artifacts' design systems
+- **Commands** (`post-sales/commands/`) — `session-deck`, `session-recap`, `session-recap-report`
 
 ## Install (from the private GitHub marketplace)
 
@@ -65,8 +76,10 @@ This repo **is** the marketplace. You install and update the plugin straight fro
 ```bash
 claude
 /plugin marketplace add voldemortuk/acceler-presales-plugin
-/plugin install acceler-presales@acceler-local
+/plugin install acceler-presales@acceler-local      # pre-sales
+/plugin install acceler-post-sales@acceler-local    # delivery / post-sales (install if you need it too)
 ```
+Both plugins are listed in the same marketplace (`acceler-local`) from the one `marketplace add` — install just `acceler-presales` if you only work pre-sales, or both if you also deliver/run recaps.
 
 ### B · Already have it via the old local-file method? Migrate to Git
 Do **not** uninstall or remove the old marketplace first (removing it would auto-uninstall the plugin). Re-adding under the same name silently swaps the source from your local folder to this repo:
@@ -80,17 +93,17 @@ The plugin stays installed as `acceler-presales@acceler-local`, now sourced from
 
 ### Verify
 ```bash
-/plugin list                # should show: acceler-presales (0.3.0)
+/plugin list                # should show acceler-presales and/or acceler-post-sales, each with its own version
 /plugin marketplace list     # 'acceler-local' should point to voldemortuk/acceler-presales-plugin (not a local path)
 ```
 
 ## Updating
 
-Whenever a new version is published:
+Whenever a new version is published (either plugin):
 ```bash
 /plugin marketplace update acceler-local
 ```
-(Updates ship only when the maintainer bumps `version` in `.claude-plugin/plugin.json` — see [CONTRIBUTING.md](CONTRIBUTING.md).)
+(Updates ship only when the maintainer bumps `version` in that plugin's own `.claude-plugin/plugin.json` — see [CONTRIBUTING.md](CONTRIBUTING.md). The two plugins version independently.)
 
 ## Use it (in any terminal)
 
@@ -102,16 +115,17 @@ claude
 Then run any of:
 
 ```
-/acceler-presales:full-cycle      Drive the entire pipeline end-to-end from meeting notes
+/acceler-presales:full-cycle      Drive the entire pre-sales pipeline end-to-end from meeting notes
 /acceler-presales:discovery       Score a brief against the 33-question checklist
 /acceler-presales:similar         Find the closest past Acceler precedents (KG-powered)
 /acceler-presales:proposal        Draft the program document (IK-Acceler house style)
 /acceler-presales:proposal-deck   Generate the pre-sales pitch deck (KASE HTML)
-/acceler-presales:session-deck    Generate the post-sales live delivery deck (HTML)
-/acceler-presales:session-recap        Generate the post-delivery learner recap (HTML)
-/acceler-presales:session-recap-report Generate the post-delivery stakeholder report (HTML)
 /acceler-presales:pricing         Compute the cost stack (INR India · USD US strict)
 /acceler-presales:instructors     Rank SMEs from the indexed pool
+
+/acceler-post-sales:session-deck         Generate the live delivery deck (HTML)
+/acceler-post-sales:session-recap        Generate the post-delivery learner recap (HTML)
+/acceler-post-sales:session-recap-report Generate the post-delivery stakeholder report (HTML)
 ```
 
 Each command takes a brief / notes / topic as input. The orchestrator (`full-cycle`) chains them with appropriate handoffs and review gates.
@@ -148,4 +162,4 @@ cd "$HOME/acceler-presales-plugin" && git add -A && git commit -m "KG refresh" &
 
 ---
 
-*v0.3.0 · Jul 2026 · Utkarsh Raj · Acceler / Interview Kickstart B2B · [CHANGELOG](CHANGELOG.md) · [CONTRIBUTING](CONTRIBUTING.md)*
+*acceler-presales v0.6.0 · acceler-post-sales v0.1.0 · Jul 2026 · Utkarsh Raj · Acceler / Interview Kickstart B2B · [CHANGELOG](CHANGELOG.md) · [CONTRIBUTING](CONTRIBUTING.md)*

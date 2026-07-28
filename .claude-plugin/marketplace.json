@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "acceler-local",
-  "description": "Local marketplace hosting the Acceler B2B pre-sales orchestrator plugin.",
+  "description": "Local marketplace hosting the Acceler B2B pre-sales and post-sales/delivery plugins.",
   "owner": {
     "name": "Utkarsh Raj",
     "email": "utkarsh@interviewkickstart.com"
@@ -9,12 +9,21 @@
   "plugins": [
     {
       "name": "acceler-presales",
-      "description": "Acceler B2B Pre-Sales orchestrator — discovery → similar precedents → proposal doc → proposal deck (pre-sales pitch) → session deck (delivery) → session recap (post-delivery) → pricing → instructors. Powered by the Acceler Knowledge Graph.",
+      "description": "Acceler B2B Pre-Sales orchestrator — discovery → similar precedents → proposal doc → proposal deck (pre-sales pitch) → pricing → instructors. Powered by the Acceler Knowledge Graph. Delivery/post-sales artifacts live in the companion acceler-post-sales plugin below.",
       "author": {
         "name": "Utkarsh Raj"
       },
       "category": "productivity",
       "source": "./"
+    },
+    {
+      "name": "acceler-post-sales",
+      "description": "Acceler B2B Post-Sales / Delivery orchestrator — session deck (live delivery HTML deck) → session recap (post-delivery learner recap) → session recap report (post-delivery stakeholder analytics).",
+      "author": {
+        "name": "Utkarsh Raj"
+      },
+      "category": "productivity",
+      "source": "./post-sales"
     }
   ]
 }
