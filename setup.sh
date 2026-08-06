@@ -7,6 +7,7 @@ set -e
 
 WORK="$HOME/Downloads/1. PowerUp/APR - Pre-Sales Product"
 PLUG="$HOME/.claude/plugins/acceler-presales"
+PLUG2="$HOME/.claude/plugins/acceler-post-sales"
 
 GREEN='\033[0;32m'; RED='\033[0;31m'; YELLOW='\033[1;33m'; CYAN='\033[0;36m'; NC='\033[0m'
 
@@ -68,7 +69,8 @@ done
 echo ""
 echo -e "${CYAN}Linking plugin to live workspace (so updates flow automatically)...${NC}"
 mkdir -p "$PLUG/skills/doc-proposal" "$PLUG/skills/pricing" "$PLUG/skills/requirement-mapping" \
-         "$PLUG/skills/live-session-deck" "$PLUG/skills/pptx-deck" "$PLUG/skills/mini-ut-context"
+         "$PLUG/skills/pptx-deck" "$PLUG/skills/mini-ut-context"
+mkdir -p "$PLUG2/skills/live-session-deck" 2>/dev/null || true
 
 link() {
   local target="$1" link="$2" name="$3"
@@ -92,8 +94,9 @@ fi
 link "$WORK/Doc Proposal Builder/Doc_Proposal_Skills.md"                       "$PLUG/skills/doc-proposal/SKILL.md"          "doc-proposal"
 link "$WORK/Pricing/Pricing_Skills.md"                                          "$PLUG/skills/pricing/SKILL.md"               "pricing"
 link "$WORK/Requirement to Session Mapping Builder /Session_Mapping_Skills.md"  "$PLUG/skills/requirement-mapping/SKILL.md"   "requirement-mapping"
-link "$WORK/Live Session-Deck-Builder/Live_Session_Deck_Skills.md"              "$PLUG/skills/live-session-deck/SKILL.md"     "live-session-deck"
 link "$WORK/Deck Proposal Builder /HTML-to-PPTX Converter/HTML_to_PPTX_Skills.md" "$PLUG/skills/pptx-deck/SKILL.md"            "pptx-deck"
+# acceler-post-sales (separate plugin, separate cache path)
+link "$WORK/Live Session-Deck-Builder/Live_Session_Deck_Skills.md"              "$PLUG2/skills/live-session-deck/SKILL.md"    "live-session-deck (acceler-post-sales)"
 link "$WORK/Mini-UT Context/context.md"                                          "$PLUG/skills/mini-ut-context/SKILL.md"       "mini-ut-context (principles)"
 link "$WORK/Mini-UT Context/utkarsh_context.md"                                  "$PLUG/skills/mini-ut-context/utkarsh_context.md" "mini-ut-context (utkarsh profile)"
 link "$WORK/Instructors /Acceler B2B Instructor Pool.md"                         "$PLUG/skills/mini-ut-context/Instructor_Pool.md" "instructor pool"
@@ -112,11 +115,16 @@ echo ""
 echo "Try it now — open Claude Code in any terminal (Warp / iTerm / VS Code / etc):"
 echo ""
 echo "  claude"
-echo "  /acceler:full-cycle"
+echo "  /acceler-presales:full-cycle"
 echo ""
-echo "Or any individual stage:"
-echo "  /acceler:discovery · /acceler:similar · /acceler:proposal · /acceler:deck"
-echo "  /acceler:pricing · /acceler:instructors · /acceler:coverage"
+echo "Or any individual pre-sales stage:"
+echo "  /acceler-presales:discovery · /acceler-presales:similar · /acceler-presales:proposal"
+echo "  /acceler-presales:proposal-deck · /acceler-presales:pricing · /acceler-presales:instructors"
+echo "  /acceler-presales:coverage"
+echo ""
+echo "Delivery / post-sales (install acceler-post-sales@acceler-local too):"
+echo "  /acceler-post-sales:session-deck · /acceler-post-sales:session-recap"
+echo "  /acceler-post-sales:session-recap-report"
 echo ""
 echo "Workspace: $WORK"
 echo "Outputs:   $WORK/Outputs"

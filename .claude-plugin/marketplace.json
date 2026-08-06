@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "acceler-local",
-  "description": "Local marketplace hosting the Acceler B2B pre-sales orchestrator plugin.",
+  "description": "Local marketplace hosting the Acceler B2B pre-sales and post-sales/delivery plugins (together: Acceler Atlas).",
   "owner": {
     "name": "Utkarsh Raj",
     "email": "utkarsh@interviewkickstart.com"
@@ -10,12 +10,22 @@
     {
       "name": "acceler-presales",
       "displayName": "Acceler Atlas",
-      "description": "Acceler Atlas — turns discovery, precedent-matching, proposal writing, deck generation, pricing and instructor staffing into slash commands, powered by the Acceler Knowledge Graph (61 clients · 1,072 files · 773 instructors). 9 skills, one SKILL.md each — discovery-checklist, doc-proposal, mini-ut-context, pricing, proposal-deck, pptx-deck, live-session-deck, session-recap, requirement-mapping — plus 12 commands, one per pipeline stage.",
+      "description": "Acceler Atlas — turns discovery, precedent-matching, proposal writing, deck generation, pricing and instructor staffing into slash commands, powered by the Acceler Knowledge Graph (61 clients · 1,072 files · 773 instructors). 7 skills, one SKILL.md each — discovery-checklist, doc-proposal, mini-ut-context, pricing, proposal-deck, pptx-deck, requirement-mapping — plus 9 commands. Delivery/post-sales artifacts live in the companion acceler-post-sales plugin below.",
       "author": {
         "name": "Utkarsh Raj"
       },
       "category": "productivity",
       "source": "./"
+    },
+    {
+      "name": "acceler-post-sales",
+      "displayName": "Acceler Atlas · Delivery",
+      "description": "Acceler B2B Post-Sales / Delivery orchestrator — session deck (live delivery HTML deck) → pick your use case (standalone Build Lab chooser) → session recap (post-delivery learner recap) → session recap report (post-delivery stakeholder analytics).",
+      "author": {
+        "name": "Utkarsh Raj"
+      },
+      "category": "productivity",
+      "source": "./post-sales"
     }
   ]
 }

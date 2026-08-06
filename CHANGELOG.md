@@ -1,15 +1,37 @@
 # Changelog
 
-All notable changes to the `acceler-presales` plugin. Bump `.claude-plugin/plugin.json` `version` on every release so teammates' `/plugin marketplace update` picks up the change.
+This repo hosts two plugins in one marketplace: `acceler-presales` (root) and `acceler-post-sales` (`post-sales/`). Each versions independently in its own `.claude-plugin/plugin.json`; entries below are labeled by plugin. Bump the relevant plugin's `version` on every release so teammates' `/plugin marketplace update` picks up the change.
 
-## [0.5.1] — 2026-08-06
+## acceler-post-sales [0.2.0] — 2026-08-06
+
+### Pick your use case (NEW) — standalone Build Lab chooser
+- **`post-sales/skills/build-lab-picker/SKILL.md`** (NEW) — how to build a standalone "pick your use case" page for a leadership Build Lab, pulled out of `live-session-deck`'s inline pick-cards slide (§3.11) into its own shareable URL. Documents when to use a standalone page vs. the inline slide, the shared `pick`/`pcard` component spec, content-sourcing rules (real use cases from the engagement brief, never placeholders), and the per-engagement Vercel deployment pattern.
+- **`/acceler-post-sales:pick-use-case`** (NEW) — generates the standalone page; reuses design tokens and build-phase use cases from a session deck generated earlier in the same session, if one exists.
+- Worked reference: `copilot-leadership-lab.vercel.app/pick-your-use-case` (CETIN × Yettel × Acceler "Build your AI team" Build Lab, e& PPF Hungary engagement).
+
+## acceler-presales [0.6.1] — 2026-08-06
 
 ### Display name — "Acceler Atlas"
-- Added `displayName: "Acceler Atlas"` to `plugin.json` and the `acceler-presales` entry in `marketplace.json`. This is purely a UI label — `/plugin` browse and install screens now show "Acceler Atlas" instead of the auto-humanized "Acceler presales".
-- **`name` is unchanged** (`acceler-presales`) — install commands (`/plugin install acceler-presales@acceler-local`), command namespacing (`/acceler-presales:proposal`, etc.), and `enabledPlugins`/`pluginConfigs` entries all keep working exactly as before. `displayName` requires Claude Code v2.1.143+; older clients silently fall back to showing `name`.
-- Descriptions in both files now open with what Acceler Atlas is and name all 9 skills explicitly, instead of a bare feature-arrow list.
+- Added `displayName: "Acceler Atlas"` to `plugin.json` and the `acceler-presales` entry in `marketplace.json`; `acceler-post-sales` gets `"Acceler Atlas · Delivery"`. This is purely a UI label — `/plugin` browse and install screens now show "Acceler Atlas" instead of the auto-humanized "Acceler presales".
+- **`name` is unchanged on both plugins** — install commands (`/plugin install acceler-presales@acceler-local`, `/plugin install acceler-post-sales@acceler-local`), command namespacing (`/acceler-presales:proposal`, `/acceler-post-sales:session-deck`, etc.), and `enabledPlugins`/`pluginConfigs` entries all keep working exactly as before. `displayName` requires Claude Code v2.1.143+; older clients silently fall back to showing `name`.
+- `acceler-presales` description now opens with what Acceler Atlas is and names all 7 remaining root skills explicitly, instead of a bare feature-arrow list.
 
-## [0.5.0] — 2026-07-28
+## acceler-post-sales [0.1.0] — 2026-07-28
+
+### New plugin — split out of acceler-presales
+- **`acceler-post-sales`** (NEW plugin, same repo, `post-sales/` subdirectory) — delivery/post-sales artifacts now version and install separately from the pre-sales pipeline: `session-deck` (live delivery deck), `session-recap` (post-delivery learner recap), `session-recap-report` (post-delivery stakeholder analytics).
+- **Why:** `acceler-presales` is a pre-sales orchestrator by name and by the majority of its commands (discovery, similar, proposal, proposal-deck, pricing, instructors). Session deck and session recap are delivery-phase artifacts generated after the deal closes, for a different moment in the lifecycle and often a different user. Splitting them into their own plugin makes both names accurate and lets either be installed/updated independently.
+- Moved from `acceler-presales` into `acceler-post-sales`: `commands/session-deck.md`, `commands/session-recap.md`, `commands/session-recap-report.md`, `skills/live-session-deck/`, `skills/session-recap/`.
+- Both plugins are listed in the same `.claude-plugin/marketplace.json` (`acceler-local`), so one `/plugin marketplace add` still gets you both; install either or both with a separate `/plugin install`.
+- `commands/setup.md` (in `acceler-presales`) updated: the `live-session-deck` workspace symlink now targets `acceler-post-sales`'s own plugin cache path, and the "what to run next" listing is split by plugin.
+
+## acceler-presales [0.6.0] — 2026-07-28
+
+### Delivery/post-sales commands moved out (see acceler-post-sales above)
+- `session-deck`, `session-recap`, `session-recap-report` and their skills (`live-session-deck/`, `session-recap/`) moved to the new `acceler-post-sales` plugin. `acceler-presales`'s own description and pipeline now cover only discovery → similar → proposal → proposal-deck → pricing → instructors.
+- `commands/full-cycle.md`'s post-sales cross-reference updated to point at `/acceler-post-sales:session-deck` in the companion plugin instead of a command that no longer lives in this plugin.
+
+## acceler-presales [0.5.0] — 2026-07-28
 
 ### Session recap skill (NEW) — post-delivery, learner + stakeholder artifacts
 - **`skills/session-recap/SKILL.md`** (NEW) — how to build the two artifacts that follow every live delivery day: the learner-facing `dayN-learner-recap` (topics covered, quiz/discussion, cheat sheet, hands-on labs, parked Q&A, resources) and the stakeholder-facing `dayN-recap-report` (KPIs, per-learner tier categorisation with evidence, engagement by topic, feedback breakdown, action items). Documents the exact data pointers to ask for upfront for each, the design system/component library for each (they're deliberately distinct palettes), section-by-section structure with last-day branching logic (Wrapping Up + assessment link vs Before Day N+1), and the tier-assignment rule (behavior that day, never tenure).
@@ -18,7 +40,7 @@ All notable changes to the `acceler-presales` plugin. Bump `.claude-plugin/plugi
 - Both reference the standing prose style rules (no em-dashes, no 3-item rhetorical cadence, no antithesis-as-crutch constructions) so recap prose stays consistent with house style.
 - Extracted from the LVT AI-Assisted Development Program's 4-day recap series (learner recaps + Day 3 stakeholder report) as the worked reference.
 
-## [0.4.0] — 2026-07-01
+## acceler-presales [0.4.0] — 2026-07-01
 
 ### HTML→PPTX converter is now bundled + deck sources locked to canonical folders
 - **`skills/pptx-deck/build_pptx.py`** (NEW) — the image-fidelity assembler (per-slide 2× PNGs → 16:9 PPTX) is now bundled next to its SKILL.md, so the converter is self-contained. Previously the SKILL referenced `build_pptx.py` "in this folder" but the script was missing — teammates couldn't run the export.
@@ -28,7 +50,7 @@ All notable changes to the `acceler-presales` plugin. Bump `.claude-plugin/plugi
   - `skills/live-session-deck/` ← `Live Session-Deck-Builder/`
 - README: corrected the `pptx-deck/` description (it is the HTML→PPTX image-fidelity converter that exports the **proposal-deck**, not a match-a-reference rebuild).
 
-## [0.3.0] — 2026-07-01
+## acceler-presales [0.3.0] — 2026-07-01
 
 ### Deck commands split — pre-sales vs post-sales
 - **`/acceler-presales:proposal-deck`** (NEW) — the pre-sales PITCH deck. Client-facing proposal/solution deck on the KASE engine (data-driven `SLIDE_DATA` slides, ~80 templates). The engine (`Slide_Library_v2/kase-render.js` + `kase-styles.css`), brand images, and the e& AI Builder reference deck are bundled in `skills/proposal-deck/` so the command is self-contained.
@@ -37,7 +59,7 @@ All notable changes to the `acceler-presales` plugin. Bump `.claude-plugin/plugi
 - `full-cycle` Stage 4 now generates the pre-sales proposal deck; the session deck is documented as a later post-sales artifact.
 - README, setup listing, plugin + marketplace descriptions updated.
 
-## [0.2.0] — 2026-06-26
+## acceler-presales [0.2.0] — 2026-06-26
 
 ### Pricing skill
 - **Excel (.xlsx) is now the default deliverable** for `/acceler-presales:pricing` (markdown demoted to an in-chat summary). Sheet is formula-driven off yellow assumption cells.
@@ -52,5 +74,5 @@ All notable changes to the `acceler-presales` plugin. Bump `.claude-plugin/plugi
 - New `knowledge/instructor_delivery_flags.json` — human override of who is actually staffable; current `pre_sales_only`: Cassie Kozyrkov, Michelle K. Lee, Eric Siegel.
 - Caveat header added to `skills/mini-ut-context/Instructor_Pool.md`.
 
-## [0.1.0]
+## acceler-presales [0.1.0]
 - Initial plugin: discovery → similar → proposal → deck → pricing → instructors, powered by the Acceler Knowledge Graph.
