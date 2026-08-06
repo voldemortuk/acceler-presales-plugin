@@ -10,7 +10,7 @@ This repo **is** the Claude Code marketplace (`.claude-plugin/marketplace.json` 
 /plugin install acceler-post-sales@acceler-local    # delivery / post-sales, if you need it too
 ```
 
-Private repo — authenticate first with `gh auth login` (or SSH). To get updates later:
+Public repo — no invite needed to install, just authenticate git for cloning with `gh auth login` (or SSH). To get updates later:
 
 ```
 /plugin marketplace update acceler-local
@@ -27,5 +27,5 @@ Private repo — authenticate first with `gh auth login` (or SSH). To get update
 ## Conventions
 
 - Keep the marketplace name `acceler-local` stable — it's the `@suffix` in everyone's install id (`acceler-presales@acceler-local`). Renaming it breaks existing installs.
-- `knowledge/` holds confidential data (client names, instructor LinkedIn/PII, pricing). **Keep this repo private.** Never make it public.
+- **This repo is public.** `knowledge/` contains client names, instructor LinkedIn/PII, and pricing data that is now openly readable and clonable by anyone — that was a deliberate call to allow install without collaborator access. Don't add anything more sensitive than what's already there without checking with Utkarsh first, and don't treat "it's already public" as license to add more PII than the engagement actually requires.
 - `knowledge/instructor_delivery_flags.json` records who is pre-sales-only vs deliverable — keep it current as engagements land or fall through.

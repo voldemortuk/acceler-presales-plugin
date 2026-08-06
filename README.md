@@ -1,6 +1,12 @@
-# Acceler B2B — Claude Code Plugins (Pre-Sales + Post-Sales)
+# Acceler Atlas — Claude Code Plugins (Pre-Sales + Post-Sales)
 
-This repo hosts **two** Claude Code plugins in one Git marketplace: **`acceler-presales`** (repo root — discovery through proposal/pricing) and **`acceler-post-sales`** (`post-sales/` subdirectory — delivery deck through post-delivery recaps). Install one or both from the same `git clone`/marketplace add; fork or update either from this single repo. Uses your existing Claude Max / Pro / API subscription — no separate API key needed.
+This repo hosts **two** Claude Code plugins in one Git marketplace, together branded **Acceler Atlas**:
+**`acceler-presales`** — displayed as **Acceler Atlas** (repo root — discovery through proposal/pricing) — and
+**`acceler-post-sales`** — displayed as **Acceler Atlas · Delivery** (`post-sales/` subdirectory — delivery deck
+through post-delivery recaps and the standalone Build Lab use-case picker). `displayName` is a UI label only —
+the stable ids (`acceler-presales`, `acceler-post-sales`) used for install and command namespacing never change.
+Install one or both from the same `git clone`/marketplace add; fork or update either from this single repo.
+Uses your existing Claude Max / Pro / API subscription — no separate API key needed.
 
 ## What it does
 
@@ -31,6 +37,8 @@ Deal closed → program delivery begins
    ↓
 /acceler-post-sales:session-deck         →  live DELIVERY deck an instructor presents (per session day)
    ↓
+/acceler-post-sales:pick-use-case        →  standalone "pick your use case" Build Lab chooser
+   ↓
 /acceler-post-sales:session-recap        →  post-delivery LEARNER recap (per session day)
 /acceler-post-sales:session-recap-report →  post-delivery STAKEHOLDER report (per session day)
 ```
@@ -39,8 +47,9 @@ Deal closed → program delivery begins
 
 ## What's inside
 
-### `acceler-presales` (repo root)
+### `acceler-presales` (repo root) — "Acceler Atlas"
 - **Skills** (`skills/`) — every Acceler pre-sales skill markdown, auto-loaded by Claude Code when relevant
+  - `discovery-checklist/` — the 33-question pre-sales discovery scorer (6 sections, 14 must-asks)
   - `doc-proposal/` — IK-Acceler proposal house style v2
   - `pricing/` — bottom-up cost stack, INR/USD strict, first-time vs repeat
   - `requirement-mapping/` — 3-col coverage matrix with gap flagging
@@ -54,35 +63,46 @@ Deal closed → program delivery begins
   - `USING_THE_KG.md` — how the agent should query the graph
 - **Samples** (`samples/`) — reference proposals to lift patterns from
 
-### `acceler-post-sales` (`post-sales/` subdirectory)
+### `acceler-post-sales` (`post-sales/` subdirectory) — "Acceler Atlas · Delivery"
 - **Skills** (`post-sales/skills/`)
   - `live-session-deck/` — post-sales live delivery deck (4-movement arc · 15 slide types)
+  - `build-lab-picker/` — standalone "pick your use case" page for a Build Lab, pulled out of `live-session-deck`'s inline pick-cards slide (worked reference: `copilot-leadership-lab.vercel.app`)
   - `session-recap/` — post-delivery recap pair: learner-facing `dayN-learner-recap` + stakeholder-facing `dayN-recap-report`, including the data pointers to ask for upfront and both artifacts' design systems
-- **Commands** (`post-sales/commands/`) — `session-deck`, `session-recap`, `session-recap-report`
+- **Commands** (`post-sales/commands/`) — `session-deck`, `pick-use-case`, `session-recap`, `session-recap-report`
 
-## Install (from the private GitHub marketplace)
+## Install (from the public GitHub marketplace)
 
-This repo **is** the marketplace. You install and update the plugin straight from Git — no local download, no file copying.
+This repo **is** the marketplace, and it's **public** — anyone can install directly from it. No invite, no
+collaborator access, no local download required. (Collaborator/write access is only needed if you want to
+*push changes* yourself — see [CONTRIBUTING.md](CONTRIBUTING.md).)
 
 ### Pre-reqs
 1. **Claude Code** installed (`brew install claude`, or from claude.com/code) and signed in (`claude /login`).
-2. **Access to this private repo.** Authenticate once so Claude Code can clone it:
-   ```bash
-   gh auth login          # GitHub CLI — or have SSH keys set up
-   ```
-   Ask Utkarsh to add you as a repo collaborator first.
+2. **git can reach GitHub** — `gh auth login` (GitHub CLI), or have SSH keys already set up. Nothing else.
 
-### A · First-time install (Git only)
+Runs the same way in any terminal Claude Code supports — Warp, iTerm, the system terminal, VS Code/JetBrains'
+integrated terminal, or Claude Desktop's built-in Claude Code integration.
+
+### A · First-time install (direct from GitHub — recommended)
 ```bash
 claude
 /plugin marketplace add voldemortuk/acceler-presales-plugin
-/plugin install acceler-presales@acceler-local      # pre-sales
-/plugin install acceler-post-sales@acceler-local    # delivery / post-sales (install if you need it too)
+/plugin install acceler-presales@acceler-local      # pre-sales — "Acceler Atlas"
+/plugin install acceler-post-sales@acceler-local    # delivery / post-sales — "Acceler Atlas · Delivery" (install if you need it too)
 ```
 Both plugins are listed in the same marketplace (`acceler-local`) from the one `marketplace add` — install just `acceler-presales` if you only work pre-sales, or both if you also deliver/run recaps.
 
-### B · Already have it via the old local-file method? Migrate to Git
-Do **not** uninstall or remove the old marketplace first (removing it would auto-uninstall the plugin). Re-adding under the same name silently swaps the source from your local folder to this repo:
+### B · Prefer a local folder? You can install that way too
+Cloning directly from GitHub (path A) is the recommended default, but if you'd rather work from a local copy —
+for example if you're also pulling the source [1. PowerUp Drive folder](https://drive.google.com/drive/u/1/folders/1FQnoa5PbzM7JosfW8aEfRgiqYLWrXGbM)
+for KG/skill work — you can point `/plugin install` at a local path instead:
+```bash
+claude
+/plugin install "/path/to/your/local/acceler-presales-plugin"
+```
+Already installed via the *old* local-file method and want to switch to Git instead? Don't uninstall or remove
+the old marketplace first (that auto-uninstalls the plugin) — re-add under the same name to silently swap the
+source:
 ```bash
 claude
 /plugin marketplace add voldemortuk/acceler-presales-plugin   # replaces the local 'acceler-local' source
@@ -96,6 +116,9 @@ The plugin stays installed as `acceler-presales@acceler-local`, now sourced from
 /plugin list                # should show acceler-presales and/or acceler-post-sales, each with its own version
 /plugin marketplace list     # 'acceler-local' should point to voldemortuk/acceler-presales-plugin (not a local path)
 ```
+Then type `/acceler-presales:` in a Claude Code session — the command menu should list `discovery`, `similar`,
+`proposal`, `proposal-deck`, `pricing`, `instructors`, `coverage`, `full-cycle`, `setup`. Run
+`/acceler-presales:setup` once to confirm the Knowledge Graph is reachable.
 
 ## Updating
 
@@ -124,6 +147,7 @@ Then run any of:
 /acceler-presales:instructors     Rank SMEs from the indexed pool
 
 /acceler-post-sales:session-deck         Generate the live delivery deck (HTML)
+/acceler-post-sales:pick-use-case        Generate the standalone "pick your use case" Build Lab page
 /acceler-post-sales:session-recap        Generate the post-delivery learner recap (HTML)
 /acceler-post-sales:session-recap-report Generate the post-delivery stakeholder report (HTML)
 ```
@@ -162,4 +186,4 @@ cd "$HOME/acceler-presales-plugin" && git add -A && git commit -m "KG refresh" &
 
 ---
 
-*acceler-presales v0.6.0 · acceler-post-sales v0.1.0 · Jul 2026 · Utkarsh Raj · Acceler / Interview Kickstart B2B · [CHANGELOG](CHANGELOG.md) · [CONTRIBUTING](CONTRIBUTING.md)*
+*acceler-presales (Acceler Atlas) v0.6.1 · acceler-post-sales (Acceler Atlas · Delivery) v0.2.0 · Aug 2026 · Utkarsh Raj · Acceler / Interview Kickstart B2B · [CHANGELOG](CHANGELOG.md) · [CONTRIBUTING](CONTRIBUTING.md)*
