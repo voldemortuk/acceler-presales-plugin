@@ -2,6 +2,13 @@
 
 All notable changes to the `acceler-presales` plugin. Bump `.claude-plugin/plugin.json` `version` on every release so teammates' `/plugin marketplace update` picks up the change.
 
+## [0.5.1] — 2026-08-06
+
+### Display name — "Acceler Atlas"
+- Added `displayName: "Acceler Atlas"` to `plugin.json` and the `acceler-presales` entry in `marketplace.json`. This is purely a UI label — `/plugin` browse and install screens now show "Acceler Atlas" instead of the auto-humanized "Acceler presales".
+- **`name` is unchanged** (`acceler-presales`) — install commands (`/plugin install acceler-presales@acceler-local`), command namespacing (`/acceler-presales:proposal`, etc.), and `enabledPlugins`/`pluginConfigs` entries all keep working exactly as before. `displayName` requires Claude Code v2.1.143+; older clients silently fall back to showing `name`.
+- Descriptions in both files now open with what Acceler Atlas is and name all 9 skills explicitly, instead of a bare feature-arrow list.
+
 ## [0.5.0] — 2026-07-28
 
 ### Session recap skill (NEW) — post-delivery, learner + stakeholder artifacts

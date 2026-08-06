@@ -1,7 +1,8 @@
 {
   "name": "acceler-presales",
-  "version": "0.5.0",
-  "description": "Acceler B2B Pre-Sales orchestrator — discovery → similar precedents → proposal doc → proposal deck (pre-sales pitch) → session deck (delivery) → session recap (post-delivery) → pricing → instructors. Powered by the Acceler Knowledge Graph (61 clients · 1,072 historical files · 773 instructors).",
+  "displayName": "Acceler Atlas",
+  "version": "0.5.1",
+  "description": "Acceler Atlas — turns discovery, precedent-matching, proposal writing, deck generation, pricing and instructor staffing into slash commands, powered by the Acceler Knowledge Graph (61 clients · 1,072 files · 773 instructors). 9 skills, one SKILL.md each — discovery-checklist, doc-proposal, mini-ut-context, pricing, proposal-deck, pptx-deck, live-session-deck, session-recap, requirement-mapping — plus 12 commands, one per pipeline stage.",
   "author": {
     "name": "Utkarsh Raj",
     "email": "utkarsh@interviewkickstart.com"
