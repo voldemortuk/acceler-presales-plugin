@@ -1,7 +1,7 @@
 {
   "name": "acceler-presales",
   "displayName": "Acceler Atlas",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "Acceler Atlas \u2014 turns discovery, precedent-matching, proposal writing, deck generation, pricing and instructor staffing into slash commands, powered by the Acceler Knowledge Graph (61 clients \u00b7 1,072 files \u00b7 773 instructors). 7 skills, one SKILL.md each \u2014 discovery-checklist, doc-proposal, mini-ut-context, pricing, proposal-deck, pptx-deck, requirement-mapping \u2014 plus 9 commands covering the pre-sales pipeline (discovery, similar, proposal, proposal-deck, pricing, instructors, coverage) plus setup and full-cycle orchestration. Delivery/post-sales artifacts (session deck, session recap, pick-your-use-case build lab) live in the companion acceler-post-sales plugin in this same repo.",
   "author": {
     "name": "Utkarsh Raj",

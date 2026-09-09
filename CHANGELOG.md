@@ -2,6 +2,9 @@
 
 This repo hosts two plugins in one marketplace: `acceler-presales` (root) and `acceler-post-sales` (`post-sales/`). Each versions independently in its own `.claude-plugin/plugin.json`; entries below are labeled by plugin. Bump the relevant plugin's `version` on every release so teammates' `/plugin marketplace update` picks up the change.
 
+## acceler-presales [0.6.3] — 2026-09-09
+- `knowledge/files.json` file records now carry a `drive_url` (direct `drive.google.com/open?id=...` link) — v0.6.2 shipped file citations with no way to actually open the source in Drive.
+
 ## acceler-presales [0.6.2] — 2026-09-09
 
 ### Knowledge Graph is now dynamic — first automated refresh
