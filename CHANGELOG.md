@@ -2,6 +2,14 @@
 
 This repo hosts two plugins in one marketplace: `acceler-presales` (root) and `acceler-post-sales` (`post-sales/`). Each versions independently in its own `.claude-plugin/plugin.json`; entries below are labeled by plugin. Bump the relevant plugin's `version` on every release so teammates' `/plugin marketplace update` picks up the change.
 
+## acceler-presales [0.6.2] — 2026-09-09
+
+### Knowledge Graph is now dynamic — first automated refresh
+- `knowledge/graph.json`, `files.json`, `instr_candidates.json`, `INDEX.md` regenerated from a new live pipeline (Google Drive + 4 instructor rating sheets → Supabase → this snapshot), replacing the manually-run static build. See `voldemortuk/acceler-kg-sync` (private repo) for the sync job — runs on a 12h schedule going forward.
+- Corpus grew from the prior static snapshot: 1,833 files (was ~1,072–1,394), 32 clients, 13 programs, 40 tools, all 30 canonical topics, 351 instructors.
+- New: instructor records now carry live class ratings/assignment history from 4 Google Sheets (career, DSA/SSD, domain, MLSU/Agentic classes) where available — not present in any prior snapshot.
+- Caveat: the legacy instructor-roster docs (bios/LinkedIn/expertise) weren't found in the two Drive folders this pipeline currently syncs, so only 131 of the 351 instructors have full profile data (backfilled from the previous static snapshot by name match); the remaining 220 are name-only until the real roster source is located and connected.
+
 ## acceler-post-sales [0.2.0] — 2026-08-06
 
 ### Pick your use case (NEW) — standalone Build Lab chooser

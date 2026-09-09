@@ -1,625 +1,3003 @@
-[
- {
-  "id": "94cd97f37b",
-  "name": "B2B India & US Tracker.xlsx",
-  "client": "0. B2B PIPELINE",
-  "chars": 244453,
-  "linkedin": 178
- },
- {
-  "id": "ee2391eb0a",
-  "name": "Bosch _ List of Instructors.docx",
-  "client": "Doc Versions",
-  "chars": 8471,
-  "linkedin": 104
- },
- {
-  "id": "5af0587827",
-  "name": "Copy of Lowe_s _ List of Instructors.docx",
-  "client": "Doc Versions",
-  "chars": 10075,
-  "linkedin": 100
- },
- {
-  "id": "4d8cf571d5",
-  "name": "PowerUp Proposal _ Instructor Pool For Lowe_s.docx",
-  "client": "Doc Versions",
-  "chars": 4653,
-  "linkedin": 41
- },
- {
-  "id": "a14e79f5e8",
-  "name": "Draft Proposal _ AI-Era Architecture Readiness Sprint _ Stack Digital.docx",
-  "client": "Doc Versions",
-  "chars": 30198,
-  "linkedin": 39
- },
- {
-  "id": "6612a4747a",
-  "name": "AI Builder Program _ Biz2Credit _ Proposal.docx",
-  "client": "Doc Versions",
-  "chars": 31665,
-  "linkedin": 34
- },
- {
-  "id": "a8a39b112c",
-  "name": "PowerUp _ ETS AI Leadership Proposal.docx",
-  "client": "Doc Versions",
-  "chars": 44170,
-  "linkedin": 32
- },
- {
-  "id": "f0bcdc40ef",
-  "name": "PowerUp _ ANSR AI Leadership Proposal(1).docx",
-  "client": "Doc Versions",
-  "chars": 54242,
-  "linkedin": 32
- },
- {
-  "id": "ce3f215b3f",
-  "name": "Draft Proposal _ AI Enabler Program For Airtel _ HR.docx",
-  "client": "Doc Versions",
-  "chars": 117180,
-  "linkedin": 29
- },
- {
-  "id": "ac3a7a7491",
-  "name": "PowerUp _ e& AI Leadership Proposal.docx",
-  "client": "Doc Versions",
-  "chars": 100110,
-  "linkedin": 28
- },
- {
-  "id": "aec2d6a9e2",
-  "name": "Draft Proposal _ AI For Security & Adv GenAI _ Fujistu.docx",
-  "client": "Doc Versions",
-  "chars": 105530,
-  "linkedin": 27
- },
- {
-  "id": "ec2d867f79",
-  "name": "Fujitsu Research - Researcher Profiles.docx",
-  "client": "Fujitsu Research",
-  "chars": 1541,
-  "linkedin": 28
- },
- {
-  "id": "902e63cd58",
-  "name": "PowerUp _ Nucleus Software _ Accelerator Proposal.docx",
-  "client": "Doc Versions",
-  "chars": 101612,
-  "linkedin": 26
- },
- {
-  "id": "5223a0b4db",
-  "name": "Channel_b2b_to_be.md",
-  "client": "APR - Pre-Sales Product",
-  "chars": 338548,
-  "linkedin": 26
- },
- {
-  "id": "3947a3954a",
-  "name": "AI for Everyone _ E& _ Proposal.docx",
-  "client": "Doc Versions",
-  "chars": 51675,
-  "linkedin": 24
- },
- {
-  "id": "73e54658a0",
-  "name": "AI For Leaders at IK _ PowerUp_.docx",
-  "client": "Doc Versions",
-  "chars": 17133,
-  "linkedin": 22
- },
- {
-  "id": "b8fceb36d1",
-  "name": "AI Enabler Program For FISERV _ HR.docx",
-  "client": "Doc Versions",
-  "chars": 67471,
-  "linkedin": 22
- },
- {
-  "id": "50fdbdce16",
-  "name": "AI Enabler Program For Airtel.docx",
-  "client": "Doc Versions",
-  "chars": 67466,
-  "linkedin": 22
- },
- {
-  "id": "d0d770d61b",
-  "name": "Airtel Doc.docx",
-  "client": "Doc Versions",
-  "chars": 30487,
-  "linkedin": 22
- },
- {
-  "id": "26d8ffbbaa",
-  "name": "PowerUp _ Sample AI Leaders Profiles.docx",
-  "client": "Doc Versions",
-  "chars": 13356,
-  "linkedin": 23
- },
- {
-  "id": "63f8a3a01c",
-  "name": "PowerUp _ Instructor Profile _ AI For Leaders.docx",
-  "client": "Doc Versions",
-  "chars": 1722,
-  "linkedin": 15
- },
- {
-  "id": "82c37fa4c4",
-  "name": "PowerUp _ List Of MasterClasses For Myntra.docx",
-  "client": "Doc Versions",
-  "chars": 54902,
-  "linkedin": 20
- },
- {
-  "id": "93cb19fc3f",
-  "name": "AI Enabler Program For Sales Team _ Capgemini _ Proposal.docx",
-  "client": "Doc Versions",
-  "chars": 52952,
-  "linkedin": 19
- },
- {
-  "id": "9b4f77469b",
-  "name": "Acceler _ AI Learning & Capability Building Program _ MCB.docx",
-  "client": "_Root",
-  "chars": 117302,
-  "linkedin": 18
- },
- {
-  "id": "d7a5328dda",
-  "name": "AI Builder Program _ StoneX _ Proposal.docx",
-  "client": "Doc Versions",
-  "chars": 32835,
-  "linkedin": 18
- },
- {
-  "id": "28b884beba",
-  "name": "PowerUp _ Nucleus Software _ Academy Proposal.docx",
-  "client": "Doc Versions",
-  "chars": 84379,
-  "linkedin": 17
- },
- {
-  "id": "f67e5740db",
-  "name": "PowerUp _ AI Builder Program For Developers.docx",
-  "client": "Doc Versions",
-  "chars": 22453,
-  "linkedin": 13
- },
- {
-  "id": "878ce5368c",
-  "name": "AI Enabler Program _ E& _ Proposal _ O365.docx",
-  "client": "Doc Versions",
-  "chars": 22723,
-  "linkedin": 12
- },
- {
-  "id": "b85ed119f5",
-  "name": "AI Enabler Program _ E& _ Proposal _ O365 _ 8 Week.docx",
-  "client": "Doc Versions",
-  "chars": 33352,
-  "linkedin": 12
- },
- {
-  "id": "45c1c16399",
-  "name": "PowerUp _ Generic v7 Detailed Curriculum.docx",
-  "client": "Doc Versions",
-  "chars": 87696,
-  "linkedin": 12
- },
- {
-  "id": "46067b2ead",
-  "name": "AI Enabler Program For Sales Team _ Schneider Electric Global _ Proposal.docx",
-  "client": "Doc Versions",
-  "chars": 115601,
-  "linkedin": 12
- },
- {
-  "id": "d5492f2e42",
-  "name": "Agentic AI for Developers _ E& _ Proposal.docx",
-  "client": "Doc Versions",
-  "chars": 31536,
-  "linkedin": 12
- },
- {
-  "id": "6a5eb611ce",
-  "name": "00000064-AI for Everyone _ E& _ Proposal.pdf",
-  "client": "APR - Pre-Sales Product",
-  "chars": 20171,
-  "linkedin": 12
- },
- {
-  "id": "da34f2a1ce",
-  "name": "Agentic AI for PM _ Cornerstone.docx",
-  "client": "Doc Versions",
-  "chars": 9982,
-  "linkedin": 11
- },
- {
-  "id": "72a56d7fd5",
-  "name": "AI Enabler Program _ Cornestone Proposal _ Google Workspace.docx",
-  "client": "Doc Versions",
-  "chars": 14350,
-  "linkedin": 11
- },
- {
-  "id": "d1bdf9b49c",
-  "name": "PowerUp _ List Of MasterClasses For Nucleus Software.docx",
-  "client": "Doc Versions",
-  "chars": 3961,
-  "linkedin": 10
- },
- {
-  "id": "1e46a3de45",
-  "name": "PowerUp _ AI Builder Program For Sony.docx",
-  "client": "Doc Versions",
-  "chars": 86661,
-  "linkedin": 10
- },
- {
-  "id": "cc69a2af9d",
-  "name": "AI Enabler Program For FISERV.docx",
-  "client": "Doc Versions",
-  "chars": 80437,
-  "linkedin": 9
- },
- {
-  "id": "f176a1029d",
-  "name": "AI Enabler Program For Everest Group v3.docx",
-  "client": "Doc Versions",
-  "chars": 53011,
-  "linkedin": 8
- },
- {
-  "id": "a012990262",
-  "name": "AI Enabler Program For Everest Group v3.docx",
-  "client": "Everest",
-  "chars": 53011,
-  "linkedin": 8
- },
- {
-  "id": "5d54fee6d9",
-  "name": "_chat.txt",
-  "client": "APR - Pre-Sales Product",
-  "chars": 52085,
-  "linkedin": 14
- },
- {
-  "id": "39d90af8ac",
-  "name": "Mentor Profiles.pptx",
-  "client": "Mentor Profiles",
-  "chars": 32800,
-  "linkedin": 0
- },
- {
-  "id": "987e618f7a",
-  "name": "Endava_Responses.docx",
-  "client": "Doc Versions",
-  "chars": 4282,
-  "linkedin": 10
- },
- {
-  "id": "50d8fef09f",
-  "name": "Carrier_Prep-19Aug25.pptx",
-  "client": "_Root",
-  "chars": 3036,
-  "linkedin": 9
- },
- {
-  "id": "c6915d22cb",
-  "name": "PowerUp _ List Of MasterClasses For Bosch.docx",
-  "client": "Doc Versions",
-  "chars": 40695,
-  "linkedin": 2
- },
- {
-  "id": "528e221083",
-  "name": "PowerUp _ e& AI Leadership Proposal_Instructor Copy.docx",
-  "client": "Doc Versions",
-  "chars": 20699,
-  "linkedin": 2
- },
- {
-  "id": "1e37b1386a",
-  "name": "AI Builders Cybersecurity Accelerator- Voya-28Apr26.pdf",
-  "client": "_Root",
-  "chars": 33361,
-  "linkedin": 0
- },
- {
-  "id": "68980bf2c6",
-  "name": "Capgemini_PowerUp_GenAI_For_Sales-Solution_Deck(1).pptx",
-  "client": "Capgemini",
-  "chars": 27722,
-  "linkedin": 0
- },
- {
-  "id": "e6c144641b",
-  "name": "index.html",
-  "client": "Acceler Leaders Build Lab",
-  "chars": 7627,
-  "linkedin": 0
- },
- {
-  "id": "3f1f99a732",
-  "name": "PowerUp _ Myntra-Tech_Masterclasses & Use-cases-25Sep25.pptx",
-  "client": "Myntra New",
-  "chars": 27630,
-  "linkedin": 0
- },
- {
-  "id": "6ec4dd7deb",
-  "name": "PowerUp _ Fujitsu_Research-Proposal.pptx",
-  "client": "Fujitsu Research",
-  "chars": 25284,
-  "linkedin": 0
- },
- {
-  "id": "1114d92238",
-  "name": "PowerUp_AI _ Fujitsu_Research-26Jun25.pptx",
-  "client": "Fujitsu Research",
-  "chars": 25358,
-  "linkedin": 0
- },
- {
-  "id": "15f71ef909",
-  "name": "PowerUp_AI Enabler _ Sony Software.pptx",
-  "client": "Sony India Software",
-  "chars": 15790,
-  "linkedin": 0
- },
- {
-  "id": "0a7ade8488",
-  "name": "Acceler _ Sony_Software-AI_Upskilling_Tech-Proposal-09Feb26.pptx",
-  "client": "Sony India Software",
-  "chars": 52704,
-  "linkedin": 0
- },
- {
-  "id": "52fd9064da",
-  "name": "Q3 B2B AI Programs _ Pilot & Research Summary.docx",
-  "client": "Doc Versions",
-  "chars": 5690,
-  "linkedin": 0
- },
- {
-  "id": "ed7957de1a",
-  "name": "B2B AI Programs _ Client Proposals Repository.docx",
-  "client": "Doc Versions",
-  "chars": 17329,
-  "linkedin": 0
- },
- {
-  "id": "5a8dcafc5b",
-  "name": "PowerUp _ Voya-AI_Accelerators-25Nov25.pptx",
-  "client": "IGT Solutions",
-  "chars": 47493,
-  "linkedin": 0
- },
- {
-  "id": "5dbd2b5032",
-  "name": "PowerUp _ FISERV-AI_Enabler_Program-16Oct25.pptx",
-  "client": "FISERV",
-  "chars": 30747,
-  "linkedin": 0
- },
- {
-  "id": "f4383d262c",
-  "name": "00000407-Acceler _ LatentView_Analytics-AI_Leaders_Updated_Proposal-20Mar26.pdf",
-  "client": "APR - Pre-Sales Product",
-  "chars": 40231,
-  "linkedin": 0
- },
- {
-  "id": "0bee68ef4e",
-  "name": "PowerUp _ BigBasket-AI_Accelerators-19Jan26.pptx",
-  "client": "Big Basket",
-  "chars": 35538,
-  "linkedin": 0
- },
- {
-  "id": "d1a7764b32",
-  "name": "PowerUp_CyberSecurity_Accelerator _ Honeywell_Aerospace-03Jul25.pptx",
-  "client": "Honeywell Aerospace",
-  "chars": 18886,
-  "linkedin": 0
- },
- {
-  "id": "686710e0a9",
-  "name": "PowerUp _ StoneX - Agentic AI Builders Accelerator-Proposal-18Aug25.pptx",
-  "client": "StoneX",
-  "chars": 22219,
-  "linkedin": 0
- },
- {
-  "id": "874fe1dec8",
-  "name": "PowerUp _ Stonex-Solution_Deck-07Aug25.pptx",
-  "client": "StoneX",
-  "chars": 23218,
-  "linkedin": 0
- },
- {
-  "id": "c68ad9963c",
-  "name": "Acceler-Booking_Holdings-AI_Builders-Updated_Proposal-22May26.pdf",
-  "client": "Bookingholdings",
-  "chars": 38949,
-  "linkedin": 0
- },
- {
-  "id": "dd64937645",
-  "name": "Acceler-Booking_Holdings-AI_Builders-Revised_Proposal-02June26.pptx",
-  "client": "Bookingholdings",
-  "chars": 47393,
-  "linkedin": 0
- },
- {
-  "id": "e5a26ddcb7",
-  "name": "Acceler_Solution_Deck-Edelweiss-01Jun26.pptx",
-  "client": "Edelweiss",
-  "chars": 43571,
-  "linkedin": 0
- },
- {
-  "id": "62aaee9c28",
-  "name": "Acceler_Solution_Deck-Edelweiss-8Day.pptx",
-  "client": "Edelweiss",
-  "chars": 62250,
-  "linkedin": 0
- },
- {
-  "id": "8e0153f845",
-  "name": "Acceler_AI_Builders_Accelerator-Proposal-Edelweiss-04Jun26.pptx",
-  "client": "Edelweiss",
-  "chars": 94668,
-  "linkedin": 0
- },
- {
-  "id": "ffe17374fd",
-  "name": "Acceler_Solution_new__Deck-Edelweiss-01Jun26.pptx",
-  "client": "Edelweiss",
-  "chars": 52772,
-  "linkedin": 0
- },
- {
-  "id": "2e27a92f04",
-  "name": "index.html",
-  "client": "Edelweiss",
-  "chars": 40820,
-  "linkedin": 0
- },
- {
-  "id": "0c78e85a2f",
-  "name": "PowerUp _ Carrier - Masterclasses-13Oct25.pptx",
-  "client": "Carrier",
-  "chars": 29628,
-  "linkedin": 0
- },
- {
-  "id": "2cb9e0d305",
-  "name": "PowerUp _ Myntra-Masterclasses & Use-cases-24Sep25.pptx",
-  "client": "Carrier",
-  "chars": 26850,
-  "linkedin": 0
- },
- {
-  "id": "1feee5cc46",
-  "name": "PowerUp _ Masterclasses Deck-24Sep25.pptx",
-  "client": "Carrier",
-  "chars": 42394,
-  "linkedin": 0
- },
- {
-  "id": "db88860011",
-  "name": "PowerUp _ Myntra Non-Tech Masterclasses-30Sep25.pptx",
-  "client": "Carrier",
-  "chars": 36450,
-  "linkedin": 0
- },
- {
-  "id": "c2c52e9a92",
-  "name": "AI Builders Cybersecurity Accelerator- Voya-16Feb26.pptx",
-  "client": "Voya",
-  "chars": 38791,
-  "linkedin": 0
- },
- {
-  "id": "3e92b23993",
-  "name": "PowerUp _ Voya-AI_Accelerators & Masterclasses-27Nov25.pptx",
-  "client": "Voya",
-  "chars": 49065,
-  "linkedin": 0
- },
- {
-  "id": "a47dae68a6",
-  "name": "Sample Programs - Cybersecurity- Voya-09Feb26.pptx",
-  "client": "Voya",
-  "chars": 20606,
-  "linkedin": 0
- },
- {
-  "id": "406c7e4602",
-  "name": "Acceler _ LatentView_Analytics_Builders.pptx",
-  "client": "LatentView Analytics",
-  "chars": 30885,
-  "linkedin": 0
- },
- {
-  "id": "202765d530",
-  "name": "PowerUp _ LatentView_Analytics-AI_Upskilling_Solutions-Proposal-16Feb26.pptx",
-  "client": "LatentView Analytics",
-  "chars": 36615,
-  "linkedin": 0
- },
- {
-  "id": "bbde95e8be",
-  "name": "Acceler _ LatentView_Analytics-AI_Leaders_Updated_Proposal-20Mar26.pptx",
-  "client": "LatentView Analytics",
-  "chars": 52854,
-  "linkedin": 0
- },
- {
-  "id": "b9c2c41f14",
-  "name": "Acceler-Nucleus_Software-Masterclasses Deck-Updated-17Feb26.pptx",
-  "client": "Nucleus Software",
-  "chars": 46431,
-  "linkedin": 0
- },
- {
-  "id": "14b73ca4a8",
-  "name": "Acceler-Nucleus_Software-AI_Leaders-AI_Builders-Proposal-31Mar26.pptx",
-  "client": "Nucleus Software",
-  "chars": 93976,
-  "linkedin": 0
- },
- {
-  "id": "eaa0bd2b75",
-  "name": "Acceler_Solution_Deck-Nucleus Software-2ndApr26.pptx",
-  "client": "Nucleus Software",
-  "chars": 53174,
-  "linkedin": 0
- },
- {
-  "id": "acf14032de",
-  "name": "Acceler_Solution_Deck-Nucleus Software-5thApr26.pptx",
-  "client": "Nucleus Software",
-  "chars": 50292,
-  "linkedin": 0
- },
- {
-  "id": "b487c4423a",
-  "name": "PowerUp-Nucleus_Software-Masterclasses Deck-Updated-27Jan26.pptx",
-  "client": "Nucleus Software",
-  "chars": 40440,
-  "linkedin": 0
- },
- {
-  "id": "82230b9c68",
-  "name": "PowerUp _ Deloitte AI Leadership Session_Instructor_Copy.docx",
-  "client": "Doc Versions",
-  "chars": 8661,
-  "linkedin": 0
- },
- {
-  "id": "abc512ff15",
-  "name": "AI Leadership_Instructor Copy.docx",
-  "client": "Doc Versions",
-  "chars": 51605,
-  "linkedin": 0
- },
- {
-  "id": "eec97560c4",
-  "name": "00000207-e&_ AI for Executives Instructors v1.pdf",
-  "client": "APR - Pre-Sales Product",
-  "chars": 1971,
-  "linkedin": 0
- },
- {
-  "id": "9d5a2f3450",
-  "name": "Copy of Lowe_s Live Workshops Proposal.docx",
-  "client": "Doc Versions",
-  "chars": 7581,
-  "linkedin": 4
- }
-]
+{
+ "instructors": [
+  {
+   "key": "darren liu",
+   "label": "Darren Liu",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "pradeep kumar",
+   "label": "Pradeep Kumar",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "erica stires",
+   "label": "Erica Stires",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "kalpana thakolam",
+   "label": "Kalpana Thakolam",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "hiro onizuka",
+   "label": "Hiro Onizuka",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "prashant patel",
+   "label": "Prashant Patel",
+   "topics": [
+    "Software Engineering"
+   ],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "akshat gupta",
+   "label": "Akshat Gupta",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "ashwin agrawal",
+   "label": "Ashwin Agrawal",
+   "topics": [
+    "Data & Analytics",
+    "Data Science",
+    "Machine Learning"
+   ],
+   "clients": []
+  },
+  {
+   "key": "ravi kant",
+   "label": "Ravi Kant",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "alexandr raevskiy",
+   "label": "Alexandr Raevskiy",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "rishabh srivastava",
+   "label": "Rishabh Srivastava",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "thomas gilmour",
+   "label": "Thomas Gilmour",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "kush baronj",
+   "label": "Kush Baronj",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "kiran dilip",
+   "label": "Kiran Dilip",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "jayashree kini",
+   "label": "Jayashree Kini",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "shashank gupta",
+   "label": "Shashank Gupta",
+   "topics": [
+    "Data & Analytics",
+    "Data Science",
+    "Machine Learning"
+   ],
+   "clients": []
+  },
+  {
+   "key": "shubham agrawal",
+   "label": "Shubham Agrawal",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "nitin wadhwani",
+   "label": "Nitin Wadhwani",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "thong tran",
+   "label": "Thong tran",
+   "topics": [
+    "Software Engineering",
+    "Systems Design"
+   ],
+   "clients": []
+  },
+  {
+   "key": "vivek joshi",
+   "label": "Vivek Joshi",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "senad cimic",
+   "label": "Senad Cimic",
+   "topics": [
+    "Leadership / Strategy"
+   ],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "daphne yang",
+   "label": "Daphne Yang",
+   "topics": [
+    "Security",
+    "Systems Design",
+    "Technical Program Management"
+   ],
+   "clients": []
+  },
+  {
+   "key": "ashish kaila",
+   "label": "Ashish Kaila",
+   "topics": [
+    "Software Engineering"
+   ],
+   "clients": []
+  },
+  {
+   "key": "harish raju",
+   "label": "Harish Raju",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "danielle syse",
+   "label": "Danielle Syse",
+   "topics": [
+    "Leadership / Strategy",
+    "Marketing"
+   ],
+   "clients": []
+  },
+  {
+   "key": "andrew martel",
+   "label": "Andrew Martel",
+   "topics": [
+    "Data & Analytics",
+    "Data Science",
+    "Machine Learning"
+   ],
+   "clients": []
+  },
+  {
+   "key": "soumasish goswami",
+   "label": "Soumasish Goswami",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "suhrid deshmukh",
+   "label": "Suhrid Deshmukh",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "suresh venkatesan",
+   "label": "Suresh Venkatesan",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "joe broxson",
+   "label": "Joe Broxson",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "rishi bolla",
+   "label": "Rishi Bolla",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "shubham garg",
+   "label": "Shubham Garg",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "neha udar",
+   "label": "Neha Udar",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "structure agents and flow",
+   "label": "Structure agents and flow",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "tom mac",
+   "label": "Tom Mac",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "garrett jones",
+   "label": "Garrett Jones",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "peter wu",
+   "label": "Peter Wu",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "huzaifa zafar",
+   "label": "Huzaifa Zafar",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "ishaan sutaria",
+   "label": "Ishaan Sutaria",
+   "topics": [
+    "Cloud & DevOps",
+    "Machine Learning",
+    "Software Engineering"
+   ],
+   "clients": []
+  },
+  {
+   "key": "gaurav kumar",
+   "label": "Gaurav Kumar",
+   "topics": [
+    "Data & Analytics",
+    "Data Engineering"
+   ],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "faraaz sareshwala",
+   "label": "Faraaz Sareshwala",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "todd holloway",
+   "label": "Todd Holloway",
+   "topics": [
+    "Leadership / Strategy"
+   ],
+   "clients": [
+    "APR - Pre-Sales Product"
+   ]
+  },
+  {
+   "key": "daniel grundel",
+   "label": "Daniel Grundel",
+   "topics": [
+    "Software Engineering"
+   ],
+   "clients": []
+  },
+  {
+   "key": "chandra sekhar gupta",
+   "label": "Chandra Sekhar Gupta",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "robert renfrew",
+   "label": "Robert Renfrew",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "sathyamoorthy vijayakumar",
+   "label": "Sathyamoorthy Vijayakumar",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "premanku chakraborty",
+   "label": "Premanku Chakraborty",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "vidhya saraswathi",
+   "label": "Vidhya Saraswathi",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "milan lee",
+   "label": "Milan Lee",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "jack kwok",
+   "label": "Jack Kwok",
+   "topics": [
+    "Machine Learning"
+   ],
+   "clients": []
+  },
+  {
+   "key": "lekshmi pillai",
+   "label": "Lekshmi Pillai",
+   "topics": [
+    "Agentic AI"
+   ],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "apoorv gupta",
+   "label": "Apoorv Gupta",
+   "topics": [
+    "Data Science",
+    "Leadership / Strategy",
+    "Marketing",
+    "Product Management"
+   ],
+   "clients": []
+  },
+  {
+   "key": "yuzo watanabe",
+   "label": "Yuzo Watanabe",
+   "topics": [
+    "Machine Learning",
+    "Technical Program Management"
+   ],
+   "clients": []
+  },
+  {
+   "key": "anupom syam",
+   "label": "Anupom Syam",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "yadhu krishnan",
+   "label": "Yadhu Krishnan",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "sudha jayachandran",
+   "label": "Sudha Jayachandran",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "shayaan japtap",
+   "label": "Shayaan Japtap",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "harsh patel",
+   "label": "Harsh Patel",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "mike emonts",
+   "label": "Mike Emonts",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "dominique canlas",
+   "label": "Dominique Canlas",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "madhura bhat",
+   "label": "Madhura Bhat",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "shajan dasan",
+   "label": "Shajan Dasan",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "godhuli chatterjee",
+   "label": "Godhuli Chatterjee",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "nisheeth ranjan",
+   "label": "Nisheeth Ranjan",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "doru rotovei",
+   "label": "Doru Rotovei",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "rami abousleiman",
+   "label": "Rami Abousleiman",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "sanjit misra",
+   "label": "Sanjit Misra",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "kiran lakkaraju",
+   "label": "Kiran Lakkaraju",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "arpan somani",
+   "label": "Arpan Somani",
+   "topics": [
+    "Data & Analytics",
+    "Data Science",
+    "Machine Learning"
+   ],
+   "clients": []
+  },
+  {
+   "key": "abdul mannan khan",
+   "label": "Abdul Mannan Khan",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "sandhya kapoor",
+   "label": "Sandhya Kapoor",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "gitanjali dua",
+   "label": "Gitanjali Dua",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "yachna sharma",
+   "label": "Yachna Sharma",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "kuldeep singh",
+   "label": "Kuldeep Singh",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "akash singh",
+   "label": "Akash Singh",
+   "topics": [
+    "Agentic AI",
+    "Machine Learning",
+    "Software Engineering"
+   ],
+   "clients": []
+  },
+  {
+   "key": "abhishek aggarwal",
+   "label": "Abhishek Aggarwal",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "dipti goyal",
+   "label": "Dipti Goyal",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "vishal sharma",
+   "label": "Vishal Sharma",
+   "topics": [
+    "Data Science",
+    "Finance"
+   ],
+   "clients": []
+  },
+  {
+   "key": "satish nandi",
+   "label": "Satish Nandi",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "sanjeev mishra",
+   "label": "Sanjeev Mishra",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "mahipal baid",
+   "label": "Mahipal Baid",
+   "topics": [
+    "Leadership / Strategy",
+    "Security",
+    "Software Engineering"
+   ],
+   "clients": []
+  },
+  {
+   "key": "sumit gaur",
+   "label": "Sumit Gaur",
+   "topics": [
+    "Data & Analytics",
+    "Machine Learning",
+    "SRE / Observability",
+    "Software Engineering",
+    "Systems Design"
+   ],
+   "clients": []
+  },
+  {
+   "key": "sameer arora",
+   "label": "Sameer Arora",
+   "topics": [
+    "Systems Design",
+    "Technical Program Management"
+   ],
+   "clients": []
+  },
+  {
+   "key": "mona sheetal",
+   "label": "Mona Sheetal",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "prabal rastogi",
+   "label": "Prabal Rastogi",
+   "topics": [
+    "Software Engineering"
+   ],
+   "clients": []
+  },
+  {
+   "key": "mike conti",
+   "label": "Mike Conti",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "murugadoss s p",
+   "label": "Murugadoss S P",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "peiqing xia",
+   "label": "Peiqing Xia",
+   "topics": [
+    "Software Engineering"
+   ],
+   "clients": []
+  },
+  {
+   "key": "virginia escalante",
+   "label": "Virginia Escalante",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "aravind bharathy",
+   "label": "Aravind Bharathy",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "amit harjani",
+   "label": "Amit Harjani",
+   "topics": [
+    "Agentic AI",
+    "Leadership / Strategy",
+    "Marketing",
+    "Product Management",
+    "Systems Design"
+   ],
+   "clients": []
+  },
+  {
+   "key": "sai shashank",
+   "label": "Sai Shashank",
+   "topics": [],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "arjun dubashi",
+   "label": "Arjun Dubashi",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "sunil mathew",
+   "label": "Sunil Mathew",
+   "topics": [
+    "Leadership / Strategy",
+    "Product Management",
+    "Technical Program Management"
+   ],
+   "clients": [
+    "APR - Pre-Sales Product",
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "prasad seemakurthi",
+   "label": "Prasad Seemakurthi",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "anatoly dryga",
+   "label": "Anatoly Dryga",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "priya poolavari",
+   "label": "Priya Poolavari",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "prakash gopinadham",
+   "label": "Prakash Gopinadham",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "satya pattnaik",
+   "label": "Satya Pattnaik",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "malar saravanan",
+   "label": "Malar Saravanan",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "norbinn rodrigo",
+   "label": "Norbinn Rodrigo",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "michael ariaga",
+   "label": "Michael Ariaga",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "sourish deb",
+   "label": "Sourish Deb",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "siva murugesan",
+   "label": "Siva Murugesan",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "krishna anumalasetty",
+   "label": "Krishna Anumalasetty",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "arpit shah",
+   "label": "Arpit Shah",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "arun narayanan",
+   "label": "Arun Narayanan",
+   "topics": [
+    "Agentic AI",
+    "Data Science",
+    "Leadership / Strategy",
+    "Machine Learning",
+    "NLP",
+    "Systems Design"
+   ],
+   "clients": []
+  },
+  {
+   "key": "gautham muthukumar",
+   "label": "Gautham Muthukumar",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "anand kotriwal",
+   "label": "Anand Kotriwal",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "joy chakraborty",
+   "label": "Joy Chakraborty",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "prashant verma",
+   "label": "Prashant Verma",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "sudipto sen gupta",
+   "label": "Sudipto Sen Gupta",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "william wang",
+   "label": "William Wang",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "faizan ahmed",
+   "label": "Faizan Ahmed",
+   "topics": [
+    "Agentic AI",
+    "Machine Learning"
+   ],
+   "clients": []
+  },
+  {
+   "key": "jacob markus",
+   "label": "Jacob Markus",
+   "topics": [
+    "Data & Analytics",
+    "Leadership / Strategy",
+    "Technical Program Management"
+   ],
+   "clients": []
+  },
+  {
+   "key": "nisarg tanna",
+   "label": "Nisarg Tanna",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "pradeep pai",
+   "label": "Pradeep Pai",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "nichole stein",
+   "label": "Nichole Stein",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "priyajeev kumar",
+   "label": "Priyajeev Kumar",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "siva kumar sundaramoorthy",
+   "label": "Siva kumar Sundaramoorthy",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "sumit jain",
+   "label": "Sumit Jain",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "rajagopal bojanapalli",
+   "label": "Rajagopal Bojanapalli",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "mo ashtari",
+   "label": "Mo Ashtari",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "edward chen",
+   "label": "Edward Chen",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "sreekanth reddy",
+   "label": "Sreekanth Reddy",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "shantam saxena",
+   "label": "Shantam Saxena",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "diptarka roy",
+   "label": "Diptarka Roy",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "udit bhatia",
+   "label": "Udit Bhatia",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "david lee",
+   "label": "David Lee",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "katarzyna rachuta",
+   "label": "Katarzyna Rachuta",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "pratima mangena",
+   "label": "Pratima Mangena",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "vinoth kumar",
+   "label": "Vinoth Kumar",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "harjot pahwa",
+   "label": "Harjot Pahwa",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "sai kumar geenapalli venkata",
+   "label": "Sai Kumar Geenapalli Venkata",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "mousom mondal",
+   "label": "Mousom Mondal",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "nikil reddy",
+   "label": "Nikil Reddy",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "kasia rachuta",
+   "label": "Kasia Rachuta",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "marianna dizik",
+   "label": "Marianna Dizik",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "subhasish pani",
+   "label": "Subhasish Pani",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "neeraj gireesh",
+   "label": "Neeraj Gireesh",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "huiting isabel m",
+   "label": "Huiting Isabel M",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "allen mohammadi",
+   "label": "Allen Mohammadi",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "chacko daniel",
+   "label": "Chacko Daniel",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "multi step multi department multi language processes",
+   "label": "Multi-step multi-department multi-language processes",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "gautam nanda",
+   "label": "Gautam Nanda",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "david allen",
+   "label": "David Allen",
+   "topics": [
+    "LLMOps / Production",
+    "Machine Learning",
+    "SRE / Observability",
+    "Security"
+   ],
+   "clients": []
+  },
+  {
+   "key": "ganesh ramesh",
+   "label": "Ganesh Ramesh",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "siavash alemzadeh",
+   "label": "Siavash Alemzadeh",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "deekshant kapoor",
+   "label": "Deekshant Kapoor",
+   "topics": [
+    "Data & Analytics",
+    "Data Science",
+    "LLMOps / Production",
+    "Machine Learning"
+   ],
+   "clients": []
+  },
+  {
+   "key": "arjun sharma",
+   "label": "Arjun Sharma",
+   "topics": [
+    "Machine Learning"
+   ],
+   "clients": []
+  },
+  {
+   "key": "hossein javan mard",
+   "label": "Hossein Javan Mard",
+   "topics": [
+    "Data Science",
+    "Machine Learning"
+   ],
+   "clients": []
+  },
+  {
+   "key": "jinal shah",
+   "label": "Jinal Shah",
+   "topics": [
+    "Data & Analytics",
+    "Data Engineering",
+    "Machine Learning",
+    "Software Engineering"
+   ],
+   "clients": []
+  },
+  {
+   "key": "mina ghashmi",
+   "label": "Mina Ghashmi",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "pradeep pai kateel",
+   "label": "Pradeep Pai Kateel",
+   "topics": [
+    "Cloud & DevOps",
+    "Data & Analytics",
+    "LLMOps / Production",
+    "SRE / Observability",
+    "Software Engineering",
+    "Systems Design"
+   ],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "emmanuel awa",
+   "label": "Emmanuel Awa",
+   "topics": [
+    "Data & Analytics"
+   ],
+   "clients": []
+  },
+  {
+   "key": "romil varadkar",
+   "label": "Romil Varadkar",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "siddharth paul",
+   "label": "Siddharth Paul",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "joseph babcock",
+   "label": "Joseph Babcock",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "lalit digala",
+   "label": "Lalit Digala",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "yadhu krishnan mundayodan",
+   "label": "Yadhu Krishnan Mundayodan",
+   "topics": [
+    "Product Management"
+   ],
+   "clients": []
+  },
+  {
+   "key": "mathew calkins",
+   "label": "Mathew Calkins",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "shailesh jannu",
+   "label": "Shailesh Jannu",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "ajay p",
+   "label": "Ajay P",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "shrikant kshirsagar",
+   "label": "Shrikant Kshirsagar",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "manu patet",
+   "label": "Manu Patet",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "javier alonso",
+   "label": "Javier Alonso",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "mohsen karimzadeh",
+   "label": "Mohsen Karimzadeh",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "sanaz mozafarian",
+   "label": "Sanaz Mozafarian",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "sunil mathai mathew",
+   "label": "Sunil Mathai Mathew",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "savio francis fernanades",
+   "label": "Savio Francis Fernanades",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "sheetal bandari",
+   "label": "Sheetal Bandari",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "akshay rohilla",
+   "label": "Akshay Rohilla",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "jacob vishal",
+   "label": "Jacob Vishal",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "sasidhar venkata sesha kasturi",
+   "label": "Sasidhar Venkata Sesha Kasturi",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "arun kumar narayanan",
+   "label": "Arun Kumar Narayanan",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "game changer",
+   "label": "Game Changer",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "end to end",
+   "label": "End-to-end",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "from complaint to professional response",
+   "label": "From complaint to professional response",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "quick challenge",
+   "label": "QUICK CHALLENGE",
+   "topics": [
+    "Agentic AI"
+   ],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "quick recap",
+   "label": "Quick Recap",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25"
+   ]
+  },
+  {
+   "key": "vijay suda",
+   "label": "Vijay Suda",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "garret jones",
+   "label": "Garret Jones",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "chandra shekar gupta",
+   "label": "Chandra Shekar Gupta",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "shyaan jagtap",
+   "label": "Shyaan Jagtap",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "rohit jishtu",
+   "label": "Rohit jishtu",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "anand kumar kotriwal",
+   "label": "Anand Kumar Kotriwal",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "two key builds",
+   "label": "Two key builds",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "satyamoorthy v",
+   "label": "Satyamoorthy V",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "rishabh agrawal",
+   "label": "Rishabh Agrawal",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "satya patnaik",
+   "label": "Satya Patnaik",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "amit harijani",
+   "label": "Amit Harijani",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "ajay soni",
+   "label": "Ajay Soni",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "shrikant reddy",
+   "label": "Shrikant Reddy",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "shreekant reddy",
+   "label": "Shreekant Reddy",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "prateek singh",
+   "label": "Prateek Singh",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "sameer malthotra",
+   "label": "Sameer Malthotra",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "praveen kumar",
+   "label": "Praveen Kumar",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "prajwal rao",
+   "label": "Prajwal Rao",
+   "topics": [
+    "Agentic AI",
+    "Data & Analytics",
+    "LLMOps / Production",
+    "Prompt Engineering"
+   ],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "read intent",
+   "label": "Read intent",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "act instantly",
+   "label": "Act instantly",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "the system solves the problem",
+   "label": "The system solves the problem",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "a multi agent complaint handling system",
+   "label": "A multi-agent complaint handling system",
+   "topics": [
+    "Agentic AI"
+   ],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "what we're building",
+   "label": "What We're Building",
+   "topics": [
+    "Agentic AI"
+   ],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "andres padallia",
+   "label": "Andres Padallia",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "raw complaint text",
+   "label": "Raw complaint text",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "in class activity",
+   "label": "In Class Activity",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "a sentiment signal",
+   "label": "A sentiment signal",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "start with two agents",
+   "label": "Start with two agents",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "outputs evolve progressively across agents",
+   "label": "Outputs evolve progressively across agents",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "describe the problem",
+   "label": "Describe the problem",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "we're no longer automating tasks",
+   "label": "We're no longer automating tasks",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "the problem",
+   "label": "The Problem",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "ids were generated instantly",
+   "label": "IDs were generated instantly",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "customers got responses in seconds",
+   "label": "Customers got responses in seconds",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "we'll do this together",
+   "label": "We'll do this together",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "workflows are powerful",
+   "label": "Workflows are powerful",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "chat check",
+   "label": "Chat Check",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "reads intent",
+   "label": "Reads intent",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "chooses the right action",
+   "label": "Chooses the right action",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "acts instantly",
+   "label": "Acts instantly",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "agent works through chat",
+   "label": "Agent works through chat",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "type anything",
+   "label": "Type anything",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "structured output",
+   "label": "Structured output",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "the evolution",
+   "label": "The Evolution",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "we're climbing a ladder",
+   "label": "We're climbing a ladder",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "short intro",
+   "label": "Short intro",
+   "topics": [
+    "Finance"
+   ],
+   "clients": [
+    "B2B e& AI for Leaders"
+   ]
+  },
+  {
+   "key": "group chro",
+   "label": "Group CHRO",
+   "topics": [],
+   "clients": [
+    "B2B e& AI for Leaders"
+   ]
+  },
+  {
+   "key": "vice president",
+   "label": "Vice President",
+   "topics": [],
+   "clients": [
+    "B2B e& AI for Leaders"
+   ]
+  },
+  {
+   "key": "e uae",
+   "label": "e UAE",
+   "topics": [],
+   "clients": [
+    "B2B e& AI for Leaders"
+   ]
+  },
+  {
+   "key": "cloud infrastructure",
+   "label": "Cloud Infrastructure",
+   "topics": [],
+   "clients": [
+    "B2B e& AI for Leaders"
+   ]
+  },
+  {
+   "key": "they can t handle branching logic",
+   "label": "They can t handle branching logic",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25"
+   ]
+  },
+  {
+   "key": "introducing a new tool",
+   "label": "Introducing a new tool",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25"
+   ]
+  },
+  {
+   "key": "they can t watch for events",
+   "label": "They can t watch for events",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25"
+   ]
+  },
+  {
+   "key": "they can t execute multi step sequences",
+   "label": "They can t execute multi-step sequences",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25"
+   ]
+  },
+  {
+   "key": "save time",
+   "label": "Save Time",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25"
+   ]
+  },
+  {
+   "key": "reduce errors",
+   "label": "Reduce errors",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25"
+   ]
+  },
+  {
+   "key": "improve efficiency",
+   "label": "Improve efficiency",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25"
+   ]
+  },
+  {
+   "key": "scale easily",
+   "label": "Scale easily",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25"
+   ]
+  },
+  {
+   "key": "ai doesn t read your mind",
+   "label": "AI doesn t read your mind",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25"
+   ]
+  },
+  {
+   "key": "note for instructor",
+   "label": "Note for instructor",
+   "topics": [
+    "Automation / No-Code"
+   ],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25"
+   ]
+  },
+  {
+   "key": "a new problem statement",
+   "label": "A new problem statement",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25"
+   ]
+  },
+  {
+   "key": "form title fiberboost early rollout",
+   "label": "Form Title FiberBoost Early Rollout",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25"
+   ]
+  },
+  {
+   "key": "email id",
+   "label": "Email ID",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25"
+   ]
+  },
+  {
+   "key": "full name",
+   "label": "Full Name",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25"
+   ]
+  },
+  {
+   "key": "service category",
+   "label": "Service Category",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25"
+   ]
+  },
+  {
+   "key": "severity of the issue",
+   "label": "Severity of the Issue",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25"
+   ]
+  },
+  {
+   "key": "detailed feedback",
+   "label": "Detailed feedback",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25"
+   ]
+  },
+  {
+   "key": "from name",
+   "label": "From Name",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25"
+   ]
+  },
+  {
+   "key": "choose condition",
+   "label": "Choose condition",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25"
+   ]
+  },
+  {
+   "key": "important note",
+   "label": "Important Note",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25"
+   ]
+  },
+  {
+   "key": "path a",
+   "label": "Path A",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25"
+   ]
+  },
+  {
+   "key": "path b",
+   "label": "Path B",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25"
+   ]
+  },
+  {
+   "key": "path c",
+   "label": "Path C",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25"
+   ]
+  },
+  {
+   "key": "message email",
+   "label": "Message Email",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25"
+   ]
+  },
+  {
+   "key": "rohit jain",
+   "label": "Rohit Jain",
+   "topics": [],
+   "clients": [
+    "KASE_Decks"
+   ]
+  },
+  {
+   "key": "vishwanadh raju",
+   "label": "Vishwanadh Raju",
+   "topics": [],
+   "clients": [
+    "KASE_Decks"
+   ]
+  },
+  {
+   "key": "evgeny saveliev",
+   "label": "Evgeny Saveliev",
+   "topics": [
+    "Data & Analytics",
+    "Data Science",
+    "Finance",
+    "Machine Learning"
+   ],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "aileen burckhardt",
+   "label": "Aileen Burckhardt",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "sean margalit",
+   "label": "Sean Margalit",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "kadamb goswami",
+   "label": "Kadamb Goswami",
+   "topics": [],
+   "clients": []
+  },
+  {
+   "key": "alex kalinin",
+   "label": "Alex Kalinin",
+   "topics": [
+    "Data Science",
+    "Machine Learning"
+   ],
+   "clients": []
+  },
+  {
+   "key": "lakshman kumar",
+   "label": "Lakshman Kumar",
+   "topics": [
+    "Data & Analytics",
+    "Machine Learning"
+   ],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "sarfaraz hussein",
+   "label": "Sarfaraz Hussein",
+   "topics": [
+    "Computer Vision",
+    "Machine Learning",
+    "Security"
+   ],
+   "clients": []
+  },
+  {
+   "key": "kushdeep mittal",
+   "label": "Kushdeep Mittal",
+   "topics": [
+    "Software Engineering"
+   ],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "akshay nambiar",
+   "label": "Akshay Nambiar",
+   "topics": [
+    "Software Engineering"
+   ],
+   "clients": []
+  },
+  {
+   "key": "surbhi mittal",
+   "label": "Surbhi Mittal",
+   "topics": [
+    "Finance",
+    "Software Engineering"
+   ],
+   "clients": []
+  },
+  {
+   "key": "sreeram murkuri",
+   "label": "Sreeram Murkuri",
+   "topics": [
+    "Cloud & DevOps",
+    "Finance",
+    "Leadership / Strategy",
+    "Marketing",
+    "Product Management",
+    "Software Engineering"
+   ],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "peter cole",
+   "label": "Peter Cole",
+   "topics": [
+    "Leadership / Strategy"
+   ],
+   "clients": []
+  },
+  {
+   "key": "vijay swamy",
+   "label": "Vijay Swamy",
+   "topics": [
+    "Data & Analytics",
+    "Data Engineering",
+    "Data Science",
+    "Machine Learning"
+   ],
+   "clients": []
+  },
+  {
+   "key": "siva anantha",
+   "label": "Siva Anantha",
+   "topics": [
+    "Software Engineering"
+   ],
+   "clients": []
+  },
+  {
+   "key": "gaurav sehgal",
+   "label": "Gaurav Sehgal",
+   "topics": [
+    "Cloud & DevOps",
+    "LLMOps / Production",
+    "SRE / Observability",
+    "Software Engineering",
+    "Systems Design"
+   ],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "robert kreznarich",
+   "label": "Robert Kreznarich",
+   "topics": [
+    "Software Engineering",
+    "Systems Design"
+   ],
+   "clients": []
+  },
+  {
+   "key": "parijat roy",
+   "label": "Parijat Roy",
+   "topics": [
+    "Data & Analytics",
+    "Data Science",
+    "Machine Learning",
+    "Software Engineering"
+   ],
+   "clients": []
+  },
+  {
+   "key": "reginald johnson",
+   "label": "Reginald Johnson",
+   "topics": [
+    "Networking",
+    "Security",
+    "Software Engineering",
+    "Technical Program Management"
+   ],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "yijun wang",
+   "label": "Yijun Wang",
+   "topics": [
+    "Leadership / Strategy",
+    "Product Management",
+    "Technical Program Management"
+   ],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "parivesh priye",
+   "label": "Parivesh Priye",
+   "topics": [
+    "LLMOps / Production",
+    "MLOps",
+    "Machine Learning",
+    "NLP",
+    "Systems Design"
+   ],
+   "clients": []
+  },
+  {
+   "key": "david prorok",
+   "label": "David Prorok",
+   "topics": [
+    "Leadership / Strategy",
+    "Software Engineering"
+   ],
+   "clients": []
+  },
+  {
+   "key": "rohit makhijani",
+   "label": "Rohit Makhijani",
+   "topics": [
+    "Cloud & DevOps",
+    "Leadership / Strategy",
+    "Systems Design",
+    "Technical Program Management"
+   ],
+   "clients": []
+  },
+  {
+   "key": "ian nichols",
+   "label": "Ian Nichols",
+   "topics": [
+    "Finance",
+    "Technical Program Management"
+   ],
+   "clients": []
+  },
+  {
+   "key": "sameer malhotra",
+   "label": "Sameer Malhotra",
+   "topics": [
+    "Leadership / Strategy",
+    "Product Management",
+    "Technical Program Management"
+   ],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "harshit laddha",
+   "label": "Harshit Laddha",
+   "topics": [
+    "Leadership / Strategy",
+    "Machine Learning"
+   ],
+   "clients": []
+  },
+  {
+   "key": "rizwan ansary",
+   "label": "Rizwan Ansary",
+   "topics": [
+    "Leadership / Strategy",
+    "Networking",
+    "Product Management"
+   ],
+   "clients": [
+    "APR - Pre-Sales Product",
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "sergey togulev",
+   "label": "Sergey Togulev",
+   "topics": [
+    "Finance",
+    "Machine Learning",
+    "Software Engineering"
+   ],
+   "clients": []
+  },
+  {
+   "key": "rishabh agarwal",
+   "label": "Rishabh Agarwal",
+   "topics": [
+    "Marketing"
+   ],
+   "clients": []
+  },
+  {
+   "key": "yan xu",
+   "label": "Yan Xu",
+   "topics": [
+    "Data & Analytics",
+    "Data Science",
+    "Machine Learning"
+   ],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "anusha meka",
+   "label": "Anusha Meka",
+   "topics": [
+    "Cloud & DevOps",
+    "Leadership / Strategy"
+   ],
+   "clients": []
+  },
+  {
+   "key": "leon yen",
+   "label": "Leon Yen",
+   "topics": [
+    "Product Management",
+    "Technical Program Management"
+   ],
+   "clients": []
+  },
+  {
+   "key": "abhilash raj",
+   "label": "Abhilash Raj",
+   "topics": [
+    "GenAI / Foundation Models",
+    "LLMOps / Production",
+    "Machine Learning",
+    "Software Engineering",
+    "Systems Design"
+   ],
+   "clients": []
+  },
+  {
+   "key": "shivam patel",
+   "label": "Shivam Patel",
+   "topics": [
+    "Agentic AI",
+    "Curriculum / Pedagogy",
+    "Data & Analytics",
+    "GenAI / Foundation Models",
+    "LLMOps / Production",
+    "Machine Learning",
+    "NLP",
+    "RAG / Retrieval"
+   ],
+   "clients": [
+    "Bookingholdings"
+   ]
+  },
+  {
+   "key": "ram vegiraju",
+   "label": "Ram Vegiraju",
+   "topics": [
+    "Cloud & DevOps",
+    "GenAI / Foundation Models",
+    "LLMOps / Production",
+    "MLOps",
+    "Machine Learning"
+   ],
+   "clients": []
+  },
+  {
+   "key": "prashun dalmia",
+   "label": "Prashun Dalmia",
+   "topics": [
+    "Machine Learning",
+    "Responsible AI / Governance"
+   ],
+   "clients": []
+  },
+  {
+   "key": "tripteesh kaur",
+   "label": "Tripteesh Kaur",
+   "topics": [
+    "Agentic AI",
+    "Leadership / Strategy",
+    "Marketing",
+    "Product Management"
+   ],
+   "clients": []
+  },
+  {
+   "key": "charu gupta",
+   "label": "Charu Gupta",
+   "topics": [
+    "Leadership / Strategy",
+    "Marketing",
+    "Product Management"
+   ],
+   "clients": []
+  },
+  {
+   "key": "lakshay tutlani",
+   "label": "Lakshay Tutlani",
+   "topics": [
+    "Machine Learning",
+    "Marketing",
+    "Product Management"
+   ],
+   "clients": []
+  },
+  {
+   "key": "chandan bharti",
+   "label": "Chandan Bharti",
+   "topics": [
+    "Data & Analytics",
+    "Leadership / Strategy",
+    "Product Management"
+   ],
+   "clients": []
+  },
+  {
+   "key": "sindhu singh dua",
+   "label": "Sindhu Singh Dua",
+   "topics": [
+    "Agentic AI",
+    "Leadership / Strategy",
+    "Software Engineering"
+   ],
+   "clients": []
+  },
+  {
+   "key": "nazeer ahmed",
+   "label": "Nazeer Ahmed",
+   "topics": [
+    "Leadership / Strategy",
+    "Product Management"
+   ],
+   "clients": [
+    "APR - Pre-Sales Product",
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "ashish agnihotri",
+   "label": "Ashish Agnihotri",
+   "topics": [
+    "Data & Analytics",
+    "Data Science",
+    "Leadership / Strategy",
+    "Machine Learning",
+    "Systems Design"
+   ],
+   "clients": []
+  },
+  {
+   "key": "cathy ma",
+   "label": "Cathy Ma",
+   "topics": [
+    "Leadership / Strategy",
+    "Software Engineering",
+    "Systems Design"
+   ],
+   "clients": []
+  },
+  {
+   "key": "saravanan alagu",
+   "label": "Saravanan Alagu",
+   "topics": [
+    "Leadership / Strategy",
+    "Security",
+    "Systems Design"
+   ],
+   "clients": []
+  },
+  {
+   "key": "meryem khribech",
+   "label": "Meryem Khribech",
+   "topics": [
+    "Data Science",
+    "Finance",
+    "Product Management",
+    "Systems Design"
+   ],
+   "clients": []
+  },
+  {
+   "key": "steven parr",
+   "label": "Steven Parr",
+   "topics": [
+    "LLMOps / Production",
+    "SRE / Observability"
+   ],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "aditya pahwa",
+   "label": "Aditya Pahwa",
+   "topics": [
+    "GenAI / Foundation Models",
+    "Leadership / Strategy",
+    "Machine Learning",
+    "Networking",
+    "Product Management",
+    "Sales"
+   ],
+   "clients": [
+    "Carrier",
+    "Doc Versions",
+    "LatentView Analytics",
+    "Mentor Profiles",
+    "Nucleus Software"
+   ]
+  },
+  {
+   "key": "gary hildebrand",
+   "label": "Gary Hildebrand",
+   "topics": [
+    "Agentic AI",
+    "Data & Analytics",
+    "LLMOps / Production",
+    "Machine Learning",
+    "Prompt Engineering",
+    "Software Engineering"
+   ],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "yogesh choudhary",
+   "label": "Yogesh Choudhary",
+   "topics": [
+    "Agentic AI",
+    "LLMOps / Production",
+    "Leadership / Strategy",
+    "Product Management"
+   ],
+   "clients": []
+  },
+  {
+   "key": "savio fernandes",
+   "label": "Savio Fernandes",
+   "topics": [
+    "Agentic AI",
+    "Data & Analytics",
+    "Data Engineering",
+    "Data Science",
+    "GenAI / Foundation Models",
+    "LLMOps / Production",
+    "Leadership / Strategy",
+    "MLOps",
+    "Machine Learning",
+    "Multi-Agent Systems",
+    "NLP",
+    "RAG / Retrieval",
+    "Systems Design"
+   ],
+   "clients": [
+    "Bookingholdings",
+    "Doc Versions",
+    "Edelweiss",
+    "LatentView Analytics",
+    "Mentor Profiles",
+    "Nucleus Software",
+    "Sony India Software"
+   ]
+  },
+  {
+   "key": "nimita mitruka",
+   "label": "Nimita Mitruka",
+   "topics": [
+    "Agentic AI",
+    "Data & Analytics",
+    "Data Engineering",
+    "Machine Learning"
+   ],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "prateek singhal",
+   "label": "Prateek Singhal",
+   "topics": [
+    "Agentic AI",
+    "Cloud & DevOps",
+    "Data & Analytics",
+    "Data Engineering",
+    "LLMOps / Production",
+    "Machine Learning",
+    "Prompt Engineering",
+    "Software Engineering"
+   ],
+   "clients": [
+    "APR - Pre-Sales Product",
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "praveen manoharan",
+   "label": "Praveen Manoharan",
+   "topics": [
+    "Agentic AI",
+    "Machine Learning",
+    "Software Engineering"
+   ],
+   "clients": []
+  },
+  {
+   "key": "agnivesh kumpati",
+   "label": "Agnivesh Kumpati",
+   "topics": [
+    "Agentic AI",
+    "GenAI / Foundation Models",
+    "Systems Design"
+   ],
+   "clients": []
+  },
+  {
+   "key": "sanatan sukhija",
+   "label": "Sanatan Sukhija",
+   "topics": [
+    "Data Science",
+    "Machine Learning"
+   ],
+   "clients": []
+  },
+  {
+   "key": "andrew castillo",
+   "label": "Andrew Castillo",
+   "topics": [
+    "Data & Analytics",
+    "Data Science",
+    "Machine Learning"
+   ],
+   "clients": []
+  },
+  {
+   "key": "dipti aswath",
+   "label": "Dipti Aswath",
+   "topics": [
+    "Leadership / Strategy",
+    "Machine Learning",
+    "Software Engineering",
+    "Systems Design"
+   ],
+   "clients": []
+  },
+  {
+   "key": "pranjal joshi",
+   "label": "Pranjal Joshi",
+   "topics": [
+    "Computer Vision",
+    "GenAI / Foundation Models",
+    "Machine Learning"
+   ],
+   "clients": []
+  },
+  {
+   "key": "fangxu xing",
+   "label": "Fangxu Xing",
+   "topics": [
+    "Machine Learning"
+   ],
+   "clients": []
+  },
+  {
+   "key": "sayan maity",
+   "label": "Sayan Maity",
+   "topics": [
+    "Data Science",
+    "LLMOps / Production",
+    "Machine Learning"
+   ],
+   "clients": []
+  },
+  {
+   "key": "manoj agarwal",
+   "label": "Manoj Agarwal",
+   "topics": [
+    "Data Science",
+    "Machine Learning"
+   ],
+   "clients": []
+  },
+  {
+   "key": "dhiraj bhatt",
+   "label": "Dhiraj Bhatt",
+   "topics": [
+    "Leadership / Strategy"
+   ],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "nikhil raverkar",
+   "label": "Nikhil Raverkar",
+   "topics": [
+    "Data Science",
+    "Machine Learning"
+   ],
+   "clients": []
+  },
+  {
+   "key": "behnoosh parsa",
+   "label": "Behnoosh Parsa",
+   "topics": [
+    "Agentic AI",
+    "Data & Analytics",
+    "GenAI / Foundation Models",
+    "LLMOps / Production",
+    "Machine Learning",
+    "Prompt Engineering",
+    "Software Engineering"
+   ],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "chirag ahuja",
+   "label": "Chirag Ahuja",
+   "topics": [
+    "Curriculum / Pedagogy",
+    "Data & Analytics",
+    "GenAI / Foundation Models",
+    "LLMOps / Production",
+    "Machine Learning",
+    "RAG / Retrieval",
+    "Systems Design"
+   ],
+   "clients": [
+    "Bookingholdings",
+    "Doc Versions",
+    "Edelweiss",
+    "Mentor Profiles",
+    "Nucleus Software",
+    "Sony India Software"
+   ]
+  },
+  {
+   "key": "adithi sampath",
+   "label": "Adithi Sampath",
+   "topics": [],
+   "clients": [
+    "KASE_Decks"
+   ]
+  },
+  {
+   "key": "mujahid ahmed",
+   "label": "Mujahid Ahmed",
+   "topics": [],
+   "clients": [
+    "KASE_Decks"
+   ]
+  },
+  {
+   "key": "sasidhar kasturi",
+   "label": "Sasidhar Kasturi",
+   "topics": [],
+   "clients": [
+    "KASE_Decks"
+   ]
+  },
+  {
+   "key": "chris stires",
+   "label": "Chris Stires",
+   "topics": [
+    "LLMOps / Production"
+   ],
+   "clients": [
+    "Edelweiss"
+   ]
+  },
+  {
+   "key": "boyu wang",
+   "label": "Boyu Wang",
+   "topics": [
+    "Agentic AI",
+    "Machine Learning"
+   ],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "prasanna jayapal",
+   "label": "Prasanna Jayapal",
+   "topics": [
+    "Leadership / Strategy",
+    "Machine Learning",
+    "Networking",
+    "Product Management",
+    "Technical Program Management"
+   ],
+   "clients": [
+    "APR - Pre-Sales Product",
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "samwel emmanuel",
+   "label": "Samwel Emmanuel",
+   "topics": [
+    "Agentic AI",
+    "Data & Analytics",
+    "Data Engineering",
+    "Data Science",
+    "LLMOps / Production",
+    "Leadership / Strategy",
+    "Machine Learning",
+    "Prompt Engineering",
+    "Software Engineering"
+   ],
+   "clients": [
+    "Doc Versions",
+    "Everest"
+   ]
+  },
+  {
+   "key": "hardik gupta",
+   "label": "Hardik Gupta",
+   "topics": [
+    "Agentic AI",
+    "Data & Analytics",
+    "Data Science",
+    "LLMOps / Production",
+    "Leadership / Strategy",
+    "Machine Learning",
+    "Prompt Engineering",
+    "Software Engineering"
+   ],
+   "clients": [
+    "Doc Versions",
+    "Everest"
+   ]
+  },
+  {
+   "key": "ashish desai",
+   "label": "Ashish Desai",
+   "topics": [
+    "Agentic AI",
+    "Data & Analytics",
+    "GenAI / Foundation Models",
+    "LLMOps / Production",
+    "Leadership / Strategy",
+    "Machine Learning",
+    "Networking",
+    "Software Engineering",
+    "Systems Design"
+   ],
+   "clients": [
+    "APR - Pre-Sales Product",
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "justin joseph",
+   "label": "Justin Joseph",
+   "topics": [
+    "Cloud & DevOps",
+    "Data Science",
+    "LLMOps / Production",
+    "Machine Learning"
+   ],
+   "clients": []
+  },
+  {
+   "key": "konstantinos pappas",
+   "label": "Konstantinos Pappas",
+   "topics": [
+    "Software Engineering"
+   ],
+   "clients": []
+  },
+  {
+   "key": "praveen kumar kashimsetty",
+   "label": "Praveen Kumar Kashimsetty",
+   "topics": [
+    "Cloud & DevOps",
+    "Leadership / Strategy",
+    "Product Management"
+   ],
+   "clients": [
+    "APR - Pre-Sales Product",
+    "Doc Versions",
+    "Edelweiss",
+    "LatentView Analytics"
+   ]
+  },
+  {
+   "key": "kurchellapati vishwanadh raju",
+   "label": "Kurchellapati Vishwanadh Raju",
+   "topics": [
+    "Leadership / Strategy"
+   ],
+   "clients": []
+  },
+  {
+   "key": "ai builders program",
+   "label": "AI Builders Program",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "it s your experience",
+   "label": "It s your experience",
+   "topics": [],
+   "clients": [
+    "B2B e& AI Builder (No Code) - Nov-Dec'25",
+    "B2B e& AI Builder (No Code) - Q1'26"
+   ]
+  },
+  {
+   "key": "nahid hasan nhasanikickstart gmailcom amazon faang sde",
+   "label": "Nahid Hasan Nhasan.ikickstart gmail.com Amazon FAANG SDE",
+   "topics": [],
+   "clients": [
+    "Misc"
+   ]
+  },
+  {
+   "key": "sanjeev qazi",
+   "label": "Sanjeev Qazi",
+   "topics": [
+    "Software Engineering"
+   ],
+   "clients": []
+  },
+  {
+   "key": "joel replogle",
+   "label": "Joel Replogle",
+   "topics": [
+    "LLMOps / Production",
+    "Networking",
+    "SRE / Observability"
+   ],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "emmanuel charlemagne",
+   "label": "Emmanuel Charlemagne",
+   "topics": [
+    "Leadership / Strategy",
+    "Product Management"
+   ],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "akhil tomar",
+   "label": "Akhil Tomar",
+   "topics": [
+    "Cloud & DevOps",
+    "Machine Learning",
+    "Software Engineering",
+    "Systems Design"
+   ],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "reza madad",
+   "label": "Reza Madad",
+   "topics": [
+    "Agentic AI",
+    "Computer Vision",
+    "Data & Analytics",
+    "GenAI / Foundation Models",
+    "Leadership / Strategy",
+    "Machine Learning",
+    "NLP",
+    "Product Management"
+   ],
+   "clients": [
+    "APR - Pre-Sales Product",
+    "Carrier",
+    "Doc Versions",
+    "Mentor Profiles",
+    "Nucleus Software"
+   ]
+  },
+  {
+   "key": "evgeny vinnik",
+   "label": "Evgeny Vinnik",
+   "topics": [
+    "Agentic AI",
+    "LLMOps / Production",
+    "Prompt Engineering",
+    "Software Engineering"
+   ],
+   "clients": [
+    "Doc Versions"
+   ]
+  },
+  {
+   "key": "bilal zuberi",
+   "label": "Bilal Zuberi",
+   "topics": [
+    "Cloud & DevOps",
+    "Leadership / Strategy",
+    "Security"
+   ],
+   "clients": [
+    "APR - Pre-Sales Product",
+    "Honeywell Aerospace",
+    "Mentor Profiles",
+    "Voya"
+   ]
+  },
+  {
+   "key": "jeevendra singh",
+   "label": "Jeevendra Singh",
+   "topics": [
+    "Agentic AI",
+    "Cloud & DevOps",
+    "Data & Analytics",
+    "Data Science",
+    "GenAI / Foundation Models",
+    "LLMOps / Production",
+    "Machine Learning",
+    "Multi-Agent Systems",
+    "RAG / Retrieval",
+    "Software Engineering"
+   ],
+   "clients": [
+    "Bookingholdings",
+    "Doc Versions",
+    "Edelweiss",
+    "LatentView Analytics",
+    "Mentor Profiles",
+    "Nucleus Software",
+    "Sony India Software",
+    "StoneX"
+   ]
+  },
+  {
+   "key": "faiza ghazanfar",
+   "label": "Faiza Ghazanfar",
+   "topics": [
+    "Agentic AI",
+    "Cloud & DevOps",
+    "Curriculum / Pedagogy",
+    "Finance",
+    "GenAI / Foundation Models",
+    "LLMOps / Production",
+    "Leadership / Strategy",
+    "Machine Learning",
+    "Product Management",
+    "Technical Program Management"
+   ],
+   "clients": [
+    "APR - Pre-Sales Product",
+    "Carrier",
+    "Doc Versions",
+    "Mentor Profiles",
+    "Nucleus Software"
+   ]
+  },
+  {
+   "key": "jigyashu keshri",
+   "label": "Jigyashu Keshri",
+   "topics": [
+    "Agentic AI",
+    "Data & Analytics",
+    "Data Science",
+    "GenAI / Foundation Models",
+    "LLMOps / Production",
+    "Machine Learning",
+    "NLP",
+    "Prompt Engineering",
+    "RAG / Retrieval"
+   ],
+   "clients": [
+    "Bookingholdings",
+    "Carrier",
+    "Doc Versions",
+    "Edelweiss",
+    "LatentView Analytics",
+    "Mentor Profiles",
+    "Nucleus Software",
+    "StoneX"
+   ]
+  },
+  {
+   "key": "debarghya bhattacharya",
+   "label": "Debarghya Bhattacharya",
+   "topics": [
+    "Leadership / Strategy",
+    "Machine Learning"
+   ],
+   "clients": []
+  },
+  {
+   "key": "ahmed elbagoury",
+   "label": "Ahmed Elbagoury",
+   "topics": [
+    "Data & Analytics",
+    "Data Engineering",
+    "GenAI / Foundation Models",
+    "LLMOps / Production",
+    "Machine Learning",
+    "NLP",
+    "Security",
+    "Systems Design"
+   ],
+   "clients": [
+    "APR - Pre-Sales Product",
+    "Carrier",
+    "Doc Versions",
+    "Fujitsu Research",
+    "Myntra New",
+    "Nucleus Software"
+   ]
+  },
+  {
+   "key": "anshaj khare",
+   "label": "Anshaj Khare",
+   "topics": [
+    "Agentic AI",
+    "Cloud & DevOps",
+    "Curriculum / Pedagogy",
+    "Data & Analytics",
+    "Data Engineering",
+    "Data Science",
+    "GenAI / Foundation Models",
+    "LLMOps / Production",
+    "Leadership / Strategy",
+    "Machine Learning",
+    "Multi-Agent Systems",
+    "Prompt Engineering",
+    "Software Engineering"
+   ],
+   "clients": [
+    "APR - Pre-Sales Product",
+    "Bookingholdings",
+    "Carrier",
+    "Doc Versions",
+    "Edelweiss",
+    "Everest",
+    "LatentView Analytics",
+    "Mentor Profiles",
+    "Myntra New",
+    "Nucleus Software",
+    "Sony India Software",
+    "StoneX"
+   ]
+  },
+  {
+   "key": "shweta singh",
+   "label": "Shweta Singh",
+   "topics": [
+    "Agentic AI",
+    "Curriculum / Pedagogy",
+    "Data & Analytics",
+    "GenAI / Foundation Models",
+    "LLMOps / Production",
+    "Leadership / Strategy",
+    "Machine Learning",
+    "Networking",
+    "Product Management",
+    "Software Engineering",
+    "Technical Program Management"
+   ],
+   "clients": [
+    "APR - Pre-Sales Product",
+    "Carrier",
+    "Doc Versions",
+    "Everest",
+    "Mentor Profiles",
+    "Nucleus Software"
+   ]
+  }
+ ]
+}
