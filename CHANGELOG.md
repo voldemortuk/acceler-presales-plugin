@@ -2,6 +2,15 @@
 
 This repo hosts two plugins in one marketplace: `acceler-presales` (root) and `acceler-post-sales` (`post-sales/`). Each versions independently in its own `.claude-plugin/plugin.json`; entries below are labeled by plugin. Bump the relevant plugin's `version` on every release so teammates' `/plugin marketplace update` picks up the change.
 
+## acceler-post-sales [0.4.2] — 2026-09-11
+
+### Universal prose-quality baseline — embedded in every reviewer, not just documented
+- **`agent-loops/SKILL.md` §2a-1 (NEW)** — every generated artifact this family reviews must read as human-written, technically strong, and instructionally sound. Two layers: the user's exact 5 style bans (no em-dashes, no 3-item rhetorical cadence, no "it's not an X, it's a Y," no "X is not just a Y, it's the whole point," no antithesis-as-a-crutch — prose only, never code/quotes) applied absolutely, plus an AI-tell density check verified against real external research rather than assumed: Wikipedia's actively-maintained "Signs of AI writing" page (cross-checked against independent word-frequency studies; called "the best guide to spotting AI writing" by TechCrunch, Nov 2025). The load-bearing caveat carried over faithfully: no single word or phrase proves AI authorship, only 3+ signals co-occurring in the same passage is a real signal — the rule explicitly bans failing a passage for one occurrence of "robust."
+- **Citation/factual-claim integrity, elevated severity.** Grounded in a real, documented failure mode for AI-assisted technical/instructional content specifically: Springer Nature retracted a 2025 ML textbook after roughly two-thirds of its sampled citations were fabricated or substantially wrong. Any cited claim in reviewed content now gets the same escalate-immediately treatment as `impact-report-review`'s attribution-integrity rule, not a routine fix-loop round.
+- **Specificity as the actual counter-signal**, not just a style rule — fluent-but-generic prose next to genuinely specific content (exact tool versions, real dataset names, actual sample sizes) is itself flagged, per a real academic AI-detection heuristic, independent of the word list.
+- **Structurally embedded, not just documented in one shared file:** every reviewer agent's `skills:` frontmatter now lists `agent-loops` alongside its own skill (e.g. `skills: mcq-review, agent-loops`), so this preloads into every agent's context automatically — matching how the request was framed ("embed in all the Agents"), not left as a cross-reference an agent might or might not follow at runtime.
+- **`generation-learnings/README.md`** gets one pre-seeded universal candidate ahead of the usual ≥3-occurrence promotion threshold — this rule applies identically to every content type once generation connects, and the evidence backing it is already stronger than a typical single-type fix-loop pattern.
+
 ## acceler-post-sales [0.4.1] — 2026-09-10
 
 ### Full eval coverage + the generation-side improvement loop

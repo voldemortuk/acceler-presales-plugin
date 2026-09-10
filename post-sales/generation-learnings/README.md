@@ -9,6 +9,8 @@ The generation-side half of the improvement loop described in `agent-loops/SKILL
 
 Deliberately empty until real generation agents exist to consume it. Per the user's own stated plan (2026-09-10): "Once Tanmaya has created the generation I will connect it." These files are the ready-to-wire target for that connection — not a guess at what her generation skills will look like.
 
+**One pre-seeded universal candidate, ahead of the usual promotion threshold:** `agent-loops/SKILL.md` §2a-1 (Prose Quality — the explicit style bans plus verified AI-tell density checks) applies identically to every content type. Once a generation agent for any content type connects here, this should be its first Generation Learning regardless of type-specific fix-loop history — the evidence for it (a real Wikipedia-documented, TechCrunch-cited pattern set, not a one-off Acceler finding) is already stronger than the usual ≥3-occurrences bar this README sets for everything else.
+
 ## The promotion rule (when a fix-loop resolution becomes a Generation Learning)
 
 A single resolved finding is not enough on its own — one bad MCQ explanation might be a one-off authoring slip, not a pattern. Promote a finding into this log only when:

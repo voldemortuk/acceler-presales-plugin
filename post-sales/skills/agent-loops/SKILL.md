@@ -1,6 +1,6 @@
 ---
 name: agent-loops-skills-acceler-shared-loop-engineering-pattern
-description: "The shared generate/fix -> evaluate -> re-verify loop pattern used by every Acceler review skill, and the reference future generation agents (Lesson Plan, Slide, MCQ, Assignment, Project) should follow too. Deterministic success criteria, bounded iterations, progress/spin checks, maker/checker separation, human-gated apply, a baseline quality bar, universal discovery-fidelity checking, an honest live-data boundary, full eval coverage (post-sales/evals/, 18 cases across all 16 agents), and the two-sided improvement loop (reviewer-side: eval set + Memories + future impact-report data; generation-side: post-sales/generation-learnings/, infrastructure ready, connects once generation agents exist). Grounded in Addy Osmani's practical loop-engineering framework. Referenced by every review skill in the family — edit here, not per-skill, when the shared mechanics themselves change."
+description: "The shared generate/fix -> evaluate -> re-verify loop pattern used by every Acceler review skill, and the reference future generation agents (Lesson Plan, Slide, MCQ, Assignment, Project) should follow too. Deterministic success criteria, bounded iterations, progress/spin checks, maker/checker separation, human-gated apply, a baseline quality bar, prose-quality/anti-AI-tell checking verified against current published research, universal discovery-fidelity checking, an honest live-data boundary, full eval coverage (post-sales/evals/, 18 cases across all 16 agents), and the two-sided improvement loop (reviewer-side: eval set + Memories + future impact-report data; generation-side: post-sales/generation-learnings/, infrastructure ready, connects once generation agents exist). Grounded in Addy Osmani's practical loop-engineering framework. Referenced (via its own `skills:` frontmatter entry) by every reviewer agent in the family — edit here, not per-skill, when the shared mechanics themselves change."
 metadata:
   type: reference
 ---
@@ -51,6 +51,31 @@ Between proposal and approval, the human isn't limited to a binary accept/reject
 - **Image/diagram citations present** where content is sourced externally, and low-resolution/pixelated images are flagged, not passed through.
 
 This section is deliberately generic across artifact types — a skill's own §1 rubric is where content-specific rules live; this is the floor every artifact is held to regardless of type.
+
+---
+
+## 2a-1. Prose quality — generated content must read as human-written, technically strong, and instructionally sound
+
+*User-stated requirement, embedded here so every reviewer inherits it rather than one skill owning it. Two layers: explicit style bans (below, verbatim) and AI-tell density (verified externally, not guessed — see the caveat before using it).*
+
+**Explicit bans, prose only — never applied to code, quotes, or direct excerpts:**
+- No em-dashes. Use a comma, parentheses, or two sentences instead.
+- No 3-item rhetorical cadence (manufacturing "X, Y, and Z" for rhythm — a genuine enumerated list of five tools or ten checks is fine; the ban is on the *rhetorical* triad).
+- No "it's not an X, it's a Y."
+- No "X is not just a Y, it's the whole point."
+- No antithesis-as-a-crutch ("not because it's easy, but because it's hard").
+
+**AI-tell density — flag the pattern, not the word.** Verified against Wikipedia's actively-maintained "Signs of AI writing" page (cross-checked against independent word-frequency research; called "the best guide to spotting AI writing" by TechCrunch, Nov 2025) — and its own central finding is the one to hold onto: **no single word or phrase proves AI authorship. Only several of these co-occurring in the same passage is a real signal.** Never fail a passage for using "robust" once. Flag it when three or more of the following stack up in the same section:
+- Overused vocabulary: *delve, leverage, foster, underscore, showcase, navigate, harness, pivotal, robust, intricate, nuanced, meticulous, crucial, boasts, elevate, unlock, streamline, tapestry, realm, testament, cornerstone, interplay.* This list drifts as models update — Wikipedia's own page notes "delve" already fell out of favor through 2025 — treat it as a living list, not a fixed one; a rubric edit that refreshes it needs a matching eval case (§8), not a silent swap.
+- Copulative avoidance ("serves as," "stands as," "functions as" standing in for a plain "is").
+- Negative parallelism as a crutch ("not only X but also Y") — same family as the antithesis ban above, extend the same instinct to it.
+- Uniform paragraph rhythm and sentence length (low "burstiness") — real human technical writing varies.
+- Vague hedged attribution ("industry reports show," "experts argue") with no one actually named.
+- Rigid formulaic closings (a "Challenges and Future Outlook"-shaped section applied regardless of whether it fits the content).
+
+**The specificity check — the actual counter-signal, not just a style rule.** Fluent-but-generic prose next to genuinely specific content is itself a tell (a real academic-detection heuristic, not house opinion): exact tool versions, real dataset names, actual sample sizes, field-specific caveats. Generated technical/instructional content that stays generic where a real subject-matter expert would name specifics is a FAIL on this ground alone, independent of the word list above.
+
+**Citation and factual-claim integrity — elevated severity, not routine.** Any content making a factual claim with an attached citation, reference, or source (a project brief, a deep-research output, an MCQ explanation citing a paper or a number) needs that claim traced and verified as real, not assumed plausible. This is not hypothetical: Springer Nature retracted a 2025 machine-learning textbook after roughly two-thirds of its sampled citations turned out fabricated or substantially wrong. Treat an unverified or fabricated citation with the same severity as `impact-report-review`'s attribution-integrity rule (§1.1 there) — escalate to a human, don't let it ride through a routine fix-loop round.
 
 ---
 
@@ -136,6 +161,8 @@ Each skill's own "Fix & re-verify loop" section states only what's artifact-spec
 - [ ] Fixer-guardrail (artifact-only editing) is intact in every skill referencing this pattern
 - [ ] Maker and checker are always different agent calls
 - [ ] §2a Baseline Quality Bar applied by every reviewer, not just skill-specific rules
+- [ ] §2a-1 Prose Quality applied: explicit bans checked absolutely, AI-tell density checked as co-occurrence (3+ signals), never a single word in isolation
+- [ ] Any cited factual claim traced and verified, not assumed plausible — escalated immediately if fabricated or unverifiable, per §2a-1
 - [ ] §2b Discovery Fidelity checked wherever a Facts Sheet exists, explicitly skipped (not invented) where it doesn't
 - [ ] §2c's live-vs-not-yet-live data boundary respected — query `knowledge/files.json` for real, don't invent a curriculum.json query that doesn't exist yet
 - [ ] Any rubric change gets a corresponding case added/updated in `evals/` (§8) — a rule with no golden case is unverified prose

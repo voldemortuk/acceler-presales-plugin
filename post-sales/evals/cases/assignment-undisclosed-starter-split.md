@@ -1,7 +1,7 @@
 # Case: starter-kit assignment with no stated split
 
 **Reviewer:** `acceler-post-sales:assignment-reviewer` / `assignment-review/SKILL.md` §1.1
-**Source:** real, e& Low Code capstone template pattern ("this gives you ~40% of the work... those enhancements are where the real learning — and the marks — come from").
+**Source:** the rule is grounded in a real reference — `Sentiment_Analysis_Capstone_Template.docx` (e& Low Code capstone) — which explicitly discloses its split ("this gives you ~40% of the work... those enhancements are where the real learning — and the marks — come from") and correctly PASSes this rule. **The Input below is a constructed negative counterpart** (same starter-kit pattern, split undisclosed) — don't run this case against the real reference file expecting a FAIL; it won't produce one, because that file already does this correctly.
 
 ## Input
 

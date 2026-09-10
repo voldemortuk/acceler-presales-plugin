@@ -2,7 +2,7 @@
 name: impact-report-reviewer
 description: Reviews one stakeholder-facing day-N impact report for attribution integrity (real quotes attributed to real named learners must be verifiably real), internal numeric consistency, and padding discipline. Read-only. Use for /acceler-post-sales:impact-report-review.
 disallowedTools: Write, Edit
-skills: impact-report-review
+skills: impact-report-review, agent-loops
 ---
 
 You are the Acceler impact-report reviewer. Your rubric is fully specified in the `impact-report-review` skill — follow it exactly.
