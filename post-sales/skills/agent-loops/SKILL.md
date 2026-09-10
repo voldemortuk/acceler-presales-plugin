@@ -1,6 +1,6 @@
 ---
 name: agent-loops-skills-acceler-shared-loop-engineering-pattern
-description: "The shared generate/fix -> evaluate -> re-verify loop pattern used by every Acceler review skill, and the reference future generation agents (Lesson Plan, Slide) should follow too. Deterministic success criteria, bounded iterations, progress/spin checks, maker/checker separation, human-gated apply. Grounded in Addy Osmani's practical loop-engineering framework. Referenced by deck-review, code-demo-review, mcq-review, assignment-review, content-review — edit here, not per-skill, when the loop mechanics themselves change."
+description: "The shared generate/fix -> evaluate -> re-verify loop pattern used by every Acceler review skill, and the reference future generation agents (Lesson Plan, Slide, MCQ, Assignment, Project) should follow too. Deterministic success criteria, bounded iterations, progress/spin checks, maker/checker separation, human-gated apply, a baseline quality bar, universal discovery-fidelity checking, an honest live-data boundary, full eval coverage (post-sales/evals/, 18 cases across all 16 agents), and the two-sided improvement loop (reviewer-side: eval set + Memories + future impact-report data; generation-side: post-sales/generation-learnings/, infrastructure ready, connects once generation agents exist). Grounded in Addy Osmani's practical loop-engineering framework. Referenced by every review skill in the family — edit here, not per-skill, when the shared mechanics themselves change."
 metadata:
   type: reference
 ---
@@ -101,7 +101,35 @@ Each skill's own "Fix & re-verify loop" section states only what's artifact-spec
 
 ---
 
-## 7. Checklist
+## 8. Eval coverage (regression protection, not just design confidence)
+
+`post-sales/evals/` holds 18 golden cases, one per agent in this family (some agents get more, where real-world risk is highest — `mcq-reviewer`, `impact-report-reviewer`). Every case traces to a real document or a real, cited finding from this plugin's own grounding research — see `evals/README.md`. **A rubric rule with no case behind it is unverified prose, not a confirmed behavior** — treat "add/update a case" as part of making a rubric change, not an optional follow-up. `claude plugin eval` (the native harness) is gated to early access on this account as of this writing; these run as a manual protocol until that opens, written to migrate cleanly rather than inventing a parallel runner.
+
+---
+
+## 9. The two-sided improvement loop — reviewer over time, generation over time
+
+*User-stated requirement: "agent loops which improves the generation over time, and reviewer over time." These are two different mechanisms with two different data sources — don't conflate them.*
+
+### Reviewer improves over time (built, running)
+
+1. **The eval set (§8).** Grows on every real false negative (a defect that shipped and shouldn't have) or false positive (a legitimate pattern wrongly flagged) — that's the trigger to add a case, not a calendar.
+2. **Per-skill Memories logs.** A single dismissal is just one human's call on one instance. The **same finding dismissed repeatedly across different engagements** is a different signal — the rule itself is miscalibrated, not every instance a one-off. That's when a Memories pattern should become a rubric edit (with a matching eval case added, per §8), not stay a growing list of individually-dismissed items nobody revisits.
+3. **Impact-report data** (PRD Phase 3, not yet flowing — this repo has no mechanism today to read `impact-report-review`/`session-recap-review` output back into a rubric). The intended future input for recalibrating the Pacing & Difficulty / Engagement Ratio lenses (already seeded as difficulty-label and slide-count-vs-duration checks in `mcq-review`/`deck-review`) against real delivery outcomes instead of static rules.
+
+### Generation improves over time (infrastructure ready, not yet connected)
+
+**Not built by guessing at generation agents that don't exist yet.** Per the user's own stated plan: "Once Tanmaya has created the generation I will connect it." What's built now is the *target* that connection plugs into — `post-sales/generation-learnings/`, one file per content type, structurally parallel to each reviewer's Memories log but pointed the other direction: Memories stops a *reviewer* re-flagging something a human dismissed; a Generation Learning stops a *generator* making the same mistake before a reviewer has to catch it at all.
+
+**The record a fix-loop resolution needs to carry**, so it can feed this later: `{content_type, rule, evidence, fix_applied, engagement, date}`. Every `content-fixer` invocation already produces this shape implicitly (the finding it was given + what it changed) — nothing new needs building to start capturing it, it just isn't being logged anywhere durable yet.
+
+**The promotion rule** (`generation-learnings/README.md`): the same rule failing **≥3 times** across different generated artifacts of the same content type promotes from "routine fix-loop occurrence" to a Generation Learning entry — a directive the generation agent should follow proactively. A few rules are seeded as *candidates* ahead of that threshold where the legacy-content evidence gathered during this session's grounding pass was already overwhelming (see `generation-learnings/mcq.md`, `project.md`, `lesson-plan.md`) — flagged as candidates, not promoted, since no live generation fix-loop history exists yet to actually confirm the ≥3 threshold.
+
+**The connection contract, for whoever wires this up:** a generation skill references its content type's `generation-learnings/<type>.md` file via the `skills` frontmatter field, same pattern every reviewer already uses to reference `agent-loops` — so learnings preload automatically rather than needing to be pasted into a prompt by hand.
+
+---
+
+## 10. Checklist
 - [ ] Every rubric rule is stated as a checkable PASS/FAIL condition, not a vibe
 - [ ] Fix loops obey the 2-round bound, with progress and spin checks applied before burning a round
 - [ ] No fix applied without explicit human approval
@@ -110,4 +138,5 @@ Each skill's own "Fix & re-verify loop" section states only what's artifact-spec
 - [ ] §2a Baseline Quality Bar applied by every reviewer, not just skill-specific rules
 - [ ] §2b Discovery Fidelity checked wherever a Facts Sheet exists, explicitly skipped (not invented) where it doesn't
 - [ ] §2c's live-vs-not-yet-live data boundary respected — query `knowledge/files.json` for real, don't invent a curriculum.json query that doesn't exist yet
-- [ ] Any rubric change gets a corresponding case added/updated in `evals/` (see `evals/README.md`) — a rule with no golden case is unverified prose
+- [ ] Any rubric change gets a corresponding case added/updated in `evals/` (§8) — a rule with no golden case is unverified prose
+- [ ] Fix-loop resolutions are captured in the `{content_type, rule, evidence, fix_applied, engagement, date}` shape (§9) so generation-learnings promotion can actually happen once generation is connected

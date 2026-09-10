@@ -19,21 +19,29 @@ Each case traces to a real document or a real, cited finding surfaced during thi
 
 ## How this is the "how do we improve over time" mechanism
 
-Three feedback sources keep this system honest as it runs for real, not just at build time:
+See `agent-loops/SKILL.md` §9 for the full two-sided design (reviewer-side and generation-side). Short version: this eval set is one of three reviewer-side feedback sources (alongside per-skill Memories logs and, eventually, impact-report data) — grows on every real false negative/positive, not on a schedule.
 
-1. **This eval set** — regression protection. Add a case here every time a real defect slips through in production (a false negative) or a reviewer wrongly flags something legitimate (a false positive) — that's the trigger, not a scheduled review. A growing, real-defect-backed eval set is what "robust" cashes out to, concretely.
-2. **Per-skill Memories logs** — each skill's own dismissed-finding log. When the same finding gets dismissed by a human repeatedly across different engagements, that's a signal the *rule itself* is miscalibrated (too aggressive, or checking something that doesn't actually matter), not that every instance is a one-off — promote it into a rubric change, with a case added here confirming the new behavior.
-3. **Impact-report data** (PRD Phase 3, not yet flowing) — once `session-recap-review`/`impact-report-review` output accumulates across real deliveries, it's the intended input for recalibrating the Pacing & Difficulty / Engagement Ratio lenses (already seeded in `mcq-review`/`deck-review` as difficulty-label and slide-count-vs-duration checks) against actual outcomes rather than static rules. Not built yet — this repo has no mechanism today to read `session-recap-review` output back into a rubric. Flagging as the real next dependency, not pretending it's wired.
+## Coverage — every agent in the family has at least one case
 
-## Cases
+18 cases, 16 of 16 agents covered (`content-fixer`'s core guardrail gets its own dedicated case — arguably the single highest-stakes behavior in the whole system). `mcq-reviewer` and `impact-report-reviewer` get extra cases where the real-world risk is highest (item-writing defects are numerous and varied; a fabricated quote about a real person is the single highest-severity failure mode anywhere in this family).
 
-| Case | Reviewer | Real source |
+| Case | Agent | Real source |
 |---|---|---|
 | `mcq-near-duplicate-distractors.md` | mcq-reviewer | `MCQ - Building Applications with LLMs.docx` Q11 |
 | `mcq-zero-explanations.md` | mcq-reviewer | Bosch/Nucleus/e& Post-Course Assessment pattern |
 | `mcq-legitimate-multiselect-not-flagged.md` (negative case) | mcq-reviewer | ETS / e& No-Code Pre-Program Assessment |
 | `deck-leaked-solution-link.md` | deck-reviewer | Acceler module-review checklist |
+| `code-demo-no-run-evidence.md` | code-demo-reviewer | skill's own explicit run-evidence rule |
 | `assignment-undisclosed-starter-split.md` | assignment-reviewer | e& Low Code capstone template |
+| `hands-on-guide-real-credential-leak.md` | hands-on-guide-reviewer | Yettel Serbia VM Setup Guide (contrast case) |
 | `project-compliance-vs-verified-enforcement.md` | project-reviewer | LVT Stale Order Alerts project guide |
-| `onboarding-form-missing-outcome-tie.md` | onboarding-form-reviewer | LVT Engineer Onboarding Form |
 | `lesson-plan-duration-mismatch.md` | lesson-plan-reviewer | e& Tech Teams Lesson Plan xlsx |
+| `discovery-thin-brief-missing-success-metric.md` | discovery-fit-reviewer | skill's own explicit Facts Sheet gap rule |
+| `onboarding-form-missing-outcome-tie.md` | onboarding-form-reviewer | LVT Engineer Onboarding Form |
+| `orientation-missing-outcomes-section.md` | orientation-reviewer | Bosch Masterclass Orientation (5-program survey) |
+| `closing-ceremony-embedded-mcq-handoff.md` | closing-ceremony-reviewer | Bosch / e& Leaders Closing decks |
+| `session-recap-wrong-quiz-component.md` | session-recap-reviewer | `session-recap/SKILL.md` §2.4 component rule |
+| `impact-report-fabricated-quote.md` | impact-report-reviewer | `session-recap/SKILL.md` §3.2 real-quotes-only standard |
+| `coherence-tool-list-drift.md` | coherence-reviewer | confirmed cross-artifact drift class |
+| `audience-fit-fundamentals-mismatch.md` | audience-fit-reviewer | real threaded comment on an actual e& Lesson Plan |
+| `content-fixer-refuses-to-weaken-objective.md` | content-fixer | `agent-loops/SKILL.md` §3 guardrail |

@@ -1,8 +1,8 @@
 {
   "name": "acceler-post-sales",
   "displayName": "Acceler Atlas · Delivery",
-  "version": "0.3.0",
-  "description": "Acceler B2B Post-Sales / Delivery orchestrator — session deck (the live hands-on deck an instructor presents during delivery) → pick your use case (standalone Build Lab chooser) → session recap (post-delivery learner recap) → session recap report (post-delivery stakeholder analytics). Companion to acceler-presales (displayed as Acceler Atlas) in the same repo/marketplace; install both, or just this one if you only need delivery-side artifacts.",
+  "version": "0.4.1",
+  "description": "Acceler B2B Post-Sales / Delivery orchestrator — session deck (the live hands-on build-lab HTML deck) → live-session-deck-builder (the lecture-style native-PPTX live-class deck, learned from a real reference deck's template) → pick your use case (standalone Build Lab chooser) → session recap (post-delivery learner recap) → session recap report (post-delivery stakeholder analytics). Companion to acceler-presales (displayed as Acceler Atlas) in the same repo/marketplace; install both, or just this one if you only need delivery-side artifacts.",
   "author": {
     "name": "Utkarsh Raj",
     "email": "utkarsh@interviewkickstart.com"
