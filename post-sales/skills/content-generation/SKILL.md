@@ -16,10 +16,12 @@ metadata:
 ```
 Deal closes
   -> Discovery Checklist (re-run inside post-sales, produces the Facts Sheet)
+  -> Onboarding Form (collects fresh info from learners, incl. the lead-only section when applicable)
   -> Deep Research (builds on the Facts Sheet + onboarding form + transcripts + emails + precedent)
   -> Lesson Plan (first generated artifact, the day-by-day skeleton everything else builds against)
-  -> Slides / Demo / MCQ / Assignment / Project (generated from the Lesson Plan + Deep Research)
-  -> Review (agent-loops mechanics, unchanged)
+  -> Instructor Finalization (day-by-day roster, matched against the Lesson Plan)
+  -> Slides (Utkarsh's) / Demo / MCQ / Assignment / Project / Hands-On Guide / Orientation / Closing Ceremony
+  -> Review, per artifact (agent-loops mechanics) then the full-session content-review bundle (§6)
 ```
 
 A generation skill never invents its way around a missing upstream stage. If Deep Research hasn't run yet, say so and stop, don't generate a Lesson Plan against guessed context. Same discipline `discovery-fit-review` already applies to the Facts Sheet.
