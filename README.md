@@ -35,13 +35,29 @@ Once the deal closes, **`acceler-post-sales`** (separate plugin, same repo) pick
 ```
 Deal closed → program delivery begins
    ↓
-/acceler-post-sales:session-deck         →  live DELIVERY deck an instructor presents (per session day)
+/acceler-post-sales:session-deck                →  live DELIVERY deck, build-lab/VM-setup arc (HTML)
+/acceler-post-sales:live-session-deck-builder   →  live DELIVERY deck, lecture-style concept-teaching PPTX (learned from a real reference deck)
    ↓
 /acceler-post-sales:pick-use-case        →  standalone "pick your use case" Build Lab chooser
    ↓
 /acceler-post-sales:session-recap        →  post-delivery LEARNER recap (per session day)
 /acceler-post-sales:session-recap-report →  post-delivery STAKEHOLDER report (per session day)
 ```
+
+Separately, a **content-review gate** — 16 review agents that check delivery content before it ships to a
+client or cohort, independent of who or what generated it:
+
+```
+/acceler-post-sales:content-review   →  runs every applicable single-artifact reviewer (deck, code-demo,
+                                         mcq, assignment, project, hands-on-guide, lesson-plan), then
+                                         cross-artifact coherence + audience-fit — produces a
+                                         ✅ Approve / 💬 Comment / 🔴 Request Changes tier (a recommendation
+                                         for human sign-off, never an auto-ship)
+```
+
+Each single-artifact reviewer also runs standalone (`/acceler-post-sales:deck-review`,
+`/acceler-post-sales:mcq-review`, etc. — full list under "Agents," below) for fast feedback right after one
+artifact is generated, without waiting on the rest of the bundle.
 
 > Slash commands are namespaced by plugin: `/acceler-presales:<command>` or `/acceler-post-sales:<command>`.
 
@@ -65,10 +81,19 @@ Deal closed → program delivery begins
 
 ### `acceler-post-sales` (`post-sales/` subdirectory) — "Acceler Atlas · Delivery"
 - **Skills** (`post-sales/skills/`)
-  - `live-session-deck/` — post-sales live delivery deck (4-movement arc · 15 slide types)
+  - `live-session-deck/` — post-sales live delivery deck, build-lab/VM-setup arc (HTML, 4-movement arc · 15 slide types)
+  - `live-session-deck-builder/` — post-sales live delivery deck, lecture-style native PPTX (concept slides, demos, quizzes, breaks) — learns a reusable template from a real reference "Live Class Slides" deck (`extract_template.py` + `build_live_session_pptx.py`), one `SKILL.md` addendum per registered template under `templates/`
   - `build-lab-picker/` — standalone "pick your use case" page for a Build Lab, pulled out of `live-session-deck`'s inline pick-cards slide (worked reference: `copilot-leadership-lab.vercel.app`)
   - `session-recap/` — post-delivery recap pair: learner-facing `dayN-learner-recap` + stakeholder-facing `dayN-recap-report`, including the data pointers to ask for upfront and both artifacts' design systems
-- **Commands** (`post-sales/commands/`) — `session-deck`, `pick-use-case`, `session-recap`, `session-recap-report`
+  - **Content-review skills** (`deck-review/`, `code-demo-review/`, `mcq-review/`, `assignment-review/`, `project-review/`, `hands-on-guide-review/`, `lesson-plan-review/`, `discovery-fit-review/`, `onboarding-form-review/`, `orientation-review/`, `closing-ceremony-review/`, `session-recap-review/`, `impact-report-review/`, `audience-fit-review/`, `content-review/`) — one rubric per artifact type, every rule grounded in a real Acceler program document or a real cited finding, not assumed. Shared mechanics (bounded human-gated fix loop, a baseline quality bar, a prose-quality/anti-AI-tell check verified against external research, universal discovery-fidelity checking) all live in `agent-loops/`, not duplicated per skill.
+- **Agents** (`post-sales/agents/`) — 16 real, plugin-namespaced subagents (`acceler-post-sales:<name>`), not generic agents handed a prompt. Every reviewer ships with `disallowedTools: Write, Edit` — it cannot touch a file even if instructed to. Only `content-fixer` can edit anything, and only with one human-approved finding at a time.
+  - Single-artifact: `deck-reviewer`, `code-demo-reviewer`, `mcq-reviewer`, `assignment-reviewer`, `project-reviewer`, `hands-on-guide-reviewer`, `lesson-plan-reviewer`
+  - Pipeline-stage gates: `discovery-fit-reviewer`, `onboarding-form-reviewer`, `orientation-reviewer`, `closing-ceremony-reviewer`
+  - Post-delivery: `session-recap-reviewer`, `impact-report-reviewer`
+  - Bundle-level + fixer: `coherence-reviewer` (cross-artifact consistency), `audience-fit-reviewer` (calibration to the real cohort), `content-fixer` (the only agent with edit access)
+  - `post-sales/evals/` — 18 golden test cases, one per agent, run against real content (not just written) — see `evals/README.md` for the manual-run protocol (Claude Code's native `claude plugin eval` is gated to early access on this account)
+  - `post-sales/generation-learnings/` — the generation-side half of the improvement loop; ready-to-wire infrastructure, deliberately empty until a real generation agent connects to it
+- **Commands** (`post-sales/commands/`) — `session-deck`, `live-session-deck-builder`, `pick-use-case`, `session-recap`, `session-recap-report`, `content-review`, plus one per single-artifact reviewer (`deck-review`, `code-demo-review`, `mcq-review`, `assignment-review`, `project-review`, `hands-on-guide-review`, `lesson-plan-review`, `discovery-fit-review`, `onboarding-form-review`, `orientation-review`, `closing-ceremony-review`, `session-recap-review`, `impact-report-review`, `audience-fit-review`)
 
 ## Install (from the public GitHub marketplace)
 
@@ -146,10 +171,27 @@ Then run any of:
 /acceler-presales:pricing         Compute the cost stack (INR India · USD US strict)
 /acceler-presales:instructors     Rank SMEs from the indexed pool
 
-/acceler-post-sales:session-deck         Generate the live delivery deck (HTML)
+/acceler-post-sales:session-deck               Generate the live delivery deck, build-lab/VM-setup arc (HTML)
+/acceler-post-sales:live-session-deck-builder  Generate the live delivery deck, lecture-style concept-teaching (native PPTX)
 /acceler-post-sales:pick-use-case        Generate the standalone "pick your use case" Build Lab page
 /acceler-post-sales:session-recap        Generate the post-delivery learner recap (HTML)
 /acceler-post-sales:session-recap-report Generate the post-delivery stakeholder report (HTML)
+
+/acceler-post-sales:content-review        Run the full content-review gate (all applicable reviewers + coherence + audience-fit)
+/acceler-post-sales:deck-review            Review one deck standalone
+/acceler-post-sales:code-demo-review       Review one notebook/code lab/no-code build guide standalone
+/acceler-post-sales:mcq-review             Review one MCQ set standalone
+/acceler-post-sales:assignment-review      Review one assignment standalone
+/acceler-post-sales:project-review         Review one capstone/multi-milestone project standalone
+/acceler-post-sales:hands-on-guide-review  Review one tool-access/setup guide standalone
+/acceler-post-sales:lesson-plan-review     Review one Lesson Plan standalone
+/acceler-post-sales:discovery-fit-review   Score a discovery brief + extract the Discovery Facts Sheet
+/acceler-post-sales:onboarding-form-review Review one Learner Onboarding Form standalone
+/acceler-post-sales:orientation-review     Review one program Orientation deck standalone
+/acceler-post-sales:closing-ceremony-review Review one program Closing Ceremony deck standalone
+/acceler-post-sales:session-recap-review   Review one learner-facing recap standalone
+/acceler-post-sales:impact-report-review   Review one stakeholder-facing impact report standalone
+/acceler-post-sales:audience-fit-review    Review a bundle's fit to the real cohort standalone
 ```
 
 Each command takes a brief / notes / topic as input. The orchestrator (`full-cycle`) chains them with appropriate handoffs and review gates.
@@ -186,4 +228,4 @@ cd "$HOME/acceler-presales-plugin" && git add -A && git commit -m "KG refresh" &
 
 ---
 
-*acceler-presales (Acceler Atlas) v0.6.1 · acceler-post-sales (Acceler Atlas · Delivery) v0.2.0 · Aug 2026 · Utkarsh Raj · Acceler / Interview Kickstart B2B · [CHANGELOG](CHANGELOG.md) · [CONTRIBUTING](CONTRIBUTING.md)*
+*acceler-presales (Acceler Atlas) v0.6.3 · acceler-post-sales (Acceler Atlas · Delivery) v0.4.2 · Sept 2026 · Utkarsh Raj · Acceler / Interview Kickstart B2B · [CHANGELOG](CHANGELOG.md) · [CONTRIBUTING](CONTRIBUTING.md)*
