@@ -22,6 +22,7 @@ Deal closes
   -> Instructor Finalization (day-by-day roster, matched against the Lesson Plan)
   -> Slides (Utkarsh's) / Demo / MCQ / Assignment / Project / Hands-On Guide / Orientation / Closing Ceremony
   -> Review, per artifact (agent-loops mechanics) then the full-session content-review bundle (§6)
+  -> Dry Run + Dry-Run Feedback (rehearsal, findings routed through the same fix loop) -> Live Delivery
 ```
 
 A generation skill never invents its way around a missing upstream stage. If Deep Research hasn't run yet, say so and stop, don't generate a Lesson Plan against guessed context. Same discipline `discovery-fit-review` already applies to the Facts Sheet.
@@ -35,6 +36,8 @@ A generation skill never invents its way around a missing upstream stage. If Dee
 Not every input exists for every engagement. Each generation skill's own SKILL.md states which of its inputs are mandatory (generation stops and asks if missing) versus best-effort (used if present, the gap is stated plainly if not, never invented). This mirrors the MUST/SHOULD/NICE tiering `discovery-checklist` already uses, three tiers, not a binary required/optional.
 
 For Deep Research specifically: mandatory inputs are the saved Discovery Facts Sheet (`Outputs/[Client]/discovery-facts-sheet.md`, from stage 1), the pre-sales proposal, and the learner onboarding form. Best-effort inputs are discovery call transcripts, the team-lead discovery form, client emails, and precedent from similar past engagements, same client or a similar one, B2B or B2C. See `deep-research/SKILL.md` for the full detail.
+
+**A precedent engagement is a best-effort input for every generation skill, not only Deep Research.** Before generating from scratch, check `post-sales/knowledge/engagement-catalog.md`, a plain list of what real content already exists per past engagement. If whoever's running the generation hasn't already named a precedent client for this one (e.g. "follow LVT's project shape"), ask rather than assume no precedent applies. This is manual lookup for now, not an automatic matcher, see the catalog's own §Status.
 
 ---
 

@@ -24,7 +24,7 @@ Follows `content-generation/SKILL.md` §2's tiering, mandatory versus best-effor
 - Discovery call transcripts.
 - The team-lead discovery form, where the engagement has one.
 - Client emails and other communications, ask the user where these live if they want them included, don't assume they're findable on their own.
-- Precedent: similar past work with this client, or a similar client, B2B or B2C.
+- Precedent: similar past work with this client, or a similar client, B2B or B2C. Check `post-sales/knowledge/engagement-catalog.md` first, it lists what real content already exists per past engagement (audience, tools, which content types, where the files sit). If whoever's running this hasn't already named a specific precedent client, ask which past engagement this one is closest to rather than assuming none exists.
 
 ---
 
@@ -36,7 +36,7 @@ A short, structured brief, not a data dump, shaped around what actually gets bui
 - **Day-by-day themes**, organized by day where the sources support it, not just a flat list of everything discussed.
 - **Concrete use cases and examples**, pulled from this client's actual business, transcripts, or emails, never generic placeholders.
 - **Tools and constraints**, carried forward from the Facts Sheet, not re-derived.
-- **Precedent notes**, what worked in similar past engagements, if any exist.
+- **Precedent notes**, what worked in similar past engagements, if any exist, sourced from `post-sales/knowledge/engagement-catalog.md` plus whatever precedent the human running this named explicitly.
 - **Gaps**, stated honestly wherever a best-effort source wasn't available, not filled in with something plausible-sounding.
 
 ---
