@@ -58,6 +58,8 @@ Reference the matching file in `generation-learnings/<type>.md` via the `skills:
 
 Once a generation skill produces its artifact, it hands off to the matching reviewer (`lesson-plan-review`, `deck-review`, `mcq-review`, and so on) using `agent-loops`'s fix-loop mechanics unchanged. Generation doesn't define its own review process, it uses the one that already exists.
 
+**This is per-artifact, fast feedback right after one thing is generated, it is not the final gate.** Once every content type this engagement actually needs (per the selectivity note in §1) has been generated and individually reviewed, run `acceler-post-sales:content-review` once for the whole session bundle, it adds cross-artifact coherence and audience-fit checks no single-type reviewer can do alone, and produces the actual ship/don't-ship verdict. Don't treat the last individual artifact's Approve as the session being done, the bundle pass is still required before anything goes to a client or cohort.
+
 ---
 
 ## 6a. State the loop explicitly, don't just inherit it silently
