@@ -24,6 +24,8 @@ Deal closes
 
 A generation skill never invents its way around a missing upstream stage. If Deep Research hasn't run yet, say so and stop, don't generate a Lesson Plan against guessed context. Same discipline `discovery-fit-review` already applies to the Facts Sheet.
 
+**Content creation is selective per engagement, not exhaustive.** Not every engagement needs every content type. If this one only needs slides and an MCQ set, build and loop just those two, don't generate demo, assignment, and project just because the skills exist. Per Utkarsh's own worked example: deep research gathers the detail once, then whichever content types this specific engagement actually needs get built, reviewed, and looped, nothing more.
+
 ---
 
 ## 2. Mandatory versus best-effort inputs
@@ -58,10 +60,18 @@ Once a generation skill produces its artifact, it hands off to the matching revi
 
 ---
 
+## 6a. State the loop explicitly, don't just inherit it silently
+
+*Utkarsh's own instruction, 2026-09-11: before finalizing a generation skill's summary, it has to say plainly that this loops with the reviewer's feedback over time.* Referencing `agent-loops` and `generation-learnings` in the `skills:` frontmatter is necessary but not sufficient on its own, each generation skill's own description writes this out in its own words: that its output gets reviewed, that findings feed `generation-learnings/<type>.md` once the promotion rule is met, and that this is expected to make the *next* generated artifact of that type better, not just fix the one instance in front of you. The architecture cannot end at create, review, get feedback, fix it manually, that's a one-off, not a loop, say so in the skill itself so it isn't left implicit.
+
+---
+
 ## 7. Checklist
 - [ ] Every input tiered mandatory / best-effort / not applicable, not a binary required/optional
 - [ ] Missing upstream stage (no Facts Sheet, no Deep Research) means stop and ask, never invent
+- [ ] Only the content types this engagement actually needs get built, not every type by default
 - [ ] Mechanically checkable facts (durations, counts, cross-references) self-verified before handoff
 - [ ] `agent-loops` referenced in `skills:` frontmatter, its §2a / §2a-1 / §2b rules not restated
 - [ ] Matching `generation-learnings/<type>.md` referenced in `skills:` frontmatter
 - [ ] Output handed to the existing matching reviewer, no bespoke review process invented
+- [ ] The skill's own description states the generation-review loop explicitly, per §6a, not left implicit

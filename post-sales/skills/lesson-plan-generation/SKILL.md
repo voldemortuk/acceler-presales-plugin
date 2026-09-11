@@ -1,6 +1,6 @@
 ---
 name: lesson-plan-generation-skills-acceler-facilitator-table
-description: "Generates the internal, minute-level facilitator planning table (Topic/Objective/Subtopic/Time/Flow/Demo/Tools per row, one tab per day) that precedes content creation. Builds from deep research and the pre-sales proposal, self-checks its own timing math before handoff, and routes to the existing lesson-plan-reviewer for the actual review pass. First content-generation artifact in the pipeline, everything after it (slides, demo, MCQ, assignment, project, and instructor finalization) reads its day-by-day structure."
+description: "Generates the internal, minute-level facilitator planning table (Topic/Objective/Subtopic/Time/Flow/Demo/Tools per row, one tab per day) that precedes content creation. Builds from deep research and the pre-sales proposal, self-checks its own timing math before handoff, and routes to the existing lesson-plan-reviewer for the actual review pass. First content-generation artifact in the pipeline, everything after it (slides, demo, MCQ, assignment, project, and instructor finalization) reads its day-by-day structure. This loops with lesson-plan-reviewer over time, not just once: its findings feed generation-learnings/lesson-plan.md once the promotion rule is met, and are expected to make the next generated Lesson Plan better, not just fix the one in front of you."
 metadata:
   type: reference
 ---
@@ -52,9 +52,11 @@ Per `content-generation/SKILL.md` §3, and directly from the seeded candidate in
 
 ---
 
-## 5. Handoff
+## 5. Handoff, and this is a loop, not a one-time pass
 
 Once the self-check in §3 passes, hand off to the existing `acceler-post-sales:lesson-plan-review` for the actual review pass, per `content-generation/SKILL.md` §6. This skill does not define its own review process. Reference `generation-learnings/lesson-plan.md` and `agent-loops` (for §2a baseline quality bar and §2a-1 prose quality, this is a facilitator-facing document, the same writing-quality bar still applies) via the `skills:` frontmatter field.
+
+This connection is not a one-off handoff. Per `content-generation/SKILL.md` §6a, when the same rule fails three or more times across different generated Lesson Plans, per `generation-learnings/README.md`'s promotion rule, that becomes a directive in `generation-learnings/lesson-plan.md`, and this skill is expected to actually follow it on every future run, not just this one. Fixing the plan in front of you and stopping there is not the goal, the next Lesson Plan generated should already avoid whatever pattern kept failing.
 
 ---
 
