@@ -30,7 +30,7 @@ A generation skill never invents its way around a missing upstream stage. If Dee
 
 Not every input exists for every engagement. Each generation skill's own SKILL.md states which of its inputs are mandatory (generation stops and asks if missing) versus best-effort (used if present, the gap is stated plainly if not, never invented). This mirrors the MUST/SHOULD/NICE tiering `discovery-checklist` already uses, three tiers, not a binary required/optional.
 
-For Deep Research specifically: mandatory inputs are the pre-sales proposal and the learner onboarding form. Best-effort inputs are discovery call transcripts, the team-lead discovery form, client emails, and precedent from similar past engagements, same client or a similar one, B2B or B2C.
+For Deep Research specifically: mandatory inputs are the saved Discovery Facts Sheet (`Outputs/[Client]/discovery-facts-sheet.md`, from stage 1), the pre-sales proposal, and the learner onboarding form. Best-effort inputs are discovery call transcripts, the team-lead discovery form, client emails, and precedent from similar past engagements, same client or a similar one, B2B or B2C. See `deep-research/SKILL.md` for the full detail.
 
 ---
 
