@@ -31,6 +31,8 @@ The 33 questions, 6 sections, and MUST / SHOULD / NICE tags already exist in `sk
 
 Audience (who, how many, technical level), the stated 3-month success metric, tool and access constraints, timeline and format constraints, any regulated-data constraints. Extract verbatim where possible, don't paraphrase into something vaguer. The 3-month success metric is the single most load-bearing fact, same rule as the pre-sales version, flag it specifically if it's missing even when the overall score clears 80%.
 
+**Don't confuse this with an end-of-program learning metric.** Confirmed happening on a real test run (e& AI Builder Low Code, 2026-09-13): a proposal's own "Success Metrics" section (pre/post assessment improvement, capstone completion rate, session feedback scores) measures whether the training itself worked, not what changed in the client's business afterward. A true 3-month success metric is a stated business outcome tracked after the program ends, something like "reduce ticket resolution time by X%" or "Y% of participants ship an agent to production." If the source material only has end-of-program training metrics, the 3-month metric is genuinely missing, log it as a gap, don't mark it present just because some kind of success metric exists.
+
 ---
 
 ## 4. Where it actually gets saved
