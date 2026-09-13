@@ -17,6 +17,8 @@ The 33 questions, 6 sections, and MUST / SHOULD / NICE tags already exist in `sk
 
 **One adjustment for the post-sales context.** By the time this runs, the deal is signed. A few MUST items from the original checklist, budget range, who approves, when they decide, are usually already resolved by that point. Mark these as "confirmed from proposal" rather than re-scoring them as open gaps, but still record the actual figures, later stages (pricing already used them, and they're useful precedent for deep research) shouldn't have to go hunting for them again.
 
+**Self-check pricing figures before presenting them.** Found on the same real test run: a per-person price and a cohort total were pulled from different columns of the same pricing sheet (one list price, one discounted) and presented together as if they were paired, per-person × headcount didn't actually equal the stated cohort total. Before stating a per-person price alongside a cohort or program total, multiply them out and confirm they agree, same self-verification discipline `content-generation/SKILL.md` §3 already requires for mechanically checkable facts like duration math.
+
 ---
 
 ## 2. The gate, same thresholds discovery-fit-review already set
