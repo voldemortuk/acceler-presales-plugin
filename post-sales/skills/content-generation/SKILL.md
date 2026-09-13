@@ -31,6 +31,12 @@ A generation skill never invents its way around a missing upstream stage. If Dee
 
 ---
 
+## 1a. Where `Outputs/` actually lives
+
+`Outputs/[Client]/` is always anchored to this plugin's own root, `post-sales/Outputs/[Client]/`, never relative to wherever an input file (a proposal, a reference doc) happens to live on disk. Those input files can sit anywhere, a shared drive folder, a client-specific directory, anything, but generated output always lands in one predictable place inside the plugin itself, the same place every other post-sales skill already reads from and writes to. A generation skill that infers the save location from an input file's own folder is not following this convention, even if it technically nests something under a folder named "Outputs."
+
+---
+
 ## 2. Mandatory versus best-effort inputs
 
 Not every input exists for every engagement. Each generation skill's own SKILL.md states which of its inputs are mandatory (generation stops and asks if missing) versus best-effort (used if present, the gap is stated plainly if not, never invented). This mirrors the MUST/SHOULD/NICE tiering `discovery-checklist` already uses, three tiers, not a binary required/optional.

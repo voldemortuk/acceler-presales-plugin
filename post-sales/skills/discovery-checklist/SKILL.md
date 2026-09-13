@@ -35,7 +35,7 @@ Audience (who, how many, technical level), the stated 3-month success metric, to
 
 ## 4. Where it actually gets saved
 
-`Outputs/[Client]/discovery-facts-sheet.md`, inside the engagement's own folder under `Outputs/`. This is a new convention, starting here, every post-sales artifact for a given engagement (this sheet, the deep research doc, the lesson plan, and everything generated after it) lives under that same `Outputs/[Client]/` folder rather than as flat files, since post-sales produces a whole family of documents per engagement, not just one.
+`post-sales/Outputs/[Client]/discovery-facts-sheet.md`, inside the engagement's own folder under this plugin's own `Outputs/`, per `content-generation/SKILL.md` §1a, never relative to wherever the proposal or other input files happen to live. This is a new convention, starting here, every post-sales artifact for a given engagement (this sheet, the deep research doc, the lesson plan, and everything generated after it) lives under that same `post-sales/Outputs/[Client]/` folder rather than as flat files, since post-sales produces a whole family of documents per engagement, not just one.
 
 ---
 
