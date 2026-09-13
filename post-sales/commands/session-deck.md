@@ -20,7 +20,13 @@ $ARGUMENTS
    - **Build** — Phase divider · Pattern stages (Basic → Intermediate → Advanced) · "Pick your use case" 2-card chooser · Handoff to lab
    - **Close** — Dark statement slide with kicker + big line + CTA
 
-## Design tokens (lock these — same as the e& PPF reference)
+## Which reference deck to copy
+
+Corrected 2026-09-14: this used to hardcode "e& PPF" as the reference regardless of client, which is wrong for anyone but that exact engagement, and was even wrong the one time it coincidentally matched on client name, "e& PPF" is Yettel/CETIN in Hungary, a different company from e& (UAE), sharing only a name prefix.
+
+Check `post-sales/knowledge/engagement-catalog.md` first. Use a real deck from the *same actual client* if one exists there. Otherwise fall back to `live-session-deck/SKILL.md`'s own stated default (`acceler-nucleus-session-deck/`). Never hardcode a specific past client's reference into this command.
+
+## Design tokens (lock these, same as whichever reference deck was actually chosen above)
 
 ```
 --bg:        #FAF7F1   /* cream page */
