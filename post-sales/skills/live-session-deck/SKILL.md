@@ -21,7 +21,7 @@ Every live session deck follows the same 4-movement arc:
 
 1. **Open** — cover · instructor intro · how the session runs · "pop into the chat" warm-up · "optimise your experience" house rules (3 cards)
 2. **Set up** — phase divider · setup overview (split layout: 2 cards + URL card + checklist) · 5 numbered VM/tool steps (each = browser screenshot + 1-line banner) · ecosystem overview (5-card grid)
-3. **Build** — phase divider · pattern stages (Basic → Intermediate → Advanced) · pick-your-use-case (2 cards) · handoff to lab
+3. **Build** — phase divider · pattern stages (Basic → Intermediate → Advanced, wayfinding only) · the actual concept-teaching content per §3.16 (this is most of the movement's slide count on a real delivered day, not the pattern-stages slide) · pick-your-use-case (2 cards, only where a real either/or choice exists) · handoff to lab
 4. **Close / handoff** — dark statement slide with kicker + big line + CTA
 
 Total slides typically **15–25** per session. Cover, instructor, phase dividers, and statement slides are framing — never rebuild them. Only content slides change per client.
@@ -233,6 +233,31 @@ Dark navy gradient. Centered. Kicker + big line + sub + CTA. Use as a phase hand
 
 Every slide MUST have a `data-notes="…"` attribute. Notes are toggled by `.` key. Format: 1–3 sentences, written as direct address to the instructor (not the audience). Include cues like "Don't dwell — name them, then move." or "Keep this to ~60 seconds."
 
+### 3.16 Concept-teaching content, the substance of the Build movement, not just its wayfinding
+
+**Found missing entirely, confirmed against a real test run (e& AI Builder Low Code, 2026-09-14).** A generated deck had 17 slides and zero actual teaching content, cover through handoff, nothing that explains a concept. Checked seven real, actually-delivered decks (e& Low Code Days 2/3/4, LVT Days 2/3/4) to see what was missing: every one runs 37-85 slides, and nearly all of that is teaching content, not framing. §3.10 (chapter rail, Basic→Intermediate→Advanced) and §3.11 (pick cards) are real and still correct, but they are wayfinding inside this content, not the content itself. A real deck's "Build" movement is dominated by a repeating block:
+
+```
+[mini-agenda: numbered topics, e.g. "#1 RAG Fundamentals · #2 Vector DBs · #3 Case Study"]
+  → concept-intro (a relatable question or everyday example, no jargon yet)
+  → definition slide(s)
+  → comparison/tradeoff slide, where a real alternative exists
+  → component-breakdown (one part of a system per slide or per bullet block)
+  → worked example, often reused and progressively revealed across 2-5 slides
+     (real example, e& Day 3: the same arithmetic problem shown first as plain
+     few-shot, then re-shown with reasoning spelled out as Chain-of-Thought,
+     then "Even fewer examples work!" as the payoff line)
+  → [optional] quiz + quiz-solution pair, 4-option
+  → live demo slide (kicker "LIVE DEMO" + what it does + link out)
+[repeat for the next concept]
+```
+
+**This is a menu, not a checklist.** Not every concept needs all of it, a simple concept might be one definition slide, a genuinely load-bearing one (RAG, in the real e& example) might walk concept-intro through worked-example across six or seven slides. Judge weight by how central the concept is to the day's actual build, not by mechanically running every concept through every slide type.
+
+**Expand the Lesson Plan's topic, don't just relabel it.** The Lesson Plan's Subtopic and Flow of Examples columns correctly name the right concepts (confirmed: e& Day 1's real Subtopic column already says "Instructional / Role-Based / Few-Shot / Chain-of-Thought prompts", matching exactly what real decks teach), but naming a concept and teaching it are different jobs, the Lesson Plan is deliberately scoped as a facilitator schedule, not a content-authoring document, and shouldn't be asked to carry full slide text. That expansion, topic name to real definition, real comparison, real worked example grounded in this cohort's actual tools and audience, happens here, in deck generation, nowhere else in the pipeline does it.
+
+**Tone and register come from the same reference deck already chosen for tokens, never a third, invented voice.** Confirmed across all seven real decks: e& (Low Code, business/ops audience) teaches plainly, everyday relatable examples ("help me write an email"), few typographic flourishes. LVT (Pro Code, engineering audience) uses a heavier kicker-label system (ALL-CAPS eyebrow + bold headline, e.g. "THE METHOD", "DEFINITION") and cites real outside research with real statistics. Both are correct for their audience, neither is the "right" default. Per §5's reference-deck selection (same-client precedent first, Nucleus otherwise), pull the teaching voice from that same chosen reference, don't default to a generic tone independent of it.
+
 ---
 
 ## 4. The JS controller (40 lines, copy verbatim)
@@ -389,6 +414,8 @@ Open `index.html` in any modern browser. No build step. No npm. No bundle. Hosts
 - [ ] Keyboard nav works: arrows · space · home/end · `.` notes · `F` fullscreen
 - [ ] Touch swipe works (50px threshold)
 - [ ] Deck plays through end-to-end without errors in console
+- [ ] Every Lesson Plan concept that's load-bearing for the day's build is actually taught per §3.16 (definition, comparison, or worked example as weight warrants), not just named as a pattern-stage label
+- [ ] Teaching tone matches whichever reference deck was chosen per §5, not a generic voice invented independently of it
 - [ ] PPTX twin (`PPTX_Deck_Skills.md`) consumes the same `DECK` data object
 
 ---
