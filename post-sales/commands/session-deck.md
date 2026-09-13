@@ -12,7 +12,7 @@ $ARGUMENTS
 
 ## How to build
 
-1. Read `skills/live-session-deck/SKILL.md` for the exact slide-type library, design tokens, JS controller, and quality checklist, including §3.16 (concept-teaching content) and §5 (reference-deck selection).
+1. Read `skills/live-session-deck/SKILL.md` for the exact slide-type library, design tokens, JS controller, and quality checklist, including §2.1a (Nucleus's real palette and fonts, the actual default, not §2.1-2.2's Hungary tokens), §3.16 (concept-teaching content) and §3.17 (Nucleus's real component markup, use this instead of writing new HTML from a description), and §5 (reference-deck selection).
 2. For a post-sales delivery day, the primary source is the approved `post-sales/Outputs/[Client]/lesson-plan.xlsx` for that day's tab, plus `post-sales/Outputs/[Client]/instructor-roster.md` for that day's instructor. If a pre-sales proposal was generated earlier in this session instead (`/acceler:proposal`), use its Day 1 / Day 2 / … data. Keep HTML and any future PPTX in sync via the same content either way.
 3. The deck follows a **4-movement arc**:
    - **Open** — Cover · Instructor intro · "How the next 2.5 hrs run" · Pop into chat warm-up · "Optimise your experience" 3-card rules

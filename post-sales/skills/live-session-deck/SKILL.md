@@ -30,7 +30,44 @@ Total slides typically **15–25** per session. Cover, instructor, phase divider
 
 ## 2. Design tokens (lock these)
 
-### 2.1 Palette
+**Correction, 2026-09-14.** The palette and type scale below (§2.1-2.2) were extracted from the Hungary deck, not Nucleus, despite Nucleus being §1's stated fixed default. That mismatch is exactly why a generated deck ended up looking generic even after correctly defaulting to Nucleus, there was no real Nucleus palette documented anywhere to actually use. §2.1a below is Nucleus's real, confirmed palette, pulled directly from its file. **Use §2.1a by default, since Nucleus is the default reference.** Use §2.1 only on the specific occasions a human explicitly points this run at the Hungary deck (or another cream/navy reference) instead.
+
+### 2.1a Palette (Nucleus, the actual default reference)
+
+```
+--bg-primary:    #f8fafc   /* page background, cool slate, not cream */
+--bg-secondary:  #f1f5f9
+--bg-tertiary:   #e2e8f0
+--bg-card:       #ffffff
+--bg-dark:       #0f172a   /* dark slides */
+--bg-dark-card:  rgba(255,255,255,0.04)
+--text-primary:  #0f172a
+--text-secondary:#475569
+--text-muted:    #94a3b8
+--accent:        #2563eb   /* blue, not navy/cyan */
+--accent-hover:  #1d4ed8
+--accent-light:  #eff6ff
+--accent-glow:   rgba(37,99,235,0.15)
+--green:         #16a34a
+--green-light:   #f0fdf4
+--green-border:  #bbf7d0
+--orange:        #ea580c
+--orange-light:  #fff7ed
+--red:           #dc2626
+--red-light:     #fef2f2
+--border:        #e2e8f0
+--border-light:  #f1f5f9
+```
+
+Fonts, also confirmed real, and notably different from §2.2 below, Nucleus uses a serif display face, not a system sans:
+
+```
+--font-display: 'DM Serif Display', Georgia, serif;   /* headings */
+--font-body:    'DM Sans', -apple-system, sans-serif;  /* body text */
+--font-mono:    'JetBrains Mono', monospace;            /* code blocks, §3.17 */
+```
+
+### 2.1 Palette (Hungary, only when a human explicitly picks this reference)
 
 ```
 --bg:            #FAF7F1   /* cream/beige page background */
@@ -55,7 +92,7 @@ Total slides typically **15–25** per session. Cover, instructor, phase divider
 
 Dark slides use a navy gradient: `linear-gradient(135deg,#0F1632 0%,#2D3666 100%)`. Cover uses radial: `radial-gradient(ellipse at 30% 25%,#2D3666 0%,#0A0A1A 100%)`.
 
-### 2.2 Typography
+### 2.2 Typography (Hungary, only when a human explicitly picks this reference)
 
 ```
 --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
@@ -258,6 +295,101 @@ Every slide MUST have a `data-notes="…"` attribute. Notes are toggled by `.` k
 
 **Tone and register come from the same reference deck already chosen for tokens, never a third, invented voice.** Confirmed across all seven real decks: e& (Low Code, business/ops audience) teaches plainly, everyday relatable examples ("help me write an email"), few typographic flourishes. LVT (Pro Code, engineering audience) uses a heavier kicker-label system (ALL-CAPS eyebrow + bold headline, e.g. "THE METHOD", "DEFINITION") and cites real outside research with real statistics. Both are correct for their audience, neither is the "right" default. Nucleus is the fixed default per §1 and §5, always used unless a human explicitly points this run at a different reference for a specific engagement, never inferred automatically. Pull the teaching voice from whichever reference deck is actually in use, Nucleus's own voice by default, don't default to a generic tone independent of it.
 
+### 3.17 Nucleus's real component library, select and fill, never invent new HTML
+
+**Why this section exists.** §3.16 described the concept-teaching pattern in prose. That wasn't enough, a real test run followed the prose correctly but had no actual markup to build from, so it fell back to the generic `card`/`banner` shapes from §3.1-3.15 (themselves extracted from Hungary, not Nucleus) for everything, comparisons, breakdowns, worked examples alike. The result read as flat and repetitive even though the words were accurate. Below is Nucleus's own real component markup, pulled directly from its file. **Pick the component that matches what you're teaching and copy its real structure, changing only the text/values inside it. Never write new slide HTML from a text description when one of these already fits.**
+
+**Pipeline** (a sequential process, steps in order):
+```html
+<div class="pipeline">
+  <div class="pipeline__stage">
+    <div class="pipeline__label">Step 1</div>
+    <div class="pipeline__title">Website</div>
+    <div class="pipeline__desc">Live financial data sources</div>
+  </div>
+  <div class="pipeline__arrow">→</div>
+  <div class="pipeline__stage">
+    <div class="pipeline__label">Step 2</div>
+    <div class="pipeline__title">BeautifulSoup</div>
+    <div class="pipeline__desc">Scrape &amp; clean HTML</div>
+  </div>
+  <!-- repeat pipeline__arrow + pipeline__stage per real step, don't pad to a fixed count -->
+</div>
+```
+Use for: a build sequence (e.g. e& Day 1's Web form → ChatGPT classification → n8n routing → Power Apps display), an architecture flow, any "this happens, then this happens" concept.
+
+**Pitfall card** (a wrong-vs-right comparison, numbered, grid of them):
+```html
+<div class="pitfall-grid">
+  <div class="pitfall-card">
+    <div class="pitfall-card__num">#1</div>
+    <div class="pitfall-card__title">Chunk Size</div>
+    <div class="pitfall-card__wrong">Wrong: chunk_size=500 everywhere</div>
+    <div class="pitfall-card__right">Right: 200-300 for Q&amp;A, 800-1000 for summaries. Wrong size = retrieval that looks right but misses context.</div>
+  </div>
+  <!-- repeat per real pitfall, only as many as are genuinely load-bearing that day -->
+</div>
+```
+Use for: a common mistake worth naming explicitly (the RAG vs fine-tuning framing pattern found in real e& decks fits here too, off-the-shelf vs fine-tuned as a pitfall-shaped tradeoff, not just a plain list).
+
+**Code block** (real syntax-highlighted code, paired with explanatory text, 2-column):
+```html
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
+  <div>
+    <div class="text-md">An embedding is a <strong>high-dimensional numerical representation</strong> of text.</div>
+  </div>
+  <div class="code-block">
+<span class="cm"># What an embedding looks like</span>
+<span class="kw">from</span> langchain_community.embeddings <span class="kw">import</span> <span class="fn">OpenAIEmbeddings</span>
+
+embed = <span class="fn">OpenAIEmbeddings</span>()
+vector = embed.<span class="fn">embed_query</span>(<span class="str">"home loan rate"</span>)
+  </div>
+</div>
+```
+Use for: any concept with a real, runnable snippet, n8n JSON config, a Python call, a prompt template. `cm`/`kw`/`fn`/`str` are the token classes, comment/keyword/function/string. Write real, correct code for this cohort's actual tools, never a fake illustrative snippet.
+
+**Metrics** (stat callouts, 3-4 in a row):
+```html
+<div class="metrics">
+  <div class="metric">
+    <div class="metric__num">70.6%</div>
+    <div class="metric__label">Attendance</div>
+    <div class="metric__desc">12 of 17 invited learners joined the live session</div>
+  </div>
+  <!-- repeat per real metric -->
+</div>
+```
+Use for: a real number worth landing (a benchmark, a measured improvement), not for decorative stats. Every number here must trace to something real, never invented to fill the shape.
+
+**Query cards** (example questions/prompts to test or explore a concept):
+```html
+<div class="query-cards">
+  <div class="query-card">
+    <div class="query-card__icon">?</div>
+    <div>
+      <div class="query-card__label">Concept</div>
+      <div class="query-card__text">"What is an index fund and how does it differ from an actively managed fund?"</div>
+    </div>
+  </div>
+  <!-- repeat, vary the label per card (Concept / Mechanics / Definition / Comparison, etc.) -->
+</div>
+```
+Use for: worked-example prompts a learner should actually try, grounded in this cohort's real tools and domain.
+
+**Stack items** (icon + name + description, tech list):
+```html
+<div class="stack-grid">
+  <div class="stack-item">
+    <div class="stack-item__icon">🕸️</div>
+    <div class="stack-item__name">BeautifulSoup</div>
+    <div class="stack-item__desc">Web scraping &amp; HTML parsing</div>
+  </div>
+  <!-- repeat per real tool this cohort actually uses -->
+</div>
+```
+This is Nucleus's richer version of §3.9's ecosystem grid, prefer this one over §3.9 when building against Nucleus (the default), reserve §3.9 for when a human has explicitly picked a different reference.
+
 ---
 
 ## 4. The JS controller (40 lines, copy verbatim)
@@ -415,7 +547,8 @@ Open `index.html` in any modern browser. No build step. No npm. No bundle. Hosts
 - [ ] Touch swipe works (50px threshold)
 - [ ] Deck plays through end-to-end without errors in console
 - [ ] Every Lesson Plan concept that's load-bearing for the day's build is actually taught per §3.16 (definition, comparison, or worked example as weight warrants), not just named as a pattern-stage label
-- [ ] Teaching tone matches whichever reference deck was chosen per §5, not a generic voice invented independently of it
+- [ ] Teaching content uses §3.17's real Nucleus components (pipeline, pitfall-card, code-block, metrics, query-cards, stack-items), not the generic `card`/`banner` shapes reused for everything
+- [ ] Palette and fonts actually match §2.1a (Nucleus), not the Hungary tokens in §2.1-2.2, unless a human explicitly chose Hungary as the reference this run
 - [ ] PPTX twin (`PPTX_Deck_Skills.md`) consumes the same `DECK` data object
 
 ---
