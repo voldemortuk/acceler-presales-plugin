@@ -25,6 +25,8 @@ Any two figures that should multiply or sum to a third (per-person price × head
 
 A real spreadsheet or tracker often has section headers that change what a row means, "Not Selected," "Opted Out," "Draft," "Superseded," "Tentative." Treating every row as equally valid produces wrong totals. Caught when a 16-person confirmed roster became "30 participants" by summing rows under "Not Selected" and "Opted Out" headers along with the real list.
 
+Same failure shape, different sheet: a real name pulled from a tracker isn't automatically playing the role it's being cited for. Caught when three real names credited for "Day N Development" (who wrote the curriculum) got presented as "the instructors who built and delivered it," when the same tracker had a separate tab naming three entirely different people as the actual live delivery instructors. Check what role a row's own label actually says before naming someone by it.
+
 ## 4. Output lands in the right place
 
 Every generated artifact saves to `post-sales/Outputs/[Client]/...`, per `content-generation/SKILL.md` §1a, regardless of where the input files happen to live on disk. Caught twice, once from the unstated convention, once from a run finding an old wrong-location file and updating it in place instead of moving to the correct one.

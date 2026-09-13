@@ -35,6 +35,14 @@ Output one instructor per day (or per half-day, if the Lesson Plan's tabs split 
 
 ---
 
+## 3a. Checking real precedent trackers, don't conflate roles
+
+Good instinct, worth doing: if this exact program has run before, a real internal ops tracker for that prior cohort is a stronger signal than a fresh graph query, since it names people who've actually delivered this specific content. But a real tracker usually has more than one role in it, don't take the first name found near a day number as "the instructor."
+
+Confirmed happening on a real test run (e& AI Builder Low Code, 2026-09-13): a tracker's "NP Team Checklist" tab listed names under "Day N Development" rows, that's who *authored* the curriculum, a different job from who *taught* it live. The same tracker had a separate "Schedule & Instructor" tab with its own "SME list" column, the actual live delivery instructors, three completely different names. Before naming someone as a past instructor from a real tracker, confirm the exact column or row label they came from actually says delivery, teaching, or SME, not development, content creation, or ownership of a different task.
+
+---
+
 ## 4. This gets better on its own, don't rebuild it later
 
 The Knowledge Graph this reads from is already on a 12-hour dynamic sync (Drive plus instructor rating sheets). Separately, the B2C team's feedback-loop tool already produces per-instructor performance analysis and is planned to connect into the same graph. When that connection lands, instructor rankings here improve automatically, because this skill queries the graph fresh every time, it doesn't cache or hardcode a ranking. No version bump or rebuild of this skill is needed when that happens, only the graph's own data gets richer.
@@ -58,5 +66,6 @@ Once real delivery ratings exist per instructor per module (not just topic match
 - [ ] One query per day, against that day's actual Topic/Subtopic, not one query for the whole engagement
 - [ ] Post-sales deliverable branch used, `pre_sales_only` names never surfaced here
 - [ ] Consecutive-day default applied, any override stated explicitly with the reason
+- [ ] Any name pulled from a real precedent tracker checked against its actual column/row label, development and ownership roles not presented as delivery instructors
 - [ ] Tier reference and deliverability heuristic read from the existing pre-sales files, not restated or reinvented
 - [ ] Saved to `Outputs/[Client]/instructor-roster.md`
