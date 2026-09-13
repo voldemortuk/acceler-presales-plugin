@@ -29,7 +29,7 @@ Per `content-generation/SKILL.md` §2's tiering.
 
 Since generation and review need to agree on what "correct" means, these come straight from `lesson-plan-review/SKILL.md` §1, stated here only as generation-time directives:
 
-- Seven columns, populated per row. Break/lunch rows (Topic = a time range, rest blank) and AMA rows (Subtopic = `-`, Flow blank) are legitimate, not gaps to fill in.
+- Seven columns, populated per row. Break/lunch rows (Topic = a time range, rest blank) and AMA rows (Subtopic = `-`, Flow blank) are legitimate, not gaps to fill in. **Break and lunch time is included within the day's stated total, never added on top of it.** Confirmed against the real Tech Teams Lesson Plan (`Lesson Plans for Tech __ e&.xlsx`), every break/lunch row there sits inside one continuous day window, start to finish, nothing gets tacked on past the proposal's stated hours. A "6 hour day" means 6 hours total including breaks, not 6 hours of content plus extra break time.
 - One timing format per document, clock-ranges or raw durations, never mixed across days.
 - Every module covers pre-class, live-class, and post-class as distinct, identifiable rows, not just the live-class content.
 - Every Learning Objective's Bloom's verb is matched or exceeded by that row's Demo content, and every objective is reflected somewhere in Flow or Demo, no orphaned objectives.
@@ -43,6 +43,8 @@ Since generation and review need to agree on what "correct" means, these come st
 ## 3. Self-verify before handoff
 
 Per `content-generation/SKILL.md` §3, and directly from the seeded candidate in `generation-learnings/lesson-plan.md`: compute each day's row-duration sum and check it against that day's stated session length, before presenting or saving. This exact gap was found in every previously sampled Lesson Plan, none of them self-checked it. Don't ship a plan with unverified timing math and let review catch it, catch it here.
+
+**The target for that check is the proposal's own literal stated duration, never a number this run assumes for itself.** Confirmed happening on a real test run (e& AI Builder Low Code, 2026-09-13): the proposal stated "6 Hours Each," the generated plan added a 45-minute break on top of that and self-verified against its own 6h45m total instead, both the generation self-check and the independent reviewer confirmed the rows summed correctly, neither caught that the total itself didn't match the real stated duration. Rows summing to themselves consistently is not the same as summing to the real number, check against the actual source figure (the proposal's stated hours, or real confirmed delivery clock times where they exist), not a total the run invented and then verified against itself.
 
 ---
 
@@ -65,7 +67,8 @@ This connection is not a one-off handoff. Per `content-generation/SKILL.md` §6a
 - [ ] Seven-column structure per row, break/lunch/AMA rows correctly left as exceptions
 - [ ] Pre-class, live-class, post-class present as distinct segments per module
 - [ ] Every objective has matching or exceeding Demo content, nothing orphaned
-- [ ] Row-duration sums checked against stated day length before handoff, not left for review to catch
+- [ ] Row-duration sums checked against the proposal's actual stated day length, not a total this run assumed and then verified against itself
+- [ ] Break/lunch time confirmed included within that stated total, not added on top of it
 - [ ] Depth calibrated to audience from deep research's Facts Sheet signal, not one template applied regardless
 - [ ] Saved to `Outputs/[Client]/lesson-plan.xlsx`
 - [ ] Handed to the existing `lesson-plan-review`, no bespoke review process invented
