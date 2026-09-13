@@ -12,13 +12,13 @@ $ARGUMENTS
 
 ## How to build
 
-1. Read `skills/live-session-deck/SKILL.md` for the exact slide-type library, design tokens, JS controller, and quality checklist.
-2. If a proposal was generated earlier in this session (`/acceler:proposal`), use its Day 1 / Day 2 / … data as the source — keep HTML and any future PPTX in sync via the same content.
+1. Read `skills/live-session-deck/SKILL.md` for the exact slide-type library, design tokens, JS controller, and quality checklist, including §3.16 (concept-teaching content) and §5 (reference-deck selection).
+2. For a post-sales delivery day, the primary source is the approved `post-sales/Outputs/[Client]/lesson-plan.xlsx` for that day's tab, plus `post-sales/Outputs/[Client]/instructor-roster.md` for that day's instructor. If a pre-sales proposal was generated earlier in this session instead (`/acceler:proposal`), use its Day 1 / Day 2 / … data. Keep HTML and any future PPTX in sync via the same content either way.
 3. The deck follows a **4-movement arc**:
    - **Open** — Cover · Instructor intro · "How the next 2.5 hrs run" · Pop into chat warm-up · "Optimise your experience" 3-card rules
    - **Set up** — Phase divider · Setup split (cards + URL/checklist) · 5 numbered VM/tool steps (each = screenshot + 1-line banner) · Ecosystem 5-card grid
-   - **Build** — Phase divider · Pattern stages (Basic → Intermediate → Advanced) · "Pick your use case" 2-card chooser · Handoff to lab
-   - **Close** — Dark statement slide with kicker + big line + CTA
+   - **Build**: Phase divider · Pattern stages (Basic → Intermediate → Advanced, wayfinding only) · the day's actual concept-teaching content per §3.16, expanding each load-bearing Lesson Plan topic into a real definition, comparison, or worked example, not just restating the topic name · "Pick your use case" 2-card chooser, only where a real either/or choice exists that day · Handoff to lab
+   - **Close**: Dark statement slide with kicker + big line + CTA
 
 ## Which reference deck to copy
 
@@ -73,3 +73,5 @@ If the deck needs screenshots, list the assets the team needs to add (`assets/sl
 - [ ] Statement/handoff uses `.dark.stmt` + 1 CTA max
 - [ ] Print stylesheet hides progress / brand / fs / counter / zone / notes / nav
 - [ ] Keyboard nav + touch swipe work
+- [ ] Every load-bearing Lesson Plan topic is actually taught per §3.16, not just named as a pattern-stage label
+- [ ] Teaching tone matches the reference deck chosen above, not a generic voice
