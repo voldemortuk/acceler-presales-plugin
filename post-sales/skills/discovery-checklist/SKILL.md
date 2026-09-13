@@ -19,6 +19,8 @@ The 33 questions, 6 sections, and MUST / SHOULD / NICE tags already exist in `sk
 
 **Self-check pricing figures before presenting them.** Found on the same real test run: a per-person price and a cohort total were pulled from different columns of the same pricing sheet (one list price, one discounted) and presented together as if they were paired, per-person × headcount didn't actually equal the stated cohort total. Before stating a per-person price alongside a cohort or program total, multiply them out and confirm they agree, same self-verification discipline `content-generation/SKILL.md` §3 already requires for mechanically checkable facts like duration math.
 
+**Reading a real roster, watch for section headers that mean "not attending."** Found on the same real test run: a participant tracker had three sections, a selected list, a "Not Selected" list, and an "Opted Out" list, and a headcount was reported by summing every name in the sheet, including the rejected and opted-out ones, producing a number nearly double the real confirmed headcount and wrongly suggesting a pricing mismatch. When reading a real roster or tracker for headcount, only count names under a section that's actually confirmed/selected/attending, and check for headers like "Not Selected," "Opted Out," "Waitlist," or "Declined" before totaling anything.
+
 ---
 
 ## 2. The gate, same thresholds discovery-fit-review already set
@@ -41,11 +43,13 @@ Audience (who, how many, technical level), the stated 3-month success metric, to
 
 `post-sales/Outputs/[Client]/discovery-facts-sheet.md`, inside the engagement's own folder under this plugin's own `Outputs/`, per `content-generation/SKILL.md` §1a, never relative to wherever the proposal or other input files happen to live. This is a new convention, starting here, every post-sales artifact for a given engagement (this sheet, the deep research doc, the lesson plan, and everything generated after it) lives under that same `post-sales/Outputs/[Client]/` folder rather than as flat files, since post-sales produces a whole family of documents per engagement, not just one.
 
+**If a Facts Sheet already exists somewhere else, don't edit it in place.** Confirmed happening on a real test run: a prior pass had saved a sheet outside the plugin (next to the source files, following the old unstated convention), and a later run found it and kept updating that same file rather than moving to the correct location. The correct location is always `post-sales/Outputs/[Client]/discovery-facts-sheet.md`, full stop. If an older sheet is found anywhere else, treat it as reference material for what's already been figured out, but save the current run's output to the correct location, don't perpetuate the wrong one.
+
 ---
 
 ## 5. Handoff
 
-Once approved, this sheet is the required starting input for Deep Research, not optional context, per `content-generation/SKILL.md` §2. Deep Research reads it directly from `Outputs/[Client]/discovery-facts-sheet.md` rather than re-deriving audience or success metric on its own.
+Once approved, this sheet is the required starting input for Deep Research, not optional context, per `content-generation/SKILL.md` §2. Deep Research reads it directly from `post-sales/Outputs/[Client]/discovery-facts-sheet.md` rather than re-deriving audience or success metric on its own.
 
 ---
 
@@ -54,5 +58,6 @@ Once approved, this sheet is the required starting input for Deep Research, not 
 - [ ] Answers already known from pre-sales pulled forward, not re-asked
 - [ ] Money/timeline MUST items marked "confirmed from proposal" where already resolved, with the actual figures recorded
 - [ ] Facts Sheet extracted verbatim where possible, the 3-month success metric specifically checked
-- [ ] Saved to `Outputs/[Client]/discovery-facts-sheet.md`
+- [ ] Saved to `post-sales/Outputs/[Client]/discovery-facts-sheet.md`, not left at or copied from an old wrong-location file
+- [ ] Any roster/headcount figure checked for "Not Selected"/"Opted Out"/similar non-attending sections before totaling
 - [ ] Score <50% blocks the pipeline, doesn't just get noted and ignored
