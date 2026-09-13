@@ -24,7 +24,7 @@ $ARGUMENTS
 
 Corrected 2026-09-14: this used to hardcode "e& PPF" as the reference regardless of client, which is wrong for anyone but that exact engagement, and was even wrong the one time it coincidentally matched on client name, "e& PPF" is Yettel/CETIN in Hungary, a different company from e& (UAE), sharing only a name prefix.
 
-Check `post-sales/knowledge/engagement-catalog.md` first. Use a real deck from the *same actual client* if one exists there. Otherwise fall back to `live-session-deck/SKILL.md`'s own stated default (`acceler-nucleus-session-deck/`). Never hardcode a specific past client's reference into this command.
+**Simplified 2026-09-14, per direct user decision:** `acceler-nucleus-session-deck/` (`live-session-deck/SKILL.md`'s own stated default) is the fixed reference, always. Don't build automatic same-client-detection logic, and don't skip using a real reference file in favor of building fresh from the abstract slide-type spec, that happened on a real run and produced a worse result than either real option. Actually copy the Nucleus file as the base every time this runs, no exceptions inferred on your own. If a different template is genuinely needed for a specific engagement, the human running this says so explicitly and points at it, this command never guesses.
 
 ## Design tokens (lock these, same as whichever reference deck was actually chosen above)
 

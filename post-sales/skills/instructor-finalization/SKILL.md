@@ -43,6 +43,16 @@ Confirmed happening on a real test run (e& AI Builder Low Code, 2026-09-13): a t
 
 ---
 
+## 3b. A recommendation isn't a confirmation, don't let downstream artifacts treat it as one
+
+Everything this skill produces, whichever candidate ranks highest, whatever a real precedent tracker suggests, is a recommendation, not a booking. The graph can't know whether that real person is actually available, willing, or has even been asked. Mark every day's pick in the saved roster as **Proposed** until a human has actually reached out to that instructor and confirmed it, never **Confirmed** on this skill's own say-so.
+
+Confirmed happening on a real test run (e& AI Builder Low Code, 2026-09-14): a deck-generation run found the roster's main recommendation (Anshaj Khare, graph-ranked) disagreed with a real-precedent name flagged in the roster's own Notes section (Emmanuel Awa), and picked one on its own without a human ever deciding between them. That's not this skill's call to make, and it shouldn't have been resolved silently downstream either.
+
+**Once a human confirms a day's instructor, write it back into the same roster file as that day's locked, `Confirmed` pick**, replacing or annotating the `Proposed` one, not just adding another note. A future run of this skill (or any other pipeline stage reading the roster) must treat a `Confirmed` day as settled, don't re-query, re-rank, or silently reopen it, only a human explicitly asking to reconsider changes a `Confirmed` pick. Any downstream artifact (a session deck, a closing ceremony deck, anything that names an instructor) reads this roster and only ever names a `Confirmed` instructor, if a day is still `Proposed` when that artifact is generated, it must stop and ask, or clearly flag the gap on the artifact itself, the same way the Day 1 deck honestly flagged a missing bio rather than inventing one.
+
+---
+
 ## 4. This gets better on its own, don't rebuild it later
 
 The Knowledge Graph this reads from is already on a 12-hour dynamic sync (Drive plus instructor rating sheets). Separately, the B2C team's feedback-loop tool already produces per-instructor performance analysis and is planned to connect into the same graph. When that connection lands, instructor rankings here improve automatically, because this skill queries the graph fresh every time, it doesn't cache or hardcode a ranking. No version bump or rebuild of this skill is needed when that happens, only the graph's own data gets richer.
@@ -67,5 +77,7 @@ Once real delivery ratings exist per instructor per module (not just topic match
 - [ ] Post-sales deliverable branch used, `pre_sales_only` names never surfaced here
 - [ ] Consecutive-day default applied, any override stated explicitly with the reason
 - [ ] Any name pulled from a real precedent tracker checked against its actual column/row label, development and ownership roles not presented as delivery instructors
+- [ ] Every day marked `Proposed` unless a human has actually confirmed it, never `Confirmed` on this skill's own ranking
+- [ ] A `Confirmed` day from a prior run left untouched, not re-queried or silently changed
 - [ ] Tier reference and deliverability heuristic read from the existing pre-sales files, not restated or reinvented
 - [ ] Saved to `Outputs/[Client]/instructor-roster.md`
