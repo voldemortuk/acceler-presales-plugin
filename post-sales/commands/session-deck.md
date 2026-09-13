@@ -50,8 +50,10 @@ $ARGUMENTS
 
 Save to:
 ```
-~/Downloads/1. PowerUp/APR - Pre-Sales Product/Outputs/[Client]-session-deck/index.html
+post-sales/Outputs/[Client]/session-deck/index.html
 ```
+
+(Corrected 2026-09-14, the path above used to be a hardcoded, machine-specific location from before `post-sales/Outputs/[Client]/` was established as the standard save location for every post-sales artifact, per `content-generation/SKILL.md` §1a.)
 
 If the deck needs screenshots, list the assets the team needs to add (`assets/slide07_1.png` for VM login, etc.) so they know what to drop in.
 
