@@ -75,3 +75,4 @@ If the deck needs screenshots, list the assets the team needs to add (`assets/sl
 - [ ] Keyboard nav + touch swipe work
 - [ ] Every load-bearing Lesson Plan topic is actually taught per §3.16, not just named as a pattern-stage label
 - [ ] Teaching tone matches the reference deck chosen above, not a generic voice
+- [ ] Concept slides use real detail mined from deep-research.md and the Lesson Plan's Flow of Examples column per §3.16, not a thinner paraphrase, and reach for a real §3.17 component before falling back to plain text
