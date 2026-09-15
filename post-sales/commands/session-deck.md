@@ -57,10 +57,10 @@ Corrected 2026-09-14: this used to hardcode "e& PPF" as the reference regardless
 
 Save to:
 ```
-post-sales/Outputs/[Client]/session-deck/index.html
+post-sales/Outputs/[Client]/session-deck/day-N/index.html
 ```
 
-(Corrected 2026-09-14, the path above used to be a hardcoded, machine-specific location from before `post-sales/Outputs/[Client]/` was established as the standard save location for every post-sales artifact, per `content-generation/SKILL.md` §1a.)
+(Corrected 2026-09-16: the day-N subfolder was missing from this line even though `live-session-deck/SKILL.md` §11 already documents it for multi-day programs, a real run built a second, differently-located Day 1 file because of this gap. Always include the day-N subfolder for a multi-day engagement, never save straight into `session-deck/index.html`, that path collides across every day of the same engagement.)
 
 If the deck needs screenshots, list the assets the team needs to add (`assets/slide07_1.png` for VM login, etc.) so they know what to drop in.
 
