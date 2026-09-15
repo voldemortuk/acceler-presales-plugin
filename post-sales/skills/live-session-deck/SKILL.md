@@ -272,6 +272,8 @@ Every slide MUST have a `data-notes="…"` attribute. Notes are toggled by `.` k
 
 ### 3.16 Concept-teaching content, the substance of the Build movement, not just its wayfinding
 
+**Added 2026-09-16: this content now gets decided before deck generation runs, not during it.** `skills/slide-content-planning/SKILL.md` produces a slide-by-slide plan (which real §3.17 component each concept becomes, and its actual written content) as its own separate stage. Deck generation reads that plan and renders it, it doesn't make the content-and-visual-component decision in the same pass as HTML assembly anymore, that's what produced a thin, plain-text-heavy deck across three real attempts even with explicit instructions. What follows in §3.16-3.17 is still the real reference for what a good plan and a well-rendered slide look like, planning reads it too, just applied one stage earlier now.
+
 **Found missing entirely, confirmed against a real test run (e& AI Builder Low Code, 2026-09-14).** A generated deck had 17 slides and zero actual teaching content, cover through handoff, nothing that explains a concept. Checked seven real, actually-delivered decks (e& Low Code Days 2/3/4, LVT Days 2/3/4) to see what was missing: every one runs 37-85 slides, and nearly all of that is teaching content, not framing. §3.10 (chapter rail, Basic→Intermediate→Advanced) and §3.11 (pick cards) are real and still correct, but they are wayfinding inside this content, not the content itself. A real deck's "Build" movement is dominated by a repeating block:
 
 ```

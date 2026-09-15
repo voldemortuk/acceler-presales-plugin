@@ -20,7 +20,7 @@ Deal closes
   -> Deep Research (builds on the Facts Sheet + onboarding form + transcripts + emails + precedent)
   -> Lesson Plan (first generated artifact, the day-by-day skeleton everything else builds against)
   -> Instructor Finalization (day-by-day roster, matched against the Lesson Plan)
-  -> Slides (Utkarsh's) / Demo / MCQ / Assignment / Project / Hands-On Guide / Orientation / Closing Ceremony
+  -> Slide Content Planning (per day, before the deck) -> Slides (Utkarsh's engine) / Demo / MCQ / Assignment / Project / Hands-On Guide / Orientation / Closing Ceremony
   -> Review, per artifact (agent-loops mechanics) then the full-session content-review bundle (§6)
   -> Dry Run + Dry-Run Feedback (rehearsal, findings routed through the same fix loop) -> Live Delivery
 ```
