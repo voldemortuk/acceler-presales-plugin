@@ -64,6 +64,10 @@ post-sales/Outputs/[Client]/session-deck/day-N/index.html
 
 If the deck needs screenshots, list the assets the team needs to add (`assets/slide07_1.png` for VM login, etc.) so they know what to drop in.
 
+## Hand off to review, always, automatically
+
+**Added 2026-09-16: this command never had an explicit handoff step, unlike every other generation command in this pipeline.** Found the gap on a real run, the deck built cleanly but review was never triggered, because nothing in this file said to. Every content-generation command in this pipeline ends by handing off to its matching reviewer as part of the same run, not a separate step someone has to remember to ask for. This command follows the same rule now: once the deck is saved, hand off to `acceler-post-sales:deck-reviewer` for the actual review pass automatically, in the same run, before presenting results. This command does not review its own output.
+
 ## Quality checklist (apply before saving)
 
 - [ ] Cover has client branding + 1 H1 with cyan-accent phrase + 3 chips + keyboard hint
@@ -77,3 +81,4 @@ If the deck needs screenshots, list the assets the team needs to add (`assets/sl
 - [ ] Every load-bearing Lesson Plan topic is actually taught per §3.16, not just named as a pattern-stage label
 - [ ] Teaching tone matches the reference deck chosen above, not a generic voice
 - [ ] Concept slides use real detail mined from deep-research.md and the Lesson Plan's Flow of Examples column per §3.16, not a thinner paraphrase, and reach for a real §3.17 component before falling back to plain text
+- [ ] Handed off to `acceler-post-sales:deck-reviewer` automatically in this same run, not left for someone to separately ask for
