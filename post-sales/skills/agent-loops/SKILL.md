@@ -40,6 +40,14 @@ Between proposal and approval, the human isn't limited to a binary accept/reject
 
 ---
 
+## 2a-2. The generation-to-review handoff is an action, not a mentioned step
+
+**Confirmed happening on a real run (e& AI Builder Low Code Lesson Plan, 2026-09-16): the generating command's own instructions clearly said to hand off to its reviewer, and it didn't happen.** The run built the artifact, reported it, and stopped, treating "hand off to review" as a line it described rather than a further action it still had to take before ending its turn. This is the exact failure Ut independently flagged too: an instruction that lives only in a skill file competes with the much stronger pull of "the main deliverable is done, wrap up," and loses, even when it's written in plain language, even when it's the explicit last step in a numbered list.
+
+**The fix is to state this as a hard completion condition, not a step to narrate.** Every generation command's own instructions must say, in these terms: *this command's turn is not finished until the matching reviewer has actually been invoked. Producing the artifact and reporting it without invoking the reviewer is an incomplete run, not a completed one, the same as skipping the self-verification step would be.* Applies to every generation command with a matching reviewer in this family, not just Lesson Plan, this is a shared-mechanics fix, made here once, not repeated per skill.
+
+---
+
 ## 2a. Baseline quality bar — every reviewer applies this, in addition to its own rubric
 
 *Grounded in Acceler's own real, recurring review feedback across multiple programs — these are documented, repeated corrections, not hypothetical nitpicks. Every `*-reviewer` agent in this family checks these regardless of content type, on top of its skill-specific §1 rules:*
