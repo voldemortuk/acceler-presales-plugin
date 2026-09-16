@@ -66,7 +66,7 @@ If the deck needs screenshots, list the assets the team needs to add (`assets/sl
 
 ## Hand off to review, always, automatically
 
-**Added 2026-09-16: this command never had an explicit handoff step, unlike every other generation command in this pipeline.** Found the gap on a real run, the deck built cleanly but review was never triggered, because nothing in this file said to. Every content-generation command in this pipeline ends by handing off to its matching reviewer as part of the same run, not a separate step someone has to remember to ask for. This command follows the same rule now: once the deck is saved, hand off to `acceler-post-sales:deck-reviewer` for the actual review pass automatically, in the same run, before presenting results. This command does not review its own output.
+**Added 2026-09-16: this command never had an explicit handoff step, unlike every other generation command in this pipeline.** Found the gap on a real run, the deck built cleanly but review was never triggered, because nothing in this file said to. Every content-generation command in this pipeline ends by handing off to its matching reviewer as part of the same run, not a separate step someone has to remember to ask for. This command follows the same rule now: once the deck is saved, hand off to `acceler-post-sales:deck-reviewer` for the actual review pass automatically, in the same run, before presenting results. This command does not review its own output. Per `agent-loops/SKILL.md` §2a-2, this is a hard completion condition, not a step to describe, this run isn't finished until the reviewer has actually been invoked, not just reported as the next step.
 
 ## Quality checklist (apply before saving)
 

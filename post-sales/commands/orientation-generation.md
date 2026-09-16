@@ -18,7 +18,7 @@ $ARGUMENTS
 4. Build through the existing deck engine/tokens (`live-session-deck`), not a new rendering mechanism.
 5. Self-verify per §3: schedule is genuinely time-blocked, final-outcomes section is specific to this engagement, not boilerplate.
 6. Save to `Outputs/[Client]/orientation-deck/`.
-7. Hand off to `acceler-post-sales:orientation-reviewer` for the actual review pass, this command doesn't review its own output.
+7. Hand off to `acceler-post-sales:orientation-reviewer` for the actual review pass, this command doesn't review its own output. Per `agent-loops/SKILL.md` §2a-2, this is a hard completion condition, not a step to describe, this run isn't finished until the reviewer has actually been invoked, not just reported as the next step.
 
 ## Quality checklist (apply before presenting results)
 

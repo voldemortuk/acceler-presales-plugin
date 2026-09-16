@@ -19,7 +19,7 @@ $ARGUMENTS
 5. If code-based, run the conditional checks: no real credentials or PII, no license-incompatible code, data files described, prerequisites and execution environment stated, starting references provided even for open-ended tasks.
 6. Self-verify per §3: rubric weights sum to 100%, code-based checks run only if actually code-based.
 7. Save to `Outputs/[Client]/assignment.docx`, plus a `starter-kit/` subfolder if one exists.
-8. Hand off to `acceler-post-sales:assignment-reviewer` for the actual review pass, this command doesn't review its own output.
+8. Hand off to `acceler-post-sales:assignment-reviewer` for the actual review pass, this command doesn't review its own output. Per `agent-loops/SKILL.md` §2a-2, this is a hard completion condition, not a step to describe, this run isn't finished until the reviewer has actually been invoked, not just reported as the next step.
 
 ## Quality checklist (apply before presenting results)
 

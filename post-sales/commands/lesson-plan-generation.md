@@ -19,7 +19,7 @@ $ARGUMENTS
 5. Calibrate row density and demo depth to the audience signal from deep research's Facts Sheet, don't apply one dense template regardless of audience.
 6. Self-verify per §3: compute each day's row-duration sum and confirm it matches that day's stated session length. Fix before proceeding if it doesn't.
 7. Save to `Outputs/[Client]/lesson-plan.xlsx`.
-8. Hand off to `acceler-post-sales:lesson-plan-review` for the actual review pass, this command doesn't review its own output.
+8. Hand off to `acceler-post-sales:lesson-plan-review` for the actual review pass, this command doesn't review its own output. Per `agent-loops/SKILL.md` §2a-2, this is a hard completion condition, not a step to describe, confirmed happening on a real run of this exact command, this run isn't finished until the reviewer has actually been invoked, not just reported as the next step.
 
 ## Quality checklist (apply before presenting results)
 

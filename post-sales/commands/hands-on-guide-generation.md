@@ -18,7 +18,7 @@ $ARGUMENTS
 4. Never place a real credential value in the text or in any referenced screenshot, use placeholders or reference a separate secure channel instead.
 5. Self-verify per §3: cross-check the tool list against `Outputs/[Client]/demo/` where it already exists, and scan explicitly for anything credential-shaped before saving.
 6. Save to `Outputs/[Client]/hands-on-guide.docx`.
-7. Hand off to `acceler-post-sales:hands-on-guide-reviewer` for the actual review pass, this command doesn't review its own output.
+7. Hand off to `acceler-post-sales:hands-on-guide-reviewer` for the actual review pass, this command doesn't review its own output. Per `agent-loops/SKILL.md` §2a-2, this is a hard completion condition, not a step to describe, this run isn't finished until the reviewer has actually been invoked, not just reported as the next step.
 
 ## Quality checklist (apply before presenting results)
 

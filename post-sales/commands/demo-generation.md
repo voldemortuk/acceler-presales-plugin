@@ -18,7 +18,7 @@ $ARGUMENTS
 4. Build against §2's rules for that shape, worked example before independent practice, scaffolding that fades, Bloom's level matched, no real credentials or PII.
 5. If notebook or code, actually run it per §3, capture real output, don't claim it works without evidence.
 6. Save to `Outputs/[Client]/demo/`.
-7. Hand off to `acceler-post-sales:code-demo-reviewer` for the actual review pass, this command doesn't review its own output.
+7. Hand off to `acceler-post-sales:code-demo-reviewer` for the actual review pass, this command doesn't review its own output. Per `agent-loops/SKILL.md` §2a-2, this is a hard completion condition, not a step to describe, this run isn't finished until the reviewer has actually been invoked, not just reported as the next step.
 
 ## Quality checklist (apply before presenting results)
 

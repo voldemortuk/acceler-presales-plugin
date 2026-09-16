@@ -20,7 +20,7 @@ $ARGUMENTS
 6. Build through the existing deck engine/tokens (`live-session-deck`), not a new rendering mechanism.
 7. Self-verify per §3: Key Takeaways names real topics, embedded assessment content (if any) came from the reviewed MCQ set.
 8. Save to `Outputs/[Client]/closing-ceremony-deck/`.
-9. Hand off to `acceler-post-sales:closing-ceremony-reviewer` for the actual review pass, this command doesn't review its own output.
+9. Hand off to `acceler-post-sales:closing-ceremony-reviewer` for the actual review pass, this command doesn't review its own output. Per `agent-loops/SKILL.md` §2a-2, this is a hard completion condition, not a step to describe, this run isn't finished until the reviewer has actually been invoked, not just reported as the next step.
 
 ## Quality checklist (apply before presenting results)
 
