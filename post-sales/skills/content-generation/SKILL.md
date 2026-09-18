@@ -35,11 +35,78 @@ A generation skill never invents its way around a missing upstream stage. If Dee
 
 `Outputs/[Client]/` is always anchored to this plugin's own root, `post-sales/Outputs/[Client]/`, never relative to wherever an input file (a proposal, a reference doc) happens to live on disk. Those input files can sit anywhere, a shared drive folder, a client-specific directory, anything, but generated output always lands in one predictable place inside the plugin itself, the same place every other post-sales skill already reads from and writes to. A generation skill that infers the save location from an input file's own folder is not following this convention, even if it technically nests something under a folder named "Outputs."
 
+**Corrected 2026-09-17, real recurring failure: a bare relative `Outputs/[Client]/...` path resolved wrong, repeatedly, on a real test day.** Every skill already states this convention correctly, the actual bug was execution-time: whatever session runs a generation command isn't reliably started with its working directory already at the plugin root, and a bare relative path silently resolves against whatever the current directory happens to be instead, once landing inside an unrelated client folder that coincidentally also had an `Outputs` subfolder sitting nearby. This has to work the same way regardless of whose machine the plugin is installed on or what absolute path it lives at, so the fix is never a hardcoded absolute path.
+
+**Do this before every save (and every read of a prior-stage artifact):**
+1. Locate the plugin's own root by finding the folder that contains `post-sales/.claude-plugin/plugin.json` (search from the current working directory, don't assume it's already there).
+2. Build the full path as `<that folder>/post-sales/Outputs/[Client]/...`, never a bare `Outputs/[Client]/...` left for the shell to resolve on its own.
+3. After saving, read the file back from that exact resolved path to confirm it actually landed there before declaring the step done, the same self-verification discipline §3 already requires for mechanical facts, applied here to the save location itself.
+
+---
+
+## 1b. Also saving to Google Drive, and where
+
+**Added 2026-09-18, per Tanmaya/Utkarsh planning.** `Outputs/[Client]/` (§1a) is the plugin's own local copy, but it's local to whoever's machine ran the session. That's not enough for a pipeline more than one person touches, if one person generates the Lesson Plan and is out the next day, whoever picks up the next stage needs to reach it without depending on that first person's laptop. So everything also saves to a shared Drive location, live, the moment it's generated, not batched for later.
+
+**Two separate Drive locations, never mixed, split by audience, not by file type:**
+
+- **`B2B AI Programs`** (the existing Drive folder, `1tUMBGWfAKPzKA4hndaDjBe9hOHzMhza2`) — only artifacts a learner, instructor, or client stakeholder actually sees or receives: Session Deck, Demo, Orientation, Closing Ceremony, Assignment, Project, Hands-on/Setup Guide, Session Recap, Session Impact Report. **This is the exact folder Utkarsh's Curriculum Graph reads from** (`acceler-kg-sync`, `sync/build_curriculum_html.py`), so anything saved here becomes part of that graph once his sync job next runs.
+- **`PostSalesPluginOutput`** (new, sibling folder, not inside `B2B AI Programs`) — everything that builds toward the above but isn't itself learner/client-facing: Discovery Facts Sheet, Onboarding Form, Deep Research, Lesson Plan, Content Plan, Instructor Roster, the MCQ master files, Dry-Run Feedback. **Deliberately kept out of `B2B AI Programs`** — the Curriculum Graph treats every subfolder inside it as a real delivered class module, so a working doc dropped in there would show up as if it were real class content. Keeping it in a separate folder that's simply never added to Utkarsh's known-programs list makes it automatically invisible to the graph, no filtering logic needed on either side.
+
+**Folder shape inside `B2B AI Programs`**, matching the real existing convention, cohort now made explicit since the same client/program keeps recurring across cohorts:
+```
+B2B AI Programs/
+  B2B [Client] [Program Name] - Cohort [N] ([Period])/
+      Day 1/
+        Live Class/
+          Slides/
+          Demo/
+        Post Class/
+          Recap/
+          Impact Report/
+      Day 2/  ... Day N/                    <- however many days THIS engagement's proposal actually states, never assume 4
+      Orientation/
+      Closing Ceremony/
+      Assignment or Project/                (when applicable)
+      Hands-on / VM Setup/                  (when applicable)
+```
+
+**Folder shape inside `PostSalesPluginOutput`**, mirroring the local `Outputs/[Client]/` structure so the two stay easy to reason about together:
+```
+PostSalesPluginOutput/
+  [Client]/
+    [Program Name] - Cohort [N] ([Period])/
+      discovery-facts-sheet.md
+      onboarding-form.docx
+      deep-research.md
+      lesson-plan.xlsx
+      instructor-roster.md
+      content-plan/
+        day-1.md ... day-N.md
+      mcq/
+        pre-test.docx
+        post-test.docx
+        day-1-in-session.docx ... day-N-in-session.docx
+      dry-run-feedback.md
+```
+
+**The known-programs list, a required step, not optional.** Utkarsh's Curriculum Graph only recognizes a `B2B AI Programs` subfolder as real delivered content if its exact name is in `B2B_CONTENT_PROGRAM_CLIENTS` (`acceler-kg-sync`, `sync/build_curriculum_html.py`, also mirrored in `sync/export_curriculum.py`). Creating a brand-new client/program folder there without also adding it to that list means the graph will silently never show it, no error, nothing visibly broken, it just never appears. So: before saving anything to a `B2B AI Programs` folder that doesn't already exist there, either add that exact folder name to the list yourself (prepared as part of the batched `acceler-kg-sync` change, not pushed separately) or clearly tell the user this step still needs doing. Never leave it silently undone.
+
+**Testing.** Any test run uses `TEST - [whatever's being tested]` inside `B2B AI Programs`, and `TEST/` inside `PostSalesPluginOutput`. A `TEST -` folder must never be added to the real known-programs list, so it stays invisible to the live graph, same mechanism that keeps `PostSalesPluginOutput` invisible, just applied to test data specifically.
+
+**How the write itself happens, for now.** No dedicated write-access service account exists yet, that's a later upgrade for unattended runs. Today, saving to Drive happens through whatever session is actually running the generation, using its own connected Drive access, the same way this plugin's development sessions already read real Drive content during planning.
+
 ---
 
 ## 2. Mandatory versus best-effort inputs
 
 Not every input exists for every engagement. Each generation skill's own SKILL.md states which of its inputs are mandatory (generation stops and asks if missing) versus best-effort (used if present, the gap is stated plainly if not, never invented). This mirrors the MUST/SHOULD/NICE tiering `discovery-checklist` already uses, three tiers, not a binary required/optional.
+
+**Corrected 2026-09-17, per Utkarsh's own instruction from the spec-kit discussion (2026-09-10): "no need to write that you should block deck generation, just clearly call out what is the input expected out of you."** That rule applies specifically to individual inputs within a stage that's otherwise runnable, an entirely different thing from an upstream pipeline stage not existing at all:
+- **Upstream stage genuinely missing** (no Discovery Facts Sheet exists at all, no Lesson Plan exists at all) — this alone actually stops generation, there's nothing to build against. Per §1, never guess your way around this.
+- **A specific mandatory input within an otherwise-available stage is missing or thin** (e.g. the Facts Sheet exists but doesn't state a success metric, or the user hasn't named a precedent) — don't stop. Name exactly what's expected (e.g. "these are the 5 inputs this needs, 1 was given, here's what's still missing"), proceed with what's available, and state plainly that providing the rest would improve the output. This is the spec-kit-style clarify-before-building spirit Utkarsh pointed at (github/spec-kit), applied without a hard block.
+
+**Known gap, follow-up (2026-09-17, parked until after today's Sashi call):** only `discovery-checklist` (the 3-month success metric) and `instructor-finalization` (Proposed vs Confirmed) actually implement this soft-flag behavior for their own most load-bearing fact today. The other eight generation skills (Deep Research, Lesson Plan, MCQ, Assignment, Demo, Project, Hands-on Guide, Orientation, Closing Ceremony, Onboarding Form, Slide Content Planning) only handle the whole-artifact-missing case correctly, none of them yet name a specific granular missing detail and flag it softly. Needs identifying each skill's own most load-bearing granular fact, one at a time, then adding the same soft-flag rule. Real work, not a one-line fix, do this next after today's demo.
 
 For Deep Research specifically: mandatory inputs are the saved Discovery Facts Sheet (`Outputs/[Client]/discovery-facts-sheet.md`, from stage 1), the pre-sales proposal, and the learner onboarding form. Best-effort inputs are discovery call transcripts, the team-lead discovery form, client emails, and precedent from similar past engagements, same client or a similar one, B2B or B2C. See `deep-research/SKILL.md` for the full detail.
 
@@ -80,6 +147,12 @@ Once a generation skill produces its artifact, it hands off to the matching revi
 ---
 
 ## 7. Checklist
+- [ ] Plugin root located via the `post-sales/.claude-plugin/plugin.json` anchor, save path built from that, never a bare relative `Outputs/[Client]/...` left for the shell to resolve
+- [ ] Saved file read back from its resolved absolute path to confirm it actually landed there
+- [ ] Also saved to the right Drive folder per §1b: learner/client-facing to `B2B AI Programs`, working docs to `PostSalesPluginOutput`, never mixed
+- [ ] Day-count in any Drive path matches this engagement's actual proposal length, never hardcoded to 4
+- [ ] If this created a brand-new `B2B AI Programs` client/program folder, it's been added to `B2B_CONTENT_PROGRAM_CLIENTS`, or the user's been clearly told this is still outstanding
+- [ ] Test runs use `TEST -` / `TEST/` naming in both Drive locations, never added to the real known-programs list
 - [ ] Every input tiered mandatory / best-effort / not applicable, not a binary required/optional
 - [ ] Missing upstream stage (no Facts Sheet, no Deep Research) means stop and ask, never invent
 - [ ] Only the content types this engagement actually needs get built, not every type by default
