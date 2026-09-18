@@ -21,7 +21,7 @@ metadata:
 - An existing notebook, code file, or build guide as a structural reference, where deep research points to a similar precedent.
 
 **Mandatory when the demo's result is visual, not just code** — real evidence (an actual e& Low-Code demo doc) confirms this applies broadly, not just to no-code guides, a before/after chat comparison in a low-code demo needed screenshots just as much as a Power Automate click-path did:
-- **Real screenshots of the actual demo being run**, provided by the person who ran it, in order. This skill curates and writes around real screenshots, it does not generate, fake, or invent them, it has no way to actually drive the tool's UI itself.
+- **Real screenshots of the actual demo being run**, provided by the person who ran it, in order. This skill curates and writes around real screenshots, it does not generate, fake, or invent them, it has no way to actually drive the tool's UI itself. **How they arrive is flexible**, pasted directly into the session, or handed over already organized in a folder or a doc, either is fine, what matters is that every real one provided actually gets placed, per §2/§3 below, not where it came from.
 - **A plain description of what happened at each step**, from whoever ran it, enough to write real step text around each screenshot, not so polished it reads like a finished doc already.
 
 ---
