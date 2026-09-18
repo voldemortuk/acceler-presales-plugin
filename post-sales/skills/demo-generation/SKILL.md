@@ -20,6 +20,10 @@ metadata:
 **Best-effort:**
 - An existing notebook, code file, or build guide as a structural reference, where deep research points to a similar precedent.
 
+**Mandatory when the demo's result is visual, not just code** — real evidence (an actual e& Low-Code demo doc) confirms this applies broadly, not just to no-code guides, a before/after chat comparison in a low-code demo needed screenshots just as much as a Power Automate click-path did:
+- **Real screenshots of the actual demo being run**, provided by the person who ran it, in order. This skill curates and writes around real screenshots, it does not generate, fake, or invent them, it has no way to actually drive the tool's UI itself.
+- **A plain description of what happened at each step**, from whoever ran it, enough to write real step text around each screenshot, not so polished it reads like a finished doc already.
+
 ---
 
 ## 2. Rules, reused from code-demo-review, not reinvented
@@ -35,6 +39,12 @@ metadata:
 **If a no-code/low-code build guide:**
 - Every step concrete and mechanically followable, exact field names, exact text to paste, exact click targets. Paraphrased or vague steps ("configure the connector appropriately") are not acceptable.
 
+**Screenshots, whenever the demo's result is genuinely easier to see than to describe (any shape, not just no-code):**
+- Every real screenshot provided (§1) gets placed next to the specific step or moment it shows, in the order it actually happened, not clustered at the end.
+- Don't caption a screenshot with something it doesn't show, describe what's actually visible in it.
+- **No real credential, ever, visible in a screenshot**, same rule `hands-on-guide-generation/SKILL.md` §2 already enforces for its own screenshots. Scan every one before saving, this is never assumed clean just because the text around it looks fine.
+- Never invent a screenshot or describe one that wasn't provided. If a step genuinely needed one and none was given, say so plainly rather than writing around the gap silently.
+
 **Applies to all three shapes:**
 - A fully worked example precedes the first task the learner completes independently, never open cold with unscaffolded independent practice.
 - Scaffolding fades across the demo, fully guided, then partially completed, then independent, not flat the whole way through. The confirmed real pattern: a 3-stage build going manual, then automated-with-a-manual-trigger, then fully autonomous, each stage adding real independence.
@@ -45,7 +55,10 @@ metadata:
 
 ## 3. Self-verify before handoff
 
-Per `content-generation/SKILL.md` §3: if the demo is a notebook or code file, actually run it before saving, capture the real executed output, don't hand off something that only claims to run. This is exactly what `code-demo-review` §1.1 checks for as run evidence, catch it here first rather than let review discover it doesn't run.
+Per `content-generation/SKILL.md` §3, the check differs by shape, they need genuinely different kinds of proof:
+
+- **Notebook or code file**: actually run it before saving, capture the real executed output, don't hand off something that only claims to run. This is exactly what `code-demo-review` §1.1 checks for as run evidence, catch it here first rather than let review discover it doesn't run.
+- **Screenshot-based demo** (any shape): this skill can't run anything itself here, so instead confirm every screenshot provided in §1 actually got placed, in the right order, next to the right step, and that none show a real credential. A demo with steps but no screenshot where one was clearly provided, or a credential visible in one, is caught here, not left for review.
 
 ---
 
@@ -68,6 +81,8 @@ Hand off to the existing `acceler-post-sales:code-demo-reviewer` for the actual 
 - [ ] Correct shape chosen (notebook/code vs. no-code guide) from that day's Libraries/Tools column, not defaulted
 - [ ] Notebook/code actually executed before handoff, real output captured, not claimed
 - [ ] No-code guide steps are concrete and mechanically followable, not paraphrased
+- [ ] Every provided screenshot placed next to its real step, in order, none invented or skipped
+- [ ] No real credential visible in any screenshot, checked explicitly, not assumed clean
 - [ ] A worked example precedes the first independent task, scaffolding fades across the demo
 - [ ] Security/data-boundary checks run regardless of how clean the artifact looks
 - [ ] Saved to `Outputs/[Client]/demo/`
