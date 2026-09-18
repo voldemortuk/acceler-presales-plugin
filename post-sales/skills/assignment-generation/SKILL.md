@@ -21,6 +21,8 @@ metadata:
 - That day's generated code-demo, if one already exists, the assignment should build on the same tool or technique, not a disconnected task.
 - An existing assignment template or gradesheet as a formatting reference.
 
+**Added 2026-09-18, per `content-generation/SKILL.md` §2: the single most load-bearing granular fact is whether a starter kit's split was actually specified, whenever one exists.** This is the exact real defect `assignment-reviewer` has its own dedicated eval case for (`assignment-undisclosed-starter-split.md`). If a starter kit exists but how much of the work it pre-builds isn't clearly stated by whoever's running this, don't stop, but flag it plainly and state the split this run assumed, rather than presenting a guessed split as confirmed.
+
 ---
 
 ## 2. Rules, reused from assignment-review, not reinvented

@@ -17,7 +17,7 @@ Per `content-generation/SKILL.md` §2's tiering.
 
 **Mandatory:**
 - `Outputs/[Client]/deep-research.md`, approved.
-- The pre-sales proposal's day-by-day section, the starting skeleton of themes per day.
+- The pre-sales proposal's day-by-day section, the starting skeleton of themes per day. **Added 2026-09-18, per `content-generation/SKILL.md` §2: the single most load-bearing granular fact here is the actual day count and per-day duration this proposal states.** Not always 4 days, real engagements run 3, 4, 5, or other lengths, and §3's real duration-mismatch incident shows what happens when this figure isn't pinned to the source. If the proposal states it ambiguously (a range, or duration implied rather than stated), don't stop, but name the ambiguity plainly and state which reading this run used.
 
 **Best-effort:**
 - Acceler's existing curriculum/topic library, whatever module content already exists to distill into rows, use it where available, flag plainly where a day's content has to be drafted without a matching existing module.

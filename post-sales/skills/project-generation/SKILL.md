@@ -12,7 +12,7 @@ metadata:
 1. **Milestone/trap-graded**, staged (M1 through M4 or similar), graded via deliberately planted traps, backed by a verified reference-solution repo as the actual answer key.
 2. **Documentation-brief**, a single cohesive brief: Motivation, Objectives, a role-relevance mapping (how this project matters to each function in the cohort, PM/TPM/SDE/Engineering Manager/DevOps each get their own sentence), Dataset with a source link, Prerequisites with doc links, copy-pasteable setup steps, Milestones as work areas rather than graded checkpoints, tooling used, Future Directions, and a Common FAQs section.
 
-Which shape depends on the engagement, deep research's precedent notes and the lesson plan's stated scale/format are the signal, not a default.
+Which shape depends on the engagement, deep research's precedent notes and the lesson plan's stated scale/format are the signal, not a default. **Added 2026-09-18, per `content-generation/SKILL.md` §2: this shape signal is the single most load-bearing granular fact here.** If neither source clearly points to one shape, don't stop, and don't silently default to milestone/trap-graded either, ask which shape this engagement needs rather than guess.
 
 ---
 

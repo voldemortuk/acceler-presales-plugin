@@ -14,7 +14,7 @@ metadata:
 ## 1. Inputs
 
 **Mandatory:**
-- `Outputs/[Client]/lesson-plan.xlsx`, approved. The relevant day's Topic, Learning Objective, and Live Demo/Coding Demo columns drive what gets built, and its Libraries/Tools column decides the shape (notebook/code vs. no-code guide).
+- `Outputs/[Client]/lesson-plan.xlsx`, approved. The relevant day's Topic, Learning Objective, and Live Demo/Coding Demo columns drive what gets built, and its Libraries/Tools column decides the shape (notebook/code vs. no-code guide). **Added 2026-09-18, per `content-generation/SKILL.md` §2: the single most load-bearing granular fact is whether this column actually names a specific tool**, not a vague category like "automation platform." That's what §2's shape decision depends on entirely, defaulting to notebook when the row is vague is exactly the mistake §1's own header warns against. If it's genuinely vague, don't stop, but flag it plainly and state which shape this run assumed and why.
 - `Outputs/[Client]/deep-research.md`, for the client's own use cases and audience technical level.
 
 **Best-effort:**

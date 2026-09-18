@@ -15,7 +15,7 @@ metadata:
 
 **Mandatory:**
 - `post-sales/Outputs/[Client]/lesson-plan.xlsx`, approved, that day's tab.
-- `post-sales/Outputs/[Client]/deep-research.md`, approved.
+- `post-sales/Outputs/[Client]/deep-research.md`, approved. **Added 2026-09-18, per `content-generation/SKILL.md` §2: whether its precedent notes and concrete use cases actually carry real specifics, not general mentions, is the single most load-bearing granular fact here.** §3 depends entirely on mining real detail from this source, a thin source produces exactly the generic content this whole stage was built to prevent. If it's thin, don't stop, flag it plainly rather than let a vague source quietly become a vague plan.
 - `post-sales/Outputs/[Client]/demo/` (or wherever that day's Demo landed), already generated and reviewed. **Added 2026-09-18: Demo runs before this stage, not after.** This plan can't build an accurate story around a demo it hasn't actually seen, the real engagement flow is pain point, then concepts, then the live demo, then extend, guessing at what the demo does produces exactly the thin, generic content this whole stage exists to prevent.
 
 **Best-effort:**

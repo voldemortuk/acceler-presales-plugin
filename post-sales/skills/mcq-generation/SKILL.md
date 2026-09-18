@@ -22,7 +22,7 @@ Kept separate from assignment generation, item-writing defects (distractor quali
 ## 1. Inputs
 
 **Mandatory, every type:**
-- `Outputs/[Client]/lesson-plan.xlsx`, approved. Each item must map to a stated Learning Objective from the relevant day's rows, an item testing untaught content is a FAIL in review, don't generate one in the first place. For an in-session quiz, only that specific day's rows are in scope, not the whole engagement.
+- `Outputs/[Client]/lesson-plan.xlsx`, approved. Each item must map to a stated Learning Objective from the relevant day's rows, an item testing untaught content is a FAIL in review, don't generate one in the first place. For an in-session quiz, only that specific day's rows are in scope, not the whole engagement. **Added 2026-09-18, per `content-generation/SKILL.md` §2: the single most load-bearing granular fact here is whether the relevant day's Learning Objective column is actually filled in**, not just present as a column. A blank or vague objective for a row this set needs to test means there's nothing real to map to, don't stop, but flag it plainly and either skip that row or state the objective was inferred, never silently invent one and present it as stated.
 - `Outputs/[Client]/deep-research.md`, for audience calibration, how technical the distractors and stem language should read.
 
 **Best-effort, every type:**

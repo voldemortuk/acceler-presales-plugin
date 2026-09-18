@@ -16,7 +16,7 @@ metadata:
 ## 1. Inputs
 
 **Mandatory:**
-- `Outputs/[Client]/lesson-plan.xlsx`, approved, for what this program actually covered, the Key Takeaways section has to reflect the real curriculum, not a generic recap.
+- `Outputs/[Client]/lesson-plan.xlsx`, approved, for what this program actually covered, the Key Takeaways section has to reflect the real curriculum, not a generic recap. **Added 2026-09-18, per `content-generation/SKILL.md` §2: whether this actually names specific real topics per day, not just section headers, is the single most load-bearing granular fact here.** If a day's rows are thin on real topic detail, don't stop, flag it plainly rather than let the Key Takeaways section quietly lean generic for that day.
 - `Outputs/[Client]/deep-research.md`, for program-specific framing.
 
 **Best-effort:**

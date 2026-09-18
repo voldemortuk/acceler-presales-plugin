@@ -18,7 +18,7 @@ Follows `content-generation/SKILL.md` §2's tiering, mandatory versus best-effor
 **Mandatory, won't run without these:**
 - `Outputs/[Client]/discovery-facts-sheet.md`, produced by stage 1. Always exists by the time this runs, that stage gates the pipeline.
 - The detailed pre-sales proposal.
-- The learner onboarding form responses.
+- The learner onboarding form responses. **Added 2026-09-18, per `content-generation/SKILL.md` §2: the single most load-bearing granular fact here is a real audience skill-level signal**, not just that responses exist. If the form came back with skill-matrix ratings unanswered or every response reading identically vague, that's thin, not missing, don't stop, but name it plainly in the output ("audience skill level is thin, ratings weren't meaningfully filled in") rather than quietly picking a pacing that might be wrong.
 
 **Best-effort, use if present, state plainly if not, never invent:**
 - Discovery call transcripts.

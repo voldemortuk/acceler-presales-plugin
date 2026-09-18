@@ -15,7 +15,7 @@ metadata:
 
 **Mandatory:**
 - `Outputs/[Client]/lesson-plan.xlsx`, approved. The Libraries/Tools column, across all days, is the required-tools list this guide has to cover completely.
-- `Outputs/[Client]/deep-research.md`, for whether this client uses personal-account or pooled/shared-training-account access, corporate network constraints included.
+- `Outputs/[Client]/deep-research.md`, for whether this client uses personal-account or pooled/shared-training-account access, corporate network constraints included. **Added 2026-09-18, per `content-generation/SKILL.md` §2: this account-scheme signal is the single most load-bearing granular fact here.** §2's own rule already says don't default to one, but if deep research doesn't actually state it clearly, don't stop, flag it plainly and state which scheme this run assumed rather than presenting a guess as the client's real requirement.
 
 **Best-effort:**
 - `Outputs/[Client]/demo/`, if already generated, for the tool-alignment cross-check.

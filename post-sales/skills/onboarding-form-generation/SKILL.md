@@ -16,7 +16,7 @@ metadata:
 ## 1. Inputs
 
 **Mandatory:**
-- `Outputs/[Client]/discovery-facts-sheet.md`, approved. The outcome-tie question, the single most load-bearing question on the whole form, is sourced from this, never invented.
+- `Outputs/[Client]/discovery-facts-sheet.md`, approved. The outcome-tie question, the single most load-bearing question on the whole form, is sourced from this, never invented. **Strengthened 2026-09-18, per `content-generation/SKILL.md` §2:** if the Facts Sheet's stated success metric or goal is itself thin or generic, that's a granular gap within an otherwise-present stage, not a reason to stop. Flag it plainly in the output rather than quietly writing a vague outcome-tie question that reads as if it came from something specific.
 
 **Best-effort:**
 - Whether this engagement has a distinguishable lead/manager audience layer, from deep research or the proposal, decides whether the conditional section (§4) gets included.

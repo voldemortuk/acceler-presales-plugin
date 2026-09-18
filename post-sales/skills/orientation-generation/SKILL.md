@@ -16,7 +16,7 @@ metadata:
 ## 1. Inputs
 
 **Mandatory:**
-- `Outputs/[Client]/deep-research.md`, for company/program credibility framing and the client's own context.
+- `Outputs/[Client]/deep-research.md`, for company/program credibility framing and the client's own context. **Added 2026-09-18, per `content-generation/SKILL.md` §2: whether this states concrete, engagement-specific final outcomes is the single most load-bearing granular fact here**, §3's self-verify already catches boilerplate after the fact, but if the source itself is thin, don't stop, flag it plainly before writing rather than let a vague source quietly produce a vague section.
 - `Outputs/[Client]/lesson-plan.xlsx`, approved, for the actual schedule to build the agenda against, and the finalized instructor roster (`Outputs/[Client]/instructor-roster.md`, if it exists by this point) for the instructor introduction section.
 
 **Best-effort:**
