@@ -19,14 +19,14 @@ metadata:
 
 ## 1. The deck shape (4 movements)
 
-Every live session deck follows the same 4-movement arc:
+**Rewritten 2026-09-18, against the real, complete e& Low-Code Day 3 deck (85 slides), checked slide by slide, not sampled.** The old 15-25 slide estimate and movement list below were closer to a short pre-sales taster than an actual delivered class day. Every live session deck now follows this real arc:
 
-1. **Open** — cover · instructor intro · how the session runs · "pop into the chat" warm-up · "optimise your experience" house rules (3 cards)
-2. **Set up** — phase divider · setup overview (split layout: 2 cards + URL card + checklist) · 5 numbered VM/tool steps (each = browser screenshot + 1-line banner) · ecosystem overview (5-card grid)
-3. **Build** — phase divider · pattern stages (Basic → Intermediate → Advanced, wayfinding only) · the actual concept-teaching content per §3.16 (this is most of the movement's slide count on a real delivered day, not the pattern-stages slide) · pick-your-use-case (2 cards, only where a real either/or choice exists) · handoff to lab
-4. **Close / handoff** — dark statement slide with kicker + big line + CTA
+1. **Open** — cover (program, day number, instructor name) · **Instructor Detail** (§3.2, a real two-column bio, not a simple intro card) · "pop into the chat" warm-up (role/location/name) · today's timing table (Time | Activity, sessions and breaks) · **the 4-Day Mindmap** (§3.18, all days shown, today's card visually highlighted) · "optimise your experience" / house-rules cards
+2. **Set up** — Virtual Lab / VM readiness checklist (a short checklist slide, not the old 5-numbered-screenshot pattern, keep this lean per the earlier real fix) · **Today's Agenda** (§3.19, a numbered list of today's own topics, e.g. #1/#2/#3)
+3. **Build** — the actual concept-teaching content per §3.16 (this is the large majority of the slide count, confirmed again here: roughly 65 of 85 real slides), organized into topic blocks matching Today's Agenda's own numbered items. **Re-show Today's Agenda between each topic block** (§3.19), same slide, so learners always know where they are, confirmed a real recurring pattern (shown 3 times across this deck, not once). **Demo** (§3.20, a plain, minimal link-out slide, title + "Link for Demo" + a click-through button, not an embedded walkthrough) sits at the point in Build where that topic's hands-on demo actually happens.
+4. **Close** — **Quiz** (§3.21, a real in-session knowledge check, question + options + the correct one revealed) then a simple **Thank You** closing slide (§3.22). No dark statement/CTA slide in the real reference, don't force one in if the engagement doesn't call for it.
 
-Total slides typically **15–25** per session. Cover, instructor, phase dividers, and statement slides are framing — never rebuild them. Only content slides change per client.
+Total slides on a real full day: **80-90**, not 15-25, that estimate was wrong. Cover, Instructor Detail, the Mindmap, and Today's Agenda are framing, built once and reused, only their data changes per client/day. The Build movement's teaching content is where nearly all the real slide count and real effort goes.
 
 ---
 
@@ -179,38 +179,19 @@ Rules:
 - 3 chips max — keep them factual (tools · output · duration).
 - Always include the navigation hint at the foot (`← → · F · "."`).
 
-### 3.2 Instructor intro (slide 1)
+### 3.2 Instructor Detail (real slide 2 of the Day 3 deck, checked directly, replaces the older description below)
 
-Two-column grid `270px 1fr`. Left column = circular photo (196px), specializations list, experience tiles. Right column = "Your host today" eyebrow + name + role + 3–4 `bsec` blocks (Career Highlights · Telco/Domain · Recent Work · Now). The featured-experience tile gets `.extile--feat` with cyan glow.
+Two-column layout, `360px` fixed left, flexible right, matching the real deck exactly:
 
-```html
-<div class="intro">
-  <div class="intro__l">
-    <img class="intro__photo" src="…" alt="…">
-    <div class="intro__lab">Technical Specializations</div>
-    <ul class="speclist"><li>…</li></ul>
-    <div class="explab">Experience</div>
-    <div class="extiles">
-      <span class="extile extile--feat" style="color:#E40000;">Airtel<span class="tcap">Telecom</span></span>
-      <span class="extile" style="color:#0B2A6B;">Paytm</span>
-    </div>
-  </div>
-  <div class="intro__r">
-    <div class="intro__eyebrow">Your host today</div>
-    <div class="intro__name">[Name]</div>
-    <div class="intro__role">[Tagline · ex-X · current Y]</div>
-    <div class="bsec"><h4>Career Highlights</h4><ul>…</ul></div>
-    <div class="bsec"><h4>📡 [Domain] — [Industry]</h4><ul>…</ul></div>
-    <div class="bsec"><h4>Recent Work</h4><ul>…</ul></div>
-    <div class="bsec"><h4>Now — Building with AI</h4><ul>…</ul></div>
-  </div>
-</div>
-```
+- **Left** (white background): circular photo (220px, gradient placeholder `linear-gradient(135deg,#6568F5,#6E69EB)` with initials if no real photo yet), "Technical Specializations" label + bullet list, then a row of **employer logo badges** (pill-shaped, e.g. Apple / Google / Adobe / CMU), pinned to the bottom of the column.
+- **Right** (soft gradient background `linear-gradient(120deg,#EDEBFB 0%,#E3E1F7 60%,#D9D7F2 100%)`): name (large, bold), one tagline line (current role + employer, bolded, plus past employers/degree inline), then two labeled sections with an emoji icon each: **"🔷 Career Highlights"** (2-3 bullets, bold the employer names within each) and **"🎓 Academic & Teaching"** (degree, research affiliations, notable recognitions, and instructor track record, e.g. "Instructor @ Acceler — trained 3000+ working professionals"). Acceler logo bottom-right of the whole slide.
+
+Text colors: headings/name `#1a1a2e`, body/bullets `#2D2D5C`, section labels `#1a1a2e` semibold. Real example content confirmed from the reference (Shivam Patel, Sr. ML Engineer @ Apple): don't copy this content, this is the shape to fill with the real instructor's real bio.
 
 Rules:
 - Speaker notes: ~60 seconds. Establish credibility, then move.
-- 4 `bsec` blocks max. Bold the bank-shot stats (`<b>+70%</b>`, `<b>4.85/5</b>`).
-- Anchor the most relevant experience as `--feat` — if it's a telco audience, feature the telco brand.
+- Two section blocks (Career Highlights, Academic & Teaching) is the confirmed real pattern, don't add more and dilute it.
+- Employer badges are a simple, real, low-effort credibility signal, use them whenever the instructor's real background includes recognizable names, don't fabricate ones that aren't real.
 
 ### 3.3 Pipeline (3 steps)
 
@@ -420,6 +401,28 @@ Use for: worked-example prompts a learner should actually try, grounded in this 
 </div>
 ```
 This is Nucleus's richer version of §3.9's ecosystem grid, prefer this one over §3.9 when building against Nucleus (the default), reserve §3.9 for when a human has explicitly picked a different reference.
+
+---
+
+### 3.18 The 4-Day Mindmap (real slide 5, all-program agenda highlighting today)
+
+Shown once, in Open. One card per day, laid out in a row: day number + day theme (bold), then "Participants complete" + a numbered list of that day's 3-4 real subtopics, pulled from the Lesson Plan, not invented. **Today's card is visually distinct**: light purple fill (`#E7E8FF`) with a colored border (`#6568F5`), every other day's card is plain white. Above the row, three grouping labels span the relevant cards with a bracket mark: "Covered in last two sessions" (over the already-completed days), "Today's Agenda" (over today's card specifically), "Upcoming" (over the days still ahead). Day 1 gets no "covered" label since nothing precedes it; the last day gets no "upcoming" label since nothing follows it, adjust the grouping to whichever day this actually is, don't always show all three.
+
+### 3.19 Today's Agenda (real slides 10/24/54, shown repeatedly, not once)
+
+A simple numbered list of today's own topic blocks, e.g. "#1 Conventional Bots & RAG Recap, #2 CoT Prompting & ReAct, #3 Agents", under an "Agenda For Today" heading. **Confirmed real pattern: this exact slide is shown again at the start of each new topic block**, not just once at the start of the day, three times across an 85-slide real deck. Re-show it as Build's own internal wayfinding, learners always know which of today's numbered topics they're currently in.
+
+### 3.20 Demo (real slide 81, a plain link-out, not an embedded walkthrough)
+
+Minimal: a small title ("Demo N"), then centered, a large "Link for Demo" line and a white pill button below it reading "Click Here", linking out to the actual demo (per `demo-generation`'s output). This slide does not contain the demo steps themselves, don't try to embed the full walkthrough here, it's a handoff point, the real walkthrough is a separate document/notebook/guide the instructor and learners open externally.
+
+### 3.21 Quiz (real slides 82-84, question then reveal)
+
+Two-part pattern: an intro slide ("🙋‍♀️ Quiz Time! Answer in the Chat Box"), then the actual question slide, the question stem, 4 options, the correct one marked (✅) once revealed, the rest left plain or marked wrong (⬜️). Pulls its real, already-reviewed content from `mcq-generation`'s in-session file, per `slide-content-planning/SKILL.md` §3a, never authored fresh here.
+
+### 3.22 Thank You (real slide 85, the actual close)
+
+Simple: "Thank You!" plus a celebratory emoji, centered. The real reference has no dark statement/CTA slide, don't force one in unless a specific engagement actually calls for a distinct closing message beyond this.
 
 ---
 
