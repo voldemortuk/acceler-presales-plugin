@@ -18,3 +18,16 @@ $ARGUMENTS
 4. If a prior day's report exists in this session or repo, reuse its exact design tokens and component classes (`.tier-grid`, `.ev-grid`, `.metric-grid`, etc.) so the series stays visually consistent.
 5. Follow §4 (prose style) while writing every note, quote caption, and action item.
 6. Run the §5 build checklist before presenting the result.
+7. Deploy the folder as a sibling under the program's existing Vercel-connected repo (e.g. `dayN-recap-report/`), matching prior days' naming exactly. The deployed site is the real artifact, per `skills/session-recap/SKILL.md`, not a local file.
+8. Also save a short summary copy to `Outputs/[Client]/impact-report.md` (KPIs, tier counts, action items), per `skills/session-recap/SKILL.md` — this gives `impact-report-review` and future reviewer-learning connections a stable place to read from.
+9. Hand off to `acceler-post-sales:impact-report-review` for the actual review pass, this command doesn't review its own output. Per `agent-loops/SKILL.md` §2a-2, this is a hard completion condition, not a step to describe, this run isn't finished until the reviewer has actually been invoked, not just reported as the next step.
+
+## Quality checklist (apply before presenting results)
+
+- [ ] Evidence (feedback export/chat log/transcript) provided, or the run stopped and asked rather than fabricating names/quotes/ratings
+- [ ] Tier-assignment rule confirmed with the user, applied per-day not by tenure/title
+- [ ] Design tokens/components matched to a prior day's report where one exists
+- [ ] §4 prose style followed throughout
+- [ ] Deployed as a Vercel-connected sibling folder, matching prior-day naming exactly
+- [ ] Saved a summary copy to `Outputs/[Client]/impact-report.md`
+- [ ] Handed to the existing `impact-report-review`, not reviewed inline here

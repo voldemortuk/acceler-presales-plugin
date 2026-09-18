@@ -59,6 +59,10 @@ A generator or reviewer confirming that rows sum correctly only proves internal 
 
 If a skill defines a score threshold that blocks or allows progress (e.g. <50% is Thin, blocks the pipeline), confirm the actual verdict matches the actual score, and that gaps in the 50-79% band are logged explicitly rather than quietly absorbed into a passing-sounding summary.
 
+## 12. Correct instructions still depend on the run's actual working directory
+
+Item 4 covers a skill's own save-path instruction being missing or ambiguous. This is a different root cause: `mcq-generation.md` already stated the correct path (`Outputs/[Client]/mcq.docx`), matching every other correctly-behaving command, and the file still landed outside the repo entirely, in the standalone client folder. The instruction being right doesn't help if the session executing it is anchored to the wrong directory when it resolves that relative path. Caught the same day this exact confusion (the real repo folder vs. a stale duplicate folder with the same trailing path) had already derailed several unrelated commands. Before trusting a save-location claim, check the actual file landed inside `post-sales/Outputs/[Client]/`, don't assume a correct-looking instruction was enough.
+
 ---
 
 ## Keeping this current
