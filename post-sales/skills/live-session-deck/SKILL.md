@@ -286,7 +286,7 @@ Every slide MUST have a `data-notes="…"` attribute. Notes are toggled by `.` k
      (real example, e& Day 3: the same arithmetic problem shown first as plain
      few-shot, then re-shown with reasoning spelled out as Chain-of-Thought,
      then "Even fewer examples work!" as the payoff line)
-  → [optional] quiz + quiz-solution pair, 4-option
+  → [optional] quiz + quiz-solution pair, 4-option — **added 2026-09-18: only if `slide-content-planning` placed one here.** That stage reads the real, already-reviewed questions from `mcq-generation`'s in-session file and decides placement, per its own §3a. Deck generation renders whatever the plan says, it does not write or fetch quiz questions itself, same discipline as every other Build-movement slide per §3.16 above.
   → live demo slide (kicker "LIVE DEMO" + what it does + link out)
 [repeat for the next concept]
 ```

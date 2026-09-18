@@ -21,6 +21,7 @@ metadata:
 
 **Best-effort:**
 - A similar past Orientation deck as a structural reference.
+- `Outputs/[Client]/mcq/pre-test.docx`, already generated and reviewed, for the pre-course assessment section (§2), where a pre-test exists for this program.
 
 ---
 
@@ -33,7 +34,7 @@ Generate against the confirmed recurring structure `orientation-review/SKILL.md`
 - Program overview: topic, duration, format, target audience, session flow, and **stated final outcomes for participants**, this last part is the section that ties Orientation back to what the client was actually promised, never skip it.
 - A genuinely time-blocked schedule, hour-by-hour or day-by-day, not a vague "Day 1 / Day 2" label.
 - An "Expectations From Learners" section, focus, participation, and doubt-resolution norms.
-- A pointer to the pre-course assessment, where one exists for this program.
+- **Pre-course assessment section, generation-side (corrected 2026-09-18, matching Closing Ceremony's already-explicit rule below):** if embedding or linking the pre-test, it comes from `Outputs/[Client]/mcq/pre-test.docx`, already generated and reviewed by `mcq-reviewer`, don't write fresh unreviewed questions directly into this deck. Previously this section only said "a pointer to the pre-course assessment," vague enough that it was never clear which file to actually pull from.
 
 **Not applicable here, don't force it:** Bloom's-verb objective alignment, this deck type has no teaching objective to check against.
 
@@ -41,7 +42,7 @@ Generate against the confirmed recurring structure `orientation-review/SKILL.md`
 
 ## 3. Self-verify before handoff
 
-Per `content-generation/SKILL.md` §3: confirm the schedule section is actually time-blocked (real times, not a placeholder day label) before saving, and confirm the "final outcomes" section states something specific to this engagement, not boilerplate carried over from a template.
+Per `content-generation/SKILL.md` §3: confirm the schedule section is actually time-blocked (real times, not a placeholder day label) before saving, confirm the "final outcomes" section states something specific to this engagement, not boilerplate carried over from a template, and if embedding assessment content, confirm it was pulled from the already-reviewed `mcq/pre-test.docx`, not authored fresh inside this deck.
 
 ---
 
@@ -62,6 +63,7 @@ Hand off to the existing `acceler-post-sales:orientation-reviewer` for the actua
 - [ ] All six structural sections from §2 present, none skipped
 - [ ] Schedule is genuinely time-blocked, not a vague day label
 - [ ] Final-outcomes section is specific to this engagement, not boilerplate
+- [ ] Embedded assessment content, if any, pulled from the already-reviewed `mcq/pre-test.docx`, not authored fresh
 - [ ] Bloom's-verb alignment correctly not applied to this deck type
 - [ ] Built through the existing deck engine/tokens, not a new rendering mechanism
 - [ ] Saved to `Outputs/[Client]/orientation-deck/`

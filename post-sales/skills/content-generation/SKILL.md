@@ -20,10 +20,14 @@ Deal closes
   -> Deep Research (builds on the Facts Sheet + onboarding form + transcripts + emails + precedent)
   -> Lesson Plan (first generated artifact, the day-by-day skeleton everything else builds against)
   -> Instructor Finalization (day-by-day roster, matched against the Lesson Plan)
-  -> Slide Content Planning (per day, before the deck) -> Slides (Utkarsh's engine) / Demo / MCQ / Assignment / Project / Hands-On Guide / Orientation / Closing Ceremony
+  -> Demo (per day) and MCQ (pre-test / post-test / per-day in-session)
+  -> Slide Content Planning (per day, reads that day's Demo + in-session MCQ, decides the real slide-by-slide content) -> Slides (Utkarsh's engine, renders the plan, doesn't decide content itself)
+  -> Assignment / Project / Hands-On Guide / Orientation (reads pre-test) / Closing Ceremony (reads post-test) — independent of Content Planning, built straight from the Lesson Plan / Deep Research / their own MCQ file
   -> Review, per artifact (agent-loops mechanics) then the full-session content-review bundle (§6)
   -> Dry Run + Dry-Run Feedback (rehearsal, findings routed through the same fix loop) -> Live Delivery
 ```
+
+**Corrected 2026-09-18: Demo and MCQ move before Slide Content Planning, not after.** Previously this diagram showed Content Planning feeding Slides/Demo/MCQ/etc as parallel siblings, which is backwards for two of them specifically. Content Planning is where the real story gets decided, and it can't build an accurate one without already knowing what the real demo does and what that day's quiz actually asks, guessing at either produces exactly the thin, generic content Content Planning was introduced to fix in the first place. This only applies to Demo and the per-day in-session MCQ, the artifacts that day's Content Plan actually reads from. Pre-test, post-test, Assignment, Project, and Hands-On Guide don't depend on Content Planning at all, they stay independent, built straight from the Lesson Plan and Deep Research.
 
 A generation skill never invents its way around a missing upstream stage. If Deep Research hasn't run yet, say so and stop, don't generate a Lesson Plan against guessed context. Same discipline `discovery-fit-review` already applies to the Facts Sheet.
 

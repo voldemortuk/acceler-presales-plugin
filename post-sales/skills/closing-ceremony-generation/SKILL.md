@@ -1,6 +1,6 @@
 ---
 name: closing-ceremony-generation-skills-acceler-wrap-up-deck
-description: "Generates one program Closing Ceremony deck, backward-looking wrap-up content, following the confirmed recurring structure across a real 5-program survey. If assessment questions get embedded as slides, pulls them from the already-generated and reviewed MCQ set rather than writing fresh unreviewed questions inline. Reuses the existing live-session-deck engine and tokens. Routes to the existing closing-ceremony-reviewer for the actual review pass."
+description: "Generates one program Closing Ceremony deck, backward-looking wrap-up content, following the confirmed recurring structure across a real 5-program survey. If assessment questions get embedded as slides, pulls them from the already-generated and reviewed post-test MCQ set (a different, harder set than Orientation's pre-test, corrected 2026-09-18) rather than writing fresh unreviewed questions inline. Reuses the existing live-session-deck engine and tokens. Routes to the existing closing-ceremony-reviewer for the actual review pass."
 metadata:
   type: reference
 ---
@@ -20,7 +20,7 @@ metadata:
 - `Outputs/[Client]/deep-research.md`, for program-specific framing.
 
 **Best-effort:**
-- `Outputs/[Client]/mcq.docx`, if already generated and reviewed, as the source for any embedded assessment questions.
+- `Outputs/[Client]/mcq/post-test.docx`, if already generated and reviewed, as the source for any embedded assessment questions. **Corrected 2026-09-18: not the same file Orientation uses.** Real evidence from an actual e& delivery shows the pre-test and post-test are genuinely different questions at different difficulty levels, this is `mcq-generation`'s post-test output specifically, never the pre-test file.
 - A similar past Closing deck as a structural reference.
 
 ---
@@ -36,13 +36,13 @@ Generate against the confirmed recurring structure `closing-ceremony-review/SKIL
 - A Post-Class/Program Test pointer, either linking out or embedding the assessment, per §3 below.
 - A sign-off/closing slide.
 
-**Embedded-assessment rule, generation-side.** If this deck embeds assessment questions as slides rather than linking externally, those questions come from `Outputs/[Client]/mcq.docx`, already generated and already reviewed by `mcq-reviewer`, don't write fresh questions directly into the deck. Writing new, unreviewed questions here would bypass the review this exact content type already has.
+**Embedded-assessment rule, generation-side.** If this deck embeds assessment questions as slides rather than linking externally, those questions come from `Outputs/[Client]/mcq/post-test.docx`, already generated and already reviewed by `mcq-reviewer`, don't write fresh questions directly into the deck. Writing new, unreviewed questions here would bypass the review this exact content type already has.
 
 ---
 
 ## 3. Self-verify before handoff
 
-Per `content-generation/SKILL.md` §3: confirm the Key Takeaways section actually names real topics from the Lesson Plan, not boilerplate. If embedding assessment content, confirm it was pulled from the already-reviewed `mcq.docx`, not authored fresh inside this deck.
+Per `content-generation/SKILL.md` §3: confirm the Key Takeaways section actually names real topics from the Lesson Plan, not boilerplate. If embedding assessment content, confirm it was pulled from the already-reviewed `mcq/post-test.docx`, not authored fresh inside this deck.
 
 ---
 
@@ -62,7 +62,7 @@ Hand off to the existing `acceler-post-sales:closing-ceremony-reviewer` for the 
 - [ ] Both mandatory inputs loaded, or the run stopped and asked
 - [ ] All six structural sections from §2 present, none skipped
 - [ ] Key Takeaways names real topics from the Lesson Plan, not a generic recap
-- [ ] Embedded assessment content, if any, pulled from the already-reviewed `mcq.docx`, not authored fresh
+- [ ] Embedded assessment content, if any, pulled from the already-reviewed `mcq/post-test.docx` (not the pre-test file), not authored fresh
 - [ ] Generated the live/external deck, not a separate Dry Run artifact
 - [ ] Built through the existing deck engine/tokens, not a new rendering mechanism
 - [ ] Saved to `Outputs/[Client]/closing-ceremony-deck/`

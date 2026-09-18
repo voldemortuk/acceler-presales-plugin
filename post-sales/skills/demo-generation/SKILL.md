@@ -59,6 +59,8 @@ Per `content-generation/SKILL.md` §3: if the demo is a notebook or code file, a
 
 Hand off to the existing `acceler-post-sales:code-demo-reviewer` for the actual review pass, per `content-generation/SKILL.md` §6. Reference `generation-learnings/code-demo.md` and `agent-loops` via the `skills:` frontmatter field. No candidates are seeded there yet. Per §6a, once real fix-loop history accumulates and the promotion rule is met, this skill is expected to actually change how it builds the next demo, not just fix the one in front of you.
 
+**Runs before `slide-content-planning`, not after (`content-generation/SKILL.md` §1).** Once reviewed, this is a mandatory input to that day's Content Plan, per `slide-content-planning/SKILL.md` §1, which builds that day's real narrative around what this demo actually does, not a guess at what it might do. This is why review has to actually happen here first, Content Planning reads the reviewed version, not a draft.
+
 ---
 
 ## 6. Checklist
