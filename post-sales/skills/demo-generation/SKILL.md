@@ -9,6 +9,8 @@ metadata:
 
 **What this produces, and in which of three shapes.** One in-class, instructor-led build artifact, the same thing `code-demo-review/SKILL.md` already reviews: a Jupyter notebook, a standalone code file, or a no-code/low-code build guide (a step-by-step doc for building something in Copilot Studio, Figma Make, or similar, a confirmed real content type, not a lesser substitute for code). Which of the three depends on that day's Lesson Plan row, its Libraries/Tools column tells you which shape applies, don't default to notebook when the row calls for a no-code build.
 
+**The build-guide shape is HTML, not `.docx`, added 2026-09-18.** Every real example checked so far was a Word doc, but the actual decision is to move this shape to HTML, matching `live-session-deck/SKILL.md` §2.0's palette and font (the same visual identity as that engagement's deck, not a different look), so it gets the same easy PPTX/PDF export path as the deck, per `content-generation/SKILL.md` §1c. Notebooks and code files stay in their native format, code is code, this only applies to the narrative build-guide shape.
+
 ---
 
 ## 1. Inputs
@@ -38,6 +40,7 @@ metadata:
 
 **If a no-code/low-code build guide:**
 - Every step concrete and mechanically followable, exact field names, exact text to paste, exact click targets. Paraphrased or vague steps ("configure the connector appropriately") are not acceptable.
+- Built as HTML, using that engagement's real deck palette/font (§1), not a bare unstyled page, this is a learner-facing document, it should look like it belongs with the rest of the day's materials.
 
 **Screenshots, whenever the demo's result is genuinely easier to see than to describe (any shape, not just no-code):**
 - Every real screenshot provided (§1) gets placed next to the specific step or moment it shows, in the order it actually happened, not clustered at the end.
@@ -64,7 +67,7 @@ Per `content-generation/SKILL.md` §3, the check differs by shape, they need gen
 
 ## 4. Where it gets saved
 
-`Outputs/[Client]/demo/`, a subfolder rather than a single file, since a demo can be a notebook plus data files, or a build guide plus screenshots. Same per-engagement parent folder as everything else.
+`Outputs/[Client]/demo/`, a subfolder rather than a single file, since a demo can be a notebook plus data files, or a build guide (`.html`) plus its screenshot assets. Same per-engagement parent folder as everything else. Demo is learner-facing per `content-generation/SKILL.md` §1b, so once reviewed it also goes to `B2B AI Programs`, not `PostSalesPluginOutput`, that folder is for working docs only and Demo isn't one.
 
 ---
 

@@ -102,6 +102,18 @@ PostSalesPluginOutput/
 
 ---
 
+## 1c. HTML is the format for learner-facing artifacts; PPTX/PDF are on-request exports, not separate builds
+
+**Added 2026-09-18.** Any learner-facing artifact this pipeline builds as HTML (the session deck, and Demo per `demo-generation/SKILL.md`, going forward) follows the same export rule, one default, one explicit-ask exception, reusing pre-sales's own already-working pattern rather than inventing a new one:
+
+- **Default: screenshot-per-slide/section, assembled into a PPTX**, per `pptx-deck/SKILL.md`'s already-documented method (headless-render each section at 2×, assemble with `python-pptx`). Fast, pixel-perfect, never drifts from the HTML. **PDF comes from the same rendering step**, essentially free once a screenshot pipeline exists, not a separate build.
+- **Only on an explicit human ask to type-edit the PPTX afterward**: fall back to the native, editable rebuild instead (`PPTX_Deck_Skills.md`'s pattern, real shapes/text boxes, not images), per §2a, an explicit request always overrides the default.
+- The HTML file itself stays the source of truth either way. Keep its content in one reusable data block so whichever export path runs doesn't drift from it.
+
+Don't build a third, new conversion mechanism for Demo or any future HTML artifact, point it at this same rule.
+
+---
+
 ## 2. Mandatory versus best-effort inputs
 
 Not every input exists for every engagement. Each generation skill's own SKILL.md states which of its inputs are mandatory (generation stops and asks if missing) versus best-effort (used if present, the gap is stated plainly if not, never invented). This mirrors the MUST/SHOULD/NICE tiering `discovery-checklist` already uses, three tiers, not a binary required/optional.
