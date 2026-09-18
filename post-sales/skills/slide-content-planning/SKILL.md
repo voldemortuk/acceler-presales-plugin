@@ -24,9 +24,11 @@ metadata:
 
 ---
 
-## 2. Scope, deliberately narrow
+## 2. Scope, deliberately narrow, but not blind to the rest of the day
 
-This plans the **Build movement's content slides only**, per `live-session-deck/SKILL.md` §1, the actual concept-teaching. It does not plan the Open movement (cover, instructor intro, warm-up, house rules) or the Set-up movement (VM steps, ecosystem grid) or the Close movement (statement/handoff), those are fixed, template-driven framing shapes with no content-vs-visual-component decision to make, deck generation still builds them directly from the skill's §3.1-3.15 library, same as always.
+This plans the **Build movement's content slides only**, per `live-session-deck/SKILL.md` §1, the actual concept-teaching. It does not *design* the Open movement (cover, instructor intro, warm-up, house rules), the Set-up movement (VM check, timing table, the 4-Day Mindmap), or the Close movement (Today's Agenda re-shows, Demo, Quiz, Thank You), those are fixed, template-driven framing shapes with no content-vs-visual-component decision to make, deck generation still builds them directly from `live-session-deck/SKILL.md` §3's library, same as always.
+
+**Added 2026-09-18: it does need to know roughly how much of the day those framing slides use, so Build gets planned against real remaining time, not the whole day.** Per `content-generation/SKILL.md` §2a, a human-stated real duration for framing slides always wins if one's given. Absent that, use this as a reasonable starting estimate, not a rigid rule: cover + Instructor Detail ~3-4 min, warm-up + timing table + the Mindmap + VM check ~10 min combined, each Today's-Agenda re-show ~30 seconds (it repeats, per §3.19 of that file, so count it once per topic block planned here, not once total), the Quiz ~5-10 min including discussion, Thank You ~1 min. Subtract a reasonable total for this day's actual framing-slide count from the day's real stated duration (per Lesson Plan, §1), what's left is what Build's real content should be planned against.
 
 ---
 
@@ -37,7 +39,9 @@ Walk the day's Lesson Plan Part by Part. For each one that's load-bearing enough
 1. **Which real component it becomes**, from `live-session-deck/SKILL.md` §3.17: a sequence or architecture flow is a `pipeline`; a common mistake worth naming is a `pitfall-card`; a real runnable snippet is a `code-block`; a tradeoff between two real options is a `compare-table`; a concept that needs showing before-and-after is the `worked-example` pattern. If nothing real fits, that's the one legitimate case for plain text, not the default.
 2. **The actual content**, written now, not a placeholder. Pull the real specifics: the real example from Deep Research's precedent notes and concrete use cases, the real detail from the Lesson Plan's Flow of Examples & Topics column, this cohort's real tools and real stated concerns. Write the real definition sentence, the real comparison rows, the real before/after prompt text, here, so deck generation only has to place it, not invent or paraphrase it down.
 
-**Target density, carried over from the real measured gap:** aim for content close to Nucleus's real benchmark, roughly 150-170 words per planned slide, and don't let more than a small minority of Build-movement slides end up as plain text. Both numbers are self-checkable, per §4, don't leave them to hope.
+**Target density, carried over from the real measured gap:** aim for content close to Nucleus's real benchmark, roughly 150-170 words per planned slide, and don't let more than a small minority of Build-movement slides end up as plain text. Both numbers are self-checkable, per §4, don't leave them to hope. **Flagged 2026-09-18, not yet fixed:** since Nucleus is no longer the default reference deck (`live-session-deck/SKILL.md` §1), this word-count benchmark should really be re-measured against the new e& Low-Code Day 3 default, it hasn't been yet, real follow-up work, not done here.
+
+**Per `content-generation/SKILL.md` §2a: total planned slide count is never a target, it's a result.** Plan real content against the real remaining time from §2, however many slides that honestly needs is however many it gets, don't stop mining detail early to hit a number, and don't pad content to reach one either.
 
 ---
 
@@ -67,7 +71,9 @@ Per `content-generation/SKILL.md` §3: before saving, count the words planned pe
 
 ## 7. Checklist
 - [ ] All mandatory inputs loaded and approved, including that day's reviewed Demo, or the run stopped and asked
+- [ ] Real remaining time (day's stated duration minus a reasonable framing-slide estimate, per §2) budgeted before planning Build content, not the whole day assumed available
 - [ ] Only Build-movement content planned, framing slides left to deck generation's existing library
+- [ ] Total slide count is whatever the real content needed, not a target hit or padded toward
 - [ ] Every load-bearing concept assigned a real component per §3.17, plain text only where nothing real fits
 - [ ] Content written now, real specifics from Deep Research and the Lesson Plan, not a placeholder for deck generation to fill in later
 - [ ] If this day has a reviewed in-session quiz, its real questions are placed per §3a, not rewritten
