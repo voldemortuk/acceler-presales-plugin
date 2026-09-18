@@ -116,6 +116,8 @@ For Deep Research specifically: mandatory inputs are the saved Discovery Facts S
 
 **A precedent engagement is a best-effort input for every generation skill, not only Deep Research.** Before generating from scratch, check `post-sales/knowledge/engagement-catalog.md`, a plain list of what real content already exists per past engagement. If whoever's running the generation hasn't already named a precedent client for this one (e.g. "follow LVT's project shape"), ask rather than assume no precedent applies. This is manual lookup for now, not an automatic matcher, see the catalog's own §Status.
 
+**Added 2026-09-18, per Soham's own instruction on a real standup call: check that a fetched precedent actually is what it claims to be, before using it.** Once the Curriculum Graph connection lands (§1b), Deep Research becomes the main place this happens automatically, but `slide-content-planning`'s own precedent lookup carries the same real risk today. His exact worry: a system that ever serves the wrong thing once loses trust completely, even if everything else about it is right. So before treating a fetched precedent as real: confirm it actually names the client and day/program it claims to, a cheap surface check, not a deep audit, catching a wrong-node fetch before it quietly shapes generated content.
+
 ---
 
 ## 3. Self-verification before handoff, fill the gap review can't
