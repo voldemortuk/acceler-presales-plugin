@@ -120,6 +120,14 @@ For Deep Research specifically: mandatory inputs are the saved Discovery Facts S
 
 ---
 
+## 2a. Explicit human input always wins, at any step
+
+**Added 2026-09-18, a general rule, not scoped to one skill.** Everything in §2 above is about handling input that's thin or missing. This is the opposite, deliberate, explicit case: whenever a human running a step states something directly, a slide count, a duration, a specific instructor, a specific tool, an exact figure, anything, that stated input overrides this skill's own default judgment for that run, full stop. Don't quietly apply a usual pattern, a typical density target, or a learned default over something a human just told you directly for this specific engagement.
+
+This applies at every stage, not just generation, the same discipline a reviewer already applies to a human-approved fix per `agent-loops/SKILL.md`. A concrete example: if a human says "this day needs at least 50 slides, the hands-on work runs long," that stated number is what this run plans against, not whatever a skill's own usual pattern would have produced. The skill can still say so plainly if the explicit input seems to conflict with something else it knows (e.g. the stated day duration looks tight for that many slides), per §2's own soft-flag spirit, but it states the conflict and proceeds with what the human said, it doesn't silently substitute its own judgment instead.
+
+---
+
 ## 3. Self-verification before handoff, fill the gap review can't
 
 A generator checks anything mechanically checkable itself, before submitting for review, rather than waiting for a reviewer to catch it. This isn't optional polish, it's an already-confirmed real gap: `generation-learnings/lesson-plan.md`'s seeded candidate found duration math not summing to the stated day length in every sampled Lesson Plan, none of them had self-checked it. Any generation skill with an equivalent mechanical fact, durations, counts, cross-references between its own sections, computes and verifies it at creation time, not after.
