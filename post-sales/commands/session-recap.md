@@ -1,5 +1,5 @@
 ---
-description: "POST-SESSION learner recap. Generate the day-N-learner-recap HTML page a learner reads after a live delivery day: topics covered, quiz/discussion, cheat sheet, hands-on labs, parked Q&A, resources. For the stakeholder-facing analytics companion, use /acceler-presales:session-recap-report instead."
+description: "POST-SESSION learner recap. Generate the day-N-learner-recap HTML page a learner reads after a live delivery day: topics covered, quiz/discussion, cheat sheet, hands-on labs, parked Q&A, resources. For the stakeholder-facing analytics companion, use /acceler-post-sales:session-impact-report instead (renamed 2026-09-18 from session-recap-report)."
 argument-hint: "<day number + session content/notes, or a path to the slide deck + chat log>"
 ---
 

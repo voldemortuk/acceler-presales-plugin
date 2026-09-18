@@ -1,5 +1,5 @@
 ---
-description: "POST-SESSION stakeholder report. Generate the day-N-recap-report HTML analytics page for the client sponsor / L&D stakeholder: KPIs, per-learner tier categorisation with evidence, engagement by topic, feedback breakdown, action items. For the learner-facing recap, use /acceler-presales:session-recap instead."
+description: "POST-SESSION stakeholder report. Generate the day-N-impact-report HTML analytics page for the client sponsor / L&D stakeholder: KPIs, per-learner tier categorisation with evidence, engagement by topic, feedback breakdown, action items. Renamed 2026-09-18 from session-recap-report, it produces Outputs/[Client]/impact-report.md and hands off to impact-report-review, the old name read as a variant of the learner-facing session-recap when it's actually a different audience entirely. For the learner-facing recap, use /acceler-post-sales:session-recap instead."
 argument-hint: "<day number + feedback export/chat log/transcript, or a path to them>"
 ---
 
