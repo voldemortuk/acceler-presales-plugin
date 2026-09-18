@@ -1,6 +1,6 @@
 ---
 name: live-session-deck-skills-acceler-html-live-session-deck-builder
-description: "How to build a client-facing live session HTML deck — full-screen slides with keyboard navigation, speaker notes, progress bar, touch swipe, and print fallback. Covers the design tokens (cream bg · navy + cyan · Acceler logo), the slide-type library (cover · instructor intro · phase divider · pipeline · checklist · screenshot · ecosystem · chapter rail · pick cards · statement · handoff), the JS controller (40 lines), accessibility, and the worked example (e& PPF Hungary · CETIN × Yettel · Build your AI team). This is the SOURCE that PPTX_Deck_Skills.md converts from — keep the HTML and PPTX in sync via shared data. Companion to [[pptx-deck-skills]], [[doc-proposal-skills]], [[pricing-skills]], [[session-mapping-skills]]."
+description: "How to build a client-facing live session HTML deck — full-screen slides with keyboard navigation, speaker notes, progress bar, touch swipe, and print fallback. Default reference and design tokens updated 2026-09-18 to the e& Low-Code Day 3 deck (indigo/purple palette, Lexend font), per Utkarsh's own instruction; Nucleus and Hungary remain available as named alternates. Covers the slide-type library (cover · instructor intro · phase divider · pipeline · checklist · screenshot · ecosystem · chapter rail · pick cards · statement · handoff), the JS controller (40 lines), and accessibility. This is the SOURCE that PPTX_Deck_Skills.md converts from — keep the HTML and PPTX in sync via shared data. Companion to [[pptx-deck-skills]], [[doc-proposal-skills]], [[pricing-skills]], [[session-mapping-skills]]."
 metadata:
   node_type: memory
   type: reference
@@ -11,7 +11,9 @@ metadata:
 
 **The HTML deck is the source of truth.** The PPTX is downstream — `PPTX_Deck_Skills.md` copies a reference deck and rebuilds only the content slides whose data changed. Keep this HTML deck's content data in a single block at the top so the PPTX twin can re-use it without drift.
 
-**Default reference:** `acceler-nucleus-session-deck/` (Nucleus AI Builders, Apr 2026). Fixed, used every time, not inferred or auto-matched to a client per engagement, confirmed as the right call after a real run tried to auto-detect a same-client match, picked a wrong one (a different company sharing only a name prefix), and a second run skipped using a real reference file entirely rather than risk the same mistake. **Reusable for:** any live session — e& PPF Hungary (CETIN × Yettel), Cornerstone MasterClass, Bosch Masterclass, Edelweiss days, ANSR demo, etc. The engine is reference-agnostic, a human can point it at a different reference deck for a specific engagement, but that's an explicit human choice each time, never something this skill infers on its own.
+**Default reference, updated 2026-09-18:** `eand-aibuilder-lowcode-day3-replica` (e& AI Builder Low Code, Day 3, real delivered deck, 86 slides), per Utkarsh's own direct instruction to build new content in this deck's style. Nucleus (Apr 2026) is kept as a named alternate, per §2.1a below, same as Hungary already was. Fixed, used every time by default, not inferred or auto-matched to a client per engagement, same reasoning as before: a real run once tried to auto-detect a same-client match, picked a wrong one (a different company sharing only a name prefix), and a second run skipped using a real reference file entirely rather than risk the same mistake. **Reusable for:** any live session. The engine is reference-agnostic, a human can point it at Nucleus, Hungary, or any other reference deck for a specific engagement, but that's an explicit human choice each time, never something this skill infers on its own.
+
+**What "follow this reference" actually means, clarified 2026-09-18.** It's a template, not a file-copying instruction: each slide *type* (cover, instructor intro, warm-up, quiz, teaching content, closing) has its own consistent look in the reference, follow that same look per type, the flow, the visual language, the story arc. It does not mean literally rebuilding every slide as a separate static file pixel-traced from a source deck, that's simply how this particular reference happened to be produced, not a requirement for how this skill generates new ones. Keep building through this skill's existing single-page, component-based approach (§3.17), just make each slide type's actual look match this reference's real slide types (§2.1a).
 
 ---
 
@@ -30,9 +32,34 @@ Total slides typically **15–25** per session. Cover, instructor, phase divider
 
 ## 2. Design tokens (lock these)
 
-**Correction, 2026-09-14.** The palette and type scale below (§2.1-2.2) were extracted from the Hungary deck, not Nucleus, despite Nucleus being §1's stated fixed default. That mismatch is exactly why a generated deck ended up looking generic even after correctly defaulting to Nucleus, there was no real Nucleus palette documented anywhere to actually use. §2.1a below is Nucleus's real, confirmed palette, pulled directly from its file. **Use §2.1a by default, since Nucleus is the default reference.** Use §2.1 only on the specific occasions a human explicitly points this run at the Hungary deck (or another cream/navy reference) instead.
+**Correction, 2026-09-14, superseded 2026-09-18.** §2.1a (Nucleus) used to be the default palette. Per §1's update, the default reference is now the e& Low-Code Day 3 deck, §2.0 below is its real, confirmed palette, checked directly against the real files (`01-slide.html`, `03-slide.html`, `06-slide.html`, `82-slide.html`, `85-slide.html`). **Use §2.0 by default.** Use §2.1a (Nucleus) or §2.1 (Hungary) only on the specific occasions a human explicitly points this run at one of them instead.
 
-### 2.1a Palette (Nucleus, the actual default reference)
+### 2.0 Palette (e& Low-Code Day 3, the actual default reference)
+
+Text colors, confirmed consistent across every slide type checked, cover through closing, this is one real, unified system, not different colors per slide type despite the backgrounds looking different:
+
+```
+--text-heading:  #2D2D5C   /* headings, labels, most body text */
+--text-body:     #393E59   /* house-rules / instructional body copy */
+--text-black:    #030303   /* a few slides use near-black instead */
+--text-muted:    #595969   /* secondary/muted text */
+--accent:        #6568F5   /* kickers, small highlight labels */
+--accent-2:      #6E69EB   /* close relative of accent, used interchangeably */
+--page-bg:       #e8e6f4   /* fallback background behind the slide canvas */
+```
+
+**Every slide's actual background is a custom-designed image, not a flat token**, that's the real visual variety between slide types, not a different color scheme per type. This skill doesn't need to reproduce that exactly, a solid or gently-patterned background consistent with this palette is the practical equivalent, don't try to source or fake a matching background image per slide.
+
+Font, confirmed real from the actual embedded files (`assets/fonts/Lexend-*.ttf`):
+
+```
+--font-display: 'Lexend SemiBold', 'Lexend', sans-serif;   /* headings */
+--font-body:    'Lexend', sans-serif;                       /* body text */
+--font-medium:  'Lexend Medium', 'Lexend', sans-serif;       /* emphasis, labels */
+--font-mono:    'JetBrains Mono', monospace;                 /* code blocks, §3.17, unconfirmed against this reference, kept from the prior default */
+```
+
+### 2.1a Palette (Nucleus, named alternate only)
 
 ```
 --bg-primary:    #f8fafc   /* page background, cool slate, not cream */
@@ -67,7 +94,7 @@ Fonts, also confirmed real, and notably different from §2.2 below, Nucleus uses
 --font-mono:    'JetBrains Mono', monospace;            /* code blocks, §3.17 */
 ```
 
-### 2.1 Palette (Hungary, only when a human explicitly picks this reference)
+### 2.1 Palette (Hungary, named alternate only)
 
 ```
 --bg:            #FAF7F1   /* cream/beige page background */
@@ -553,7 +580,7 @@ Open `index.html` in any modern browser. No build step. No npm. No bundle. Hosts
 - [ ] Every Lesson Plan concept that's load-bearing for the day's build is actually taught per §3.16 (definition, comparison, or worked example as weight warrants), not just named as a pattern-stage label
 - [ ] Teaching content uses §3.17's real Nucleus components (pipeline, pitfall-card, code-block, metrics, query-cards, stack-items), not the generic `card`/`banner` shapes reused for everything
 - [ ] Concept-slide word density checked against Nucleus's real ~150-170 words/slide, not left thin by paraphrasing down what Deep Research and the Lesson Plan already say in detail
-- [ ] Palette and fonts actually match §2.1a (Nucleus), not the Hungary tokens in §2.1-2.2, unless a human explicitly chose Hungary as the reference this run
+- [ ] Palette and fonts actually match §2.0 (e& Low-Code Day 3, the default), not §2.1a (Nucleus) or §2.1-2.2 (Hungary), unless a human explicitly chose one of those as the reference this run
 - [ ] PPTX twin (`PPTX_Deck_Skills.md`) consumes the same `DECK` data object
 
 ---
