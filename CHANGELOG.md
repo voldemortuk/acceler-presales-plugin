@@ -2,6 +2,9 @@
 
 This repo hosts two plugins in one marketplace: `acceler-presales` (root) and `acceler-post-sales` (`post-sales/`). Each versions independently in its own `.claude-plugin/plugin.json`; entries below are labeled by plugin. Bump the relevant plugin's `version` on every release so teammates' `/plugin marketplace update` picks up the change.
 
+## acceler-presales [0.6.4] — 2026-09-23
+- Automated Knowledge Graph refresh (dynamic sync from Google Drive + instructor sheets).
+
 ## acceler-post-sales [0.4.2] — 2026-09-11
 
 ### Universal prose-quality baseline — embedded in every reviewer, not just documented
