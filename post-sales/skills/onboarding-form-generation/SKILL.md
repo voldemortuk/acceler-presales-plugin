@@ -67,6 +67,17 @@ Hand off to the existing `acceler-post-sales:onboarding-form-reviewer` for the a
 
 ---
 
+## 7a. After a human approves it, ask about turning it into a real form
+
+**Added 2026-09-23.** The `.docx` is an authoring/review copy, not what a learner actually fills out, same real pattern already true for MCQ (the doc gets authored and reviewed, but the real thing learners interact with is an actual form, confirmed from real Orientation/Closing Ceremony decks pointing at a Microsoft Form link). This form is no different.
+
+**Once a human has approved the reviewed content, don't silently pick a format, ask.** Something like: *"This is approved, want me to turn it into a real Google Form or an MS Form so it's ready to send out?"* This is a genuine choice, not a default, and asking it also functions as a reminder to the human that this step still needs doing, don't let it get forgotten.
+
+- **Google Form**: buildable now, using the same live Drive/Forms access this session already has. Build it with matching sections and question types (short answer, rating matrix, multi-select) from the approved doc content, then share the real, live submission link back.
+- **MS Form**: not wired up yet, no Microsoft Forms connection exists in this pipeline today. If asked for, say so plainly rather than attempting it or quietly falling back to Google, this is real, parked follow-up work, not something to fake.
+
+---
+
 ## 8. Checklist
 - [ ] Mandatory input (approved Facts Sheet) loaded, or the run stopped and asked
 - [ ] Outcome-tie question built from this engagement's real Facts Sheet content, not a placeholder
@@ -78,3 +89,5 @@ Hand off to the existing `acceler-post-sales:onboarding-form-reviewer` for the a
 - [ ] Data proportionality reassurance present
 - [ ] Saved to `Outputs/[Client]/onboarding-form.docx`
 - [ ] Handed to the existing `onboarding-form-reviewer`, no bespoke review invented
+- [ ] After approval, asked whether to build a real Google Form or MS Form, not skipped or silently decided
+- [ ] MS Form, if requested, stated plainly as not yet available, not faked or silently swapped to Google
