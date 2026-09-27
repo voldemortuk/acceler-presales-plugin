@@ -35,6 +35,7 @@ Since generation and review need to agree on what "correct" means, these come st
 - Every Learning Objective's Bloom's verb is matched or exceeded by that row's Demo content, and every objective is reflected somewhere in Flow or Demo, no orphaned objectives.
 - Demo weight stays light on introductory days where a later day is explicitly dedicated to hands-on building, don't front-load the heavy build before its dedicated slot.
 - Libraries/Tools per row matches what that day's actual code-demo or hands-on-guide artifact uses, where those already exist.
+- **Added 2026-09-24, real finding: build each day's rows around how many real distinct demos deep research found for that day, not one by default.** Per `deep-research/SKILL.md` §1/§2, deep research now states how many real demos exist per day, and whether there's a warm-up-then-main-build pattern (real evidence: e& Low-Code Days 1-2 both pair a small warm-up demo, a basic skill or concept exercise, with one main hands-on build, not one demo covering the whole day). When deep research flags this pattern, give the warm-up its own clearly separate row/Pod from the main build, don't fold them into one Demo/Coding Demo entry. This is what lets `demo-generation` build the right number of separate demo docs later, since it reads this structure directly rather than re-checking precedent itself.
 
 **Depth calibration, not in the reviewer's scope but real per Utkarsh's own note.** A dense, hands-on-heavy template applied to a leadership or non-technical audience reads as verbose. Use deep research's audience signal (from the Facts Sheet, carried through) to decide row density and demo depth, don't apply one template regardless of audience.
 
@@ -70,5 +71,6 @@ This connection is not a one-off handoff. Per `content-generation/SKILL.md` §6a
 - [ ] Row-duration sums checked against the proposal's actual stated day length, not a total this run assumed and then verified against itself
 - [ ] Break/lunch time confirmed included within that stated total, not added on top of it
 - [ ] Depth calibrated to audience from deep research's Facts Sheet signal, not one template applied regardless
+- [ ] Each day's real demo count (from deep research) reflected as separate rows/Pods, warm-up demo kept distinct from the main build where that pattern was flagged
 - [ ] Saved to `Outputs/[Client]/lesson-plan.xlsx`
 - [ ] Handed to the existing `lesson-plan-review`, no bespoke review process invented

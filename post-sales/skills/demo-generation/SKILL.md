@@ -9,7 +9,9 @@ metadata:
 
 **What this produces, and in which of three shapes.** One in-class, instructor-led build artifact, the same thing `code-demo-review/SKILL.md` already reviews: a Jupyter notebook, a standalone code file, or a no-code/low-code build guide (a step-by-step doc for building something in Copilot Studio, Figma Make, or similar, a confirmed real content type, not a lesser substitute for code). Which of the three depends on that day's Lesson Plan row, its Libraries/Tools column tells you which shape applies, don't default to notebook when the row calls for a no-code build.
 
-**The build-guide shape is HTML, not `.docx`, added 2026-09-18.** Every real example checked so far was a Word doc, but the actual decision is to move this shape to HTML, matching `live-session-deck/SKILL.md` §2.0's palette and font (the same visual identity as that engagement's deck, not a different look), so it gets the same easy PPTX/PDF export path as the deck, per `content-generation/SKILL.md` §1c. Notebooks and code files stay in their native format, code is code, this only applies to the narrative build-guide shape.
+**The build-guide shape is HTML, not `.docx`, added 2026-09-18.** Every real example checked so far was a Word doc, but the actual decision is to move this shape to HTML, matching `live-session-deck/SKILL.md` §2.0's palette and font (the same visual identity as that engagement's deck, not a different look), so it gets the same easy PPTX/PDF export path as the deck, per `content-generation/SKILL.md` §1c. Notebooks and code files stay in their native format, code is code, this only applies to the narrative build-guide shape. **PDF only generated once a human asks for it**, not automatically, per §1c's own 2026-09-24 correction.
+
+**Confirmed 2026-09-24, real shape from reading the actual e& Persona-Driven AI demo doc directly, not assumed.** A real demo doc isn't just a numbered list of steps, it opens with a short narrative: a named persona facing a real problem, why the obvious approach falls short, and what this demo actually solves, before the mechanical steps ever start. Four real sections, in order: **Problem Context** (who, what they're trying to do), **The Real Problem** (why the obvious approach falls short), **What We're Solving** (the actual fix, framed as an outcome, not a feature list), then **Demo Steps** (the mechanical walkthrough §2 below already covers). Build every no-code/low-code guide with this same shape, the mechanical steps aren't the whole document, the framing around them is what makes it read like a real demo instead of a dry manual.
 
 ---
 
@@ -41,6 +43,7 @@ metadata:
 **If a no-code/low-code build guide:**
 - Every step concrete and mechanically followable, exact field names, exact text to paste, exact click targets. Paraphrased or vague steps ("configure the connector appropriately") are not acceptable.
 - Built as HTML, using that engagement's real deck palette/font (§1), not a bare unstyled page, this is a learner-facing document, it should look like it belongs with the rest of the day's materials.
+- **Added 2026-09-24: any block of exact text a learner has to paste (a persona description, a prompt, a field value, a config string, a code snippet) gets a real copy-to-clipboard button next to it**, `navigator.clipboard.writeText(...)`, no new dependency needed. Reduces live-session transcription errors, and it's real, confirmed missing today, no demo or deck component currently has one. Applies to notebook/code-file shapes too wherever a snippet is meant to be copied verbatim, not just the no-code guide shape.
 
 **Screenshots, whenever the demo's result is genuinely easier to see than to describe (any shape, not just no-code):**
 - Every real screenshot provided (§1) gets placed next to the specific step or moment it shows, in the order it actually happened, not clustered at the end.
@@ -69,6 +72,8 @@ Per `content-generation/SKILL.md` §3, the check differs by shape, they need gen
 
 `Outputs/[Client]/demo/`, a subfolder rather than a single file, since a demo can be a notebook plus data files, or a build guide (`.html`) plus its screenshot assets. Same per-engagement parent folder as everything else. Demo is learner-facing per `content-generation/SKILL.md` §1b, so once reviewed it also goes to `B2B AI Programs`, not `PostSalesPluginOutput`, that folder is for working docs only and Demo isn't one.
 
+**Added 2026-09-24: one doc per distinct real demo, never one doc covering a whole day.** Real evidence (e& Low-Code Days 1-2) confirmed some days genuinely have more than one real demo, a warm-up plus a main build. `lesson-plan-generation/SKILL.md` §2 now reflects that as separate rows/Pods when precedent shows it, so read the day's real Pod structure directly, one demo doc per distinct hands-on Pod that needs one, not one doc per day by default. Save each as `Outputs/[Client]/demo/day-N-demo-1/`, `day-N-demo-2/`, etc. when a day has more than one, matching the real, human workflow: the person running the session performs one demo, hands over its screenshots, this skill builds that doc, then they move to the next demo the same way, not all of a day's demos bundled together upfront.
+
 ---
 
 ## 5. Handoff, and this loops, not a one-time pass
@@ -82,8 +87,12 @@ Hand off to the existing `acceler-post-sales:code-demo-reviewer` for the actual 
 ## 6. Checklist
 - [ ] Both mandatory inputs loaded, or the run stopped and asked
 - [ ] Correct shape chosen (notebook/code vs. no-code guide) from that day's Libraries/Tools column, not defaulted
+- [ ] One doc built per distinct real demo Pod the Lesson Plan lists for this day, not one combined doc, where more than one exists
 - [ ] Notebook/code actually executed before handoff, real output captured, not claimed
 - [ ] No-code guide steps are concrete and mechanically followable, not paraphrased
+- [ ] Opens with real Problem Context / The Real Problem / What We're Solving framing before the mechanical steps, per the real e& shape
+- [ ] Every exact-paste block (persona text, prompt, config, code) has a real copy-to-clipboard button
+- [ ] PDF only generated if a human asked for it, not automatically
 - [ ] Every provided screenshot placed next to its real step, in order, none invented or skipped
 - [ ] No real credential visible in any screenshot, checked explicitly, not assumed clean
 - [ ] A worked example precedes the first independent task, scaffolding fades across the demo

@@ -106,11 +106,30 @@ PostSalesPluginOutput/
 
 **Added 2026-09-18.** Any learner-facing artifact this pipeline builds as HTML (the session deck, and Demo per `demo-generation/SKILL.md`, going forward) follows the same export rule, one default, one explicit-ask exception, reusing pre-sales's own already-working pattern rather than inventing a new one:
 
-- **Default: screenshot-per-slide/section, assembled into a PPTX**, per `pptx-deck/SKILL.md`'s already-documented method (headless-render each section at 2×, assemble with `python-pptx`). Fast, pixel-perfect, never drifts from the HTML. **PDF comes from the same rendering step**, essentially free once a screenshot pipeline exists, not a separate build.
+- **Default: screenshot-per-slide/section, assembled into a PPTX**, per `pptx-deck/SKILL.md`'s already-documented method (headless-render each section at 2×, assemble with `python-pptx`). Fast, pixel-perfect, never drifts from the HTML. **Corrected 2026-09-24, unified with §1e's rule: PDF is generated only once a human asks for it or approves the export**, not automatically alongside every PPTX just because the rendering step makes it cheap, this saves real time and tokens the same way it does for Orientation/Closing.
 - **Only on an explicit human ask to type-edit the PPTX afterward**: fall back to the native, editable rebuild instead (`PPTX_Deck_Skills.md`'s pattern, real shapes/text boxes, not images), per §2a, an explicit request always overrides the default.
 - The HTML file itself stays the source of truth either way. Keep its content in one reusable data block so whichever export path runs doesn't drift from it.
 
 Don't build a third, new conversion mechanism for Demo or any future HTML artifact, point it at this same rule.
+
+---
+
+## 1d. Branding: Acceler by default, PowerUp on explicit request
+
+**Added 2026-09-24.** The company was previously branded PowerUp before becoming Acceler. Any artifact that carries a company logo or name (session deck cover, Orientation, Closing Ceremony) defaults to current Acceler branding, real logo file at `post-sales/knowledge/brand-assets/acceler-logo-dark.svg`. Some ongoing client relationships that started under the old brand may still expect PowerUp branding, real logo file at `post-sales/knowledge/brand-assets/powerup-logo.png`, kept permanently for exactly this. If a human explicitly asks for PowerUp branding for a specific run, use it, don't silently default to Acceler and don't silently swap a PowerUp request back to Acceler either, this is the same explicit-input-always-wins rule as §2a below, applied to branding specifically.
+
+**Asked once per engagement, not once per artifact.** Per `discovery-fit-review/SKILL.md` §1.2, this is a field on the Discovery Facts Sheet, set at the very start of the pipeline, not re-asked at every generation stage. A generation skill reads it from there; it only actively asks a human when the Facts Sheet's Branding field is genuinely unset and there's a real reason to check (e.g. a precedent search turns up this client's own past content already PowerUp-branded).
+
+---
+
+## 1e. PPTX-native artifacts (Orientation, Closing Ceremony): reuse the real deck directly, don't rebuild through the HTML engine
+
+**Added 2026-09-24.** §1c above is for artifacts this pipeline builds as HTML first (session deck, Demo). Orientation and Closing Ceremony are different: the real, already-delivered versions of both are native PowerPoint/Slides decks, mostly fixed company template content with a small number of real engagement-specific fields, not something to generate fresh through `live-session-deck`'s token/component system. See `orientation-generation/SKILL.md` and `closing-ceremony-generation/SKILL.md` for the full detail, in short:
+
+- Start from a real precedent deck (this client's own real prior one where it exists, otherwise the closest real precedent per `post-sales/knowledge/engagement-catalog.md`), exported to `.pptx`.
+- Edit only the identified engagement-specific fields in place (python-pptx, same tooling already used for PPTX export elsewhere in this pipeline), preserving the source file's real formatting, fonts, and layout untouched. No new design tokens, no HTML rebuild.
+- Output is `.pptx`, native and fully editable.
+- **PDF is generated only after a human approves the PPTX**, not on every fix-loop pass, this saves real time and tokens across what can be several review rounds before approval.
 
 ---
 
@@ -146,6 +165,14 @@ A generator checks anything mechanically checkable itself, before submitting for
 
 ---
 
+## 3a. Don't trust a prior round's fix once an upstream input changes
+
+**Added 2026-09-24, real bug found on a live test run.** A day's Lesson Plan was fixed once against one version of Deep Research. Deep Research was later revised with new findings (a real demo-count check that didn't exist yet in the version the fix was checked against). The next run claimed that day was "already reconciled" without actually re-checking it against the new version, it just remembered the day had been touched before and assumed that was still enough. It wasn't, the new finding was never reflected.
+
+**The rule, general, not scoped to Lesson Plan or to demo counts specifically:** if something this skill reads (Deep Research, the Lesson Plan, a prior stage's output, anything upstream) gets a newer version after this skill's own output already exists, don't assume the existing output is still correct just because it was checked once before. Re-check it against the *current* version of that input before claiming anything is fine, reconciled, or already handled. "Already fixed" is a claim about the input version it was fixed against, it doesn't carry forward automatically once that input changes again. This applies anywhere in the pipeline the same shape can repeat, e.g. Orientation built from one Lesson Plan version, then the Lesson Plan changes again.
+
+---
+
 ## 4. Inheriting the baseline quality bar and prose rules
 
 Every generation skill inherits `agent-loops/SKILL.md` §2a (baseline quality bar), §2a-1 (prose quality, explicit style bans plus AI-tell density), and §2b (Discovery Fidelity, checked against the Facts Sheet) directly. Reference `agent-loops` in the `skills:` frontmatter field the same way every reviewer does. Don't restate these rules per generation skill, that's exactly the five-times-repeated-prose problem `agent-loops` itself was written to avoid.
@@ -172,6 +199,22 @@ Once a generation skill produces its artifact, it hands off to the matching revi
 
 ---
 
+## 6b. Three ways any generation skill gets invoked, not just one
+
+**Added 2026-09-27.** Everything above describes the default: building an artifact fresh from this same engagement's own upstream pipeline (Deep Research, Lesson Plan, etc.), generated earlier in the same run. That's real, but it's only one of three real situations a human can actually be in when they ask for something. Every generation skill needs to work in all three, independently, not just as a step inside the full sequential flow, someone can walk up and ask for a single artifact on its own, with nothing else run first.
+
+**Mode 1, fresh build.** The default already described in this file: build from this engagement's own real upstream artifacts. Full review, per §6, same as always.
+
+**Mode 2, adapt from a real reference.** The human says, in effect, "this one's basically like that other one, with these differences," or hands over a real file on the spot, one that wasn't produced by this engagement's own pipeline at all, a past engagement's real artifact, or something entirely external. This is the same real approach already built for `orientation-generation` and `closing-ceremony-generation` (copy the real reference, swap only what's actually different), generalized here so any artifact type can use it, not just those two. The reference can come from `engagement-catalog.md`, or be handed over directly at runtime, either is fine, same as any other best-effort precedent input per §2. **This still gets the full review in §6, the same bar as Mode 1, no shortcut.** Real evidence for why: the two real defects found in Orientation's first live run (a leftover duplicate slide, a formatting-collapse bug) weren't in the original reference, they got introduced during the adapting step itself. Being grounded in something real doesn't mean the adaptation was done correctly, only a full check confirms that.
+
+**Mode 3, tweak something that already exists for this exact engagement.** The human already has a real version of this artifact, generated by this pipeline earlier, or handed over as-is, and wants specific, named changes made to it, not a rebuild. Apply only the described changes, preserve everything else untouched, the same discipline `content-fixer` already applies to an approved reviewer finding. **This gets a light, targeted check scoped to just what changed**, not a full re-review of the whole artifact, that would be real waste with no added safety. But it's not zero-review either, confirm the specific change actually landed, and that nothing else moved, the same self-verification discipline §3 already requires elsewhere.
+
+**How to tell which mode a request is in:** look at what the human actually hands over or references at the start. Nothing existing yet, pointing only at upstream pipeline artifacts, Mode 1. A reference from somewhere else, a past engagement or an external file, Mode 2. An existing version of this exact artifact for this exact engagement, plus a specific list of changes, Mode 3.
+
+**Whatever gets handed over at runtime, in any mode, gets saved to its proper `Outputs/[Client]/...` path per §1a**, not just used once and discarded, so the next stage (or the next person picking up this engagement) can read it too, not just whoever happened to be in this specific conversation.
+
+---
+
 ## 7. Checklist
 - [ ] Plugin root located via the `post-sales/.claude-plugin/plugin.json` anchor, save path built from that, never a bare relative `Outputs/[Client]/...` left for the shell to resolve
 - [ ] Saved file read back from its resolved absolute path to confirm it actually landed there
@@ -179,11 +222,18 @@ Once a generation skill produces its artifact, it hands off to the matching revi
 - [ ] Day-count in any Drive path matches this engagement's actual proposal length, never hardcoded to 4
 - [ ] If this created a brand-new `B2B AI Programs` client/program folder, it's been added to `B2B_CONTENT_PROGRAM_CLIENTS`, or the user's been clearly told this is still outstanding
 - [ ] Test runs use `TEST -` / `TEST/` naming in both Drive locations, never added to the real known-programs list
+- [ ] Branding defaults to Acceler unless a human explicitly asked for PowerUp, per §1d
+- [ ] Orientation/Closing built by editing a real precedent PPTX in place, per §1e, not regenerated through the HTML deck engine; PDF only generated after human approval
 - [ ] Every input tiered mandatory / best-effort / not applicable, not a binary required/optional
 - [ ] Missing upstream stage (no Facts Sheet, no Deep Research) means stop and ask, never invent
 - [ ] Only the content types this engagement actually needs get built, not every type by default
 - [ ] Mechanically checkable facts (durations, counts, cross-references) self-verified before handoff
+- [ ] If an upstream input has a newer version than what this output was last checked against, re-verified against the current version, not assumed still fine from a prior round, per §3a
 - [ ] `agent-loops` referenced in `skills:` frontmatter, its §2a / §2a-1 / §2b rules not restated
 - [ ] Matching `generation-learnings/<type>.md` referenced in `skills:` frontmatter
 - [ ] Output handed to the existing matching reviewer, no bespoke review process invented
 - [ ] The skill's own description states the generation-review loop explicitly, per §6a, not left implicit
+- [ ] Invocation mode identified (fresh build / adapt from a reference / tweak an existing artifact) from what the human actually handed over, per §6b, not assumed to be Mode 1 by default
+- [ ] Mode 2 (adapt from a reference) got the full review, same bar as Mode 1, no shortcut just because it's grounded in something real
+- [ ] Mode 3 (tweak) got a scoped, targeted check on exactly what changed, not skipped and not a full re-review
+- [ ] Anything handed over at runtime saved to its real `Outputs/[Client]/...` path, not used once and discarded

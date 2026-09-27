@@ -26,6 +26,7 @@ Follows `content-generation/SKILL.md` §2's tiering, mandatory versus best-effor
 - Client emails and other communications, ask the user where these live if they want them included, don't assume they're findable on their own.
 - Precedent: similar past work with this client, or a similar client, B2B or B2C. Check `post-sales/knowledge/engagement-catalog.md` first, it lists what real content already exists per past engagement (audience, tools, which content types, where the files sit). If whoever's running this hasn't already named a specific precedent client, ask which past engagement this one is closest to rather than assuming none exists.
 - **Added 2026-09-18: `post-sales/knowledge/curriculum-graph.json`, once it exists.** This is Utkarsh's real Curriculum Graph, published automatically by his sync job (per `content-generation/SKILL.md` §1b), not a live lookup, just a file to read like any other. If it's there: look for a client node matching this engagement (or the closest real match, same client or a similar one), walk to its program and module nodes, and use their real file names/Drive links as grounded precedent, the same idea as the catalog above but automatic and more precise, since it's built from actually-delivered content, not a manually kept list. **Per `content-generation/SKILL.md` §2's precedent-verification rule, confirm whatever node you land on actually names the client/program it claims to before using it**, don't trust a fetched match blindly. **If the file doesn't exist yet** (real as of 2026-09-18, his sync job hasn't published it yet), that's fine, fall back to the catalog and asking a human, exactly as already described above, don't block waiting for it. **Before reading it, make sure it's actually the latest copy**: `git fetch origin` then `git merge origin/master` (never a plain `git pull`) on whatever branch this session is on. The bot that publishes this file commits straight to `master` on its own schedule, unrelated to when this session happens to start, so whatever's already on disk could be stale, a quick fetch+merge first is what makes it current.
+- **Added 2026-09-24, real gap found on a live test run: check how many real demos each day actually has, not just what they're about.** Real evidence (e& Low-Code) showed Days 1 and 2 each pair a small warm-up demo (a basic skill or concept exercise) with one main hands-on build, a two-part shape, not one demo per day. This is easy to miss if you only read the module/file names off the graph, walk into that day's real Drive folder (the module node's own file listing, or its Demo Files subfolder if the graph points at one) and count what's actually there: how many distinct real demo files/docs exist, and whether one is clearly a shorter warm-up before a bigger build. Note this explicitly per day in §2's output, don't just name the one main demo and stop there.
 
 ---
 
@@ -34,7 +35,7 @@ Follows `content-generation/SKILL.md` §2's tiering, mandatory versus best-effor
 A short, structured brief, not a data dump, shaped around what actually gets built next:
 
 - **Audience and pacing calibration**, who's in the room, their level, how fast to go, from the Facts Sheet and onboarding answers.
-- **Day-by-day themes**, organized by day where the sources support it, not just a flat list of everything discussed.
+- **Day-by-day themes**, organized by day where the sources support it, not just a flat list of everything discussed. **Added 2026-09-24: for each day, state how many real distinct demos precedent shows (not just the one main build), and flag if there's a real warm-up-then-main-build pattern**, per the real Days 1-2 finding in §1 above.
 - **Concrete use cases and examples**, pulled from this client's actual business, transcripts, or emails, never generic placeholders.
 - **Tools and constraints**, carried forward from the Facts Sheet, not re-derived.
 - **Precedent notes**, what worked in similar past engagements, if any exist, sourced from `post-sales/knowledge/engagement-catalog.md` plus whatever precedent the human running this named explicitly.
@@ -72,6 +73,7 @@ Once approved by a human, Lesson Plan reads `Outputs/[Client]/deep-research.md` 
 - [ ] Mandatory inputs present (Facts Sheet, proposal, onboarding form), or the run stops and asks rather than guessing
 - [ ] Best-effort sources used where available, gaps stated plainly where not, nothing invented
 - [ ] Output shaped as the five sections in §2, not a raw dump of source material
+- [ ] Each day's real demo count checked (not assumed to be one), warm-up-then-main pattern flagged where precedent shows it, per §1/§2
 - [ ] `agent-loops` §2a / §2a-1 inherited even though there's no dedicated reviewer
 - [ ] Saved to `Outputs/[Client]/deep-research.md`
 - [ ] Human approval obtained before Lesson Plan (or anything else) reads it

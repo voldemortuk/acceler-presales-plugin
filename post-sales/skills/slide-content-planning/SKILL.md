@@ -56,6 +56,8 @@ Walk the day's Lesson Plan Part by Part. For each one that's load-bearing enough
 
 Per `content-generation/SKILL.md` §3: before saving, count the words planned per slide and the real-component ratio across the plan. If most entries are thin or plain-text, that's the same failure mode already found once, go back and mine more real detail rather than shipping a plan that will produce another thin deck.
 
+**Added 2026-09-24, real gap found on a live test run: this count has to be an actual count, not an estimate.** Spot-checking a real generated plan's self-reported per-slide word counts against the actual slide text found them overstated by 15-30%, and the slide-tally totals ("15 remaining slides, 11 use a component") didn't reconcile against a manual recount either. Eyeballing a number and writing "~145 words" next to it isn't the mechanical check `content-generation/SKILL.md` §3 asks for. Actually count: run the real text through a word-count (a quick script, not a guess), and actually enumerate the slide list before stating a ratio, the same discipline `lesson-plan-generation` already applies to its own duration math.
+
 ---
 
 ## 5. Where it gets saved
