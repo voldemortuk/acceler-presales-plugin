@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Slide 70</title>
+<style>
+  /* Embedded directly (not local()) -- local() silently fails to match these
+     static-instance TTFs against the macOS font cache in this environment,
+     which was causing EVERY SemiBold/Medium/Light run (~1,400 of ~3,000 in
+     this deck) to silently degrade to plain Regular weight. Embedding the
+     exact font file sidesteps OS font-cache/matching entirely. */
+  @font-face { font-family: 'Lexend'; src: url('assets/fonts/Lexend-Regular.ttf') format('truetype'); font-weight: 400; }
+  @font-face { font-family: 'Lexend'; src: url('assets/fonts/Lexend-Bold.ttf') format('truetype'); font-weight: 700; }
+  @font-face { font-family: 'Lexend Light'; src: url('assets/fonts/Lexend-Light.ttf') format('truetype'); }
+  @font-face { font-family: 'Lexend Medium'; src: url('assets/fonts/Lexend-Medium.ttf') format('truetype'); }
+  @font-face { font-family: 'Lexend SemiBold'; src: url('assets/fonts/Lexend-SemiBold.ttf') format('truetype'); }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#e8e6f4; display:flex; align-items:center; justify-content:center; min-height:100vh; }
+  .tx-slide { width:1280px; height:720px; position:relative; overflow:hidden; background:#FFFFFF; background:url('assets/bg_140281829728944.png') center/cover no-repeat; }
+</style>
+</head>
+<body>
+<div class="tx-slide">
+<div style="position:absolute;left:1100px;top:653.4px;width:150px;height:48.6px;background:rgba(255,255,255,0.92);border-radius:8px;display:flex;align-items:center;justify-content:center;"><img src="assets/acceler-logo-dark.svg" style="width:130px;height:28.6px;object-fit:contain;"></div>
+<div style="position:absolute;left:43.13px;top:37.74px;width:1193.73px;height:78.52px;display:flex;flex-direction:column;justify-content:flex-start;overflow:visible;padding:12.8px 12.8px 12.8px 0.0px;box-sizing:border-box;"><div style="text-align:left;margin:0;line-height:1.15;margin-bottom:0.0px;"><span style="font-family:'Lexend SemiBold', 'Lexend', sans-serif;font-size:36.0px;font-weight:400;font-style:normal;color:#2D2D5C;">Agents With Tools</span></div></div>
+<img src="assets/img_1232.png" style="position:absolute;left:244.21px;top:145.95px;width:777.32px;height:518.24px;object-fit:fill;"><div style="position:absolute;left:709.33px;top:373.15px;width:238.65px;height:255.75px;display:flex;flex-direction:column;justify-content:center;overflow:visible;padding:12.8px 12.8px 12.8px 12.8px;box-sizing:border-box;background:#FFFFFF;"><div style="text-align:center;margin:0;line-height:1.0;margin-bottom:0.0px;"><span style="font-family:'Lexend', sans-serif;font-size:18.7px;font-weight:400;font-style:normal;color:#595969;">&nbsp;</span></div></div><div style="position:absolute;left:537.33px;top:474.36px;width:221.35px;height:163.21px;display:flex;flex-direction:column;justify-content:center;overflow:visible;padding:12.8px 12.8px 12.8px 12.8px;box-sizing:border-box;background:#FFFFFF;"><div style="text-align:center;margin:0;line-height:1.0;margin-bottom:0.0px;"><span style="font-family:'Lexend', sans-serif;font-size:18.7px;font-weight:400;font-style:normal;color:#595969;">&nbsp;</span></div></div><div style="position:absolute;left:617.69px;top:439.38px;width:30.36px;height:55.09px;display:flex;flex-direction:column;justify-content:center;overflow:visible;padding:12.8px 12.8px 12.8px 12.8px;box-sizing:border-box;background:#FFFFFF;"><div style="text-align:center;margin:0;line-height:1.0;margin-bottom:0.0px;"><span style="font-family:'Lexend', sans-serif;font-size:18.7px;font-weight:400;font-style:normal;color:#595969;">&nbsp;</span></div></div>
+</div>
+</body>
+</html>

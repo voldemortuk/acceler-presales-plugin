@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Slide 57</title>
+<style>
+  /* Embedded directly (not local()) -- local() silently fails to match these
+     static-instance TTFs against the macOS font cache in this environment,
+     which was causing EVERY SemiBold/Medium/Light run (~1,400 of ~3,000 in
+     this deck) to silently degrade to plain Regular weight. Embedding the
+     exact font file sidesteps OS font-cache/matching entirely. */
+  @font-face { font-family: 'Lexend'; src: url('assets/fonts/Lexend-Regular.ttf') format('truetype'); font-weight: 400; }
+  @font-face { font-family: 'Lexend'; src: url('assets/fonts/Lexend-Bold.ttf') format('truetype'); font-weight: 700; }
+  @font-face { font-family: 'Lexend Light'; src: url('assets/fonts/Lexend-Light.ttf') format('truetype'); }
+  @font-face { font-family: 'Lexend Medium'; src: url('assets/fonts/Lexend-Medium.ttf') format('truetype'); }
+  @font-face { font-family: 'Lexend SemiBold'; src: url('assets/fonts/Lexend-SemiBold.ttf') format('truetype'); }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#e8e6f4; display:flex; align-items:center; justify-content:center; min-height:100vh; }
+  .tx-slide { width:1280px; height:720px; position:relative; overflow:hidden; background:#FFFFFF; background:url('assets/bg_140281829728944.png') center/cover no-repeat; }
+</style>
+</head>
+<body>
+<div class="tx-slide">
+<div style="position:absolute;left:1100px;top:653.4px;width:150px;height:48.6px;background:rgba(255,255,255,0.92);border-radius:8px;display:flex;align-items:center;justify-content:center;"><img src="assets/acceler-logo-dark.svg" style="width:130px;height:28.6px;object-fit:contain;"></div>
+<div style="position:absolute;left:43.13px;top:37.74px;width:1193.73px;height:78.52px;display:flex;flex-direction:column;justify-content:flex-start;overflow:visible;padding:12.8px 12.8px 12.8px 0.0px;box-sizing:border-box;"><div style="text-align:left;margin:0;line-height:1.15;margin-bottom:0.0px;"><span style="font-family:'Lexend SemiBold', 'Lexend', sans-serif;font-size:36.0px;font-weight:400;font-style:normal;color:#2D2D5C;">Agents: </span></div></div>
+<div style="position:absolute;left:40.6px;top:108.37px;width:1199.28px;height:91.18px;display:flex;flex-direction:column;justify-content:flex-start;overflow:visible;padding:12.8px 12.8px 12.8px 0.0px;box-sizing:border-box;"><div style="text-align:left;margin:0;line-height:1.15;margin-bottom:0.0px;"><span style="font-family:'Lexend Medium', 'Lexend', sans-serif;font-size:25.3px;font-weight:400;font-style:normal;color:#2D2D5C;">An agent is an </span><span style="font-family:'Lexend Medium', 'Lexend', sans-serif;font-size:25.3px;font-weight:400;font-style:normal;color:#6568F5;">autonomous entity</span><span style="font-family:'Lexend Medium', 'Lexend', sans-serif;font-size:25.3px;font-weight:400;font-style:normal;color:#2D2D5C;"> capable of perceiving its environment, making decisions, and taking actions to achieve specific goals.</span></div></div>
+<img src="assets/img_1069.png" style="position:absolute;left:283.87px;top:204.61px;width:689.54px;height:459.69px;object-fit:fill;">
+</div>
+</body>
+</html>

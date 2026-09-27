@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Slide 23</title>
+<style>
+  /* Embedded directly (not local()) -- local() silently fails to match these
+     static-instance TTFs against the macOS font cache in this environment,
+     which was causing EVERY SemiBold/Medium/Light run (~1,400 of ~3,000 in
+     this deck) to silently degrade to plain Regular weight. Embedding the
+     exact font file sidesteps OS font-cache/matching entirely. */
+  @font-face { font-family: 'Lexend'; src: url('assets/fonts/Lexend-Regular.ttf') format('truetype'); font-weight: 400; }
+  @font-face { font-family: 'Lexend'; src: url('assets/fonts/Lexend-Bold.ttf') format('truetype'); font-weight: 700; }
+  @font-face { font-family: 'Lexend Light'; src: url('assets/fonts/Lexend-Light.ttf') format('truetype'); }
+  @font-face { font-family: 'Lexend Medium'; src: url('assets/fonts/Lexend-Medium.ttf') format('truetype'); }
+  @font-face { font-family: 'Lexend SemiBold'; src: url('assets/fonts/Lexend-SemiBold.ttf') format('truetype'); }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#e8e6f4; display:flex; align-items:center; justify-content:center; min-height:100vh; }
+  .tx-slide { width:1280px; height:720px; position:relative; overflow:hidden; background:#FFFFFF; background:url('assets/bg_140281829663120.png') center/cover no-repeat; }
+</style>
+</head>
+<body>
+<div class="tx-slide">
+<div style="position:absolute;left:1100px;top:653.4px;width:150px;height:48.6px;background:rgba(255,255,255,0.92);border-radius:8px;display:flex;align-items:center;justify-content:center;"><img src="assets/acceler-logo-dark.svg" style="width:130px;height:28.6px;object-fit:contain;"></div>
+<div style="position:absolute;left:-340.07px;top:-138.23px;width:265.35px;height:28.82px;display:flex;flex-direction:column;justify-content:flex-start;overflow:visible;padding:0.0px 0.0px 0.0px 0.0px;box-sizing:border-box;"><div style="text-align:center;margin:0;line-height:1.24;margin-bottom:0.0px;"><span style="font-family:'Lexend', sans-serif;font-size:18.7px;font-weight:400;font-style:normal;color:#595969;">&nbsp;</span></div></div>
+<div style="position:absolute;left:26.3px;top:-138.23px;width:291.94px;height:28.82px;display:flex;flex-direction:column;justify-content:flex-start;overflow:visible;padding:0.0px 0.0px 0.0px 0.0px;box-sizing:border-box;"><div style="text-align:center;margin:0;line-height:1.24;margin-bottom:0.0px;"><span style="font-family:'Lexend', sans-serif;font-size:18.7px;font-weight:400;font-style:normal;color:#595969;">&nbsp;</span></div></div>
+<img src="assets/img_712.png" style="position:absolute;left:174.36px;top:84.14px;width:931.28px;height:551.72px;object-fit:fill;">
+<div style="position:absolute;left:0.0px;top:687.69px;width:612.35px;height:32.31px;display:flex;flex-direction:column;justify-content:flex-start;overflow:visible;padding:9.6px 9.6px 9.6px 9.6px;box-sizing:border-box;"><div style="text-align:left;margin:0;line-height:1.0;margin-bottom:0.0px;"><span style="font-family:'Lexend', sans-serif;font-size:10.7px;font-weight:700;font-style:normal;color:#2D2D5C;">Image source: </span><span style="font-family:'Lexend', sans-serif;font-size:10.7px;font-weight:700;font-style:normal;color:#0097A7;">https://aws.amazon.com/what-is/retrieval-augmented-generation/</span></div></div>
+<div style="position:absolute;left:826.97px;top:91.01px;width:265.35px;height:217.98px;display:flex;flex-direction:column;justify-content:center;overflow:visible;padding:9.6px 9.6px 9.6px 9.6px;box-sizing:border-box;border:2.25px solid #6E69EB;border-radius:16.9px;"><div style="text-align:left;margin:0;line-height:1.0;margin-bottom:0.0px;"><span style="font-family:'Lexend', sans-serif;font-size:18.7px;font-weight:400;font-style:normal;color:#595969;">&nbsp;</span></div></div>
+<div style="position:absolute;left:826.97px;top:318.19px;width:265.35px;height:60.47px;display:flex;flex-direction:column;justify-content:center;overflow:visible;padding:9.6px 9.6px 9.6px 9.6px;box-sizing:border-box;border-radius:4.7px;"><div style="text-align:center;margin:0;line-height:1.0;margin-bottom:0.0px;"><span style="font-family:'Fira Sans', sans-serif;font-size:50.7px;font-weight:700;font-style:normal;color:#6E69EB;">??</span></div></div>
+</div>
+</body>
+</html>

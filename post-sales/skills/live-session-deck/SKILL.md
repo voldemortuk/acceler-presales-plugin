@@ -45,10 +45,41 @@ Text colors, confirmed consistent across every slide type checked, cover through
 --text-muted:    #595969   /* secondary/muted text */
 --accent:        #6568F5   /* kickers, small highlight labels */
 --accent-2:      #6E69EB   /* close relative of accent, used interchangeably */
+--link-accent:   #0097A7   /* clickable "Click Here" text specifically, e.g. §3.20's demo link-out button */
 --page-bg:       #e8e6f4   /* fallback background behind the slide canvas */
 ```
 
-**Every slide's actual background is a custom-designed image, not a flat token**, that's the real visual variety between slide types, not a different color scheme per type. This skill doesn't need to reproduce that exactly, a solid or gently-patterned background consistent with this palette is the practical equivalent, don't try to source or fake a matching background image per slide.
+**Added 2026-09-25, real gap found on a live test run.** `--link-accent` was missing from this list entirely, confirmed by checking the real reference deck's actual slide 81 pixels directly (`#0097A7`), and independently cross-confirmed against a second real deck (the actual e& Low-Code Day 1 delivery, same exact value). Any clickable "Click Here" text uses this color, not `--text-heading`, that was the real cause of a demo link-out button rendering with no accent color at all.
+
+**Every slide's actual background is a custom-designed image, not a flat token, and this is where the deck's real look actually comes from.**
+
+**Corrected 2026-09-27, real root cause of a live test run's "colors don't match at all" complaint.** This section used to say not to use the real background images and to use a flat color instead. That was wrong: the text tokens above were correct in a real generated deck, and it still looked nothing like the real one, because the real deck's look lives almost entirely in its backgrounds. Checked all 85 real Day 3 slides: they use only a handful of real background images, and cross-checked against the real Day 1 deck (104 slides), same family, same mapping. The real ones are now saved permanently in `post-sales/knowledge/deck-reference/eand-lowcode-day3-replica/assets/backgrounds/`. **Use them, copied into the deck's own `assets/`, as `background: url(...) center/cover`, never a flat fill.**
+
+| Background file | Look | Used for (real slide types, confirmed in both real decks) |
+|---|---|---|
+| `cover.png` | warm blush, three stacked pastel circles on the right | Cover only |
+| `framed.png` | peach-to-lavender with a large rounded frosted card | One-idea "statement" slides: Pop Into The Chat, Virtual Lab Access intro, Let's Get Started, every section divider ("Part 1 / How AI is reshaping the Tech World"), Break Time, Thank You |
+| `content-lavender.png` | cool lavender, one soft large circle | The default content background, most teaching slides, Instructor Detail, Mindmap, Agenda, house rules |
+| `content-blush.png` | soft warm peach/cream wash | Alternate content background: timing table, VM checklist, and teaching slides where the real deck alternates for variety |
+| `demo-laptop.png` | lavender with a laptop mockup bottom-right, gradient screen | Demo slides only, §3.20 |
+
+**`content-lavender.png` is the base background for every slide, set on `.slide` itself; the others are overrides for specific slide types.** Found on a real generated deck: only the special backgrounds (cover, framed, blush, demo) got applied, and the default one was never set at all, so every ordinary teaching slide (most of the deck) fell back to a flat color, with plain strips showing at the sides. Write it in this order:
+
+```css
+.slide { background:url(assets/backgrounds/content-lavender.png) center/cover; }   /* default, every slide */
+.slide.cover { background-image:url(assets/backgrounds/cover.png); }
+.slide.statement, .slide.divider, .slide.thankyou { background-image:url(assets/backgrounds/framed.png); }
+.slide.timing, .slide.vmcheck { background-image:url(assets/backgrounds/content-blush.png); }
+.slide.demo { background-image:url(assets/backgrounds/demo-laptop.png); }
+```
+
+No inner element inside a slide ever gets its own background image or full-width background color.
+
+**Never reuse a slide-type class name for an inner element's style.** Found on a real generated deck: slides were marked `class="slide build concept-intro"`, and a separate rule `.concept-intro{max-width:900px}` written for the text box inside, so every slide of that type got squeezed to 900px wide, with plain strips on both sides. Slide-type classes (on `.slide`) and inner element classes must have different names, and nothing that sits on `.slide` ever gets a `max-width`.
+
+A visual reference of these real slide types side by side lives at `post-sales/knowledge/deck-reference/eand-lowcode-day1-real/slide-types-contact-sheet.png`, open it before building if unsure which background a slide type takes.
+
+**Two more real constants on every non-cover slide:** the logo sits small in the top-right corner (per `content-generation/SKILL.md` §1d, Acceler by default), and the title sits top-left in `--text-heading`, often with one key word in `--accent` (e.g. "**Optimise** Your Experience", "Agenda **For Today**").
 
 Font, confirmed real from the actual embedded files (`assets/fonts/Lexend-*.ttf`):
 
@@ -143,9 +174,40 @@ Type scale (use `clamp()` for responsiveness):
 
 ### 2.3 Page size & layout
 
-- **Slide canvas:** absolute-positioned full-viewport (`position:absolute; inset:0`), padding `44px 64px`.
-- **Inner max-width:** `1180px`, centered (`.inner`).
-- **Print:** `@page { size: 1280px 720px; margin: 0; }`, each `.slide` becomes `page-break-after:always` and forced `opacity:1`. Hides progress, brand, fs, counter, zone, notes, nav.
+**Corrected 2026-09-27, the real root cause of slides looking misaligned on a live test run.** This used to say each slide stretches to fill the whole browser window. That's why a real generated demo slide broke: the background picture (with the laptop drawn into it) stretched one way, and the text and button placed on top moved a different way, so text ran into the laptop and the button landed on its edge. The real reference is a **fixed 1280×720 canvas**, everything placed on it, and the whole canvas scaled up or down to fit the window. Background and text then always stay locked together, on any screen.
+
+```css
+body { margin:0; overflow:hidden; background:#e8e6f4; }
+.slide {
+  position:absolute; left:50%; top:50%;
+  width:1280px; height:720px;
+  transform:translate(-50%,-50%) scale(var(--fit,1));
+  background-size:cover; background-position:center;   /* the real background, on the whole canvas */
+  padding:48px 64px; box-sizing:border-box;
+}
+```
+```javascript
+function fit(){ document.documentElement.style.setProperty('--fit',
+  Math.min(innerWidth/1280, innerHeight/720)); }
+addEventListener('resize',fit); fit();
+```
+
+- **The background image goes on `.slide` itself**, the full canvas, never on an inner box. A background on an inner box leaves plain strips of color on the left and right, confirmed on a real generated deck.
+- **Layout inside the canvas is in canvas pixels**, not viewport units (`vw`, `clamp()` with `vw`), those break the lock between background and content.
+- Progress bar, nav, and notes stay outside the canvas, pinned to the window as before.
+- **Slide counter goes bottom-left, not top-right.** Top-right is the logo's spot on every real slide, a counter there sits right on top of it.
+- **Print:** `@page { size: 1280px 720px; margin: 0; }`, each `.slide` becomes `page-break-after:always`, forced `opacity:1`, and `transform:none`. Hides progress, brand, fs, counter, zone, notes, nav.
+
+**Real type scale on the canvas, measured from all 85 real slides**, use these, don't shrink them. The real deck's text is big and fills the slide, a real generated deck using smaller sizes came out mostly empty space. **Text size is part of the template, not the content**: any "update to the latest template" or "layout only" pass applies this table too. A real retrofit skipped it as "not layout" and left body text at 13-16px, don't repeat that. Nothing on a slide goes below 17px except a footnote or source line (never below 14px):
+
+| Element | Real size | Notes |
+|---|---|---|
+| Body text, bullets | 19-21px | the most common size in the whole real deck |
+| Small labels, captions | 17px | |
+| Slide title | 25-36px | 25px on busy slides, up to 36px on lighter ones |
+| Cover title | 49px | |
+| Statement / divider title | 57px | Let's Get Started, Part N, Break Time, Thank You |
+| Statement emoji | 85px | above the statement title |
 
 ---
 
@@ -153,31 +215,16 @@ Type scale (use `clamp()` for responsiveness):
 
 ### 3.1 Cover (slide 0)
 
-```html
-<div class="slide cover active" data-notes="…">
-  <div class="inner">
-    <div class="cover__logos">
-      <div class="logoplate"><img src="acceler_logo.png" alt="Acceler"></div>
-      <!-- optional partner logos: div.logodiv between plates -->
-    </div>
-    <div class="badge">Copilot Leadership Lab · [Client] · [Account]</div>
-    <h1>Build your<br><span class="accent">AI team.</span></h1>
-    <p>Walk in a leader. Walk out a builder — with a <b>real agent that works your week.</b></p>
-    <div class="chips">
-      <span class="chip">🛠️ <b>Copilot Studio</b> · Virtual Labs</span>
-      <span class="chip">🤖 <b>1 agent</b> · built end-to-end</span>
-      <span class="chip">⏱️ <b>2.5 hours</b></span>
-    </div>
-    <div class="foot">← → navigate · F fullscreen · "." speaker notes</div>
-  </div>
-</div>
-```
+**Rewritten 2026-09-27 to the real cover, checked in both real e& decks (Day 1 and Day 3).** The old spec here was a centered, chip-heavy cover from the Hungary/Nucleus decks, use that only if a human explicitly picks one of those as the reference. The real default is simple and **left-aligned**, on `cover.png` (the three pastel circles sit on the right, the text on the left):
 
-Rules:
-- One H1 only, with a `<span class="accent">` for the cyan-highlighted phrase.
-- Logos sit on white `logoplate` rounded cards with `box-shadow 0 12px 34px rgba(0,0,0,.28)`.
-- 3 chips max — keep them factual (tools · output · duration).
-- Always include the navigation hint at the foot (`← → · F · "."`).
+| Element | Real position on the 1280×720 canvas | Style |
+|---|---|---|
+| Logo | top-left, ~left 42px, top 40px | per `content-generation/SKILL.md` §1d, Acceler by default |
+| "Day N" pill | left 42px, top ~220px | light lavender pill, text `--accent`, ~24px |
+| Program title | left 42px, top ~269px, up to 2 lines | `--text-heading`, ~49px, `--font-display` |
+| "By [instructor name]" | bottom-left, left 42px, top ~608px | white pill, "By" in ~21px light weight, name in `--accent` |
+
+Nothing else, no chips, no subtitle paragraph, no centered logo plate. **The title is just the program name** (real: "AI Builder Program (Low Code)"), in the bold display font, never cohort numbers, internal labels like "TESTRUN", or a tagline squeezed in with separators. The instructor name follows the same Proposed/Confirmed rule as the instructor slide, don't present a Proposed name as final.
 
 ### 3.2 Instructor Detail (real slide 2 of the Day 3 deck, checked directly, replaces the older description below)
 
@@ -217,19 +264,15 @@ Background: `linear-gradient(135deg,#F4F6FC 0%,#D8DCEF 100%)`. Centered. Big "Po
 
 Background: same light gradient. 3 numbered cards with coloured corner dots (amber, cyan, navy). Rules: **Be Vocal** · **Be Confident** · **Be Active**. Each card has a `01/02/03` numerator (small, muted).
 
-### 3.6 Phase divider
+### 3.6 Section divider and other one-idea "statement" slides
 
-```html
-<div class="slide section">
-  <div class="inner">
-    <div class="num">Phase N · [Phase Name]</div>
-    <h2>First, let's<br>get you set up.</h2>
-    <div class="sub">Nobody moves on until everybody is in. Five minutes, well spent.</div>
-  </div>
-</div>
-```
+**Rewritten 2026-09-27 to the real layout, checked in both real e& decks.** The old dark-navy divider belongs to the Hungary deck, only use it if a human explicitly picks that reference. The real default: background `framed.png` (the big rounded frosted card), and everything **centered in the middle of the card**, never tucked into a corner:
 
-Dark navy gradient. Always uses `.num` eyebrow + h2 (two-line break) + `.sub` line. Use once per major arc transition.
+- Optional emoji on top, ~85px (🚀, 🤖, ⏰, 🙌).
+- Title, centered, `--text-heading`, ~57px. For a section divider, the real pattern is **"Part N"** in `--accent`, with the section name as the line below it (e.g. "Part 1" / "How AI is reshaping the Tech World").
+- Optional one-line subtitle, centered, ~21px.
+
+Same layout for every one-idea slide in the real deck: section dividers, Let's Get Started, Virtual Lab Access intro, Pop Into The Chat, Break Time ("See you in 10 Mins"), Thank You. Use a divider at the start of each real Part of the day, per the Lesson Plan's own structure.
 
 ### 3.7 Setup split (cards + URL/checklist)
 
@@ -350,7 +393,8 @@ Use for: a common mistake worth naming explicitly (the RAG vs fine-tuning framin
   <div>
     <div class="text-md">An embedding is a <strong>high-dimensional numerical representation</strong> of text.</div>
   </div>
-  <div class="code-block">
+  <div class="code-block" style="position:relative;">
+    <button class="copy-btn" onclick="navigator.clipboard.writeText(this.parentElement.innerText.replace('Copy',''))">Copy</button>
 <span class="cm"># What an embedding looks like</span>
 <span class="kw">from</span> langchain_community.embeddings <span class="kw">import</span> <span class="fn">OpenAIEmbeddings</span>
 
@@ -360,6 +404,8 @@ vector = embed.<span class="fn">embed_query</span>(<span class="str">"home loan 
 </div>
 ```
 Use for: any concept with a real, runnable snippet, n8n JSON config, a Python call, a prompt template. `cm`/`kw`/`fn`/`str` are the token classes, comment/keyword/function/string. Write real, correct code for this cohort's actual tools, never a fake illustrative snippet.
+
+**Added 2026-09-24: `.copy-btn` on every `.code-block`, real and confirmed missing before this.** Small button, top-right of the block (`position:absolute;top:8px;right:8px;` in the real CSS), `navigator.clipboard.writeText(...)` on click, no new dependency. Same component, same rule, reused by `demo-generation/SKILL.md`'s no-code guides for any exact-paste text, not just code.
 
 **Metrics** (stat callouts, 3-4 in a row):
 ```html
@@ -414,7 +460,34 @@ A simple numbered list of today's own topic blocks, e.g. "#1 Conventional Bots &
 
 ### 3.20 Demo (real slide 81, a plain link-out, not an embedded walkthrough)
 
-Minimal: a small title ("Demo N"), then centered, a large "Link for Demo" line and a white pill button below it reading "Click Here", linking out to the actual demo (per `demo-generation`'s output). This slide does not contain the demo steps themselves, don't try to embed the full walkthrough here, it's a handoff point, the real walkthrough is a separate document/notebook/guide the instructor and learners open externally.
+**Rebuilt 2026-09-27 from the real e& Low-Code Day 1 demo slide (page 73), the richer real version, not the bare one.** The old spec here was only "title + Link for Demo + button." The real Day 1 demo slide also carries the demo's context on the left, so learners know what they're about to build and what "done" looks like, before they click out.
+
+Background: `demo-laptop.png` (§2.0 table), always.
+
+**Corrected 2026-09-27: every element on this slide is absolutely positioned in canvas pixels, never a grid or flex column layout.** The laptop is drawn into the background image, so it sits at one fixed spot. Measured directly from `demo-laptop.png`: **the laptop's dark frame runs from x 641 to 1189, y 288 to 663** on the 1280×720 canvas, screen center at about x 915, y 475. A real generated deck laid this slide out as two flexible columns, so its "Link for..." text landed above the screen and its button on the laptop's top edge, and its bullets ran under the laptop. Pin everything:
+
+```css
+.slide.demo .demo-title { position:absolute; left:48px;  top:34px;  width:1100px; }
+.slide.demo .demo-left  { position:absolute; left:48px;  top:120px; width:560px; }  /* must end before x 620, the laptop starts at 641 */
+.slide.demo .demo-link  { position:absolute; left:693px; top:385px; width:445px; text-align:center; }
+.slide.demo .demo-btn   { position:absolute; left:778px; top:504px; width:278px; height:71px; }
+```
+
+Everything in the left column (description and both bullet lists) wraps inside its 560px, nothing crosses x 620. If the content doesn't fit, shorten it, don't widen the column or shrink text below the real type scale.
+
+**The left column also has to end above y 630**, the bottom of the canvas is where the nav bar sits. The real slide fits because its bullets are short labels, 2 to 5 words each ("Zero-Latency Engagement", "Hyper-Personalization via AI", "Workflow triggers when new data enters the Google Sheet"), and its description is one or two sentences. A real generated deck wrote full-sentence bullets and ran off the bottom of the slide. Write short labels here, the full detail already lives in the demo guide this slide links to.
+
+Layout on the 1280×720 canvas, real positions from the reference files:
+
+- **Title, top-left** (~left 30px, top 35px): `Live Demo: [real demo name]`, `--text-heading`, ~25px, `--font-display`.
+- **Left column** (~left 30px, top ~160px, width ~560px), `--text-body`, ~16px, three real blocks in this order:
+  1. One or two sentences: what this demo builds and why.
+  2. **Key Objectives:** 3-4 short bullets.
+  3. **Technical Success Criteria:** 3 short, checkable bullets (what has to actually work for the build to count as done).
+- **On the laptop screen, right side** (text box ~left 695px, top 385px, width 445px, centered): `Link for Hands-on workshop` (or `Link for Demo`), white, ~43px.
+- **Button below it** (~left 778px, top 504px, 278×71px): white pill, radius ~36px, text `Click Here` in `--link-accent` (`#0097A7`), ~25px, links out to the real demo guide from `demo-generation`.
+
+All the left-column content comes from that demo's own real guide (its "What We're Solving" section and its steps' real success conditions, per `demo-generation/SKILL.md`), never invented here. This slide still doesn't contain the demo steps themselves, it's a handoff point with context, the real walkthrough stays in the separate guide.
 
 ### 3.21 Quiz (real slides 82-84, question then reveal)
 
@@ -423,6 +496,27 @@ Two-part pattern: an intro slide ("🙋‍♀️ Quiz Time! Answer in the Chat B
 ### 3.22 Thank You (real slide 85, the actual close)
 
 Simple: "Thank You!" plus a celebratory emoji, centered. The real reference has no dark statement/CTA slide, don't force one in unless a specific engagement actually calls for a distinct closing message beyond this.
+
+### 3.23 Timing table (real e& Day 1 slide 5, checked directly)
+
+**Added 2026-09-27**, this slide had no spec before, and a real generated deck's version lost all its table styling during an update. The real one, on `content-blush.png`:
+
+- Title top-left, "Tentative Schedule" (or "Today's Timing"), `--text-heading`, ~30px.
+- A full-width white table, thin row borders `#FAD8D2`, every cell centered, ~20px text.
+- Header row filled `#E3BEB4` (dusty rose), bold dark text.
+- **Columns: the client's own local time first, then IST, then Activity** (real: "Time (Dubai Time) | Time (IST) | Activity"). Acceler runs across time zones, the room needs its own clock, the instructor needs IST. Take the client's time zone from the Facts Sheet, if it isn't stated, ask rather than guess. Only drop to one time column when client and instructor are in the same zone.
+- Rows stay at session level, not pod level ("Session 1", "Break", "Lunch Break + Prayer Break", "Session 4 (Final Session)"), the detailed breakdown already lives in the Lesson Plan.
+
+---
+
+## 3a. Updating an existing deck to a newer template, check nothing got deleted
+
+**Added 2026-09-27, real pattern found across several update rounds on one deck in a single day.** Each round edited some style rules and quietly deleted neighboring ones by accident: once the copy button's style lost its selector (so the buttons showed unstyled), later the timing table lost its header and row styles (so it showed as bare text). Nothing flagged either one, both were only caught by looking at the rendered slide.
+
+So whenever an existing deck is updated to a newer template (§6b "tweak" mode in `content-generation/SKILL.md`):
+1. Before editing, save the list of every CSS selector in the file.
+2. After editing, list them again and compare. Every selector that disappeared must be one the update meant to remove, anything else is a bug, restore it.
+3. Render and look at one slide of every slide type (cover, instructor, timing, mindmap, agenda, statement/divider, each content component, demo, quiz, thank you), not just the slides the update was aimed at. A lost style shows up on a slide nobody meant to touch.
 
 ---
 
@@ -447,8 +541,16 @@ document.addEventListener('keydown',e=>{
   else if(e.key==='.'){ notesOn=!notesOn; $('notes').classList.toggle('on',notesOn); }
   else if(e.key==='f'||e.key==='F'){ /* fullscreen toggle */ }
 });
-// click zones + bottom nav + touch swipe + ?s= deep link
+// fixed 1280x720 canvas, scaled to fit the window (per §2.3), required, not optional
+function fit(){ document.documentElement.style.setProperty('--fit', Math.min(innerWidth/1280, innerHeight/720)); }
+addEventListener('resize',fit); fit();
+// deep link, required: ?s=N or #N opens slide N (1-based), used for review and for sharing one slide
+{ const q=new URLSearchParams(location.search).get('s')||location.hash.slice(1);
+  const n=parseInt(q,10); if(n>=1&&n<=total) goTo(n-1); }
+// click zones + bottom nav + touch swipe
 ```
+
+**Added 2026-09-27:** the `fit()` and deep-link lines above were missing from a real generated deck. Without `fit()` the slides stretch and misalign (§2.3). Without the deep link, nobody can jump straight to "slide 24" to review or share it, a real review of a generated deck needed exactly that.
 
 Features (all free with the same script):
 - **Keyboard:** `←/→/Space` navigate · `Home/End` jump · `.` toggle notes · `F` fullscreen.
@@ -456,18 +558,21 @@ Features (all free with the same script):
 - **Click zones:** left 11% / right 11% of the viewport.
 - **Bottom nav:** dot indicator + prev/next + count, auto-scrolls active dot into view.
 - **Progress bar:** cyan, top-of-screen, animates on slide change.
-- **Counter:** appears in top-right for 2s after each change, then fades.
-- **Deep link:** `?s=N` opens to slide N on page load.
+- **Counter:** appears **bottom-left** for 2s after each change, then fades (not top-right, that's the logo's spot, per §2.3).
+- **Deep link:** `?s=N` or `#N` opens to slide N (1-based) on page load.
+- **Fit to window:** the fixed 1280×720 canvas scales to fit any screen, background and content stay locked together (§2.3).
 - **Speaker notes:** absolute-positioned tray that slides up from bottom; toggled with `.`.
 
 ---
 
 ## 5. Per-client retargeting (the generalisation)
 
+**Corrected 2026-09-24, real stale reference found:** this section used to say to copy `acceler-nucleus-session-deck/index.html`, the deck §1/§2.0 stopped using as the default reference back on 2026-09-18. That correction updated the design spec (palette, fonts, components) but never this actual build workflow, so old content kept leaking through even after the reference changed. Fixed here.
+
 To produce a deck for a new client:
 
-1. **Copy** the working reference HTML (e.g. `acceler-nucleus-session-deck/index.html`) to a new folder named `acceler-[client]-session-deck/`.
-2. **Swap framing tokens** in slide 0 (cover): client name in badge, partner logo if applicable, big-line phrasing, chips (tools · output · duration).
+1. **Copy** the current default reference deck's structure from `post-sales/knowledge/deck-reference/eand-lowcode-day3-replica/` (the real e& Low-Code Day 3 deck, per §1/§2.0) to a new folder named `acceler-[client]-session-deck/`. Only fall back to a different reference (Nucleus, Hungary) when a human explicitly points this run at one of them instead, per §2.0's own note.
+2. **Swap framing tokens** in slide 0 (cover): client name in badge, partner logo if applicable (see below), big-line phrasing, chips (tools · output · duration). Logo comes from `post-sales/knowledge/brand-assets/`, Acceler by default, PowerUp only if a human explicitly asks, per `content-generation/SKILL.md` §1d, never guessed or left as a placeholder.
 3. **Swap instructor** in slide 1: photo path, name, role line, specializations, experience tiles (feature the most relevant brand for the audience — telco uses Airtel, banking uses HDFC, etc.), `bsec` content.
 4. **Swap content** in build slides (use cases, screenshots, ecosystem). Keep slide IDs (data-step ordering) stable so the PPTX twin can re-use the same data block.
 5. **Update CTAs** to point at the next-deck folder (`pick-your-use-case/index.html`).
@@ -532,13 +637,17 @@ The PPTX builder (`PPTX_Deck_Skills.md`) consumes the same `DECK` object, so whe
 
 ---
 
-## 8. Worked example — e& PPF Hungary
+## 8. Worked example — e& PPF Hungary (historical, predates the 2026-09-18 reference change)
+
+**Kept as a real historical example of the retargeting mechanics, not as the current reference.** This deck was built by copying the old default (Nucleus), before §1/§2.0 switched the default to the e& Low-Code Day 3 deck. The 4-movement arc and swap mechanics below are still accurate, but don't copy this deck's own palette, fonts, or component choices, those follow §2.0 now, not this example's.
 
 **File:** `e&-pp-hungary-session-deck/index.html`  
 **Format:** 17 slides, 2.5 hours.  
 **Arc:** Cover · Madan intro · How 2.5 hrs run · Pop into chat · Optimise · **Phase 1 Set up** · VM access split · 5 VM steps · Browser tabs · Find Copilot Studio · Copilot ecosystem · Basic→Intermediate→Advanced · **Phase 2 Build** · Pick use case · Handoff to lab.  
 **Output:** Each participant builds their own Copilot agent (Yettel Market Pulse OR Yettel Meeting Prep) end-to-end on their VM.  
 **PPTX twin:** Built by copying the 46-slide reference deck and rebuilding only Days 2–4 content per `PPTX_Deck_Skills.md` §5 (reorder via `sldIdLst` element refs). Output: `Acceler_Solution_Deck-e&-PP-Hungary.pptx`.
+
+**No worked example against the current e& Low-Code Day 3 default exists yet**, since no session deck has actually been built against it in a real engagement so far. Add one here once the first real client deck is built against §2.0's palette, rather than leaving this Hungary/Nucleus-era example as the only illustration.
 
 ---
 
@@ -556,7 +665,7 @@ Recommended file layout:
 │   ├── slide07_1.png       ← VM login screenshot
 │   ├── slide08_1.png       ← My Labs screenshot
 │   └── …
-└── acceler_logo.png        ← brand mark (or inline SVG)
+└── acceler_logo.png        ← brand mark, copied from post-sales/knowledge/brand-assets/ (Acceler by default, PowerUp only on explicit request, per content-generation/SKILL.md §1d)
 ```
 
 Open `index.html` in any modern browser. No build step. No npm. No bundle. Hosts on any static server (S3, GitHub Pages, Vercel static, Cloudfront).
@@ -581,9 +690,20 @@ Open `index.html` in any modern browser. No build step. No npm. No bundle. Hosts
 - [ ] Touch swipe works (50px threshold)
 - [ ] Deck plays through end-to-end without errors in console
 - [ ] Every Lesson Plan concept that's load-bearing for the day's build is actually taught per §3.16 (definition, comparison, or worked example as weight warrants), not just named as a pattern-stage label
-- [ ] Teaching content uses §3.17's real Nucleus components (pipeline, pitfall-card, code-block, metrics, query-cards, stack-items), not the generic `card`/`banner` shapes reused for everything
-- [ ] Concept-slide word density checked against Nucleus's real ~150-170 words/slide, not left thin by paraphrasing down what Deep Research and the Lesson Plan already say in detail
+- [ ] Teaching content uses §3.17's real components (pipeline, pitfall-card, code-block, metrics, query-cards, stack-items), grounded in the current e& Low-Code Day 3 default reference (`post-sales/knowledge/deck-reference/eand-lowcode-day3-replica/`), not the generic `card`/`banner` shapes reused for everything
+- [ ] Concept-slide word density checked against the ~150-170 words/slide benchmark. **Still open, per `slide-content-planning/SKILL.md` §3:** this number was measured against the old Nucleus reference and never re-verified against the current e& Low-Code Day 3 default, use it as a working estimate, not a confirmed number, until that re-measurement actually happens
 - [ ] Palette and fonts actually match §2.0 (e& Low-Code Day 3, the default), not §2.1a (Nucleus) or §2.1-2.2 (Hungary), unless a human explicitly chose one of those as the reference this run
+- [ ] Every slide uses its matching real background image from §2.0's table (cover / framed / content-lavender / content-blush / demo-laptop), copied into the deck's own `assets/`, never a flat color fill
+- [ ] Demo slides follow §3.20's real layout: title, left-column context (description, Key Objectives, Technical Success Criteria), link + teal "Click Here" on the laptop screen
+- [ ] Every slide is a fixed 1280×720 canvas scaled to fit with `fit()`, background on the whole canvas, no plain strips at the sides, checked at two different window sizes, not just one
+- [ ] Text uses the real type scale in §2.3 (body 19-21px, titles 25-36px), not shrunk, nothing under 17px except footnotes
+- [ ] `content-lavender.png` set as the base background on `.slide` itself, every ordinary slide actually shows it
+- [ ] Demo slide elements absolutely positioned to the measured laptop (§3.20), "Link for..." and the button sit on the laptop screen, nothing in the left column crosses x 620 or runs below y 630, bullets are short labels not sentences
+- [ ] No slide-type class shares a name with an inner element's class, nothing on `.slide` has a `max-width`
+- [ ] Timing table matches §3.23: rose header row, client local time + IST + Activity, centered cells
+- [ ] If this was an update to an existing deck: CSS selector list compared before and after, nothing lost by accident, one slide of every type rendered and looked at (§3a)
+- [ ] Cover is the real left-aligned layout (§3.1), section dividers and statement slides are centered on the framed card (§3.6)
+- [ ] Slide counter sits bottom-left, never over the logo; `?s=N` / `#N` deep link actually works
 - [ ] PPTX twin (`PPTX_Deck_Skills.md`) consumes the same `DECK` data object
 
 ---
@@ -592,8 +712,9 @@ Open `index.html` in any modern browser. No build step. No npm. No bundle. Hosts
 
 ```
 [Client]-session-deck/index.html
-acceler-nucleus-session-deck/index.html         ← Apr 2026, reference
-e&-pp-hungary-session-deck/index.html           ← Jun 2026
+eand-lowcode-day3-replica/                      ← current default reference, see post-sales/knowledge/deck-reference/
+acceler-nucleus-session-deck/index.html         ← Apr 2026, superseded 2026-09-18, historical
+e&-pp-hungary-session-deck/index.html           ← Jun 2026, historical
 bosch-india-masterclass-deck/index.html
 csod-copilot-agent-masterclass-deck/index.html
 edelweiss-day-1-deck/index.html
@@ -603,4 +724,4 @@ Per-day decks for multi-day programs go in subfolders: `edelweiss-day-1-deck/ind
 
 ---
 
-*Built from: e& PPF Hungary live session deck (`Build your AI team`, Jun 2026); acceler-nucleus-session-deck reference (Apr 2026). Pairs with [[pptx-deck-skills]] (the PPTX twin), [[doc-proposal-skills]] (the proposal that anchors the deck), [[pricing-skills]] (the commercials behind the deck), [[session-mapping-skills]] (the requirement coverage that justifies the deck).*
+*Built from: e& Low-Code Day 3 deck (current default reference, Sep 2026, `post-sales/knowledge/deck-reference/eand-lowcode-day3-replica/`); e& PPF Hungary live session deck (`Build your AI team`, Jun 2026, historical); acceler-nucleus-session-deck reference (Apr 2026, historical). Pairs with [[pptx-deck-skills]] (the PPTX twin), [[doc-proposal-skills]] (the proposal that anchors the deck), [[pricing-skills]] (the commercials behind the deck), [[session-mapping-skills]] (the requirement coverage that justifies the deck).*
