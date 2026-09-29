@@ -3,6 +3,8 @@ description: "Generates one open-ended, rubric-graded assignment for a session, 
 argument-hint: "<client name + which day/session this assignment is for>"
 ---
 
+**Where every `Outputs/[Client]/...` path in this command lives (added 2026-09-29):** it always means the full path per `skills/content-generation/SKILL.md` §1a. Before any read or save, find the folder containing `post-sales/.claude-plugin/plugin.json` (search from the current working directory), then use `<that folder>/post-sales/Outputs/[Client]/...`, and read the file back from that exact path after saving. Never let a bare `Outputs/[Client]/` resolve against the current folder: a real run on 2026-09-29 started in the workspace root and saved into an existing client folder (`Ferguson/Outputs/`) that way.
+
 Generate the assignment for this session.
 
 ## Input
