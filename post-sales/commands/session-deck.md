@@ -25,24 +25,21 @@ $ARGUMENTS
 
 Corrected 2026-09-14: this used to hardcode "e& PPF" as the reference regardless of client, which is wrong for anyone but that exact engagement, and was even wrong the one time it coincidentally matched on client name, "e& PPF" is Yettel/CETIN in Hungary, a different company from e& (UAE), sharing only a name prefix.
 
-**Simplified 2026-09-14, per direct user decision:** `acceler-nucleus-session-deck/` (`live-session-deck/SKILL.md`'s own stated default) is the fixed reference, always. Don't build automatic same-client-detection logic, and don't skip using a real reference file in favor of building fresh from the abstract slide-type spec, that happened on a real run and produced a worse result than either real option. Actually copy the Nucleus file as the base every time this runs, no exceptions inferred on your own. If a different template is genuinely needed for a specific engagement, the human running this says so explicitly and points at it, this command never guesses.
+**Updated 2026-09-29:** the default reference is whatever `live-session-deck/SKILL.md` §2.0 names as its default (currently the e& Low-Code Day 3 replica at `knowledge/deck-reference/eand-lowcode-day3-replica/`, with its real backgrounds, fixed 1280×720 canvas and type scale). Always copy a real reference file as the base, never build fresh from the abstract slide-type spec, that produced a worse result on a real run. If the human hands over or points at a different real deck, that deck is the reference instead, this command never guesses one on its own.
 
-## Design tokens (lock these, same as whichever reference deck was actually chosen above)
+## Which mode this run is in (read before building)
 
-```
---bg:        #FAF7F1   /* cream page */
---card:      #FFFFFF
---navy:      #2C3F8E
---navy-deep: #0F1632
---cyan:      #5BC4D2
---cyan-dk:   #2C3F8E
---cyan-soft: #E8F7FA
---ink:       #1A2240
---text2:     #4B5563
---muted:     #6B7280
---border:    #E5E7EB
---font:      -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif
-```
+Per `skills/content-generation/SKILL.md` §6b, decide the mode from what the human actually handed over, not from anything they did or didn't say about review:
+
+- **Fresh build:** nothing existing, built from this engagement's own upstream artifacts. Full review.
+- **Adapt:** a real deck from another engagement or an external file is the starting point ("use the e& deck as the reference, build one for Ferguson"). Full review, no shortcut, the adapting step itself introduces defects.
+- **Tweak:** an existing deck for this same engagement plus specific named changes. Light targeted check only: confirm each change landed and nothing else moved.
+
+State the detected mode in one line at the start of the run so the human can see it.
+
+## Design tokens
+
+Lock the tokens from `live-session-deck/SKILL.md` §2.0 and §2.3 (the same file the reference deck was copied from), don't restate or invent them here.
 
 ## Interactive features (free with the same JS controller)
 
@@ -66,7 +63,7 @@ If the deck needs screenshots, list the assets the team needs to add (`assets/sl
 
 ## Hand off to review, always, automatically
 
-**Added 2026-09-16: this command never had an explicit handoff step, unlike every other generation command in this pipeline.** Found the gap on a real run, the deck built cleanly but review was never triggered, because nothing in this file said to. Every content-generation command in this pipeline ends by handing off to its matching reviewer as part of the same run, not a separate step someone has to remember to ask for. This command follows the same rule now: once the deck is saved, hand off to `acceler-post-sales:deck-reviewer` for the actual review pass automatically, in the same run, before presenting results. This command does not review its own output. Per `agent-loops/SKILL.md` §2a-2, this is a hard completion condition, not a step to describe, this run isn't finished until the reviewer has actually been invoked, not just reported as the next step.
+**Added 2026-09-16: this command never had an explicit handoff step, unlike every other generation command in this pipeline.** Found the gap on a real run, the deck built cleanly but review was never triggered, because nothing in this file said to. Every content-generation command in this pipeline ends by handing off to its matching reviewer as part of the same run, not a separate step someone has to remember to ask for. This command follows the same rule now: once the deck is saved, hand off to `acceler-post-sales:deck-reviewer` for the actual review pass automatically, in the same run, before presenting results. This applies in fresh-build and adapt mode, whether or not the human mentioned review; in tweak mode, run the targeted check instead (see "Which mode this run is in"). This command does not review its own output. Per `agent-loops/SKILL.md` §2a-2, this is a hard completion condition, not a step to describe, this run isn't finished until the reviewer has actually been invoked, not just reported as the next step.
 
 ## Quality checklist (apply before saving)
 
