@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Slide 36</title>
+<style>
+  /* Embedded directly (not local()) -- local() silently fails to match these
+     static-instance TTFs against the macOS font cache in this environment,
+     which was causing EVERY SemiBold/Medium/Light run (~1,400 of ~3,000 in
+     this deck) to silently degrade to plain Regular weight. Embedding the
+     exact font file sidesteps OS font-cache/matching entirely. */
+  @font-face { font-family: 'Lexend'; src: url('assets/fonts/Lexend-Regular.ttf') format('truetype'); font-weight: 400; }
+  @font-face { font-family: 'Lexend'; src: url('assets/fonts/Lexend-Bold.ttf') format('truetype'); font-weight: 700; }
+  @font-face { font-family: 'Lexend Light'; src: url('assets/fonts/Lexend-Light.ttf') format('truetype'); }
+  @font-face { font-family: 'Lexend Medium'; src: url('assets/fonts/Lexend-Medium.ttf') format('truetype'); }
+  @font-face { font-family: 'Lexend SemiBold'; src: url('assets/fonts/Lexend-SemiBold.ttf') format('truetype'); }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#e8e6f4; display:flex; align-items:center; justify-content:center; min-height:100vh; }
+  .tx-slide { width:1280px; height:720px; position:relative; overflow:hidden; background:#FFFFFF; background:url('assets/bg_140281829608320.png') center/cover no-repeat; }
+</style>
+</head>
+<body>
+<div class="tx-slide">
+<div style="position:absolute;left:1100px;top:653.4px;width:150px;height:48.6px;background:rgba(255,255,255,0.92);border-radius:8px;display:flex;align-items:center;justify-content:center;"><img src="assets/acceler-logo-dark.svg" style="width:130px;height:28.6px;object-fit:contain;"></div>
+<div style="position:absolute;left:322.75px;top:146.35px;width:634.49px;height:129.29px;display:flex;flex-direction:column;justify-content:flex-start;overflow:visible;padding:12.8px 12.8px 12.8px 12.8px;box-sizing:border-box;"><div style="text-align:center;margin:0;line-height:1.0;margin-bottom:0.0px;"><span style="font-family:'Lexend', sans-serif;font-size:85.3px;font-weight:700;font-style:normal;color:#2D2D5C;">🤖</span></div></div>
+<div style="position:absolute;left:144.99px;top:401.08px;width:990.02px;height:58.17px;display:flex;flex-direction:column;justify-content:flex-start;overflow:visible;padding:12.8px 12.8px 12.8px 12.8px;box-sizing:border-box;"><div style="text-align:center;margin:0;line-height:1.5;margin-bottom:0.0px;"><span style="font-family:'Lexend', sans-serif;font-size:26.7px;font-weight:700;font-style:normal;color:#2D2D5C;">Introducing ReACT(</span><span style="font-family:'Lexend', sans-serif;font-size:26.7px;font-weight:700;font-style:normal;color:#6568F5;">Re</span><span style="font-family:'Lexend', sans-serif;font-size:26.7px;font-weight:700;font-style:normal;color:#2D2D5C;">asoning &amp; </span><span style="font-family:'Lexend', sans-serif;font-size:26.7px;font-weight:700;font-style:normal;color:#6568F5;">Ac</span><span style="font-family:'Lexend', sans-serif;font-size:26.7px;font-weight:700;font-style:normal;color:#2D2D5C;">ting)</span></div></div>
+<div style="position:absolute;left:56.99px;top:467.15px;width:1153.73px;height:51.72px;display:flex;flex-direction:column;justify-content:flex-start;overflow:visible;padding:12.8px 12.8px 12.8px 12.8px;box-sizing:border-box;"><div style="text-align:center;margin:0;line-height:1.5;margin-bottom:0.0px;"><span style="font-family:'Lexend', sans-serif;font-size:21.3px;font-weight:400;font-style:italic;color:#2D2D5C;">A Prompting technique that allows the model to track, update action plans, and even handle exceptions</span></div></div>
+<div style="position:absolute;left:120.83px;top:274.68px;width:1038.33px;height:106.65px;display:flex;flex-direction:column;justify-content:flex-start;overflow:visible;padding:12.8px 12.8px 12.8px 12.8px;box-sizing:border-box;"><div style="text-align:center;margin:0;line-height:1.5;margin-bottom:0.0px;"><span style="font-family:'Lexend', sans-serif;font-size:26.7px;font-weight:400;font-style:normal;color:#2D2D5C;">What happens if we ask the bot</span><span style="font-family:'Lexend', sans-serif;font-size:26.7px;font-weight:700;font-style:normal;color:#2D2D5C;"> </span></div><div style="text-align:center;margin:0;line-height:1.5;margin-bottom:0.0px;"><span style="font-family:'Lexend', sans-serif;font-size:26.7px;font-weight:700;font-style:normal;color:#2D2D5C;">Tell me the best products available in Amazon and how to install them? </span></div></div>
+</div>
+</body>
+</html>

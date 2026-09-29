@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Slide 16</title>
+<style>
+  /* Embedded directly (not local()) -- local() silently fails to match these
+     static-instance TTFs against the macOS font cache in this environment,
+     which was causing EVERY SemiBold/Medium/Light run (~1,400 of ~3,000 in
+     this deck) to silently degrade to plain Regular weight. Embedding the
+     exact font file sidesteps OS font-cache/matching entirely. */
+  @font-face { font-family: 'Lexend'; src: url('assets/fonts/Lexend-Regular.ttf') format('truetype'); font-weight: 400; }
+  @font-face { font-family: 'Lexend'; src: url('assets/fonts/Lexend-Bold.ttf') format('truetype'); font-weight: 700; }
+  @font-face { font-family: 'Lexend Light'; src: url('assets/fonts/Lexend-Light.ttf') format('truetype'); }
+  @font-face { font-family: 'Lexend Medium'; src: url('assets/fonts/Lexend-Medium.ttf') format('truetype'); }
+  @font-face { font-family: 'Lexend SemiBold'; src: url('assets/fonts/Lexend-SemiBold.ttf') format('truetype'); }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#e8e6f4; display:flex; align-items:center; justify-content:center; min-height:100vh; }
+  .tx-slide { width:1280px; height:720px; position:relative; overflow:hidden; background:#FFFFFF; background:url('assets/bg_140281829663120.png') center/cover no-repeat; }
+</style>
+</head>
+<body>
+<div class="tx-slide">
+<div style="position:absolute;left:1100px;top:653.4px;width:150px;height:48.6px;background:rgba(255,255,255,0.92);border-radius:8px;display:flex;align-items:center;justify-content:center;"><img src="assets/acceler-logo-dark.svg" style="width:130px;height:28.6px;object-fit:contain;"></div>
+<div style="position:absolute;left:-340.07px;top:-138.23px;width:265.35px;height:28.82px;display:flex;flex-direction:column;justify-content:flex-start;overflow:visible;padding:0.0px 0.0px 0.0px 0.0px;box-sizing:border-box;"><div style="text-align:center;margin:0;line-height:1.24;margin-bottom:0.0px;"><span style="font-family:'Lexend', sans-serif;font-size:18.7px;font-weight:400;font-style:normal;color:#595969;">&nbsp;</span></div></div>
+<div style="position:absolute;left:26.3px;top:-138.23px;width:291.94px;height:28.82px;display:flex;flex-direction:column;justify-content:flex-start;overflow:visible;padding:0.0px 0.0px 0.0px 0.0px;box-sizing:border-box;"><div style="text-align:center;margin:0;line-height:1.24;margin-bottom:0.0px;"><span style="font-family:'Lexend', sans-serif;font-size:18.7px;font-weight:400;font-style:normal;color:#595969;">&nbsp;</span></div></div>
+<div style="position:absolute;left:41.09px;top:39.09px;width:909.2px;height:82.93px;display:flex;flex-direction:column;justify-content:center;overflow:visible;padding:12.8px 12.8px 12.8px 0.0px;box-sizing:border-box;"><div style="text-align:left;margin:0;line-height:1.15;margin-bottom:0.0px;"><span style="font-family:'Lexend SemiBold', 'Lexend', sans-serif;font-size:36.0px;font-weight:400;font-style:normal;color:#324158;">Then Came </span><span style="font-family:'Lexend SemiBold', 'Lexend', sans-serif;font-size:36.0px;font-weight:400;font-style:normal;color:#6E69EB;">ML Model</span></div></div>
+<div style="position:absolute;left:197.74px;top:254.99px;width:149.55px;height:109.35px;display:flex;flex-direction:column;justify-content:center;overflow:visible;padding:12.8px 12.8px 12.8px 12.8px;box-sizing:border-box;background:#00FFFF;border:0.75px solid #000000;"><div style="text-align:center;margin:0;line-height:1.0;margin-bottom:0.0px;"><span style="font-family:'Fira Sans', sans-serif;font-size:25.3px;font-weight:700;font-style:normal;color:#FFFFFF;">Data Set</span></div></div>
+<div style="position:absolute;left:943.47px;top:254.99px;width:114.43px;height:109.35px;display:flex;align-items:center;justify-content:center;color:#000000;font-size:98.4px;font-weight:700;line-height:1;">🙂</div>
+<img src="assets/img_643.png" style="position:absolute;left:429.54px;top:254.99px;width:158.24px;height:109.35px;object-fit:fill;">
+<img src="assets/img_644.png" style="position:absolute;left:670.04px;top:254.99px;width:191.18px;height:109.35px;object-fit:fill;">
+<div style="position:absolute;left:555.11px;top:520.39px;width:212.22px;height:58.9px;display:flex;flex-direction:column;justify-content:center;overflow:visible;padding:4.8px 24.0px 4.8px 24.0px;box-sizing:border-box;background:#D9D2E9;border-radius:4.7px;"><div style="text-align:center;margin:0;line-height:1.15;margin-bottom:16.0px;"><span style="font-family:'Lexend', sans-serif;font-size:16.0px;font-weight:700;font-style:normal;color:#6568F5;">Specialized Model</span></div></div>
+<svg style="position:absolute;left:388.84px;top:248.01px;width:156.03px;height:388.69px;overflow:visible;transform:rotate(-90.0deg);"><defs></defs><line x1="156.03" y1="0" x2="0" y2="388.69" stroke="#6E69EB" stroke-width="1.5"/></svg>
+<svg style="position:absolute;left:506.93px;top:366.08px;width:156.03px;height:152.57px;overflow:visible;transform:rotate(-90.0deg);"><defs></defs><line x1="156.03" y1="0" x2="0" y2="152.57" stroke="#6E69EB" stroke-width="1.5"/></svg>
+<svg style="position:absolute;left:635.41px;top:390.16px;width:156.03px;height:104.41px;overflow:visible;transform:rotate(90.0deg);"><defs></defs><line x1="0" y1="0" x2="156.03" y2="104.41" stroke="#6E69EB" stroke-width="1.5"/></svg>
+<svg style="position:absolute;left:752.94px;top:272.63px;width:156.03px;height:339.46px;overflow:visible;transform:rotate(90.0deg);"><defs><marker id="arrow4t" markerWidth="6" markerHeight="6" refX="5.8" refY="3.0" orient="auto"><path d="M0,0 L6,3.0 L0,6 Z" fill="#6E69EB"/></marker></defs><line x1="0" y1="0" x2="156.03" y2="339.46" stroke="#6E69EB" stroke-width="1.5" marker-end="url(#arrow4t)"/></svg>
+<div style="position:absolute;left:362.29px;top:285.68px;width:52.25px;height:47.97px;display:flex;align-items:center;justify-content:center;color:#6E69EB;font-size:43.2px;font-weight:700;line-height:1;">+</div>
+<div style="position:absolute;left:602.78px;top:285.68px;width:52.25px;height:47.97px;display:flex;align-items:center;justify-content:center;color:#6E69EB;font-size:43.2px;font-weight:700;line-height:1;">+</div>
+<div style="position:absolute;left:876.22px;top:285.68px;width:52.25px;height:47.97px;display:flex;align-items:center;justify-content:center;color:#6E69EB;font-size:43.2px;font-weight:700;line-height:1;">+</div>
+<div style="position:absolute;left:427.09px;top:201.38px;width:163.15px;height:38.77px;display:flex;flex-direction:column;justify-content:flex-start;overflow:visible;padding:9.6px 9.6px 9.6px 9.6px;box-sizing:border-box;"><div style="text-align:center;margin:0;margin-bottom:0.0px;"><span style="font-family:'Lexend', sans-serif;font-size:16.0px;font-weight:400;font-style:normal;color:#595969;">Complex Models</span></div></div>
+<div style="position:absolute;left:684.05px;top:201.38px;width:163.15px;height:38.77px;display:flex;flex-direction:column;justify-content:flex-start;overflow:visible;padding:9.6px 9.6px 9.6px 9.6px;box-sizing:border-box;"><div style="text-align:center;margin:0;margin-bottom:0.0px;"><span style="font-family:'Lexend', sans-serif;font-size:16.0px;font-weight:400;font-style:normal;color:#595969;">HW Resources</span></div></div>
+<div style="position:absolute;left:919.11px;top:201.38px;width:163.15px;height:38.77px;display:flex;flex-direction:column;justify-content:flex-start;overflow:visible;padding:9.6px 9.6px 9.6px 9.6px;box-sizing:border-box;"><div style="text-align:center;margin:0;margin-bottom:0.0px;"><span style="font-family:'Lexend', sans-serif;font-size:16.0px;font-weight:400;font-style:normal;color:#595969;">Experts</span></div></div>
+</div>
+</body>
+</html>

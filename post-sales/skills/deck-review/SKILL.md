@@ -17,6 +17,7 @@ Reviews **one deck** in isolation — run this right after `/acceler-post-sales:
 
 ### 1.1 Format & Design Correctness
 - Matches `live-session-deck/SKILL.md` §2 (palette/typography tokens) and §3 (slide-type library) — flag any slide using colors, fonts, or components outside that system. This is a house-format check, not generic taste.
+- **Added 2026-09-16: if a `slide-content-plan-day-N.md` exists for this deck, check the deck against it, not just against general taste.** Every Build-movement slide should trace to a plan entry and use that entry's named real component. A slide that drifted to plain text where the plan named a real component (pipeline, pitfall-card, code-block, compare-table) is a FAIL, this is exactly the failure mode that shipped a 10-of-49-real-components deck on a real test before this check existed.
 - No leftover placeholder/lorem-ipsum text — including a "Hook" section heading left as the literal template placeholder word instead of being customized to that slide's actual content (a real, recurring finding in reviewed decks).
 - Navigation intact per §4 of that skill: keyboard nav, progress bar, speaker-notes toggle all present and wired.
 - All links/citations resolve.

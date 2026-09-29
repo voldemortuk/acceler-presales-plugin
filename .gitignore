@@ -3,3 +3,7 @@ __pycache__/
 *.pyc
 *.pyo
 .ipynb_checkpoints/
+
+# Real per-engagement client output (names, emails, pricing, org details),
+# never belongs in a shared git history.
+post-sales/Outputs/

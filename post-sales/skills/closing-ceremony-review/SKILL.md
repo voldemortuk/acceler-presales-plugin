@@ -29,6 +29,14 @@ Reviews **one program Closing Ceremony deck**. Confirmed structurally distinct f
 - If the Closing deck embeds assessment questions directly as slides (rather than just linking externally), those embedded questions must be handed off to `mcq-review`'s rubric for item-writing validity and objective alignment — **don't duplicate mcq-review's checks here, and don't skip them either.** Flag embedded questions explicitly as "route to mcq-review" rather than evaluating them under this skill's own (non-existent) assessment rubric.
 - If the deck only links externally to an assessment, confirm the link/pointer is present and correct — no further handoff needed.
 
+### 1.3 House Branding & Format
+
+**Added 2026-09-24.** Closing is generated the same way Orientation is, by copying a real precedent PPTX and editing specific fields in place (`closing-ceremony-generation/SKILL.md` §1e), not built through `live-session-deck`'s HTML token engine. Confirm the source precedent's real formatting (fonts, layout, theme) is actually preserved, no placeholder text left in any edited field, and branding matches Acceler by default (`content-generation/SKILL.md` §1d), correctly kept as PowerUp only when a human explicitly asked for it on this run.
+
+Two specific real defects to check for, confirmed on the first live Orientation run and pre-emptively applied here since Closing shares the identical generation method and exposure, per `closing-ceremony-generation/SKILL.md` §2b:
+- **No near-duplicate leftover slides** carried over from the precedent's own edit history, only the current, correct version of any given slide should survive.
+- **Formatting actually preserved, not flattened.** Check an edited shape's actual formatting against an untouched Tier-1 shape from the same deck, not just whether the text content is correct.
+
 ---
 
 ## 2. How this runs
@@ -70,6 +78,8 @@ Follows the shared mechanics in `skills/agent-loops/SKILL.md` in full, using the
 ## 6. Checklist
 - [ ] Key Takeaways recap checked against what this specific program actually covered, not assumed generic
 - [ ] Embedded assessment content (if any) explicitly routed to `mcq-review`, not evaluated inline or silently skipped
+- [ ] Branding matches Acceler default per §1.3, unless a human explicitly asked for PowerUp
+- [ ] No near-duplicate leftover slides, formatting actually preserved not flattened, per §1.3
 - [ ] Confirmed this is the live/external deck being reviewed, not mistakenly the internal Dry Run rehearsal version
 - [ ] Every finding checked against §4 Memories before being surfaced
 - [ ] No fix applied without explicit human approval, none exceeding 2 rounds

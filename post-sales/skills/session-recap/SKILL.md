@@ -118,6 +118,8 @@ Every `.sec` needs a stable `id` (used by the TOC, the floating nav, and the com
 
 ## 3. Stakeholder recap report — structure
 
+**Also save a short summary copy to `Outputs/[Client]/impact-report.md`** (KPIs, tier counts, action items), alongside the live deployed site. The site stays the real artifact, this copy just gives a future reviewer-learning connection (per `agent-loops/SKILL.md` §9) a stable place to read from later.
+
 ### 3.1 Section order
 1. **KPI cards** (`.kpi-grid`): total enrolled, present today (X/Y, %), feedback submitted (X/Y, %), overall avg rating, recommend-instructor %.
 2. **Learner Categorisation** (`.tier-grid`, 3 columns: Beginner / Intermediate / Advanced): each tier card states its count, its rating/response/recommend stats, and a per-learner row (`.tier-row`) with name + a one-line, specific, evidence-based note (what they actually asked or did that day — never a generic "engaged well"). State the tier-assignment rule in a `.section-note` directly above the grid every time (see §0): assigned from that day's actual behavior, not tenure.

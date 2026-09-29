@@ -22,6 +22,7 @@ Sits at the front of the pipeline, before any content exists — distinct from `
 
 ### 1.2 Discovery Facts Sheet
 - Extract, verbatim where possible (don't paraphrase into something vaguer): the audience (who/how many/technical level), the stated 3-month success metric/outcome, tool/access constraints, format/timeline constraints, and any regulated-data constraints.
+- **Branding, added 2026-09-24.** Every downstream artifact that carries a company name/logo (session deck, Orientation, Closing Ceremony) reads this field rather than asking per artifact, per `content-generation/SKILL.md` §1d. Default `Acceler`, no need to ask for a brand-new engagement. Only actively ask/flag when there's a real signal this might be a continuing relationship from before the rebrand, e.g. a precedent check (`engagement-catalog.md`) turns up this same client's past content already branded PowerUp, in that case ask which one applies to this engagement rather than silently assuming either way.
 - **The single most load-bearing fact is "what does success look like 3 months out"** — a brief that scored ≥80% overall but has no real answer to that one MUST item still produces an incomplete Facts Sheet. Flag this specifically; it's the fact `onboarding-form-review` needs most and can't substitute a generic one for.
 - This Facts Sheet is a **required input** to `onboarding-form-review` and, once it exists, a Lesson Plan reviewer. Don't let those reviewers run against invented objectives when a real discovery brief exists to check against.
 
@@ -65,4 +66,5 @@ A missing MUST item or a sub-80% score is never "fixed" this way — it escalate
 - [ ] Score came from the existing `discovery-checklist` tool, not a reimplementation
 - [ ] Facts Sheet extracted verbatim where possible, not paraphrased vaguer
 - [ ] The 3-month-success fact specifically checked, not just the aggregate %
+- [ ] Branding field set (Acceler default, or explicitly asked when precedent shows this client's past content was PowerUp-branded), not left unset for downstream skills to guess at
 - [ ] Facts Sheet errors (not score gaps) are the only thing routed through the fix loop

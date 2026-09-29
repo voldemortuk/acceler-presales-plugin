@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Instructor Detail</title>
+<style>
+  @font-face { font-family: 'Lexend'; src: url('assets/fonts/Lexend-Regular.ttf') format('truetype'); font-weight: 400; }
+  @font-face { font-family: 'Lexend'; src: url('assets/fonts/Lexend-Bold.ttf') format('truetype'); font-weight: 700; }
+  @font-face { font-family: 'Lexend SemiBold'; src: url('assets/fonts/Lexend-SemiBold.ttf') format('truetype'); }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#e8e6f4; display:flex; align-items:center; justify-content:center; min-height:100vh; font-family:'Lexend',sans-serif; }
+  .slide { width:1280px; height:720px; position:relative; overflow:hidden; background:#fff; display:flex; }
+  .left { width:360px; flex-shrink:0; background:#fff; padding:48px 32px; display:flex; flex-direction:column; align-items:center; position:relative; z-index:1; }
+  .photo { width:220px; height:220px; border-radius:50%; overflow:hidden; box-shadow:0 10px 30px rgba(45,45,92,.15); margin-bottom:32px; background:linear-gradient(135deg,#6568F5,#6E69EB); display:flex; align-items:center; justify-content:center; }
+  .photo .initials { color:#fff; font-family:'Lexend'; font-weight:700; font-size:64px; }
+  .spec-title { font-family:'Lexend SemiBold'; font-size:19px; color:#1a1a2e; align-self:flex-start; margin-bottom:14px; }
+  .spec-list { list-style:none; align-self:flex-start; display:flex; flex-direction:column; gap:10px; }
+  .spec-list li { font-size:15px; color:#2D2D5C; padding-left:16px; position:relative; }
+  .spec-list li::before { content:'●'; position:absolute; left:0; font-size:8px; top:6px; color:#2D2D5C; }
+  .logo-row { margin-top:auto; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+  .logo-badge { font-family:'Lexend SemiBold'; font-size:13px; color:#1a1a2e; background:#F4F3FC; border:1px solid #E3E1F7; border-radius:8px; padding:8px 12px; }
+
+  .right { flex:1; background:linear-gradient(120deg,#EDEBFB 0%,#E3E1F7 60%,#D9D7F2 100%); padding:48px 56px; position:relative; z-index:1; display:flex; flex-direction:column; }
+  .name { font-family:'Lexend'; font-weight:700; font-size:38px; color:#1a1a2e; margin-bottom:14px; }
+  .tagline { font-size:16px; color:#2D2D5C; margin-bottom:26px; line-height:1.5; }
+  .tagline b { font-weight:600; }
+  .section-head { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+  .section-head .icon { font-size:19px; }
+  .section-head .label { font-family:'Lexend SemiBold'; font-size:18px; color:#1a1a2e; }
+  .bullets { list-style:none; display:flex; flex-direction:column; gap:8px; margin-bottom:22px; }
+  .bullets li { font-size:14.5px; color:#2D2D5C; line-height:1.5; padding-left:20px; position:relative; }
+  .bullets li::before { content:'●'; position:absolute; left:0; font-size:8px; top:7px; color:#2D2D5C; }
+  .bullets li b { font-weight:700; }
+  .acceler-logo { position:absolute; bottom:32px; right:48px; height:26px; }
+  .acceler-logo img { height:100%; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="left">
+    <div class="photo"><img src="assets/shivam_patel.png" alt="Shivam Patel" style="width:100%;height:100%;object-fit:cover;"></div>
+    <div class="spec-title">Technical Specializations</div>
+    <ul class="spec-list">
+      <li>RAG &amp; Retrieval for LLMs</li>
+      <li>NLP, Transformers &amp; Agentic AI</li>
+      <li>Multi-Modal Deep Learning (Vision + Language)</li>
+      <li>Large-Scale Distributed Training &amp; Inference</li>
+      <li>LLM Evaluation, Alignment</li>
+      <li>Production ML Systems — Siri, Search, Feature Engineering</li>
+    </ul>
+    <div class="logo-row">
+      <div class="logo-badge">Apple</div>
+      <div class="logo-badge">Google</div>
+      <div class="logo-badge">Adobe</div>
+      <div class="logo-badge">CMU</div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="name">Shivam Patel</div>
+    <div class="tagline">Sr. ML Engineer @ <b>Apple</b> | Retrieval, RAG &amp; Agentic Workflows | Ex-<b>Google</b> · Ex-<b>Adobe</b> | <b>CMU</b></div>
+
+    <div class="section-head"><span class="icon">🔷</span><span class="label">Career Highlights</span></div>
+    <ul class="bullets">
+      <li>At <b>Apple</b>, improving retrieval &amp; ranking models for RAG systems and agentic workflows powering Siri &amp; LLMs</li>
+      <li>Built large-scale recommendation systems, neural architecture search, privacy-preserving ML, LLM-based feature engineering at <b>Google</b></li>
+      <li>Developed transformer-based multi-modal architectures for text-based video object segmentation — 2 US Patents (text-based video object selection &amp; AI-blockchain recruitment) at <b>Adobe</b></li>
+    </ul>
+
+    <div class="section-head"><span class="icon">🎓</span><span class="label">Academic &amp; Teaching</span></div>
+    <ul class="bullets">
+      <li><b>MS, Computer Science</b> — Carnegie Mellon University</li>
+      <li>Research collaborations: <b>MIT, Caltech, Stanford, Harvard</b></li>
+      <li><b>Erdős Number 2</b> · Microsoft Global Hackathon Winner</li>
+      <li><b>Instructor @ Acceler</b> — ML, DL, GenAI, production Python. Trained <b>3000+ working professionals</b></li>
+      <li>Researcher at Mila under Turing Laureate Prof. Yoshua Bengio; Research Student at Cambridge (Centre for Existential Risk)</li>
+    </ul>
+  </div>
+  <div class="acceler-logo"><img src="assets/acceler-logo-dark.svg" alt="Acceler"></div>
+</div>
+</body>
+</html>
