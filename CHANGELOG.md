@@ -2,6 +2,11 @@
 
 This repo hosts two plugins in one marketplace: `acceler-presales` (root) and `acceler-post-sales` (`post-sales/`). Each versions independently in its own `.claude-plugin/plugin.json`; entries below are labeled by plugin. Bump the relevant plugin's `version` on every release so teammates' `/plugin marketplace update` picks up the change.
 
+## acceler-post-sales [0.4.7] — 2026-10-01
+
+### Picking up an engagement someone else started
+- **The start-up check now looks in Drive before calling a stage missing** (`content-generation/SKILL.md` §6c). `Outputs/[Client]/` only exists on the laptop that ran the earlier stages, so a second person picking the work up had an empty folder. When Drive is connected, the plugin checks the client's `PostSalesPluginOutput` folder (working files) and `B2B AI Programs` folder (learner-facing files), says what it found, asks before using it, and saves a local copy. It only finds what was uploaded before the handover; automatic two-way sync is v2.
+
 ## acceler-post-sales [0.4.6] — 2026-10-01
 
 ### First full eval run, and two small follow-ups from it
