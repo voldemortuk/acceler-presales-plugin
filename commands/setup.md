@@ -73,12 +73,9 @@ ln -sf "$WORK/Mini-UT Context/context.md" "$PLUG/skills/mini-ut-context/SKILL.md
 ln -sf "$WORK/Mini-UT Context/utkarsh_context.md" "$PLUG/skills/mini-ut-context/utkarsh_context.md"
 ln -sf "$WORK/Instructors /Acceler B2B Instructor Pool.md" "$PLUG/skills/mini-ut-context/Instructor_Pool.md"
 
-# acceler-post-sales (delivery/post-sales side)
-PLUG2="$HOME/.claude/plugins/acceler-post-sales"
-ln -sf "$WORK/Live Session-Deck-Builder/Live_Session_Deck_Skills.md" "$PLUG2/skills/live-session-deck/SKILL.md"
 ```
 
-`session-recap/SKILL.md` (under `acceler-post-sales`) is authored directly in the plugin repo, not synced from a workspace file — edit it in place when it needs updating.
+Every `acceler-post-sales` skill is authored directly in the plugin repo and is never synced from a workspace file, edit it in place and bump the version (updated 2026-10-01: an older line here symlinked a June workspace file over `live-session-deck/SKILL.md`, which would have replaced the current e& template skill, it has been removed).
 
 This way: when Utkarsh updates any SKILL.md or refreshes the KG, every team member's plugin picks up the change instantly — no re-install.
 
