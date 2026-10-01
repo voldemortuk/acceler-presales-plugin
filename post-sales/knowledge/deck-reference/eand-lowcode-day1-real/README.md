@@ -1,6 +1,8 @@
 # e& Low-Code Day 1, real delivered deck (104 slides)
 
-The actual, real class deck delivered for e& AI Builder Program (Low Code) Day 1, saved here 2026-09-25 so it survives past one session's Downloads folder. Previously only reachable by a human manually sharing it, since the Curriculum Graph never indexed it (see the missing-content finding below).
+A written summary of the actual, real class deck delivered for e& AI Builder Program (Low Code) Day 1, first captured 2026-09-25. Previously only reachable by a human manually sharing it, since the Curriculum Graph never indexed it (see the missing-content finding below).
+
+**Where the deck itself lives (changed 2026-10-01):** the full PDF is no longer kept in this repo, real client decks stay in the shared Drive only, under `B2B AI Programs` > the e& AI Builder (Low Code) Q1'26 program folder > Day 1 live class slides. No skill reads the PDF directly, everything the pipeline needs from it is already written into this README, `slide-types-contact-sheet.png` in this folder, and `live-session-deck/SKILL.md`. If the real deck is needed again, a human opens it from Drive.
 
 **Real instructor:** Anshaj Khare (shown directly on the cover and instructor slides).
 
