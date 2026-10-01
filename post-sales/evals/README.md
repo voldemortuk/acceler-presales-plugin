@@ -6,6 +6,10 @@ Regression protection for the review-agent family — does each reviewer still c
 
 Claude Code has a native plugin eval harness (`claude plugin eval`, `case.yaml` + `graders/*.md`) — checked directly via `claude plugin eval --help` and `claude plugin eval init --bare` in this environment. **It's gated to early access and returned "currently in early access" when invoked here.** Rather than guess at an unverified schema, these cases are written as plain, human-readable markdown — runnable by hand today, and meant to migrate to the native `case.yaml` format the moment eval access opens on this account. Don't build a parallel custom eval runner in the meantime; that's effort that gets thrown away.
 
+## Last full run
+
+**2026-10-01, against plugin version 0.4.5: 20 of 20 cases passed on the behaviour each one tests.** Each case was run by a fresh agent that read the current reviewer agent file and its skills and was given only the case's Input, never its Expected section; the results were then compared against Expected by hand. Two limits worth knowing: the agents were general-purpose agents following the reviewer files, not the installed reviewer agents themselves, so tool restrictions were not exercised; and cases whose input is a description in words (not a real file) only test the rule logic, for example `deck-partial-scope-not-failed` confirmed out-of-scope slides are not failed but could not check in-scope defects without the deck file. Before this, only 2 of the original 18 had ever been run.
+
 ## How to run a case manually, today
 
 1. Open the case file. It names the reviewer command/agent, gives the exact input (a real content excerpt or a path to one), and states the expected verdict + finding.

@@ -16,7 +16,7 @@ Correct: A, B, D
 
 ## Expected
 
-- Verdict: PASS — this is a legitimate multi-select item (`Correct: A, B, D`), not an ambiguous single-best-answer item.
+- Verdict **on the ambiguous-best-answer rule**: PASS, this is a legitimate multi-select item (`Correct: A, B, D`), not an ambiguous single-best-answer item. This case measures that one rule only. The sample is deliberately minimal (no explanation, a bare-letter key, one easy distractor), so a thorough reviewer will also raise those separate item-writing findings. That is correct behaviour and does not fail this case (clarified 2026-10-01 after the first full run, where the reviewer passed the rule and raised exactly those).
 - The reviewer must detect the multi-select framing (either from explicit "select all that apply" stem language, or from a `Correct:` field listing more than one letter) **before** applying the ambiguous-best-answer rule, and skip that rule for this item.
 - A FAIL here (flagging this as ambiguous) is itself the defect this case exists to catch — a false positive, not a true one.
 
