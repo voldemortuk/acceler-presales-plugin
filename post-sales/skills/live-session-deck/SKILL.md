@@ -489,6 +489,8 @@ Layout on the 1280×720 canvas, real positions from the reference files:
 
 All the left-column content comes from that demo's own real guide (its "What We're Solving" section and its steps' real success conditions, per `demo-generation/SKILL.md`), never invented here. This slide still doesn't contain the demo steps themselves, it's a handoff point with context, the real walkthrough stays in the separate guide.
 
+**Added 2026-10-01: the demo link goes in two places, each with its own job.** The "Click Here" button on the laptop links to the **learner's** demo guide, the version learners follow. The slide's speaker notes (`data-notes`) carry that same link again, plus the **SME's own direct link** to the instructor version (solution, answer key, a notebook with outputs) so the instructor can open it without hunting. The instructor version never goes on the visible slide. If the demo guide hasn't been built yet, don't ship a button that leads nowhere: say so in the notes and flag it in the run's summary as outstanding, `deck-review/SKILL.md` §1.1 checks both the button and the notes.
+
 ### 3.21 Quiz (real slides 82-84, question then reveal)
 
 Two-part pattern: an intro slide ("🙋‍♀️ Quiz Time! Answer in the Chat Box"), then the actual question slide, the question stem, 4 options, the correct one marked (✅) once revealed, the rest left plain or marked wrong (⬜️). Pulls its real, already-reviewed content from `mcq-generation`'s in-session file, per `slide-content-planning/SKILL.md` §3a, never authored fresh here.

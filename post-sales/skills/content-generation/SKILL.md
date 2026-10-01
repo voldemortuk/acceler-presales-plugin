@@ -138,7 +138,7 @@ Don't build a third, new conversion mechanism for Demo or any future HTML artifa
 Not every input exists for every engagement. Each generation skill's own SKILL.md states which of its inputs are mandatory (generation stops and asks if missing) versus best-effort (used if present, the gap is stated plainly if not, never invented). This mirrors the MUST/SHOULD/NICE tiering `discovery-checklist` already uses, three tiers, not a binary required/optional.
 
 **Corrected 2026-09-17, per Utkarsh's own instruction from the spec-kit discussion (2026-09-10): "no need to write that you should block deck generation, just clearly call out what is the input expected out of you."** That rule applies specifically to individual inputs within a stage that's otherwise runnable, an entirely different thing from an upstream pipeline stage not existing at all:
-- **Upstream stage genuinely missing** (no Discovery Facts Sheet exists at all, no Lesson Plan exists at all) — this alone actually stops generation, there's nothing to build against. Per §1, never guess your way around this.
+- **Upstream stage genuinely missing** (no Discovery Facts Sheet exists at all, no Lesson Plan exists at all) — this alone actually stops generation, there's nothing to build against. Per §1, never guess your way around this. **Narrowed 2026-10-01:** this hard stop applies to a fresh build running as a step of the full pipeline. In adapt mode, or when a human asks for one artifact on its own, §6c's light brief is what gets built against instead, the command doesn't stop.
 - **A specific mandatory input within an otherwise-available stage is missing or thin** (e.g. the Facts Sheet exists but doesn't state a success metric, or the user hasn't named a precedent) — don't stop. Name exactly what's expected (e.g. "these are the 5 inputs this needs, 1 was given, here's what's still missing"), proceed with what's available, and state plainly that providing the rest would improve the output. This is the spec-kit-style clarify-before-building spirit Utkarsh pointed at (github/spec-kit), applied without a hard block.
 
 **Closed 2026-09-18** (parked 2026-09-17, done as checklist Phase A item 5): every generation skill now names its own single most load-bearing granular fact and flags it softly rather than blocking. `discovery-checklist` (the 3-month success metric) and `instructor-finalization` (Proposed vs Confirmed) already had this. Added to the remaining eleven: Deep Research (onboarding form's audience skill-level signal), Lesson Plan (real day count and per-day duration), MCQ (that day's Learning Objective column actually filled in), Assignment (starter-kit split, when one exists), Demo (Libraries/Tools column naming a specific tool), Project (shape signal, milestone/trap vs. documentation-brief), Hands-on Guide (account-scheme signal), Orientation and Closing Ceremony (concrete, engagement-specific outcomes/topics), Onboarding Form (strengthened, the outcome-tie question's real source), Slide Content Planning (Deep Research's precedent notes carrying real specifics). See each skill's own §1 for its exact wording.
@@ -215,6 +215,26 @@ Once a generation skill produces its artifact, it hands off to the matching revi
 
 ---
 
+## 6c. The start-up check, run first by every generation command
+
+**Added 2026-10-01, per Tanmaya.** Most real requests are not a clean run of the full pipeline. The common case is "here's a real deck (or quiz, or demo), change it for this other client, here are a few details," sometimes with a lesson plan attached, sometimes with only raw content, sometimes just "build me the demo file" with nothing else. Every generation command, from Lesson Plan and MCQs through to Recap, has to handle all of these on its own. This is the one place that says how, each command points here rather than restating it.
+
+**Run these four steps before building anything:**
+
+1. **Name the mode** per §6b, in one line the human can see ("Mode: Adapt. The e& Day 1 deck is the starting point, rebuilt for Ferguson."). Decide it from what was handed over, never from whether the human mentioned review.
+2. **Look at what already exists for this client** under `Outputs/[Client]/` (path per §1a): Discovery Facts Sheet, Deep Research, Lesson Plan, slide content plan, and any earlier version of this same artifact. A real upstream artifact always wins over anything derived below, never overwrite one with a derived draft.
+3. **Handle whatever is missing, by mode:**
+   - **Fresh build, as a step in the full pipeline:** §2's rule holds, a genuinely missing upstream stage stops this command. Say which stage is missing and offer the human two choices: run that stage first (name its command), or go ahead standalone with a light brief (below). Don't quietly write an unreviewed stand-in for the missing stage and carry on. A real run did exactly that on 2026-09-29, a Lesson Plan command wrote its own `deep-research.md` inline instead of asking.
+   - **Adapt from a reference, or a standalone build of one artifact:** don't stop. Write a **light brief** (below) from the reference plus whatever the human gave, show it, then build.
+   - **Tweak:** nothing is needed and nothing is asked, go straight to the change.
+4. **Ask only what can't be worked out.** The command the human started is the one that asks, there is no separate intake step. At most 3 to 5 questions, only for facts that can't be read from the handed-over material or from `Outputs/[Client]/` (typically: audience and level, tools, day and duration, instructor). Everything else gets a stated assumption, flagged in the brief, not a question. Answers are saved into the brief so no later command asks the same thing again, the same asked-once principle as §1d.
+
+**The light brief.** One short file, `Outputs/[Client]/light-brief.md`, holding: client and program, audience and level, tools, day and duration, branding, instructor if known, which reference was used and what differs from it, the **scope** the human asked for (for example "7 slides only: cover, agenda, timing, prompt engineering section, demo hand-off"), a short **objectives outline** (3 to 6 objectives covering exactly that scope), and a list of assumptions made. Its first line is `Status: light draft, derived from a reference and the human's brief, not from a scored discovery or an approved lesson plan.` It exists so the build has stated facts to work from and the reviewer has objectives to check against, a real adapt run without one left the reviewer checking a deck against a one-line chat message. It is not a replacement for Deep Research or a Lesson Plan: when the real stage runs later, the real artifact supersedes it, and the brief gets a line saying so.
+
+**Scope travels with the handoff.** When handing off to the reviewer (§6), pass the mode, the scope, and the light brief's path. A deliberately partial artifact is reviewed against its stated scope, see `agent-loops/SKILL.md` §4.
+
+---
+
 ## 7. Checklist
 - [ ] Plugin root located via the `post-sales/.claude-plugin/plugin.json` anchor, save path built from that, never a bare relative `Outputs/[Client]/...` left for the shell to resolve
 - [ ] Saved file read back from its resolved absolute path to confirm it actually landed there
@@ -225,7 +245,9 @@ Once a generation skill produces its artifact, it hands off to the matching revi
 - [ ] Branding defaults to Acceler unless a human explicitly asked for PowerUp, per §1d
 - [ ] Orientation/Closing built by editing a real precedent PPTX in place, per §1e, not regenerated through the HTML deck engine; PDF only generated after human approval
 - [ ] Every input tiered mandatory / best-effort / not applicable, not a binary required/optional
-- [ ] Missing upstream stage (no Facts Sheet, no Deep Research) means stop and ask, never invent
+- [ ] Start-up check run first, per §6c: mode named in one line, existing `Outputs/[Client]/` artifacts checked, at most 3 to 5 questions asked
+- [ ] Missing upstream stage in a fresh pipeline build means stop and ask (run the stage, or go standalone with a light brief), never a silent inline stand-in; in adapt or standalone mode a light brief is written and shown instead, per §6c
+- [ ] Mode, scope and the light brief's path passed to the reviewer at handoff
 - [ ] Only the content types this engagement actually needs get built, not every type by default
 - [ ] Mechanically checkable facts (durations, counts, cross-references) self-verified before handoff
 - [ ] If an upstream input has a newer version than what this output was last checked against, re-verified against the current version, not assumed still fine from a prior round, per §3a

@@ -120,6 +120,11 @@ Note what this guardrail can and can't be: `content-fixer` technically *has* Edi
 
 Keep every hat's rubric narrow and rule-based — "does this meet the stated rule," never a general "is this good" judgment. A goal evaluator "only examines if the hard rules have been met." Holistic or subjective judgment stays with the human checklist (`content-review/SKILL.md` §5), not with a hat — don't let a hat's rubric quietly expand into taste.
 
+**Added 2026-10-01: review against the scope that was actually asked for.** A generation handoff now carries the mode, the scope, and (in adapt or standalone runs) a light brief, per `content-generation/SKILL.md` §6c. Every reviewer uses them:
+- **Objectives source.** If a real Lesson Plan or Facts Sheet exists, check against that. If only a light brief exists, its objectives outline is the stated objectives for this review, and the reviewer says so in one line. Don't fall back to reconstructing objectives from a chat message.
+- **Deliberately partial artifacts.** When the scope says only part of an artifact was asked for (a 7-slide opening deck, a single quiz, one demo of several), everything outside that scope is out of bounds for FAIL findings. A real review of a deliberately short Ferguson deck raised "missing Instructor, house rules, Quiz and Thank You slides" and "two objectives have no teaching slide" as HIGH failures, none of which were asked for. Note what's outside the scope once, as a single informational line ("out of scope for this run, needed before delivery: ..."), never as separate findings and never counted toward the verdict.
+- **Inside the scope, nothing changes.** Every rule in the reviewer's own rubric applies in full to what was actually built.
+
 ---
 
 ## 5. Model routing (cost discipline — apply once volume justifies it)

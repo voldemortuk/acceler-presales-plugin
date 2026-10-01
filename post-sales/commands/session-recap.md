@@ -3,6 +3,8 @@ description: "POST-SESSION learner recap. Generate the day-N-learner-recap HTML 
 argument-hint: "<day number + session content/notes, or a path to the slide deck + chat log>"
 ---
 
+**Start here, every run (added 2026-10-01):** before building anything, run the start-up check in `skills/content-generation/SKILL.md` §6c. In short: name the mode in one line (fresh build, adapt from a reference, or tweak), check what already exists for this client, ask at most 3 to 5 questions for anything that can't be worked out, and in adapt or standalone runs write and show the light brief first. That section is the single source for this, don't restate or vary it here.
+
 Generate a learner-facing post-session recap page for this brief.
 
 ## Input
