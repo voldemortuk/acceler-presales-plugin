@@ -2,6 +2,14 @@
 
 This repo hosts two plugins in one marketplace: `acceler-presales` (root) and `acceler-post-sales` (`post-sales/`). Each versions independently in its own `.claude-plugin/plugin.json`; entries below are labeled by plugin. Bump the relevant plugin's `version` on every release so teammates' `/plugin marketplace update` picks up the change.
 
+## acceler-post-sales [0.4.6] — 2026-10-01
+
+### First full eval run, and two small follow-ups from it
+- **All 20 eval cases run for the first time, 20 of 20 passed** on the behaviour each one tests (before this, only 2 of the original 18 had ever been run). How the run was done and what it does not cover is recorded in `post-sales/evals/README.md`.
+- **A first-pass FAIL now has a name** (`agent-loops/SKILL.md` §2): "not approvable, fix proposed, waiting on human approval." Review skills' verdict tables only describe end states, and several reviewers in the run had to work this out for themselves.
+- **`mcq-legitimate-multiselect-not-flagged` clarified**: it measures the ambiguous-best-answer rule only; other findings on its deliberately minimal sample do not fail the case.
+- **Pre-sales `setup` command**: removed an old line that symlinked a June workspace file over `post-sales/skills/live-session-deck/SKILL.md`. Post-sales skills are authored in the repo only.
+
 ## acceler-post-sales [0.4.5] — 2026-10-01
 
 
