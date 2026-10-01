@@ -7,6 +7,8 @@ metadata:
 
 # Acceler Assignment Generation · Post-Sales · SKILL.md (v1)
 
+**How this skill is started (added 2026-10-01):** every run begins with the start-up check in `content-generation/SKILL.md` §6c (name the mode per §6b, check what already exists for this client, ask at most 3 to 5 questions, write a light brief in adapt or standalone runs). Where this file says an input is mandatory or says to stop when one is missing, that describes a fresh build inside the full pipeline; in adapt or standalone runs the gap is handled the §6c way instead. Before building, also read `agent-loops/SKILL.md` (§2a, §2a-1, §2b) and this artifact type's `generation-learnings/` file where one exists, they are not loaded automatically.
+
 **What this produces.** One open-ended, rubric-graded assignment, the same artifact `assignment-review/SKILL.md` already reviews. Kept separate from MCQ generation, rubric and answer-key defects are a different failure mode from item-writing defects, and separate from project generation, which covers multi-milestone capstones rather than a single task.
 
 ---
@@ -53,22 +55,22 @@ Per `content-generation/SKILL.md` §3: before saving, confirm the rubric's weigh
 
 ## 4. Where it gets saved
 
-`Outputs/[Client]/assignment.docx`, plus a `starter-kit/` subfolder alongside it where a code-based assignment provides one, same per-engagement folder as everything else.
+`Outputs/[Client]/assignment-day-N.docx` (one file per session, so a later day never overwrites an earlier one), plus a `starter-kit/` subfolder alongside it where a code-based assignment provides one, same per-engagement folder as everything else.
 
 ---
 
 ## 5. Handoff, and this loops, not a one-time pass
 
-Hand off to the existing `acceler-post-sales:assignment-reviewer` for the actual review pass, per `content-generation/SKILL.md` §6. Reference `generation-learnings/assignment.md` and `agent-loops` via the `skills:` frontmatter field. No candidates are seeded there yet, unlike MCQ and Lesson Plan, but per §6a, once real fix-loop history accumulates and the promotion rule is met, this skill is expected to actually change how it writes the next assignment, not just fix the one in front of you.
+Hand off to the existing `acceler-post-sales:assignment-reviewer` for the actual review pass, per `content-generation/SKILL.md` §6. Reference `generation-learnings/assignment.md` and `agent-loops` by reading it at the start of the run (skills have no `skills:` frontmatter field, only agents do). No candidates are seeded there yet, unlike MCQ and Lesson Plan, but per §6a, once real fix-loop history accumulates and the promotion rule is met, this skill is expected to actually change how it writes the next assignment, not just fix the one in front of you.
 
 ---
 
 ## 6. Checklist
-- [ ] Both mandatory inputs loaded, or the run stopped and asked
+- [ ] Both mandatory inputs loaded, or the gap handled per `content-generation/SKILL.md` §6c
 - [ ] Rubric is weighted, criteria stated, weights sum to 100%
 - [ ] Starter-kit split stated explicitly where a starter kit is provided
 - [ ] Subjective items have real scoring criteria, not tips alone
 - [ ] Bloom's level is Apply/Analyze/Create, matching or exceeding the objective
 - [ ] Code-based conditional checks (§2) run only when the assignment is actually code-based
-- [ ] Saved to `Outputs/[Client]/assignment.docx`, starter kit alongside it if one exists
+- [ ] Saved to `Outputs/[Client]/assignment-day-N.docx` (one file per session, so a later day never overwrites an earlier one), starter kit alongside it if one exists
 - [ ] Handed to the existing `assignment-reviewer`, no bespoke review invented

@@ -12,6 +12,8 @@ $ARGUMENTS
 
 ## How to run
 
+**Scope (added 2026-10-01):** when the handoff or the human gives a mode, a scope and a light brief path, read them, pass them to the reviewer, and review against that scope, per `skills/agent-loops/SKILL.md` §4.
+
 1. Read `skills/impact-report-review/SKILL.md` in full first.
 2. Launch the `acceler-post-sales:impact-report-reviewer` agent per §2 — trace every tier-evidence quote to the real chat/transcript source, not just plausibility.
 3. Any §1.1 (attribution integrity) finding gets flagged high-severity and escalated to the human immediately — do not run it through the normal 2-round fix loop.

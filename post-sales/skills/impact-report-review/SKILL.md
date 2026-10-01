@@ -14,7 +14,7 @@ Reviews **one stakeholder-facing day-N recap report** (`session-recap`'s stakeho
 ## 1. Rules
 
 ### 1.1 Attribution Integrity (the load-bearing rule)
-*Grounded in `session-recap/SKILL.md` §3.2-3.3: "Real quotes only — pull from the actual chat export/transcript, never paraphrase into a quote."*
+*Grounded in `session-recap/SKILL.md` §3.1 item 3: "Real quotes only — pull from the actual chat export/transcript, never paraphrase into a quote."*
 - Every quote in "The Evidence Behind the Tiers" must be a real, verifiable quote from the actual chat export or transcript, attributed correctly by name and source (`Chat`/`Transcript`). A quote that reads plausible but can't be traced to the actual source material is a FAIL, treated with the same severity as a security finding — this is about a real person's words, not house style.
 - Every present learner, in every tier including Beginners, gets a specific, evidence-based note — "no questions all day" is a legitimate note for a quiet Beginner; a generic "actively engaged" with nothing behind it is a FAIL, because it defeats the report's actual purpose of proving engagement with evidence.
 
@@ -61,9 +61,11 @@ Follows the shared mechanics in `skills/agent-loops/SKILL.md` in full, using the
 
 | Verdict | Condition |
 |---|---|
-| ✅ Approve | All §1 rules PASS, directly or after an approved fix |
+| ✅ Approve | All §1 rules and the `agent-loops` baseline (§2a, §2a-1, §2b, §4) PASS, directly or after an approved fix |
 | 💬 Comment | Only dismissed/subjective findings remain |
 | 🔴 Request Changes | Any §1.1 attribution finding, or any other FAIL that didn't converge within 2 fix rounds |
+
+*This verdict is a recommendation, not a ship decision. A human still signs off per `agent-loops/SKILL.md` §2, and per `content-generation/SKILL.md` §6 a per-artifact review is fast feedback, not the final gate.*
 
 ## 6. Checklist
 - [ ] Every tier-evidence quote traced to real chat/transcript source, not just plausible-sounding

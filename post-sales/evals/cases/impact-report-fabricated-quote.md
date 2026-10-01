@@ -1,7 +1,7 @@
 # Case: a quote attributed to a real, named learner that isn't in the source material
 
 **Reviewer:** `acceler-post-sales:impact-report-reviewer` / `impact-report-review/SKILL.md` §1.1 — the highest-severity rule in the entire review-agent family.
-**Source:** `session-recap/SKILL.md` §3.2's explicit standard — "Real quotes only — pull from the actual chat export/transcript, never paraphrase into a quote."
+**Source:** `session-recap/SKILL.md` §3.1 item 3's explicit standard — "Real quotes only — pull from the actual chat export/transcript, never paraphrase into a quote."
 
 ## Input
 

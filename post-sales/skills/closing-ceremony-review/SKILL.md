@@ -31,7 +31,7 @@ Reviews **one program Closing Ceremony deck**. Confirmed structurally distinct f
 
 ### 1.3 House Branding & Format
 
-**Added 2026-09-24.** Closing is generated the same way Orientation is, by copying a real precedent PPTX and editing specific fields in place (`closing-ceremony-generation/SKILL.md` §1e), not built through `live-session-deck`'s HTML token engine. Confirm the source precedent's real formatting (fonts, layout, theme) is actually preserved, no placeholder text left in any edited field, and branding matches Acceler by default (`content-generation/SKILL.md` §1d), correctly kept as PowerUp only when a human explicitly asked for it on this run.
+**Added 2026-09-24.** Closing is generated the same way Orientation is, by copying a real precedent PPTX and editing specific fields in place (`content-generation/SKILL.md` §1e, detailed in `closing-ceremony-generation/SKILL.md`), not built through `live-session-deck`'s HTML token engine. Confirm the source precedent's real formatting (fonts, layout, theme) is actually preserved, no placeholder text left in any edited field, and branding matches the Facts Sheet's Branding field (Acceler if unset), per `content-generation/SKILL.md` §1d (corrected 2026-10-01: branding is asked once per engagement and stored on the Facts Sheet, not decided per run).
 
 Two specific real defects to check for, confirmed on the first live Orientation run and pre-emptively applied here since Closing shares the identical generation method and exposure, per `closing-ceremony-generation/SKILL.md` §2b:
 - **No near-duplicate leftover slides** carried over from the precedent's own edit history, only the current, correct version of any given slide should survive.
@@ -71,14 +71,16 @@ Follows the shared mechanics in `skills/agent-loops/SKILL.md` in full, using the
 
 | Verdict | Condition |
 |---|---|
-| ✅ Approve | All §1 rules PASS (including a clean handoff of any embedded assessment content), directly or after an approved fix |
+| ✅ Approve | All §1 rules (including a clean handoff of any embedded assessment content) and the `agent-loops` baseline (§2a, §2a-1, §2b, §4) PASS, directly or after an approved fix |
 | 💬 Comment | Only dismissed/subjective findings remain |
 | 🔴 Request Changes | Any FAIL didn't converge within 2 fix rounds |
+
+*This verdict is a recommendation, not a ship decision. A human still signs off per `agent-loops/SKILL.md` §2, and per `content-generation/SKILL.md` §6 a per-artifact review is fast feedback, not the final gate.*
 
 ## 6. Checklist
 - [ ] Key Takeaways recap checked against what this specific program actually covered, not assumed generic
 - [ ] Embedded assessment content (if any) explicitly routed to `mcq-review`, not evaluated inline or silently skipped
-- [ ] Branding matches Acceler default per §1.3, unless a human explicitly asked for PowerUp
+- [ ] Branding matches the Facts Sheet's Branding field (Acceler if unset), per §1.3
 - [ ] No near-duplicate leftover slides, formatting actually preserved not flattened, per §1.3
 - [ ] Confirmed this is the live/external deck being reviewed, not mistakenly the internal Dry Run rehearsal version
 - [ ] Every finding checked against §4 Memories before being surfaced

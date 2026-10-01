@@ -13,7 +13,7 @@ metadata:
 
 ## 1. Reuse the existing checklist, don't reimplement it
 
-The 33 questions, 6 sections, and MUST / SHOULD / NICE tags already exist in `skills/discovery-checklist/SKILL.md` (the pre-sales one). Score against that exact checklist, not a new or trimmed version. If a question was already answered during pre-sales (the proposal, discovery calls), pull the answer forward instead of re-asking the client. Only genuinely unanswered items need chasing at this stage.
+The 33 questions, 6 sections, and MUST / SHOULD / NICE tags already exist in the pre-sales plugin's own checklist skill, the repo-root `skills/discovery-checklist/SKILL.md` (not this file, which sits at `post-sales/skills/discovery-checklist/SKILL.md`). Score against that exact checklist, not a new or trimmed version. If a question was already answered during pre-sales (the proposal, discovery calls), pull the answer forward instead of re-asking the client. Only genuinely unanswered items need chasing at this stage.
 
 **One adjustment for the post-sales context.** By the time this runs, the deal is signed. A few MUST items from the original checklist, budget range, who approves, when they decide, are usually already resolved by that point. Mark these as "confirmed from proposal" rather than re-scoring them as open gaps, but still record the actual figures, later stages (pricing already used them, and they're useful precedent for deep research) shouldn't have to go hunting for them again.
 
@@ -25,15 +25,15 @@ The 33 questions, 6 sections, and MUST / SHOULD / NICE tags already exist in `sk
 
 ## 2. The gate, same thresholds discovery-fit-review already set
 
-- **>=80%:** Approve, continue to Deep Research.
+- **>=80%:** Approve, continue to Deep Research, **unless the 3-month success MUST item is unanswered, which is Request Changes regardless of the overall score** (the same override `discovery-fit-review/SKILL.md` §5 applies, stated here too as of 2026-10-01 so the two agree).
 - **50-79%:** Comment, proceed, but every gap gets logged explicitly, not silently absorbed.
-- **<50%:** Request Changes, this blocks the rest of the post-sales pipeline, same as it would in pre-sales. Don't let Deep Research or Lesson Plan start against a Thin brief.
+- **<50%:** Request Changes, this blocks the rest of the post-sales pipeline, same as it would in pre-sales. Don't let Deep Research or Lesson Plan start against a Thin brief. This block applies to the full pipeline: a human who only wants one artifact adapted or built standalone can still get it through `content-generation/SKILL.md` §6c's light brief, with the thin discovery stated plainly in that brief.
 
 ---
 
 ## 3. The Facts Sheet, same shape discovery-fit-review already defines
 
-Audience (who, how many, technical level), the stated 3-month success metric, tool and access constraints, timeline and format constraints, any regulated-data constraints. Extract verbatim where possible, don't paraphrase into something vaguer. The 3-month success metric is the single most load-bearing fact, same rule as the pre-sales version, flag it specifically if it's missing even when the overall score clears 80%.
+Audience (who, how many, technical level), the stated 3-month success metric, tool and access constraints, timeline and format constraints, any regulated-data constraints, and **Branding** (Acceler by default, PowerUp only if a human asks, recorded here once so no later stage has to ask again, per `content-generation/SKILL.md` §1d and `discovery-fit-review/SKILL.md` §1.2). Extract verbatim where possible, don't paraphrase into something vaguer. The 3-month success metric is the single most load-bearing fact, same rule as the pre-sales version, flag it specifically if it's missing even when the overall score clears 80%.
 
 **Don't confuse this with an end-of-program learning metric.** Confirmed happening on a real test run (e& AI Builder Low Code, 2026-09-13): a proposal's own "Success Metrics" section (pre/post assessment improvement, capstone completion rate, session feedback scores) measures whether the training itself worked, not what changed in the client's business afterward. A true 3-month success metric is a stated business outcome tracked after the program ends, something like "reduce ticket resolution time by X%" or "Y% of participants ship an agent to production." If the source material only has end-of-program training metrics, the 3-month metric is genuinely missing, log it as a gap, don't mark it present just because some kind of success metric exists.
 

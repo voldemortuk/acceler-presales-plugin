@@ -45,7 +45,7 @@ Reviews **one capstone/multi-milestone project** in isolation. Kept separate fro
 ## 2. How this runs
 
 - Launched as the `acceler-post-sales:project-reviewer` agent (`agents/project-reviewer.md`) — may run a reference solution's test suite via Bash to verify it, but is read-only by tool restriction (`disallowedTools: Write, Edit, NotebookEdit`) on the guide itself. No visibility into the generating agent's reasoning or other hats' findings.
-- Given: the project guide, its reference solution (if reviewable), and the session's stated learning objectives (Curriculum KG / Day-by-Day doc — ask if missing, never invent).
+- Given: the project guide, its reference solution (if reviewable), the session's stated learning objectives, and the mode, scope and light brief path when the handoff or the human gives them. **Corrected 2026-10-01:** objectives come from the approved Lesson Plan / Facts Sheet where they exist, otherwise from `Outputs/[Client]/light-brief.md`'s objectives outline, per `agent-loops/SKILL.md` §4. Stop and ask only if none of these exist, never invent them.
 - Output: `{milestone/trap, rule, verdict: PASS|FAIL, evidence, suggested_fix}`.
 - Check every FAIL against §4 Memories before surfacing it.
 
@@ -55,7 +55,7 @@ Reviews **one capstone/multi-milestone project** in isolation. Kept separate fro
 
 Follows the shared mechanics in `skills/agent-loops/SKILL.md` in full, using the `acceler-post-sales:content-fixer` agent for the apply step. Project-specific only:
 
-- "The artifact" = the project guide (and, if the fix touches it, the reference solution). The fixer may touch only these — never the stated objectives or this skill's §1 rubric.
+- "The artifact" = the project guide plus its reference solution. The two count as one artifact for the fix loop (`agents/content-fixer.md` says the same), so one approved fix may touch both when the finding needs it. The fixer may touch only these — never the stated objectives or this skill's §1 rubric.
 - Dismissed findings logged to §4 Memories below, not re-surfaced.
 
 ---
@@ -74,14 +74,16 @@ Follows the shared mechanics in `skills/agent-loops/SKILL.md` in full, using the
 
 | Verdict | Condition |
 |---|---|
-| ✅ Approve | All §1 rules PASS, directly or after an approved fix |
+| ✅ Approve | All §1 rules and the `agent-loops` baseline (§2a, §2a-1, §2b, §4) PASS, directly or after an approved fix |
 | 💬 Comment | Only dismissed/subjective findings remain |
 | 🔴 Request Changes | Any FAIL didn't converge within 2 fix rounds |
+
+*This verdict is a recommendation, not a ship decision. A human still signs off per `agent-loops/SKILL.md` §2, and per `content-generation/SKILL.md` §6 a per-artifact review is not the final gate, the `content-review` bundle pass still has to run.*
 
 ## 6. Checklist
 - [ ] A verified reference solution exists and was checked, not assumed
 - [ ] Every planted trap has a matching, explicit grading criterion — none are dead weight
 - [ ] §1.2's compliance-vs-verified-enforcement distinction was actually applied, not skipped as "too subtle"
-- [ ] Objectives sourced from the real Curriculum KG / Day-by-Day doc, not invented
+- [ ] Objectives sourced from the approved Lesson Plan / Facts Sheet, or from the light brief's objectives outline where those don't exist (`agent-loops/SKILL.md` §4), not invented
 - [ ] Every finding checked against §4 Memories before being surfaced
 - [ ] No fix applied without explicit human approval, none exceeding 2 rounds

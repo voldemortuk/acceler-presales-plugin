@@ -7,6 +7,8 @@ metadata:
 
 # Acceler Orientation Generation · Post-Sales · SKILL.md (v2)
 
+**How this skill is started (added 2026-10-01):** every run begins with the start-up check in `content-generation/SKILL.md` §6c (name the mode per §6b, check what already exists for this client, ask at most 3 to 5 questions, write a light brief in adapt or standalone runs). Where this file says an input is mandatory or says to stop when one is missing, that describes a fresh build inside the full pipeline; in adapt or standalone runs the gap is handled the §6c way instead. Before building, also read `agent-loops/SKILL.md` (§2a, §2a-1, §2b) and this artifact type's `generation-learnings/` file where one exists, they are not loaded automatically.
+
 **What this produces, and what it deliberately isn't.** One program Orientation deck, the same artifact `orientation-review/SKILL.md` already reviews, forward-looking, logistics and expectations content, not teaching content.
 
 **Rewritten 2026-09-24, real finding.** The previous version of this skill generated Orientation fresh each time through `live-session-deck`'s HTML token/component engine. Reading the real, actually-delivered e& Orientation deck directly (`PowerUp | AI Builder Program (Low Code) for e& - Orientation`) showed that's the wrong model entirely: a real Orientation deck is a native PowerPoint/Slides file, roughly 85% fixed company-template content identical across engagements, with only a specific, identifiable handful of fields that actually change per client. Generating it fresh through an HTML engine built for content-heavy teaching decks produced wrong branding and generic-feeling slides, because it was solving the wrong problem. The fix: copy the real precedent deck, edit only the real swap zones, in place. Per `content-generation/SKILL.md` §1e.
@@ -36,7 +38,7 @@ metadata:
 
 **Tier 3, fully swapped:** client/program name wherever it appears (title, footer, badges), the instructor introduction slide (from the finalized roster, flagged Proposed vs. Confirmed per `instructor-finalization`'s own rule if not yet confirmed), the Onboarding Form link, and the actual embedded assessment question slides (pulled verbatim from the already-reviewed `mcq/pre-test.docx`, per §2a below, never authored fresh in the deck).
 
-**Branding follows `content-generation/SKILL.md` §1d, independent of which tier a slide is in.** Acceler logo/branding by default, even on slides copied from a PowerUp-branded precedent, swap it. Only keep PowerUp branding when a human explicitly asks for it on this run.
+**Branding follows `content-generation/SKILL.md` §1d, independent of which tier a slide is in.** Acceler logo/branding by default, even on slides copied from a PowerUp-branded precedent, swap it. Keep PowerUp branding only when the Discovery Facts Sheet's Branding field says so (that field is where a human's choice is recorded, asked once per engagement, per §1d).
 
 ---
 
@@ -61,7 +63,7 @@ Per `content-generation/SKILL.md` §3:
 - Confirm every Tier 1 slide's actual content is untouched from the precedent, only branding changed.
 - Confirm every Tier 2 slide's content is real and specific to this engagement (real dates, real day-by-day topics from the Lesson Plan), not still showing the precedent's own numbers.
 - Confirm every Tier 3 field is genuinely swapped, no leftover precedent client name, no placeholder instructor, no fabricated assessment question.
-- Confirm branding matches §1d's default (Acceler) unless a human explicitly asked for PowerUp.
+- Confirm branding matches §1d's default (Acceler) unless the Facts Sheet's Branding field says PowerUp.
 
 ---
 
@@ -79,12 +81,12 @@ Per `content-generation/SKILL.md` §1e: native `.pptx`, edited in place from the
 
 ## 6. Handoff, and this loops, not a one-time pass
 
-Hand off to the existing `acceler-post-sales:orientation-reviewer` for the actual review pass, per `content-generation/SKILL.md` §6. Reference `agent-loops` via the `skills:` frontmatter field. **No `generation-learnings/orientation.md` file exists yet**, deliberately, per `generation-learnings/README.md`'s own note that Orientation is a lower-iteration-volume artifact type, don't pre-build speculative infrastructure before a real repeat pattern shows up.
+Hand off to the existing `acceler-post-sales:orientation-reviewer` for the actual review pass, per `content-generation/SKILL.md` §6. `agent-loops` is read at the start of the run, per the note at the top of this file. **No `generation-learnings/orientation.md` file exists yet**, deliberately, per `generation-learnings/README.md`'s own note that Orientation is a lower-iteration-volume artifact type, don't pre-build speculative infrastructure before a real repeat pattern shows up.
 
 ---
 
 ## 7. Checklist
-- [ ] A real precedent deck identified and exported to `.pptx`, or the run stopped and asked, never generated from nothing
+- [ ] A real precedent deck identified and exported to `.pptx`, or the gap handled per `content-generation/SKILL.md` §6c, never generated from nothing
 - [ ] Tier 1 slides (Who We Are, testimonials, founder bios, Agentic AI Revolution, What Will Not Be Covered, Expectations, Communication Channels) copied untouched except branding
 - [ ] Tier 2 slides (Program Overview, Curriculum Details, AI Tools) keep the precedent's heading/structure but show this engagement's real content
 - [ ] Tier 3 fields (client name, instructor slide, Onboarding Form link, assessment questions) fully swapped, no leftover precedent content

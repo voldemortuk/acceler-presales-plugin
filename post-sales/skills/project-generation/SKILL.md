@@ -7,6 +7,8 @@ metadata:
 
 # Acceler Project Generation · Post-Sales · SKILL.md (v1)
 
+**How this skill is started (added 2026-10-01):** every run begins with the start-up check in `content-generation/SKILL.md` §6c (name the mode per §6b, check what already exists for this client, ask at most 3 to 5 questions, write a light brief in adapt or standalone runs). Where this file says an input is mandatory or says to stop when one is missing, that describes a fresh build inside the full pipeline; in adapt or standalone runs the gap is handled the §6c way instead. Before building, also read `agent-loops/SKILL.md` (§2a, §2a-1, §2b) and this artifact type's `generation-learnings/` file where one exists, they are not loaded automatically.
+
 **What this produces, in one of two confirmed real shapes.** The same artifact `project-review/SKILL.md` already reviews, a capstone or multi-milestone project, distinct from a single assignment: multi-stage or otherwise substantial, and graded through planted traps or a structured brief rather than a straightforward rubric. Don't force one shape's structure onto the other:
 
 1. **Milestone/trap-graded**, staged (M1 through M4 or similar), graded via deliberately planted traps, backed by a verified reference-solution repo as the actual answer key.
@@ -68,12 +70,12 @@ Per `content-generation/SKILL.md` §3: for the milestone/trap shape, actually bu
 
 ## 6. Handoff, and this loops, not a one-time pass
 
-Hand off to the existing `acceler-post-sales:project-reviewer` for the actual review pass, per `content-generation/SKILL.md` §6. Reference `generation-learnings/project.md` and `agent-loops` via the `skills:` frontmatter field. Per §6a, once real fix-loop history accumulates beyond the one seeded candidate above and the promotion rule is met, this skill is expected to actually change how it builds the next project, not just fix the one in front of you.
+Hand off to the existing `acceler-post-sales:project-reviewer` for the actual review pass, per `content-generation/SKILL.md` §6. Reference `generation-learnings/project.md` and `agent-loops` by reading it at the start of the run (skills have no `skills:` frontmatter field, only agents do). Per §6a, once real fix-loop history accumulates beyond the one seeded candidate above and the promotion rule is met, this skill is expected to actually change how it builds the next project, not just fix the one in front of you.
 
 ---
 
 ## 7. Checklist
-- [ ] Both mandatory inputs loaded, or the run stopped and asked
+- [ ] Both mandatory inputs loaded, or the gap handled per `content-generation/SKILL.md` §6c
 - [ ] Correct shape chosen (milestone/trap vs. documentation-brief) from the engagement's signal, not defaulted
 - [ ] Every planted trap has an explicit, forced-and-observed enforcement criterion, not a compliance-only check
 - [ ] Reference solution actually built and its test suite run, for the milestone/trap shape

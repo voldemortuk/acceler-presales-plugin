@@ -65,9 +65,11 @@ Follows the shared mechanics in `skills/agent-loops/SKILL.md` in full, using the
 
 | Verdict | Condition |
 |---|---|
-| ✅ Approve | All applicable §1 rules PASS, directly or after an approved fix |
+| ✅ Approve | All applicable §1 rules and the `agent-loops` baseline (§2a, §2a-1, §2b, §4) PASS, directly or after an approved fix |
 | 💬 Comment | Only dismissed/subjective findings remain, or a rule couldn't run for lack of onboarding data/Facts Sheet |
 | 🔴 Request Changes | Any FAIL didn't converge within 2 fix rounds |
+
+*This verdict is a recommendation, not a ship decision. A human still signs off per `agent-loops/SKILL.md` §2, and per `content-generation/SKILL.md` §6 this hat's verdict is not the final gate on its own, it feeds `content-review`'s final tier.*
 
 ## 6. Checklist
 - [ ] Onboarding responses and Discovery Facts Sheet checked for and used where available; absence explicitly flagged where not

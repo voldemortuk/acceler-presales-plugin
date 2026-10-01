@@ -6,4 +6,4 @@ Real, correct logo files for any generated artifact that needs a company mark (s
 
 **Legacy: `powerup-logo.png`.** The company was previously branded PowerUp before becoming Acceler. Some ongoing client relationships that started under PowerUp may still expect that branding. If a human explicitly asks for PowerUp branding instead of Acceler for a given run (e.g. "this client's still on PowerUp, use that logo"), use this file instead, don't default to it and don't silently swap to Acceler when asked for PowerUp.
 
-Never use `New_Logo_Blue-removebg-preview.png` (gradient orange/purple/navy chevron) or any plain white wordmark, both were tried and rejected, see `reference_acceler_house_style` memory.
+Never use `New_Logo_Blue-removebg-preview.png` (gradient orange/purple/navy chevron) or any plain white wordmark, both were tried and rejected (the reasoning is in one team member's private notes, not in this repo, so the rule is stated here in full: dark navy wordmark with the cyan accent only).

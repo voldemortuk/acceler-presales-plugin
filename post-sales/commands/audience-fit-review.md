@@ -12,6 +12,8 @@ $ARGUMENTS
 
 ## How to run
 
+**Scope (added 2026-10-01):** when the handoff or the human gives a mode, a scope and a light brief path, read them, pass them to the reviewer, and review against that scope, per `skills/agent-loops/SKILL.md` §4.
+
 1. Read `skills/audience-fit-review/SKILL.md` in full first.
 2. Confirm what's available: aggregated onboarding responses, Discovery Facts Sheet. Run only the rules those inputs support — say plainly which couldn't run rather than guessing at an audience profile.
 3. Launch the `acceler-post-sales:audience-fit-reviewer` agent per §2.

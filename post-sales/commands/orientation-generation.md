@@ -1,5 +1,5 @@
 ---
-description: "Generates one program Orientation deck, logistics and expectations content following the confirmed recurring 5-program structure, not teaching content. Built through the existing live-session-deck engine and tokens, not a new deck mechanism. Hands off to the existing acceler-post-sales:orientation-reviewer for the actual review pass."
+description: "Generates one program Orientation deck by copying a real precedent Orientation PPTX and editing only the engagement-specific fields in place, not by building a new deck. Logistics and expectations content, not teaching content. Hands off to the existing acceler-post-sales:orientation-reviewer for the actual review pass."
 argument-hint: "<client name>"
 ---
 
@@ -16,20 +16,22 @@ $ARGUMENTS
 
 ## How to run
 
-1. Read `skills/orientation-generation/SKILL.md` in full first.
-2. Load the mandatory inputs per §1: `Outputs/[Client]/deep-research.md` and the approved `Outputs/[Client]/lesson-plan.xlsx`. Pull instructor bios from `Outputs/[Client]/instructor-roster.md` if it already exists.
-3. Build all six structural sections per §2: credibility framing, instructor introductions, program overview with stated final outcomes, a time-blocked schedule, learner expectations, and the pre-course assessment section. If embedding or linking it, pull from `Outputs/[Client]/mcq/pre-test.docx` where it exists, never write fresh questions here. Don't force a Bloom's-verb objective section, it doesn't apply here.
-4. Build through the existing deck engine/tokens (`live-session-deck`), not a new rendering mechanism.
-5. Self-verify per §3: schedule is genuinely time-blocked, final-outcomes section is specific to this engagement, not boilerplate.
-6. Save to `Outputs/[Client]/orientation-deck/`.
-7. Hand off to `acceler-post-sales:orientation-reviewer` for the actual review pass, this command doesn't review its own output. Per `agent-loops/SKILL.md` §2a-2, this is a hard completion condition, not a step to describe, this run isn't finished until the reviewer has actually been invoked, not just reported as the next step.
+1. Read `skills/orientation-generation/SKILL.md` in full first. It is the single source for how this deck is built, nothing below overrides it.
+2. Load the mandatory inputs per §1: a real precedent Orientation deck (this client's own if one exists, otherwise the closest one in `knowledge/engagement-catalog.md`), exported to `.pptx` as the working copy, plus `Outputs/[Client]/lesson-plan.xlsx` (approved) and `Outputs/[Client]/deep-research.md`. If any is missing, handle the gap per `content-generation/SKILL.md` §6c (fresh pipeline build: stop and offer the choice of running the missing stage or going standalone; adapt or standalone run: build from the light brief), never guess. Best-effort: `Outputs/[Client]/instructor-roster.md` and `Outputs/[Client]/mcq/pre-test.docx`.
+3. Work through the three tiers in §2: leave Tier 1 slides untouched apart from branding, retailor Tier 2 slides from the Lesson Plan, fully swap the Tier 3 fields. Branding per `content-generation/SKILL.md` §1d.
+4. If the deck embeds assessment questions, copy them from the reviewed `mcq/pre-test.docx` per §2a, never write fresh questions here.
+5. Apply §2b's two creation-time rules: remove the precedent's own leftover duplicate slides, and edit text in place rather than clearing and rebuilding a shape.
+6. Edit the PPTX natively, per §4 and `content-generation/SKILL.md` §1e. This deck is not built through `live-session-deck`'s HTML engine. PDF only after a human approves the PPTX.
+7. Self-verify per §3.
+8. Save to `Outputs/[Client]/orientation-deck/orientation-deck.pptx`, per §5.
+9. Hand off to `acceler-post-sales:orientation-reviewer` for the actual review pass, this command doesn't review its own output. Per `agent-loops/SKILL.md` §2a-2, this is a hard completion condition, not a step to describe, this run isn't finished until the reviewer has actually been invoked, not just reported as the next step.
 
 ## Quality checklist (apply before presenting results)
 
-- [ ] Both mandatory inputs loaded, or the gap handled per §6c (stopped and asked, or light brief written)
-- [ ] All six structural sections present, none skipped
-- [ ] Schedule genuinely time-blocked, final outcomes specific, not boilerplate
-- [ ] Embedded assessment content, if any, pulled from the reviewed `mcq/pre-test.docx`, not authored fresh
-- [ ] Built through the existing deck engine, not a new one
+- [ ] Real precedent deck and both mandatory inputs loaded, or the gap handled per §6c (stopped and asked, or light brief written)
+- [ ] Tier 1 untouched apart from branding, Tier 2 retailored from the real Lesson Plan, Tier 3 fully swapped, no leftover precedent client name
+- [ ] Embedded assessment content, if any, copied from the reviewed `mcq/pre-test.docx`, not authored fresh
+- [ ] Precedent's leftover duplicate slides removed, text edited in place so the source formatting survives
+- [ ] Native PPTX edited from the precedent, not rebuilt through the HTML deck engine, PDF only after approval
 - [ ] Saved to `Outputs/[Client]/orientation-deck/`
 - [ ] Handed to the existing `orientation-reviewer`, not reviewed inline here

@@ -17,14 +17,14 @@ $ARGUMENTS
 1. Read `skills/discovery-checklist/SKILL.md` in full first.
 2. Score using the existing `acceler-presales:discovery-checklist` tool, don't reimplement scoring. Pull forward any answer already known from the proposal or discovery calls rather than re-asking.
 3. Mark money/timeline MUST items as "confirmed from proposal" where the deal being closed already resolves them, but still record the actual figures.
-4. Extract the Discovery Facts Sheet per §3, verbatim where possible, with the 3-month success metric specifically checked.
+4. Extract the Discovery Facts Sheet per §3, verbatim where possible, with the 3-month success metric specifically checked and the Branding field set (Acceler unless a human asks for PowerUp).
 5. Save the sheet to `Outputs/[Client]/discovery-facts-sheet.md`.
-6. Report the verdict per §2. If <50%, state plainly that this blocks Deep Research and everything after it, don't soften it.
+6. Report the verdict per §2, including the override: an unanswered 3-month success metric is Request Changes even at 80% or above. If <50%, state plainly that this blocks Deep Research and everything after it in the full pipeline, don't soften it.
 
 ## Quality checklist (apply before presenting results)
 
 - [ ] Scored against the existing 33-question checklist, not a new one
 - [ ] Answers already known from pre-sales pulled forward, not re-asked
-- [ ] Facts Sheet extracted verbatim where possible, 3-month success metric specifically checked
+- [ ] Facts Sheet extracted verbatim where possible, 3-month success metric specifically checked, Branding field set
 - [ ] Saved to `Outputs/[Client]/discovery-facts-sheet.md`
 - [ ] Score <50% blocks the pipeline explicitly, not just noted

@@ -12,6 +12,8 @@ $ARGUMENTS
 
 ## How to run
 
+**Scope (added 2026-10-01):** when the handoff or the human gives a mode, a scope and a light brief path, read them, pass them to the reviewer, and review against that scope, per `skills/agent-loops/SKILL.md` §4.
+
 1. Read `skills/orientation-review/SKILL.md` in full first.
 2. Launch the `acceler-post-sales:orientation-reviewer` agent per §2.
 3. Check every finding against §4 Memories before surfacing it.

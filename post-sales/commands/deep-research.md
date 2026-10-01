@@ -25,7 +25,7 @@ $ARGUMENTS
 
 ## Quality checklist (apply before presenting results)
 
-- [ ] All three mandatory inputs loaded, or the run stopped and asked instead of guessing
+- [ ] All three mandatory inputs loaded, or the gap handled per §6c instead of guessing
 - [ ] Best-effort sources used where available, gaps named honestly where not
 - [ ] Output matches the five-section shape, not a raw dump of source material
 - [ ] No em-dashes or AI-sounding prose tells, per `agent-loops` §2a-1, even without a dedicated reviewer

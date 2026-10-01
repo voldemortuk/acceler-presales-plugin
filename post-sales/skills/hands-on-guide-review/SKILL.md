@@ -24,19 +24,19 @@ Reviews **one hands-on/setup guide** in isolation — the standalone doc a learn
 - Both personal-account and pooled/shared-training-account schemes are legitimate (confirmed: personal email in some e& variants, pooled `aiexplorer_01@uplevel.academy`-style accounts in others, sometimes because corporate networks block personal-email tools — Lowe's guide states this explicitly). Don't flag which scheme is used; only flag a real value appearing in the doc.
 - If a screenshot is referenced/included, it must not visibly contain a real credential in the image itself.
 
+### 1.3 Curriculum & Tool Alignment
+- The tools listed for a given day should match what that day's actual code-demo/deck use. Where that day's artifacts are in hand, flag a guide listing a tool the session never touches, or missing one the code-demo depends on. **Corrected 2026-10-01: this is a local heads-up only, not a FAIL here.** The authoritative cross-artifact check runs in `content-review` (the coherence hat), don't block here on a coherence call this skill can't fully verify alone. Same pattern as `assignment-review` §1.2 and `lesson-plan-review` §1.3.
+- House branding/format consistency — client branding present, company branding matches the Facts Sheet's Branding field (Acceler if unset, per `content-generation/SKILL.md` §1d), sign-off line present, matching the house pattern (not a generic unbranded doc).
+
 ### 1.4 Example-Prompt Accuracy *(when the guide includes them)*
 - Some guides embed example prompts per tool (e.g. "Summarize this 3-page policy into 5 bullet points" for Word Copilot, confirmed real pattern from an AI Leadership Program Login Guide). Where present, the example must be realistic for that tool and that audience's actual use case — a generic or tool-mismatched example prompt is a FAIL.
-
-### 1.3 Curriculum & Tool Alignment
-- The tools listed for a given day must match what that day's actual code-demo/deck use — a guide listing a tool the session never touches, or missing one the code-demo depends on, is a FAIL. Cross-check against `code-demo-review`'s artifact for the same day where available.
-- House branding/format consistency — client + Acceler branding present, sign-off line present, matching the house pattern (not a generic unbranded doc).
 
 ---
 
 ## 2. How this runs
 
 - Launched as the `acceler-post-sales:hands-on-guide-reviewer` agent (`agents/hands-on-guide-reviewer.md`) — read-only by tool restriction (`disallowedTools: Write, Edit`). No visibility into the generating agent's reasoning or other hats' findings.
-- Given: the guide file and, where available, that day's code-demo/deck artifacts for the tool-alignment cross-check (§1.3). Ask if the day's other artifacts aren't available yet — §1.3 can't run without them, but §1.1-1.2 can.
+- Given: the guide file and, where available, that day's code-demo/deck artifacts for the tool-alignment cross-check (§1.3). Ask if the day's other artifacts aren't available yet — §1.3's tool-alignment check can't run without them, so run everything except that check and say plainly that it couldn't run.
 - Output: `{tool/step, rule, verdict: PASS|FAIL, evidence, suggested_fix}`.
 - Check every FAIL against §4 Memories before surfacing it.
 
@@ -65,13 +65,15 @@ Follows the shared mechanics in `skills/agent-loops/SKILL.md` in full, using the
 
 | Verdict | Condition |
 |---|---|
-| ✅ Approve | All §1 rules PASS, directly or after an approved fix |
-| 💬 Comment | Only dismissed/subjective findings remain |
+| ✅ Approve | All §1 rules and the `agent-loops` baseline (§2a, §2a-1, §2b, §4) PASS, directly or after an approved fix |
+| 💬 Comment | Only dismissed/subjective findings remain, or the local tool-alignment heads-up (§1.3) needs the bundle-level check to confirm |
 | 🔴 Request Changes | Any FAIL didn't converge within 2 fix rounds |
+
+*This verdict is a recommendation, not a ship decision. A human still signs off per `agent-loops/SKILL.md` §2, and per `content-generation/SKILL.md` §6 a per-artifact review is not the final gate, the `content-review` bundle pass still has to run.*
 
 ## 6. Checklist
 - [ ] Every tool in the "required for the day" list has a matching complete step-by-step section
 - [ ] No real credential value appears anywhere in the guide text or screenshots
-- [ ] Tool list cross-checked against that day's code-demo/deck where available
+- [ ] Tool list cross-checked against that day's code-demo/deck where available, raised as a heads-up only (the authoritative check is in `content-review`)
 - [ ] Every finding checked against §4 Memories before being surfaced
 - [ ] No fix applied without explicit human approval, none exceeding 2 rounds

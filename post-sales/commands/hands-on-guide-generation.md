@@ -17,7 +17,7 @@ $ARGUMENTS
 ## How to run
 
 1. Read `skills/hands-on-guide-generation/SKILL.md` in full first.
-2. Load the mandatory inputs per §1: `Outputs/[Client]/lesson-plan.xlsx` (approved, for the full required-tools list across all days) and `Outputs/[Client]/deep-research.md` (for personal vs. pooled account scheme).
+2. Load the mandatory inputs per §1: `Outputs/[Client]/lesson-plan.xlsx` (approved, for the full required-tools list across all days) and `Outputs/[Client]/deep-research.md` (for personal vs. pooled account scheme). If a mandatory input is missing, handle the gap per `content-generation/SKILL.md` §6c (fresh pipeline build: stop and offer the choice of running the missing stage or going standalone; adapt or standalone run: build from the light brief), never guess.
 3. Write a complete step-by-step section per tool per §2, concrete numbered steps, access URL, support channel included.
 4. Never place a real credential value in the text or in any referenced screenshot, use placeholders or reference a separate secure channel instead.
 5. Self-verify per §3: cross-check the tool list against `Outputs/[Client]/demo/` where it already exists, and scan explicitly for anything credential-shaped before saving.

@@ -9,7 +9,7 @@ metadata:
 
 **Why this exists.** The first real test run, `discovery-checklist` against e&'s real Low Code proposal, needed four separate rounds before it held up. Each round found a genuinely different kind of problem, not the same one repeated. That's a signal: these are recurring failure shapes, not one-off bugs, worth checking for on purpose in every future stage's first real run, instead of hoping we happen to notice them.
 
-**How to use this.** After running any pipeline command against real client data for the first time, check its output against every item below before trusting it. Don't wait for something to look wrong, actively check, the same way §3's arithmetic check isn't optional just because a number looks plausible.
+**How to use this.** After running any pipeline command against real client data for the first time, check its output against every item below before trusting it. Don't wait for something to look wrong, actively check, the same way §2's arithmetic check isn't optional just because a number looks plausible.
 
 ---
 

@@ -7,6 +7,8 @@ metadata:
 
 # Acceler Onboarding Form Generation · Post-Sales · SKILL.md (v1)
 
+**How this skill is started (added 2026-10-01):** every run begins with the start-up check in `content-generation/SKILL.md` §6c (name the mode per §6b, check what already exists for this client, ask at most 3 to 5 questions, write a light brief in adapt or standalone runs). Where this file says an input is mandatory or says to stop when one is missing, that describes a fresh build inside the full pipeline; in adapt or standalone runs the gap is handled the §6c way instead. Before building, also read `agent-loops/SKILL.md` (§2a, §2a-1, §2b) and this artifact type's `generation-learnings/` file where one exists, they are not loaded automatically.
+
 **What this produces.** One Learner Onboarding Form, the same artifact `onboarding-form-review/SKILL.md` already reviews. One common baseline, tweaked per client, not designed from scratch each time. **Not a separate "Discovery Form for Team Leads"**, per that reviewer's own resolved note: where the engagement has a lead/manager layer, that's a clearly-marked optional section inside this same form, not a standalone artifact.
 
 **Grounded in two real references, not one, deliberately.** `onboarding-form-review` documents LVT's Engineer Onboarding Form, a purely engineering cohort (stack, IDE, Git, CI, PR workflow). A second real reference, e&'s AI Builder Accelerator form, shows the same skeleton used for a mixed, often non-technical cohort (directors and managers with no coding background answering the same form as engineers). Comparing them is what shows which parts of the baseline are universal and which flex by audience.
@@ -63,7 +65,7 @@ Per `content-generation/SKILL.md` §3: confirm the outcome-tie question is actua
 
 ## 7. Handoff, and this loops, not a one-time pass
 
-Hand off to the existing `acceler-post-sales:onboarding-form-reviewer` for the actual review pass, per `content-generation/SKILL.md` §6. Reference `agent-loops` via the `skills:` frontmatter field. No `generation-learnings/onboarding-form.md` file exists yet, and per §6a, this skill's own findings, once real fix-loop history accumulates, are expected to change how the next form gets written, not just fix the one in front of you.
+Hand off to the existing `acceler-post-sales:onboarding-form-reviewer` for the actual review pass, per `content-generation/SKILL.md` §6. `agent-loops` is read at the start of the run, per the note at the top of this file. No `generation-learnings/onboarding-form.md` file exists yet, and per §6a, this skill's own findings, once real fix-loop history accumulates, are expected to change how the next form gets written, not just fix the one in front of you.
 
 ---
 
@@ -79,7 +81,7 @@ Hand off to the existing `acceler-post-sales:onboarding-form-reviewer` for the a
 ---
 
 ## 8. Checklist
-- [ ] Mandatory input (approved Facts Sheet) loaded, or the run stopped and asked
+- [ ] Mandatory input (approved Facts Sheet) loaded, or the gap handled per `content-generation/SKILL.md` §6c
 - [ ] Outcome-tie question built from this engagement's real Facts Sheet content, not a placeholder
 - [ ] Concern question present, not just aspiration-only questions
 - [ ] Skill-matrix tool list matches what this cohort will actually use, not copied wholesale

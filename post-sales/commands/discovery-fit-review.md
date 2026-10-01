@@ -12,6 +12,8 @@ $ARGUMENTS
 
 ## How to run
 
+**Scope (added 2026-10-01):** when the handoff or the human gives a mode, a scope and a light brief path, read them, pass them to the reviewer, and review against that scope, per `skills/agent-loops/SKILL.md` §4.
+
 1. Read `skills/discovery-fit-review/SKILL.md` in full first.
 2. Score the brief using the existing `acceler-presales:discovery-checklist` tool — don't reimplement scoring.
 3. Launch the `acceler-post-sales:discovery-fit-reviewer` agent per §2 to extract the Discovery Facts Sheet, with special attention to the 3-month-success-metric fact.

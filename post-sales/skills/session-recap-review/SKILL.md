@@ -26,8 +26,8 @@ Reviews **one learner-facing day-N recap** (the artifact `session-recap` generat
 - The right Q&A component is used for the right content per §2.4 (`.qa` for parked/rushed questions, `.q` only for a real scored quiz, `.pk` for everything else) — component misuse is a FAIL, not a style nitpick.
 
 ### 1.3 Prose Style
-- No em-dash outside `<style>`/`<script>`/direct quotes — grep for `&mdash;` and confirm zero remain.
-- No manufactured 3-item rhetorical cadence, no "it's not an X, it's a Y," no antithesis-as-a-crutch — same house bans used elsewhere in this plugin family. Direct quotes and `<code>` content are exempt.
+- The prose bans are the ones in `agent-loops/SKILL.md` §2a-1, applied as written there (corrected 2026-10-01: the copy that used to sit here had dropped one of them). Direct quotes and `<code>` content are exempt.
+- One recap-specific check on top: grep the file for `&mdash;` and confirm zero remain outside `<style>`/`<script>` and direct quotes.
 
 ---
 
@@ -63,9 +63,11 @@ Follows the shared mechanics in `skills/agent-loops/SKILL.md` in full, using the
 
 | Verdict | Condition |
 |---|---|
-| ✅ Approve | All §1 rules PASS, directly or after an approved fix |
+| ✅ Approve | All §1 rules and the `agent-loops` baseline (§2a, §2a-1, §2b, §4) PASS, directly or after an approved fix |
 | 💬 Comment | Only dismissed/subjective findings remain |
 | 🔴 Request Changes | Any FAIL didn't converge within 2 fix rounds |
+
+*This verdict is a recommendation, not a ship decision. A human still signs off per `agent-loops/SKILL.md` §2, and per `content-generation/SKILL.md` §6 a per-artifact review is fast feedback, not the final gate.*
 
 ## 6. Checklist
 - [ ] Content traced against the real session deck/notes, not assumed accurate

@@ -39,7 +39,8 @@ metadata:
   - **Confirmed 2026-09-24, Low Code specifically:** both Orientation and Closing decks opened directly and read in full, real precedent for `orientation-generation`/`closing-ceremony-generation`'s three-tier copy-and-swap approach. Real, confirmed pre-test shape (embedded in Orientation): 10 single-correct + 2 subjective, harder/diagnostic. Real, confirmed post-test shape (embedded in Closing): 10 single-correct + 2 subjective, easier/foundational. Both PowerUp-branded in the source file, swap to Acceler per `content-generation/SKILL.md` §1d unless a human asks to keep PowerUp.
     - Orientation: `PowerUp | AI Builder Program (Low Code) for e& - Orientation`, https://docs.google.com/presentation/d/1fJtl_u745stcoGtIrR60JdgDAW3I_kkgbP_AT9tct3Y/edit
     - Closing: `Closing notes | e& - AI Builder Accelerator (Low Code)`, https://docs.google.com/presentation/d/1gDgg4wpGunamAaKoPKeO44k9LNdrpI-ci4ecLu3ibOg/edit
-  - **Confirmed 2026-09-25, Day 1's real live-class deck, saved permanently at `post-sales/knowledge/deck-reference/eand-lowcode-day1-real/`** (104 real slides, read in full, not the Curriculum Graph, which doesn't have this file, see that folder's own README for why). Real 4-part structure: (1) "How AI is reshaping the Tech World" (Codex, Karpathy's Software 1.0/2.0/3.0, Map of GitHub, HF Model Atlas), (2) Prompt Engineering taught through **Expertex**, not generic ChatGPT, includes the real "Maya" persona demo, (3) the n8n build (Intelligent Client Inquiry Response System), (4) Responsible AI (hallucination, prompt injection incl. a real GitHub MCP vulnerability, privacy/PII). Real instructor shown: Anshaj Khare. **e&-TESTRUN's own Day 1 (built before this was found) only covers parts 2 (differently, via generic ChatGPT) and 3, parts 1 and 4's real depth are a confirmed gap, not yet reconciled**, see that folder's README for the fuller comparison.
+  - **Confirmed 2026-09-25, Day 1's real live-class deck, written summary and slide-type contact sheet kept at `post-sales/knowledge/deck-reference/eand-lowcode-day1-real/`** (the deck itself, 104 real slides, lives in Drive only since 2026-10-01, see that folder's README; it was read in full, not the Curriculum Graph, which doesn't have this file, see that folder's own README for why). Real 4-part structure: (1) "How AI is reshaping the Tech World" (Codex, Karpathy's Software 1.0/2.0/3.0, Map of GitHub, HF Model Atlas), (2) Prompt Engineering taught through **Expertex**, not generic ChatGPT, includes the real "Maya" persona demo, (3) the n8n build (Intelligent Client Inquiry Response System), (4) Responsible AI (hallucination, prompt injection incl. a real GitHub MCP vulnerability, privacy/PII). Real instructor shown: Anshaj Khare. **e&-TESTRUN's own Day 1 (built before this was found) only covers parts 2 (differently, via generic ChatGPT) and 3, parts 1 and 4's real depth are a confirmed gap, not yet reconciled**, see that folder's README for the fuller comparison.
+  - **The Low Code Day 3 deck is `live-session-deck`'s default template reference**, kept as an 85-slide replica at `post-sales/knowledge/deck-reference/eand-lowcode-day3-replica/` (structure, CSS, fonts and the five real background images).
   - Source: `B2B e& AI Builder (No Code|Low Code|Pro Code) - Nov-Dec_25/` and `- Q1_26/`
 
 - **e& PPF AI For Leaders, Hungary (CETIN x Yettel)**, this is Ut's own worked example in `live-session-deck/SKILL.md`
@@ -48,10 +49,10 @@ metadata:
 
 ## LVT (B2B-LVT Pro Code Program, Claude-based, engineering-heavy)
 
-Already the primary reference for `onboarding-form-review` and `live-session-deck`. Deepest, most structured precedent for a pure-engineer cohort.
+Already the primary reference for `onboarding-form-review`, and one of the real decks `live-session-deck` §3.16 was checked against for teaching tone. Deepest, most structured precedent for a pure-engineer cohort.
 
 - Content available: Onboarding, Orientation, Day 1-4 live slides, a real Final Project ("Stale Order Alerts", milestone-graded with hooks/spec-driven-dev/MCP code folders), Closing Ceremony, Pre/Post Program Assessment (xlsx with responses), Virtual Labs Setup, per-day real code demo repos (git history, package.json, tests)
-- **Not yet opened**, but this is the strongest candidate to validate `project-generation` and `demo-generation` against next, since it has real graded code, not just slides
+- Its real Day 2 to 4 decks were opened for `live-session-deck` §3.16; the project and code repos are **not yet opened**, and are the strongest candidate to validate `project-generation` and `demo-generation` against next, since it has real graded code, not just slides
 - Source: `B2B-LVT Pro Code Program - Claude/`
 
 ## Deloitte AI For Leaders
@@ -66,7 +67,7 @@ Already the primary reference for `onboarding-form-review` and `live-session-dec
 
 ## Nucleus Masterclass
 
-- Also Ut's default reference client for `live-session-deck`, worth noting the deck default and this content catalog point at the same client.
+- Was the default reference client for `live-session-deck` until 2026-09-18. The default is now the e& Low-Code Day 3 deck (`post-sales/knowledge/deck-reference/eand-lowcode-day3-replica/`), Nucleus is a named alternate only.
 - Content available: Pre/Post Class Assessments, Orientation, Closing Ceremony, two Masterclass decks
 - Source: `B2B Nucleus Masterclass/`
 

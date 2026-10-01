@@ -7,6 +7,8 @@ metadata:
 
 # Acceler Closing Ceremony Generation · Post-Sales · SKILL.md (v2)
 
+**How this skill is started (added 2026-10-01):** every run begins with the start-up check in `content-generation/SKILL.md` §6c (name the mode per §6b, check what already exists for this client, ask at most 3 to 5 questions, write a light brief in adapt or standalone runs). Where this file says an input is mandatory or says to stop when one is missing, that describes a fresh build inside the full pipeline; in adapt or standalone runs the gap is handled the §6c way instead. Before building, also read `agent-loops/SKILL.md` (§2a, §2a-1, §2b) and this artifact type's `generation-learnings/` file where one exists, they are not loaded automatically.
+
 **What this produces.** One program Closing Ceremony deck, the same artifact `closing-ceremony-review/SKILL.md` already reviews, backward-looking wrap-up content, structurally distinct from Orientation.
 
 **Rewritten 2026-09-24, same real finding as Orientation.** Reading the real, actually-delivered e& Closing deck directly (`Closing notes | e& - AI Builder Accelerator (Low Code)`) showed the same pattern: a real Closing deck is a native PowerPoint/Slides file, mostly fixed structure, with a specific, identifiable handful of fields that change per engagement. Copy the real precedent, edit only the real swap zones, in place, per `content-generation/SKILL.md` §1e, not a fresh build through `live-session-deck`'s HTML engine.
@@ -80,12 +82,12 @@ Per `content-generation/SKILL.md` §1e: native `.pptx`, edited in place from the
 
 ## 6. Handoff, and this loops, not a one-time pass
 
-Hand off to the existing `acceler-post-sales:closing-ceremony-reviewer` for the actual review pass, per `content-generation/SKILL.md` §6. Reference `agent-loops` via the `skills:` frontmatter field. **No `generation-learnings/closing-ceremony.md` file exists yet**, deliberately, same reasoning as Orientation, per `generation-learnings/README.md`, this is a lower-iteration-volume artifact type, don't pre-build speculative infrastructure before a real repeat pattern shows up.
+Hand off to the existing `acceler-post-sales:closing-ceremony-reviewer` for the actual review pass, per `content-generation/SKILL.md` §6. `agent-loops` is read at the start of the run, per the note at the top of this file. **No `generation-learnings/closing-ceremony.md` file exists yet**, deliberately, same reasoning as Orientation, per `generation-learnings/README.md`, this is a lower-iteration-volume artifact type, don't pre-build speculative infrastructure before a real repeat pattern shows up.
 
 ---
 
 ## 7. Checklist
-- [ ] A real precedent deck identified and exported to `.pptx`, or the run stopped and asked, never generated from nothing
+- [ ] A real precedent deck identified and exported to `.pptx`, or the gap handled per `content-generation/SKILL.md` §6c, never generated from nothing
 - [ ] Tier 1 slides (reflection prompt, Bridging Learning to Application, feedback ask, founder slide) copied untouched except branding
 - [ ] Tier 2 (Key Takeaways) keeps the precedent's three headings but shows this engagement's real session content
 - [ ] Tier 3 fields (client name, assessment timing, MS Form link, assessment questions) fully swapped, no leftover precedent content

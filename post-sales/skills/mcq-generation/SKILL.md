@@ -7,6 +7,8 @@ metadata:
 
 # Acceler MCQ Generation · Post-Sales · SKILL.md (v1)
 
+**How this skill is started (added 2026-10-01):** every run begins with the start-up check in `content-generation/SKILL.md` §6c (name the mode per §6b, check what already exists for this client, ask at most 3 to 5 questions, write a light brief in adapt or standalone runs). Where this file says an input is mandatory or says to stop when one is missing, that describes a fresh build inside the full pipeline; in adapt or standalone runs the gap is handled the §6c way instead. Before building, also read `agent-loops/SKILL.md` (§2a, §2a-1, §2b) and this artifact type's `generation-learnings/` file where one exists, they are not loaded automatically.
+
 **What this produces.** One MCQ set per run, the same kind of artifact `mcq-review/SKILL.md` already reviews per-item, but this skill produces **three genuinely different sets**, not one shared file:
 
 - **Pre-test** — Orientation's pre-course assessment. **Corrected 2026-09-24, real finding:** this is the harder, diagnostic one, scenario/applied questions calibrating the learner's real baseline before anything's been taught, per §2a below.
@@ -100,13 +102,13 @@ Also pushed to the `PostSalesPluginOutput` Drive folder per `content-generation/
 
 ## 5. Handoff, and this loops, not a one-time pass
 
-Hand off to the existing `acceler-post-sales:mcq-reviewer` for the actual review pass, per `content-generation/SKILL.md` §6. Reference `generation-learnings/mcq.md` and `agent-loops` via the `skills:` frontmatter field. Per §6a, this is not a one-off: once a rule fails three or more times across different generated sets, per the promotion rule, it becomes a directive here, and this skill is expected to actually follow it on the next set generated, not just this one.
+Hand off to the existing `acceler-post-sales:mcq-reviewer` for the actual review pass, per `content-generation/SKILL.md` §6. Reference `generation-learnings/mcq.md` and `agent-loops` by reading it at the start of the run (skills have no `skills:` frontmatter field, only agents do). Per §6a, this is not a one-off: once a rule fails three or more times across different generated sets, per the promotion rule, it becomes a directive here, and this skill is expected to actually follow it on the next set generated, not just this one.
 
 ---
 
 ## 6. Checklist
 - [ ] Type confirmed before starting (pre-test / post-test / day-N in-session), not assumed
-- [ ] Both mandatory inputs loaded, or the run stopped and asked; pre-test read first if generating post-test
+- [ ] Both mandatory inputs loaded, or the gap handled per `content-generation/SKILL.md` §6c; pre-test read first if generating post-test
 - [ ] Every item traced to a stated Learning Objective, no untaught content tested; in-session scoped to that one day only
 - [ ] Single-best-answer vs multi-select format confirmed from the stem before writing distractors
 - [ ] No compound claims, no implausible distractors, no cueing, no length giveaway

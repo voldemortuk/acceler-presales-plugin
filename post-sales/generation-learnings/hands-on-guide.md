@@ -4,7 +4,7 @@ Directives for a hands-on-guide-generation agent, promoted from patterns confirm
 
 ## Entries
 
-*(none yet — populate once hands-on-guide generation is connected and has real fix-loop history to draw from)*
+*(none yet. Generation for this type is connected as of 2026-10-01, entries get added once the same rule has failed 3 or more times across real generated artifacts, per the promotion rule in `README.md`)*
 
 Entry format once populated:
 ```

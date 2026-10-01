@@ -23,7 +23,7 @@ See `agent-loops/SKILL.md` §9 for the full two-sided design (reviewer-side and 
 
 ## Coverage — every agent in the family has at least one case
 
-18 cases, 16 of 16 agents covered (`content-fixer`'s core guardrail gets its own dedicated case — arguably the single highest-stakes behavior in the whole system). `mcq-reviewer` and `impact-report-reviewer` get extra cases where the real-world risk is highest (item-writing defects are numerous and varied; a fabricated quote about a real person is the single highest-severity failure mode anywhere in this family).
+20 cases, 16 of 16 agents covered (`content-fixer`'s core guardrail gets its own dedicated case — arguably the single highest-stakes behavior in the whole system). `mcq-reviewer` and `deck-reviewer` get extra cases (three each) where the real-world risk is highest (item-writing defects are numerous and varied; a fabricated quote about a real person is the single highest-severity failure mode anywhere in this family). Added 2026-10-01: `deck-reviewer` carries two more negative cases, one for the scope rule after a real false failure (Ferguson-DEMO, 2026-09-29) and one for the demo-link rule after two skills were found to disagree.
 
 | Case | Agent | Real source |
 |---|---|---|
@@ -31,6 +31,8 @@ See `agent-loops/SKILL.md` §9 for the full two-sided design (reviewer-side and 
 | `mcq-zero-explanations.md` | mcq-reviewer | Bosch/Nucleus/e& Post-Course Assessment pattern |
 | `mcq-legitimate-multiselect-not-flagged.md` (negative case) | mcq-reviewer | ETS / e& No-Code Pre-Program Assessment |
 | `deck-leaked-solution-link.md` | deck-reviewer | Acceler module-review checklist |
+| `deck-partial-scope-not-failed.md` (negative case) | deck-reviewer | Ferguson-DEMO adapt run, 2026-09-29 (`agent-loops/SKILL.md` §4) |
+| `deck-demo-link-on-button-not-flagged.md` (negative case) | deck-reviewer | e& Low-Code Day 1 demo slide (`live-session-deck/SKILL.md` §3.20) |
 | `code-demo-no-run-evidence.md` | code-demo-reviewer | skill's own explicit run-evidence rule |
 | `assignment-undisclosed-starter-split.md` | assignment-reviewer | e& Low Code capstone template |
 | `hands-on-guide-real-credential-leak.md` | hands-on-guide-reviewer | Yettel Serbia VM Setup Guide (contrast case) |
@@ -41,7 +43,7 @@ See `agent-loops/SKILL.md` §9 for the full two-sided design (reviewer-side and 
 | `orientation-missing-outcomes-section.md` | orientation-reviewer | Bosch Masterclass Orientation (5-program survey) |
 | `closing-ceremony-embedded-mcq-handoff.md` | closing-ceremony-reviewer | Bosch / e& Leaders Closing decks |
 | `session-recap-wrong-quiz-component.md` | session-recap-reviewer | `session-recap/SKILL.md` §2.4 component rule |
-| `impact-report-fabricated-quote.md` | impact-report-reviewer | `session-recap/SKILL.md` §3.2 real-quotes-only standard |
+| `impact-report-fabricated-quote.md` | impact-report-reviewer | `session-recap/SKILL.md` §3.1 item 3, real-quotes-only standard |
 | `coherence-tool-list-drift.md` | coherence-reviewer | confirmed cross-artifact drift class |
 | `audience-fit-fundamentals-mismatch.md` | audience-fit-reviewer | real threaded comment on an actual e& Lesson Plan |
 | `content-fixer-refuses-to-weaken-objective.md` | content-fixer | `agent-loops/SKILL.md` §3 guardrail |

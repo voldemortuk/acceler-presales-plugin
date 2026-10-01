@@ -7,7 +7,7 @@ metadata:
 
 # Acceler Content Review — Session Bundle (Orchestrator) — SKILL.md (v2)
 
-**What changed from v1:** the original single-skill design conflated "review each artifact" with "check they agree with each other." Splitting into per-type skills (`deck-review`, `code-demo-review`, `mcq-review`, `assignment-review`, `hands-on-guide-review`) exposed that most of what looked like a "holistic" hat was actually within-one-artifact checks (worked-example ordering, scaffolding fade) that belong in `code-demo-review`. What's left here is genuinely irreducible to a single-artifact check.
+**What changed from v1:** the original single-skill design conflated "review each artifact" with "check they agree with each other." Splitting into per-type skills (`deck-review`, `code-demo-review`, `mcq-review`, `assignment-review`, `hands-on-guide-review`, `project-review`) exposed that most of what looked like a "holistic" hat was actually within-one-artifact checks (worked-example ordering, scaffolding fade) that belong in `code-demo-review`. What's left here is genuinely irreducible to a single-artifact check.
 
 **5th and 6th artifact types added:** `hands-on-guide-review` covers the standalone tool-access/setup doc (e.g. `VM & AI Tools SetUp`, `Pre-Requisites Setup`) — distinct from the deck's own in-deck setup slides and from the code-demo notebook. `project-review` covers capstone/multi-milestone projects — confirmed structurally distinct from a simple assignment (milestone-staged, planted-bug grading, a verified reference solution as the real answer key). Both feed this skill's coherence check: a setup guide listing a tool the code-demo never uses, or a capstone project that doesn't build on anything the session actually taught, are exactly the kind of cross-artifact drift this skill exists to catch.
 
@@ -19,7 +19,7 @@ metadata:
 
 *This is the only rubric this skill file owns — specifically, `coherence-reviewer`'s rubric. Format correctness, technical execution, item-writing validity, and single-artifact objective alignment are already owned by the per-type skills — don't re-check them here. `audience-fit-reviewer`'s rubric (calibration against the real cohort and program expectations — a different question from internal consistency) lives entirely in `audience-fit-review/SKILL.md`; this orchestrator runs it per §2 but doesn't restate its rules here, for the same don't-duplicate-and-drift reason.*
 
-- Every MCQ/assignment item maps back to something actually taught in the deck or code-demo — flag any assessment item testing untaught content.
+- Every MCQ/assignment item maps back to something actually taught in the deck or code-demo — flag any assessment item testing untaught content. Apply this within the run's stated scope, per `agent-loops/SKILL.md` §4.
 - The assignment reinforces the same tool/technique/dataset as the code-demo, not a disconnected task.
 - The hands-on guide's tool list matches what the code-demo/deck actually use that day — no tool named in the guide that the session never touches, no tool the code-demo depends on that the guide omits.
 - A capstone project builds on tools/techniques the session actually taught across the code-demos, not content introduced for the first time in the project brief itself.
@@ -39,12 +39,34 @@ metadata:
 
 ---
 
+## 2a. Output format (coherence hat)
+
+*Added 2026-10-01. `agents/coherence-reviewer.md` pointed at a format and a Memories log this file didn't have.*
+
+- Output: a list of `{artifacts, rule, verdict: PASS|FAIL, evidence, suggested_fix}`, where `artifacts` names every bundle artifact the finding touches (a coherence finding usually names two).
+- Before surfacing any FAIL, check it against §2b Memories. Skip it if a materially identical pattern was already dismissed.
+- The audience-fit hat's output format and Memories log live in its own skill (`audience-fit-review/SKILL.md` §2 and §4), not here.
+
+---
+
+## 2b. Memories (coherence hat)
+
+*Append-only log of human-dismissed coherence findings, the same shape the per-type skills use in their §4. Don't hand-edit §1 to work around a one-off dismissal, log it here instead.*
+
+```
+- [date] Dismissed: <finding> — <human's stated reason>
+```
+
+(empty until first use)
+
+---
+
 ## 3. Risk tiering — not every session gets the same depth
 
 *Borrowed from production code-review practice: tier by risk, not by artifact type or author. A config-file change gets a linter and a glance; a payments-path change gets the full stack. Apply the same logic here.*
 
 - **High-stakes** (flagship/strategic client, capstone or certification-bearing content, anything public-facing or client-demo'd live): always run the full panel regardless of how clean it looks, and the human checklist read is mandatory in full — no skimming past it even on a clean ✅.
-- **Standard** (routine session content, internal iteration, non-flagship cohorts): the panel still runs in full — the hats are cheap — but a clean ✅ lets the human do the fast 5-item skim from §4 rather than a deep read of every artifact.
+- **Standard** (routine session content, internal iteration, non-flagship cohorts): the panel still runs in full — the hats are cheap — but a clean ✅ lets the human do the fast 5-item skim from §5 rather than a deep read of every artifact.
 - This is a depth-of-*human-attention* lever, not a hat-skipping lever — never drop a hat because content is "low stakes," only adjust how much the human is expected to read before signing off.
 
 ---
@@ -83,7 +105,7 @@ Reuses the honest-flagging convention from `requirement-mapping`'s coverage matr
 Borrowed from CodeRabbit's comment-command vocabulary — gives the human more than a binary choice on each finding:
 
 - `explain <finding>` — get the hat's fuller reasoning/evidence before deciding
-- `resolve <finding>` — dismiss it and log to that hat's §4 Memories in one step, so it won't resurface
+- `resolve <finding>` — dismiss it and log to that hat's Memories in one step (§4 of its own skill, or §2b here for the coherence hat), so it won't resurface
 - `re-review` — after manual edits made outside the loop, re-run just the affected hat(s) fresh rather than restarting the whole panel
 
 ---
@@ -100,6 +122,7 @@ Borrowed from CodeRabbit's comment-command vocabulary — gives the human more t
 - [ ] All applicable per-type reviews ran and reached a local verdict before either bundle-level hat ran
 - [ ] Both coherence-reviewer and audience-fit-reviewer ran, not just one
 - [ ] Coherence hat only checks what §1 lists — no re-litigating per-type findings
+- [ ] Every coherence finding checked against §2b Memories before being surfaced
 - [ ] Risk tier (§3) set before running — determines human-attention depth, never which hats run
 - [ ] Final tier follows §4 exactly, framed as a recommendation, not an auto-ship
 - [ ] Human checklist is the 5 items in §5 plus the walkthrough, nothing added without a stated reason

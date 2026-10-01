@@ -7,6 +7,8 @@ metadata:
 
 # Acceler Hands-On Guide Generation · Post-Sales · SKILL.md (v1)
 
+**How this skill is started (added 2026-10-01):** every run begins with the start-up check in `content-generation/SKILL.md` §6c (name the mode per §6b, check what already exists for this client, ask at most 3 to 5 questions, write a light brief in adapt or standalone runs). Where this file says an input is mandatory or says to stop when one is missing, that describes a fresh build inside the full pipeline; in adapt or standalone runs the gap is handled the §6c way instead. Before building, also read `agent-loops/SKILL.md` (§2a, §2a-1, §2b) and this artifact type's `generation-learnings/` file where one exists, they are not loaded automatically.
+
 **What this produces.** One standalone setup guide, the same artifact `hands-on-guide-review/SKILL.md` already reviews, a leave-behind reference a learner returns to independently, distinct from both the session deck's own setup movement and the demo notebook itself.
 
 ---
@@ -48,12 +50,12 @@ Per `content-generation/SKILL.md` §3: cross-check the tool list against `Output
 
 ## 5. Handoff, and this loops, not a one-time pass
 
-Hand off to the existing `acceler-post-sales:hands-on-guide-reviewer` for the actual review pass, per `content-generation/SKILL.md` §6. Reference `generation-learnings/hands-on-guide.md` and `agent-loops` via the `skills:` frontmatter field. No candidates are seeded there yet. Per §6a, once real fix-loop history accumulates and the promotion rule is met, this skill is expected to actually change how it writes the next guide, not just fix the one in front of you.
+Hand off to the existing `acceler-post-sales:hands-on-guide-reviewer` for the actual review pass, per `content-generation/SKILL.md` §6. Reference `generation-learnings/hands-on-guide.md` and `agent-loops` by reading it at the start of the run (skills have no `skills:` frontmatter field, only agents do). No candidates are seeded there yet. Per §6a, once real fix-loop history accumulates and the promotion rule is met, this skill is expected to actually change how it writes the next guide, not just fix the one in front of you.
 
 ---
 
 ## 6. Checklist
-- [ ] Both mandatory inputs loaded, or the run stopped and asked
+- [ ] Both mandatory inputs loaded, or the gap handled per `content-generation/SKILL.md` §6c
 - [ ] Every required tool across every day has a complete step-by-step section
 - [ ] No real credential value anywhere in text or screenshots, checked explicitly, not assumed clean
 - [ ] Account scheme (personal vs. pooled) matches what deep research indicates, not defaulted

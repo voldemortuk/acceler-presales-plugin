@@ -5,11 +5,11 @@ The generation-side half of the improvement loop described in `agent-loops/SKILL
 - A reviewer's **Memories** log stops the *reviewer* from re-flagging something a human already ruled out.
 - A **Generation Learning** stops the *generator* from making the same mistake in the first place, before a reviewer ever has to catch it.
 
-## Status: infrastructure only, not yet connected
+## Status: connected, early (updated 2026-10-01)
 
-Deliberately empty until real generation agents exist to consume it. Per the user's own stated plan (2026-09-10): "Once Tanmaya has created the generation I will connect it." These files are the ready-to-wire target for that connection — not a guess at what her generation skills will look like.
+The generation skills now exist and each one reads its content type's file here at the start of a run (skills have no frontmatter field that preloads files, so this is an explicit read stated at the top of each generation skill). `mcq.md` carries promoted entries from real fix-loop history; the other files are still at the candidate stage or empty, and fill in as real fix-loop history accumulates. The original plan (2026-09-10) was to build this as the target first and connect generation later, that connection is what has now happened.
 
-**One pre-seeded universal candidate, ahead of the usual promotion threshold:** `agent-loops/SKILL.md` §2a-1 (Prose Quality — the explicit style bans plus verified AI-tell density checks) applies identically to every content type. Once a generation agent for any content type connects here, this should be its first Generation Learning regardless of type-specific fix-loop history — the evidence for it (a real Wikipedia-documented, TechCrunch-cited pattern set, not a one-off Acceler finding) is already stronger than the usual ≥3-occurrences bar this README sets for everything else.
+**One pre-seeded universal candidate, ahead of the usual promotion threshold:** `agent-loops/SKILL.md` §2a-1 (Prose Quality — the explicit style bans plus verified AI-tell density checks) applies identically to every content type. Every generation skill already reads `agent-loops` at the start of a run, so this is in effect its first Generation Learning regardless of type-specific fix-loop history — the evidence for it (a real Wikipedia-documented, TechCrunch-cited pattern set, not a one-off Acceler finding) is already stronger than the usual ≥3-occurrences bar this README sets for everything else.
 
 ## The promotion rule (when a fix-loop resolution becomes a Generation Learning)
 
@@ -33,4 +33,4 @@ A generation skill for a given content type should reference its matching file h
 | `hands-on-guide.md` | Tool-access/setup guides | `hands-on-guide-reviewer` |
 | `lesson-plan.md` | Lesson plans | `lesson-plan-reviewer` |
 
-Not covered yet: Orientation/Closing Ceremony, session recaps, impact reports — these are lower-iteration-volume artifact types (built once per program, or generated from a single session rather than repeatedly authored), so a recurring-pattern signal is less likely to accumulate the same way. Add a file here if a real repeat pattern shows up for one of them; don't pre-build speculative infrastructure for content types that haven't demonstrated the need yet.
+Not covered yet, so their generation skills have no file to read here: Orientation/Closing Ceremony, onboarding form, deep research, slide content plan, session recaps, impact reports — these are lower-iteration-volume artifact types (built once per program, or generated from a single session rather than repeatedly authored), so a recurring-pattern signal is less likely to accumulate the same way. Add a file here if a real repeat pattern shows up for one of them; don't pre-build speculative infrastructure for content types that haven't demonstrated the need yet.

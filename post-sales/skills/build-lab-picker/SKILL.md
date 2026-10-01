@@ -19,7 +19,7 @@ If the engagement is a single instructor-led session with one deck for everyone,
 A single-page, no-build-step HTML file (same self-contained-artifact constraints as the rest of this plugin family: inline CSS, no external fonts/CDN dependencies beyond what the client's network allows).
 
 1. **Brand row** — logos of every party in the room (client + any delivery partners, e.g. the CETIN / Yettel / Acceler three-logo row in the reference). Keep it minimal — this isn't the cover slide, it's a utility page.
-2. **Pick cards** — reuse `live-session-deck` §3.11's `pick` / `pcard` spec exactly: 2–3 column grid, each card = function eyebrow (the *job to be done*, e.g. "Staying current") + agent/use-case name (e.g. "Yettel Market Pulse") + 1–2 line description + 2–3 cyan-soft `ptag` chips (the skills/connectors that use case touches). Same tokens as the parent deck (`--navy`, `--cyan`, cream `--bg`) so it reads as the same family, not a different tool.
+2. **Pick cards** — reuse `live-session-deck` §3.11's `pick` / `pcard` spec exactly: 2–3 column grid, each card = function eyebrow (the *job to be done*, e.g. "Staying current") + agent/use-case name (e.g. "Yettel Market Pulse") + 1–2 line description + 2–3 `ptag` chips (the skills/connectors that use case touches). Same tokens as the parent deck, which by default means `live-session-deck/SKILL.md` §2.0 (the `--navy`, `--cyan`, cream `--bg` set named in older versions of this file was the Hungary-era palette, use it only if the parent deck is that alternate) so it reads as the same family, not a different tool.
 3. **Selection state** — clicking/tapping a card should visibly commit to it (border/fill change), since teams reference "which card did we pick" for the rest of the lab. No backend needed — client-side state is enough; this is a workshop prop, not a tracked funnel.
 4. **Handoff line** — one line under the grid telling the team what happens next ("Tell your Build Coach which one you picked, then head to Copilot Studio").
 
@@ -33,4 +33,4 @@ Same pattern as other decks in this family — ship it as its own static page (e
 
 ## Worked reference
 
-`copilot-leadership-lab.vercel.app/pick-your-use-case` — the CETIN × Yettel × Acceler "Build your AI team" Build Lab (e& PPF Hungary engagement). Same design tokens as `live-session-deck`'s e& PPF reference deck.
+`copilot-leadership-lab.vercel.app/pick-your-use-case` — the CETIN × Yettel × Acceler "Build your AI team" Build Lab (e& PPF Hungary engagement). That real page uses the Hungary-era tokens (`live-session-deck/SKILL.md` §2.1, a named alternate). A new picker takes the tokens of the deck it is paired with, by default §2.0.

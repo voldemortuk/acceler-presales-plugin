@@ -16,30 +16,30 @@ Reviews **one Lesson Plan** — the internal, granular facilitator planning tabl
 ### 1.1 Structural Completeness
 - The 7-column structure is present and populated per row, **with one confirmed legitimate exception**: break/lunch rows (Topic = a time range only, everything else blank) and AMA rows (Subtopic = `-`, Flow blank) are valid as-is — don't flag these as incomplete rows, that's a false positive.
 - **Timing format must be internally consistent** — don't mix clock-ranges ("10:30–11:00") and raw durations ("00:30:00") across days of the same plan; pick one convention per document.
-- **Row durations for a given day must sum to that day's stated/expected session length.** This is a real, previously-unchecked gap: nothing currently verifies the math. A day whose rows sum to less or more than the stated total is a FAIL.
+- **Row durations for a given day must sum to that day's stated session length.** This is a real, previously-unchecked gap: nothing currently verifies the math. A day whose rows sum to less or more than the stated total is a FAIL. **Corrected 2026-10-01, carrying the 2026-09-13 correction in `lesson-plan-generation/SKILL.md` §3:** the target is the proposal's own literally stated duration (or real confirmed delivery clock times where they exist), with break and lunch time inside that total, never added on top. Rows that sum neatly to a total the plan set for itself do not pass.
 - **Every module's plan should cover pre-class, live-class, and post-class topics as distinct, identifiable segments** — grounded in Acceler's own real module-creation checklist, which separately asks "does the lesson plan include the pre-class topics," "live-class topics," and "post-class topics." A plan that only covers live-class content, with no stated pre-class prep or post-class follow-up, is incomplete against the house standard even if the live-class rows themselves are well-formed — flag it as a completeness gap, not assume pre/post simply don't apply.
 
-### 1.1a Review-Gate Status (process check, house checklist)
-- Confirm, don't assume: has this plan been reviewed internally AND by an SME (two distinct checkpoints, per `agent-loops/SKILL.md` §2's dual-gate note), and have review comments actually been addressed before this is treated as finalized? A plan presented for content-creation sign-off with no record of either review pass is a FAIL — content creation shouldn't start against an unreviewed plan.
+### 1.1a Review-Gate Status (a note for the human checklist, not a PASS/FAIL rule)
+- **Corrected 2026-10-01.** This used to be a FAIL for any plan with no record of an internal review and an SME review. This reviewer runs straight after generation, so a fresh plan can never show that record and could never pass. Don't raise it as a finding. Add one line to the report for the human instead: before content creation starts, this plan still needs both checkpoints (internal review, then SME review, per `agent-loops/SKILL.md` §2's dual-gate note), with review comments addressed. Content creation shouldn't start against an unreviewed plan, and that call is the human's.
 
 ### 1.1b Cross-Day Demo Load Balancing
 *Grounded in a real threaded review comment on an actual e& Lesson Plan: "Demos have to be lightweight as there are dedicated sections for demos in day 3," with the resolution planning one lightweight demo after a concept was introduced and pointing the heavier build to its own dedicated day-3 slot.*
 - Where a program has a day/days explicitly dedicated to hands-on building, demo weight on the introductory/concept days should stay light — check for a demo on an earlier day that's actually doing the heavy-build work a later dedicated day is supposed to own. This is a cross-day pacing defect, not just a per-row one; catching it requires looking at demo weight across the whole plan, not row-by-row in isolation.
 
 ### 1.2 Curriculum & Objective Alignment
-*Reuses the same Bloom's-verb-match mechanism as `deck-review`/`code-demo-review` §1.2, applied at the Topic-row level instead of the slide/task level.*
+*Reuses the same Bloom's-verb-match mechanism as `deck-review` §1.2 and `code-demo-review` §1.3, applied at the Topic-row level instead of the slide/task level.*
 - Extract the Bloom's verb from each row's Learning Objective; the row's Live Demo/Coding Demo content must operate at that level or higher (a demo exceeding the stated objective's level is fine, not a defect — e.g. an "Understand RAG" objective paired with a hands-on chunking/embedding build is a legitimate stretch, not a FAIL).
 - Every stated objective should be reflected in that row's Flow/Demo content — an objective with nothing in Flow or Demo backing it up ("orphaned objective") is a FAIL.
 
 ### 1.3 Cross-Artifact Tool Consistency
-- The Libraries/Tools column for a given row should match what that day's actual code-demo notebook or hands-on guide uses. This is a local heads-up, cheap to catch early here — the authoritative cross-check for the finished session bundle still runs in `content-review`, don't block solely on this skill's own check.
+- The Libraries/Tools column for a given row should match what that day's actual code-demo notebook or hands-on guide uses. This is a local heads-up, cheap to catch early here, don't block solely on this skill's own check. (Corrected 2026-10-01: the Lesson Plan is not part of the `content-review` bundle, so no later bundle pass re-checks this column. The bundle's coherence hat checks the finished guide, demo and deck against each other, not against the plan.)
 
 ---
 
 ## 2. How this runs
 
 - Launched as the `acceler-post-sales:lesson-plan-reviewer` agent — read-only by tool restriction.
-- Given: the Lesson Plan file and, where available, that day's actual code-demo/hands-on-guide artifacts for the §1.3 cross-check. If those aren't available yet, run §1.1-1.2 only and say plainly that §1.3 couldn't run.
+- Given: the Lesson Plan file, the proposal's stated day count and hours per day (the §1.1 timing target), the Discovery Facts Sheet where one exists (for `agent-loops/SKILL.md` §2b), and, where available, that day's actual code-demo/hands-on-guide artifacts for the §1.3 cross-check. If those aren't available yet, run §1.1-1.2 only and say plainly that §1.3 couldn't run.
 - Output: `{row, rule, verdict: PASS|FAIL, evidence, suggested_fix}`.
 - Check every FAIL against §4 Memories before surfacing it.
 
@@ -68,13 +68,16 @@ Follows the shared mechanics in `skills/agent-loops/SKILL.md` in full, using the
 
 | Verdict | Condition |
 |---|---|
-| ✅ Approve | All §1 rules PASS, directly or after an approved fix |
+| ✅ Approve | All §1 rules and the `agent-loops` baseline (§2a, §2a-1, §2b, §4) PASS, directly or after an approved fix |
 | 💬 Comment | Only dismissed/subjective findings remain, or §1.3 couldn't run for lack of same-day artifacts |
 | 🔴 Request Changes | Any FAIL didn't converge within 2 fix rounds |
 
+*This verdict is a recommendation, not a ship decision. A human still signs off per `agent-loops/SKILL.md` §2, and per `content-generation/SKILL.md` §6 a per-artifact review is fast feedback, not the final gate.*
+
 ## 6. Checklist
 - [ ] Break/lunch/AMA rows correctly recognized as legitimate, not flagged as incomplete
-- [ ] Row-duration sums checked against the stated day length — this is the check most likely to be skipped
+- [ ] Row-duration sums checked against the proposal's stated day length, breaks inside the total — this is the check most likely to be skipped
+- [ ] §1.1a review-gate status passed to the human as a note, not raised as a FAIL
 - [ ] Every objective traced to Flow/Demo content — no orphaned objectives
 - [ ] Every finding checked against §4 Memories before being surfaced
 - [ ] No fix applied without explicit human approval, none exceeding 2 rounds

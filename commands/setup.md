@@ -102,7 +102,7 @@ Pre-sales (acceler-presales):
 Delivery / post-sales (acceler-post-sales — install separately, see README):
   /acceler-post-sales:session-deck         Generate the live delivery deck (HTML)
   /acceler-post-sales:session-recap        Generate the post-delivery learner recap (HTML)
-  /acceler-post-sales:session-recap-report Generate the post-delivery stakeholder report (HTML)
+  /acceler-post-sales:session-impact-report Generate the post-delivery stakeholder impact report (HTML)
 
 Workspace: $HOME/Downloads/1. PowerUp/APR - Pre-Sales Product
 Outputs land in: $HOME/Downloads/1. PowerUp/APR - Pre-Sales Product/Outputs/

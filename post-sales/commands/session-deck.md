@@ -1,9 +1,11 @@
 ---
-description: "POST-SALES / delivery deck. Generate an Acceler live SESSION HTML deck — the one the instructor presents while running a hands-on session (VM setup, screenshots, build steps). For the pre-sales pitch deck, use /acceler-presales:proposal-deck instead. Follows the 4-movement arc + 15 slide types."
+description: "POST-SALES / delivery deck. Generate an Acceler live SESSION HTML deck, the one the instructor presents while teaching a day of the program, built on the real e& class-deck template (cover, instructor, agenda, concept slides, demo link-out, quiz, thank you). Works as a fresh build, an adaptation of a real past deck, or a quick tweak, and hands off to the deck reviewer. For the pre-sales pitch deck, use /acceler-presales:proposal-deck instead."
 argument-hint: "<client name + curriculum outline, or 'use last' to use the latest proposal's day data>"
 ---
 
 **Start here, every run (added 2026-10-01):** before building anything, run the start-up check in `skills/content-generation/SKILL.md` §6c. In short: name the mode in one line (fresh build, adapt from a reference, or tweak), check what already exists for this client, ask at most 3 to 5 questions for anything that can't be worked out, and in adapt or standalone runs write and show the light brief first. That section is the single source for this, don't restate or vary it here.
+
+**Where every `Outputs/[Client]/...` path in this command lives (added 2026-09-29):** it always means the full path per `skills/content-generation/SKILL.md` §1a. Before any read or save, find the folder containing `post-sales/.claude-plugin/plugin.json` (search from the current working directory), then use `<that folder>/post-sales/Outputs/[Client]/...`, and read the file back from that exact path after saving. Never let a bare `Outputs/[Client]/` resolve against the current folder: a real run on 2026-09-29 started in the workspace root and saved into an existing client folder (`Ferguson/Outputs/`) that way.
 
 Generate a live **session / delivery** HTML deck for this brief — the deck an instructor presents *during* a hands-on session. (For the client-facing **pre-sales pitch** deck, use `/acceler-presales:proposal-deck`.)
 
@@ -49,9 +51,9 @@ Save to:
 post-sales/Outputs/[Client]/session-deck/day-N/index.html
 ```
 
-(Corrected 2026-09-16: the day-N subfolder was missing from this line even though `live-session-deck/SKILL.md` §11 already documents it for multi-day programs, a real run built a second, differently-located Day 1 file because of this gap. Always include the day-N subfolder for a multi-day engagement, never save straight into `session-deck/index.html`, that path collides across every day of the same engagement.)
+(Corrected 2026-09-16: the day-N subfolder was missing from this line, as `live-session-deck/SKILL.md` §11 also requires for multi-day programs, a real run built a second, differently-located Day 1 file because of this gap. Always include the day-N subfolder for a multi-day engagement, never save straight into `session-deck/index.html`, that path collides across every day of the same engagement.)
 
-If the deck needs screenshots, list the assets the team needs to add (`assets/slide07_1.png` for VM login, etc.) so they know what to drop in.
+If the deck needs screenshots, list the real assets the team still needs to add (the instructor's photo, any real screenshots) and where each goes under `assets/`, so they know what to drop in.
 
 ## Hand off to review, always, automatically
 

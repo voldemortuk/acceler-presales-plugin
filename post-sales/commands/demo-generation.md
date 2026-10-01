@@ -19,9 +19,9 @@ $ARGUMENTS
 1. Read `skills/demo-generation/SKILL.md` in full first.
 2. Load the mandatory inputs per §1: `Outputs/[Client]/lesson-plan.xlsx` (approved) and `Outputs/[Client]/deep-research.md`. If either is missing, handle it per `content-generation/SKILL.md` §6c (fresh pipeline build: stop and offer the choice of running the missing stage or going standalone; adapt or standalone run: build from the light brief), never guess.
 3. Determine the shape, notebook/code or no-code build guide, from that day's Libraries/Tools column, don't default to notebook.
-4. Build against §2's rules for that shape, worked example before independent practice, scaffolding that fades, Bloom's level matched, no real credentials or PII.
+4. Build against every rule in §2 for that shape (the skill is the single source: worked example before independent practice, scaffolding that fades, Bloom's level matched, no real credentials or PII, and for a no-code build guide the HTML guide shape with its problem context, real screenshots and copy buttons). One guide per distinct real demo, never one guide covering a whole day, per §4.
 5. If notebook or code, actually run it per §3, capture real output, don't claim it works without evidence.
-6. Save to `Outputs/[Client]/demo/`.
+6. Save each demo to its own folder, `Outputs/[Client]/demo/day-N-demo-1/`, `day-N-demo-2/`, per §4.
 7. Hand off to `acceler-post-sales:code-demo-reviewer` for the actual review pass, this command doesn't review its own output. Per `agent-loops/SKILL.md` §2a-2, this is a hard completion condition, not a step to describe, this run isn't finished until the reviewer has actually been invoked, not just reported as the next step.
 
 ## Quality checklist (apply before presenting results)
@@ -32,5 +32,5 @@ $ARGUMENTS
 - [ ] No-code steps are concrete and mechanically followable
 - [ ] Worked example precedes independent practice, scaffolding fades across the demo
 - [ ] No real credentials, PII, or license-incompatible code
-- [ ] Saved to `Outputs/[Client]/demo/`
+- [ ] One guide per distinct demo, each saved to `Outputs/[Client]/demo/day-N-demo-M/`
 - [ ] Handed to the existing `code-demo-reviewer`, not reviewed inline here

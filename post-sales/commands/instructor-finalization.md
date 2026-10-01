@@ -17,10 +17,11 @@ $ARGUMENTS
 ## How to run
 
 1. Read `skills/instructor-finalization/SKILL.md` in full first.
-2. Load `Outputs/[Client]/lesson-plan.xlsx`, approved. If it isn't approved yet, stop and say so, don't match against a draft.
+2. Load `Outputs/[Client]/lesson-plan.xlsx`, approved. If it doesn't exist, handle it per `content-generation/SKILL.md` §6c (fresh pipeline build: stop and offer the choice of running the missing stage or going standalone; adapt or standalone run: build from the light brief), never guess. If it exists but isn't approved yet, say so and don't present the roster as final, a roster matched against a draft plan is itself a draft.
 3. For each day-tab, run the same query `acceler-presales:instructors` already runs against that day's Topic/Subtopic columns, post-sales deliverable branch only, `pre_sales_only` names excluded.
 4. Assemble the day-by-day roster. Apply the consecutive-day default, don't assign the same instructor two days running unless it's genuinely needed and the instructor agrees, state any override and why.
-5. Save to `Outputs/[Client]/instructor-roster.md`.
+5. Check real precedent trackers per §3a without conflating roles, and mark every pick `Proposed` per §3b. A ranking is a recommendation, not a booking: only a human's confirmation turns a day into `Confirmed`, written back into the same roster file.
+6. Save to `Outputs/[Client]/instructor-roster.md`.
 
 ## Quality checklist (apply before presenting results)
 
@@ -28,4 +29,5 @@ $ARGUMENTS
 - [ ] One query per day against that day's actual topics, not a single engagement-wide query
 - [ ] Deliverable branch used throughout, no `pre_sales_only` names surfaced
 - [ ] Consecutive-day default applied, overrides stated explicitly with reason
+- [ ] Every day marked `Proposed` unless a human actually confirmed it
 - [ ] Saved to `Outputs/[Client]/instructor-roster.md`

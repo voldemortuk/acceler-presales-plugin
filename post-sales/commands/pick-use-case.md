@@ -13,7 +13,7 @@ $ARGUMENTS
 ## How to build
 
 1. Read `skills/build-lab-picker/SKILL.md` for the page structure, the `pick`/`pcard` component spec (shared with `live-session-deck` §3.11), content-sourcing rules, and deployment pattern.
-2. If a session deck was generated earlier in this session (`/acceler-post-sales:session-deck`), reuse its build-phase use cases and design tokens directly — same brand row, same `--navy`/`--cyan`/cream `--bg` tokens, so the picker reads as the same family as the deck.
+2. If a session deck was generated earlier in this session (`/acceler-post-sales:session-deck`), reuse its build-phase use cases and design tokens directly — same brand row and the same design tokens as that deck (by default `live-session-deck/SKILL.md` §2.0), so the picker reads as the same family as the deck.
 3. Pull use cases from the actual engagement brief (Day-by-Day content, or the HR Agent Build Lab pattern of 1 base agent + N extensions) — never generic placeholders.
 4. Build: brand row → 2–3 column `pick` grid of `pcard`s (function eyebrow + agent name + description + `ptag` chips) → visible selection state on click → one handoff line telling the team what to do next.
 

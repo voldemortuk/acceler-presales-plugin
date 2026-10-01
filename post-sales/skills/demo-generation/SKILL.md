@@ -7,6 +7,8 @@ metadata:
 
 # Acceler Demo Generation · Post-Sales · SKILL.md (v1)
 
+**How this skill is started (added 2026-10-01):** every run begins with the start-up check in `content-generation/SKILL.md` §6c (name the mode per §6b, check what already exists for this client, ask at most 3 to 5 questions, write a light brief in adapt or standalone runs). Where this file says an input is mandatory or says to stop when one is missing, that describes a fresh build inside the full pipeline; in adapt or standalone runs the gap is handled the §6c way instead. Before building, also read `agent-loops/SKILL.md` (§2a, §2a-1, §2b) and this artifact type's `generation-learnings/` file where one exists, they are not loaded automatically.
+
 **What this produces, and in which of three shapes.** One in-class, instructor-led build artifact, the same thing `code-demo-review/SKILL.md` already reviews: a Jupyter notebook, a standalone code file, or a no-code/low-code build guide (a step-by-step doc for building something in Copilot Studio, Figma Make, or similar, a confirmed real content type, not a lesser substitute for code). Which of the three depends on that day's Lesson Plan row, its Libraries/Tools column tells you which shape applies, don't default to notebook when the row calls for a no-code build.
 
 **The build-guide shape is HTML, not `.docx`, added 2026-09-18.** Every real example checked so far was a Word doc, but the actual decision is to move this shape to HTML, matching `live-session-deck/SKILL.md` §2.0's palette and font (the same visual identity as that engagement's deck, not a different look), so it gets the same easy PPTX/PDF export path as the deck, per `content-generation/SKILL.md` §1c. Notebooks and code files stay in their native format, code is code, this only applies to the narrative build-guide shape. **PDF only generated once a human asks for it**, not automatically, per §1c's own 2026-09-24 correction.
@@ -78,14 +80,14 @@ Per `content-generation/SKILL.md` §3, the check differs by shape, they need gen
 
 ## 5. Handoff, and this loops, not a one-time pass
 
-Hand off to the existing `acceler-post-sales:code-demo-reviewer` for the actual review pass, per `content-generation/SKILL.md` §6. Reference `generation-learnings/code-demo.md` and `agent-loops` via the `skills:` frontmatter field. No candidates are seeded there yet. Per §6a, once real fix-loop history accumulates and the promotion rule is met, this skill is expected to actually change how it builds the next demo, not just fix the one in front of you.
+Hand off to the existing `acceler-post-sales:code-demo-reviewer` for the actual review pass, per `content-generation/SKILL.md` §6. Reference `generation-learnings/code-demo.md` and `agent-loops` by reading it at the start of the run (skills have no `skills:` frontmatter field, only agents do). No candidates are seeded there yet. Per §6a, once real fix-loop history accumulates and the promotion rule is met, this skill is expected to actually change how it builds the next demo, not just fix the one in front of you.
 
 **Runs before `slide-content-planning`, not after (`content-generation/SKILL.md` §1).** Once reviewed, this is a mandatory input to that day's Content Plan, per `slide-content-planning/SKILL.md` §1, which builds that day's real narrative around what this demo actually does, not a guess at what it might do. This is why review has to actually happen here first, Content Planning reads the reviewed version, not a draft.
 
 ---
 
 ## 6. Checklist
-- [ ] Both mandatory inputs loaded, or the run stopped and asked
+- [ ] Both mandatory inputs loaded, or the gap handled per `content-generation/SKILL.md` §6c
 - [ ] Correct shape chosen (notebook/code vs. no-code guide) from that day's Libraries/Tools column, not defaulted
 - [ ] One doc built per distinct real demo Pod the Lesson Plan lists for this day, not one combined doc, where more than one exists
 - [ ] Notebook/code actually executed before handoff, real output captured, not claimed

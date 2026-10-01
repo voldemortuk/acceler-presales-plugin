@@ -7,6 +7,8 @@ metadata:
 
 # Acceler Instructor Finalization · Post-Sales · SKILL.md (v1)
 
+**How this skill is started (added 2026-10-01):** every run begins with the start-up check in `content-generation/SKILL.md` §6c (name the mode per §6b, check what already exists for this client, ask at most 3 to 5 questions, write a light brief in adapt or standalone runs). Where this file says an input is mandatory or says to stop when one is missing, that describes a fresh build inside the full pipeline; in adapt or standalone runs the gap is handled the §6c way instead. Before building, also read `agent-loops/SKILL.md` (§2a, §2a-1, §2b) and this artifact type's `generation-learnings/` file where one exists, they are not loaded automatically.
+
 **What this is, and what it deliberately isn't.** This reuses the existing `acceler-presales:instructors` command's logic wholesale, the same Knowledge Graph, the same post-sales deliverable-shortlist heuristic, the same tier reference. It is not a new instructor database, not a new plugin, and not a rebuilt matching algorithm. What's actually new here is applying that logic **per day**, against a finalized Lesson Plan, instead of once per a single domain query.
 
 ---

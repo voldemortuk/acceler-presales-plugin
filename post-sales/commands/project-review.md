@@ -12,8 +12,10 @@ $ARGUMENTS
 
 ## How to run
 
+**Scope (added 2026-10-01):** when the handoff or the human gives a mode, a scope and a light brief path, read them, pass them to the reviewer, and review against that scope, per `skills/agent-loops/SKILL.md` §4.
+
 1. Read `skills/project-review/SKILL.md` in full first — the rubric (§1), mechanics (§2), fix loop (§3), and Memories log (§4).
-2. Confirm the session's stated learning objectives are in hand. Ask if missing — never invent them.
+2. Confirm the session's stated learning objectives are in hand: the approved Lesson Plan / Facts Sheet where they exist, otherwise `Outputs/[Client]/light-brief.md`'s objectives outline, per `skills/agent-loops/SKILL.md` §4. Ask only if none of these exist, never invent them.
 3. Launch the `acceler-post-sales:project-reviewer` agent per §2 — may run the reference solution's test suite via Bash to verify it, but read-only on the guide itself, blind to how the project was generated. If a reference solution wasn't provided, say so explicitly and note §1.1's reference-solution check couldn't run — don't assume one exists.
 4. Check every finding against §4 Memories before surfacing it.
 5. Walk through §3's fix loop for any FAIL: propose the fix, wait for explicit human approval, apply via the `acceler-post-sales:content-fixer` agent, re-verify fresh. Never apply without approval; never exceed 2 rounds. The fixer may only touch the project guide/reference solution — never the stated objectives or this skill's rubric.
@@ -24,5 +26,5 @@ $ARGUMENTS
 - [ ] Reference solution checked if provided, or its absence explicitly flagged
 - [ ] Every planted trap/constraint matched against an explicit grading criterion
 - [ ] §1.2's compliance-vs-verified-enforcement distinction was actually applied
-- [ ] Objectives sourced from the real Curriculum KG / Day-by-Day doc, not invented
+- [ ] Objectives sourced from the approved Lesson Plan / Facts Sheet, or from the light brief's objectives outline where those don't exist (`agent-loops/SKILL.md` §4), not invented
 - [ ] No fix applied without explicit human approval, none exceeding 2 rounds

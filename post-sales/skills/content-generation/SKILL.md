@@ -1,6 +1,6 @@
 ---
 name: content-generation-skills-acceler-shared-pipeline-pattern
-description: "The shared pattern every Acceler content-generation skill follows: which inputs are mandatory vs best-effort, self-verification before handoff, and how generation connects to agent-loops (fix-loop mechanics, baseline quality bar) and generation-learnings (per-type accumulated directives). Referenced (via `skills:` frontmatter) by every generation skill (Deep Research, Lesson Plan, Slides, MCQ, Assignment, Project) the same way every reviewer references agent-loops."
+description: "The shared pattern every Acceler content-generation skill follows: which inputs are mandatory vs best-effort, self-verification before handoff, and how generation connects to agent-loops (fix-loop mechanics, baseline quality bar) and generation-learnings (per-type accumulated directives). Read at the start of the run by every generation skill (Deep Research, Lesson Plan, Slides, MCQ, Assignment, Project) the same way every reviewer references agent-loops."
 metadata:
   type: reference
 ---
@@ -29,7 +29,7 @@ Deal closes
 
 **Corrected 2026-09-18: Demo and MCQ move before Slide Content Planning, not after.** Previously this diagram showed Content Planning feeding Slides/Demo/MCQ/etc as parallel siblings, which is backwards for two of them specifically. Content Planning is where the real story gets decided, and it can't build an accurate one without already knowing what the real demo does and what that day's quiz actually asks, guessing at either produces exactly the thin, generic content Content Planning was introduced to fix in the first place. This only applies to Demo and the per-day in-session MCQ, the artifacts that day's Content Plan actually reads from. Pre-test, post-test, Assignment, Project, and Hands-On Guide don't depend on Content Planning at all, they stay independent, built straight from the Lesson Plan and Deep Research.
 
-A generation skill never invents its way around a missing upstream stage. If Deep Research hasn't run yet, say so and stop, don't generate a Lesson Plan against guessed context. Same discipline `discovery-fit-review` already applies to the Facts Sheet.
+A generation skill never invents its way around a missing upstream stage. If Deep Research hasn't run yet in a fresh pipeline build, say so and stop (or go standalone with a light brief, the human chooses, per §6c), don't generate a Lesson Plan against guessed context. Same discipline `discovery-fit-review` already applies to the Facts Sheet.
 
 **Content creation is selective per engagement, not exhaustive.** Not every engagement needs every content type. If this one only needs slides and an MCQ set, build and loop just those two, don't generate demo, assignment, and project just because the skills exist. Per Utkarsh's own worked example: deep research gathers the detail once, then whichever content types this specific engagement actually needs get built, reviewed, and looped, nothing more.
 
@@ -50,7 +50,11 @@ A generation skill never invents its way around a missing upstream stage. If Dee
 
 ## 1b. Also saving to Google Drive, and where
 
-**Added 2026-09-18, per Tanmaya/Utkarsh planning.** `Outputs/[Client]/` (§1a) is the plugin's own local copy, but it's local to whoever's machine ran the session. That's not enough for a pipeline more than one person touches, if one person generates the Lesson Plan and is out the next day, whoever picks up the next stage needs to reach it without depending on that first person's laptop. So everything also saves to a shared Drive location, live, the moment it's generated, not batched for later.
+**Status, decided 2026-10-01: in v1 the plugin never uploads to Drive on its own, it uploads when a human asks.** Everything below still decides *where* each file belongs, and that part is in force today. What changed is *when the upload happens*: at the end of a run, list every file produced and the exact Drive folder it belongs in (learner or client-facing files to `B2B AI Programs`, working files to `PostSalesPluginOutput`), then leave it there. A human either uploads those files by hand, or tells the plugin to upload them ("push the Day 1 deck and demo to Drive"), and in that case the plugin does it through the session's own connected Drive access, to the folders this section names. Unattended, automatic upload of every artifact the moment it's generated, through a dedicated service account, is v2. Wherever this plugin's skills say a file is "also pushed" or "also saved" to a Drive folder per this section, read that as "belongs in that folder, uploaded when a human asks or does it by hand in v1."
+
+**Creating a Google Form is a separate case and works today.** `onboarding-form-generation` and `mcq-generation` can build a real Google Form when a human asks for one after approving the content. That is an explicit, human-requested action, the same on-request principle as above, not an automatic save.
+
+**Added 2026-09-18, per Tanmaya/Utkarsh planning.** `Outputs/[Client]/` (§1a) is the plugin's own local copy, but it's local to whoever's machine ran the session. That's not enough for a pipeline more than one person touches, if one person generates the Lesson Plan and is out the next day, whoever picks up the next stage needs to reach it without depending on that first person's laptop. So everything also belongs in a shared Drive location (the original intent was a live save the moment it's generated, that automatic part is now v2, see the status note above).
 
 **Two separate Drive locations, never mixed, split by audience, not by file type:**
 
@@ -85,20 +89,20 @@ PostSalesPluginOutput/
       deep-research.md
       lesson-plan.xlsx
       instructor-roster.md
-      content-plan/
-        day-1.md ... day-N.md
+      slide-content-plan-day-1.md ... slide-content-plan-day-N.md   (same file names as the local Outputs folder)
       mcq/
         pre-test.docx
         post-test.docx
         day-1-in-session.docx ... day-N-in-session.docx
       dry-run-feedback.md
+      light-brief.md                         (only in adapt or standalone runs, per §6c)
 ```
 
 **The known-programs list, a required step, not optional.** Utkarsh's Curriculum Graph only recognizes a `B2B AI Programs` subfolder as real delivered content if its exact name is in `B2B_CONTENT_PROGRAM_CLIENTS` (`acceler-kg-sync`, `sync/build_curriculum_html.py`, also mirrored in `sync/export_curriculum.py`). Creating a brand-new client/program folder there without also adding it to that list means the graph will silently never show it, no error, nothing visibly broken, it just never appears. So: before saving anything to a `B2B AI Programs` folder that doesn't already exist there, either add that exact folder name to the list yourself (prepared as part of the batched `acceler-kg-sync` change, not pushed separately) or clearly tell the user this step still needs doing. Never leave it silently undone.
 
 **Testing.** Real, created 2026-09-18: `TEST - PostSales` inside `B2B AI Programs` (`1Fb_iGLtV6bZZuI2M7enKlfja4qQv5fSd`), and `TEST/` inside `PostSalesPluginOutput` (`1FVs3f6ZW588qiGOrIcklS-DpmEAjIwfx`). A `TEST -` folder must never be added to the real known-programs list, so it stays invisible to the live graph, same mechanism that keeps `PostSalesPluginOutput` invisible, just applied to test data specifically.
 
-**How the write itself happens, for now.** No dedicated write-access service account exists yet, that's a later upgrade for unattended runs. Today, saving to Drive happens through whatever session is actually running the generation, using its own connected Drive access, the same way this plugin's development sessions already read real Drive content during planning.
+**How the write itself happens.** In v1, only on request, per the status note at the top of this section: the run ends with a list of files and their Drive folders, and a human either uploads them or tells the plugin to, which it then does through the session's connected Drive access. No dedicated write-access service account exists yet, that is the v2 upgrade that makes this automatic and unattended. Reading from Drive during a run (a real reference deck, a proposal) is unaffected and works today through the session's own connected Drive access.
 
 ---
 
@@ -106,8 +110,8 @@ PostSalesPluginOutput/
 
 **Added 2026-09-18.** Any learner-facing artifact this pipeline builds as HTML (the session deck, and Demo per `demo-generation/SKILL.md`, going forward) follows the same export rule, one default, one explicit-ask exception, reusing pre-sales's own already-working pattern rather than inventing a new one:
 
-- **Default: screenshot-per-slide/section, assembled into a PPTX**, per `pptx-deck/SKILL.md`'s already-documented method (headless-render each section at 2×, assemble with `python-pptx`). Fast, pixel-perfect, never drifts from the HTML. **Corrected 2026-09-24, unified with §1e's rule: PDF is generated only once a human asks for it or approves the export**, not automatically alongside every PPTX just because the rendering step makes it cheap, this saves real time and tokens the same way it does for Orientation/Closing.
-- **Only on an explicit human ask to type-edit the PPTX afterward**: fall back to the native, editable rebuild instead (`PPTX_Deck_Skills.md`'s pattern, real shapes/text boxes, not images), per §2a, an explicit request always overrides the default.
+- **Default: screenshot-per-slide/section, assembled into a PPTX**, per the pre-sales plugin's `pptx-deck/SKILL.md` (repo-root `skills/pptx-deck/`) and its already-documented method (headless-render each section at 2×, assemble with `python-pptx`). Fast, pixel-perfect, never drifts from the HTML. **Corrected 2026-09-24, unified with §1e's rule: PDF is generated only once a human asks for it or approves the export**, not automatically alongside every PPTX just because the rendering step makes it cheap, this saves real time and tokens the same way it does for Orientation/Closing.
+- **Only on an explicit human ask to type-edit the PPTX afterward**: fall back to the native, editable rebuild instead (the native-rebuild notes (`PPTX_Deck_Skills.md`, a workspace file that is not kept in this repo, a human has to supply it)'s pattern, real shapes/text boxes, not images), per §2a, an explicit request always overrides the default.
 - The HTML file itself stays the source of truth either way. Keep its content in one reusable data block so whichever export path runs doesn't drift from it.
 
 Don't build a third, new conversion mechanism for Demo or any future HTML artifact, point it at this same rule.
@@ -135,7 +139,7 @@ Don't build a third, new conversion mechanism for Demo or any future HTML artifa
 
 ## 2. Mandatory versus best-effort inputs
 
-Not every input exists for every engagement. Each generation skill's own SKILL.md states which of its inputs are mandatory (generation stops and asks if missing) versus best-effort (used if present, the gap is stated plainly if not, never invented). This mirrors the MUST/SHOULD/NICE tiering `discovery-checklist` already uses, three tiers, not a binary required/optional.
+Not every input exists for every engagement. Each generation skill's own SKILL.md states which of its inputs are mandatory (a fresh pipeline build stops and asks when the whole upstream stage is missing, see the two cases below and §6c) versus best-effort (used if present, the gap is stated plainly if not, never invented). This mirrors the MUST/SHOULD/NICE tiering `discovery-checklist` already uses, three tiers, not a binary required/optional.
 
 **Corrected 2026-09-17, per Utkarsh's own instruction from the spec-kit discussion (2026-09-10): "no need to write that you should block deck generation, just clearly call out what is the input expected out of you."** That rule applies specifically to individual inputs within a stage that's otherwise runnable, an entirely different thing from an upstream pipeline stage not existing at all:
 - **Upstream stage genuinely missing** (no Discovery Facts Sheet exists at all, no Lesson Plan exists at all) — this alone actually stops generation, there's nothing to build against. Per §1, never guess your way around this. **Narrowed 2026-10-01:** this hard stop applies to a fresh build running as a step of the full pipeline. In adapt mode, or when a human asks for one artifact on its own, §6c's light brief is what gets built against instead, the command doesn't stop.
@@ -181,7 +185,7 @@ Every generation skill inherits `agent-loops/SKILL.md` §2a (baseline quality ba
 
 ## 5. Connecting to generation-learnings
 
-Reference the matching file in `generation-learnings/<type>.md` via the `skills:` frontmatter field, the same connection contract `generation-learnings/README.md` already defines. One pre-seeded entry applies regardless of content type from day one: the Prose Quality section (§2a-1 above), per that README's own note, its evidence is already stronger than the usual promotion bar it sets for everything else.
+Reference the matching file in `generation-learnings/<type>.md` by reading it at the start of the run (skills have no `skills:` frontmatter field, only agents do), the same connection contract `generation-learnings/README.md` already defines. One pre-seeded entry applies regardless of content type from day one: the Prose Quality section (§2a-1 above), per that README's own note, its evidence is already stronger than the usual promotion bar it sets for everything else.
 
 ---
 
@@ -195,7 +199,7 @@ Once a generation skill produces its artifact, it hands off to the matching revi
 
 ## 6a. State the loop explicitly, don't just inherit it silently
 
-*Utkarsh's own instruction, 2026-09-11: before finalizing a generation skill's summary, it has to say plainly that this loops with the reviewer's feedback over time.* Referencing `agent-loops` and `generation-learnings` in the `skills:` frontmatter is necessary but not sufficient on its own, each generation skill's own description writes this out in its own words: that its output gets reviewed, that findings feed `generation-learnings/<type>.md` once the promotion rule is met, and that this is expected to make the *next* generated artifact of that type better, not just fix the one instance in front of you. The architecture cannot end at create, review, get feedback, fix it manually, that's a one-off, not a loop, say so in the skill itself so it isn't left implicit.
+*Utkarsh's own instruction, 2026-09-11: before finalizing a generation skill's summary, it has to say plainly that this loops with the reviewer's feedback over time.* Referencing `agent-loops` and `generation-learnings` at the start of a run is necessary but not sufficient on its own, each generation skill's own description writes this out in its own words: that its output gets reviewed, that findings feed `generation-learnings/<type>.md` once the promotion rule is met, and that this is expected to make the *next* generated artifact of that type better, not just fix the one instance in front of you. The architecture cannot end at create, review, get feedback, fix it manually, that's a one-off, not a loop, say so in the skill itself so it isn't left implicit.
 
 ---
 
@@ -208,6 +212,8 @@ Once a generation skill produces its artifact, it hands off to the matching revi
 **Mode 2, adapt from a real reference.** The human says, in effect, "this one's basically like that other one, with these differences," or hands over a real file on the spot, one that wasn't produced by this engagement's own pipeline at all, a past engagement's real artifact, or something entirely external. This is the same real approach already built for `orientation-generation` and `closing-ceremony-generation` (copy the real reference, swap only what's actually different), generalized here so any artifact type can use it, not just those two. The reference can come from `engagement-catalog.md`, or be handed over directly at runtime, either is fine, same as any other best-effort precedent input per §2. **This still gets the full review in §6, the same bar as Mode 1, no shortcut.** Real evidence for why: the two real defects found in Orientation's first live run (a leftover duplicate slide, a formatting-collapse bug) weren't in the original reference, they got introduced during the adapting step itself. Being grounded in something real doesn't mean the adaptation was done correctly, only a full check confirms that.
 
 **Mode 3, tweak something that already exists for this exact engagement.** The human already has a real version of this artifact, generated by this pipeline earlier, or handed over as-is, and wants specific, named changes made to it, not a rebuild. Apply only the described changes, preserve everything else untouched, the same discipline `content-fixer` already applies to an approved reviewer finding. **This gets a light, targeted check scoped to just what changed**, not a full re-review of the whole artifact, that would be real waste with no added safety. But it's not zero-review either, confirm the specific change actually landed, and that nothing else moved, the same self-verification discipline §3 already requires elsewhere.
+
+**A standalone request is not a fourth mode.** "Just build me the demo file" with nothing upstream and no reference is still Mode 1, a fresh build, only without the earlier stages behind it. §6c's light brief is what stands in for them.
 
 **How to tell which mode a request is in:** look at what the human actually hands over or references at the start. Nothing existing yet, pointing only at upstream pipeline artifacts, Mode 1. A reference from somewhere else, a past engagement or an external file, Mode 2. An existing version of this exact artifact for this exact engagement, plus a specific list of changes, Mode 3.
 
@@ -238,7 +244,7 @@ Once a generation skill produces its artifact, it hands off to the matching revi
 ## 7. Checklist
 - [ ] Plugin root located via the `post-sales/.claude-plugin/plugin.json` anchor, save path built from that, never a bare relative `Outputs/[Client]/...` left for the shell to resolve
 - [ ] Saved file read back from its resolved absolute path to confirm it actually landed there
-- [ ] Also saved to the right Drive folder per §1b: learner/client-facing to `B2B AI Programs`, working docs to `PostSalesPluginOutput`, never mixed
+- [ ] Run ended with the list of produced files and the Drive folder each belongs in per §1b (learner/client-facing to `B2B AI Programs`, working docs to `PostSalesPluginOutput`, never mixed), with nothing uploaded unless a human asked for it in v1
 - [ ] Day-count in any Drive path matches this engagement's actual proposal length, never hardcoded to 4
 - [ ] If this created a brand-new `B2B AI Programs` client/program folder, it's been added to `B2B_CONTENT_PROGRAM_CLIENTS`, or the user's been clearly told this is still outstanding
 - [ ] Test runs use `TEST -` / `TEST/` naming in both Drive locations, never added to the real known-programs list
@@ -251,8 +257,8 @@ Once a generation skill produces its artifact, it hands off to the matching revi
 - [ ] Only the content types this engagement actually needs get built, not every type by default
 - [ ] Mechanically checkable facts (durations, counts, cross-references) self-verified before handoff
 - [ ] If an upstream input has a newer version than what this output was last checked against, re-verified against the current version, not assumed still fine from a prior round, per §3a
-- [ ] `agent-loops` referenced in `skills:` frontmatter, its §2a / §2a-1 / §2b rules not restated
-- [ ] Matching `generation-learnings/<type>.md` referenced in `skills:` frontmatter
+- [ ] `agent-loops` read at the start of the run (skills and commands have no `skills:` frontmatter field, only agents do), its §2a / §2a-1 / §2b rules not restated
+- [ ] Matching `generation-learnings/<type>.md` read at the start of the run, where one exists
 - [ ] Output handed to the existing matching reviewer, no bespoke review process invented
 - [ ] The skill's own description states the generation-review loop explicitly, per §6a, not left implicit
 - [ ] Invocation mode identified (fresh build / adapt from a reference / tweak an existing artifact) from what the human actually handed over, per §6b, not assumed to be Mode 1 by default

@@ -21,7 +21,7 @@ $ARGUMENTS
 3. Map each item to a stated Learning Objective from the relevant day's rows, confirm single-best-answer versus multi-select from how the objective/stem should be framed before writing distractors.
 4. Write items against §2's rules, plausible distractors, no cueing, no compound claims, correct answer-key format.
 5. Apply §3 from this first run: every explanation addresses why each wrong option is wrong, and no two options share near-identical phrasing.
-6. Save to `Outputs/[Client]/mcq/pre-test.docx`, `mcq/post-test.docx`, or `mcq/day-N-in-session.docx`, matching the type generated, and push the same file to `PostSalesPluginOutput` per `content-generation/SKILL.md` §1b.
+6. Save to `Outputs/[Client]/mcq/pre-test.docx`, `mcq/post-test.docx`, or `mcq/day-N-in-session.docx`, matching the type generated, and list it at the end of the run as belonging in `PostSalesPluginOutput` per `content-generation/SKILL.md` §1b (uploaded only when a human asks, in v1).
 7. Hand off to `acceler-post-sales:mcq-reviewer` for the actual review pass, this command doesn't review its own output. Per `agent-loops/SKILL.md` §2a-2, this is a hard completion condition, not a step to describe, this run isn't finished until the reviewer has actually been invoked, not just reported as the next step.
 8. **If this was the in-session type**, it's a mandatory input to that day's `slide-content-planning`, not to deck generation directly, per `slide-content-planning/SKILL.md` §1/§3a. Don't hand it to `session-deck`.
 
@@ -33,6 +33,6 @@ $ARGUMENTS
 - [ ] No implausible distractors, cueing, compound claims, or length giveaways
 - [ ] Every explanation addresses each wrong option, not just the correct one
 - [ ] No two options share near-identical phrasing differing only in a trailing clause
-- [ ] Post-test genuinely harder than the pre-test, not just longer
-- [ ] Saved to `Outputs/[Client]/mcq/<type>.docx` and pushed to `PostSalesPluginOutput`
+- [ ] Calibration matches `mcq-generation/SKILL.md` §2a: the pre-test is the harder, diagnostic one, the post-test the easier, foundational one, checked against the real pre-test file, not asserted
+- [ ] Saved to `Outputs/[Client]/mcq/<type>.docx`, and listed for `PostSalesPluginOutput` per §1b
 - [ ] Handed to the existing `mcq-reviewer`, not reviewed inline here

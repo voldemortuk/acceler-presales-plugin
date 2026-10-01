@@ -12,6 +12,8 @@ $ARGUMENTS
 
 ## How to run
 
+**Scope (added 2026-10-01):** when the handoff or the human gives a mode, a scope and a light brief path, read them, pass them to the reviewer, and review against that scope, per `skills/agent-loops/SKILL.md` §4.
+
 1. Read `skills/closing-ceremony-review/SKILL.md` in full first.
 2. Confirm this is the live/external deck, not an internal Dry Run rehearsal copy (which embeds the full assessment for internal use only).
 3. Launch the `acceler-post-sales:closing-ceremony-reviewer` agent per §2. Any embedded assessment slides get flagged as "route to mcq-review," not evaluated inline.

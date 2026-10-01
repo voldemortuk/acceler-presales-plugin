@@ -7,6 +7,8 @@ metadata:
 
 # Acceler Lesson Plan Generation · Post-Sales · SKILL.md (v1)
 
+**How this skill is started (added 2026-10-01):** every run begins with the start-up check in `content-generation/SKILL.md` §6c (name the mode per §6b, check what already exists for this client, ask at most 3 to 5 questions, write a light brief in adapt or standalone runs). Where this file says an input is mandatory or says to stop when one is missing, that describes a fresh build inside the full pipeline; in adapt or standalone runs the gap is handled the §6c way instead. Before building, also read `agent-loops/SKILL.md` (§2a, §2a-1, §2b) and this artifact type's `generation-learnings/` file where one exists, they are not loaded automatically.
+
 **What this produces.** The same document `lesson-plan-review/SKILL.md` already reviews, the internal facilitator planning table, not the client-facing Day-by-Day proposal section and not the session deck. Confirmed real structure from sampled files: an Excel file (xlsx), one tab per day for multi-day programs, one row per curriculum segment, columns `Topic | Learning Objective | Subtopic | Estimated Time | Flow of Examples & Topics | Live Demo/Coding Demo | Libraries/Tools`.
 
 ---
@@ -57,14 +59,14 @@ Per `content-generation/SKILL.md` §3, and directly from the seeded candidate in
 
 ## 5. Handoff, and this is a loop, not a one-time pass
 
-Once the self-check in §3 passes, hand off to the existing `acceler-post-sales:lesson-plan-review` for the actual review pass, per `content-generation/SKILL.md` §6. This skill does not define its own review process. Reference `generation-learnings/lesson-plan.md` and `agent-loops` (for §2a baseline quality bar and §2a-1 prose quality, this is a facilitator-facing document, the same writing-quality bar still applies) via the `skills:` frontmatter field.
+Once the self-check in §3 passes, hand off to the existing `acceler-post-sales:lesson-plan-review` for the actual review pass, per `content-generation/SKILL.md` §6. This skill does not define its own review process. Reference `generation-learnings/lesson-plan.md` and `agent-loops` (for §2a baseline quality bar and §2a-1 prose quality, this is a facilitator-facing document, the same writing-quality bar still applies) by reading it at the start of the run (skills have no `skills:` frontmatter field, only agents do).
 
 This connection is not a one-off handoff. Per `content-generation/SKILL.md` §6a, when the same rule fails three or more times across different generated Lesson Plans, per `generation-learnings/README.md`'s promotion rule, that becomes a directive in `generation-learnings/lesson-plan.md`, and this skill is expected to actually follow it on every future run, not just this one. Fixing the plan in front of you and stopping there is not the goal, the next Lesson Plan generated should already avoid whatever pattern kept failing.
 
 ---
 
 ## 6. Checklist
-- [ ] Both mandatory inputs loaded, or the run stopped and asked rather than guessing
+- [ ] Both mandatory inputs loaded, or the gap handled per `content-generation/SKILL.md` §6c rather than guessing
 - [ ] Seven-column structure per row, break/lunch/AMA rows correctly left as exceptions
 - [ ] Pre-class, live-class, post-class present as distinct segments per module
 - [ ] Every objective has matching or exceeding Demo content, nothing orphaned

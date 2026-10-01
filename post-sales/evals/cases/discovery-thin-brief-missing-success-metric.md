@@ -9,7 +9,7 @@ A discovery brief that answers most of the 33-question checklist reasonably (aud
 
 ## Expected
 
-- Verdict: the discovery-checklist score itself may land ≥80%, but the reviewer must flag the Facts Sheet as incomplete specifically because of this one fact, regardless of the aggregate score.
+- Verdict: 🔴 Request Changes, per `discovery-fit-review/SKILL.md` §1.1's MUST-item override and §5. The discovery-checklist score itself may land ≥80%, but the reviewer must flag the Facts Sheet as incomplete specifically because of this one fact, regardless of the aggregate score.
 - This should read as its own distinct finding, not get averaged away by an otherwise-strong score.
 - Escalation: per §3, this is a human action item ("go back and ask the client"), not something routed through the fix loop.
 

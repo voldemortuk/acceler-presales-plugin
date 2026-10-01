@@ -72,9 +72,11 @@ Follows the shared mechanics in `skills/agent-loops/SKILL.md` in full, using the
 
 | Verdict | Condition |
 |---|---|
-| ✅ Approve | All applicable §1 rules PASS, directly or after an approved fix |
+| ✅ Approve | All applicable §1 rules and the `agent-loops` baseline (§2a, §2a-1, §2b, §4) PASS, directly or after an approved fix |
 | 💬 Comment | Only dismissed/subjective findings remain, or §1.1 couldn't run for lack of a Facts Sheet |
 | 🔴 Request Changes | Any FAIL didn't converge within 2 fix rounds |
+
+*This verdict is a recommendation, not a ship decision. A human still signs off per `agent-loops/SKILL.md` §2, and per `content-generation/SKILL.md` §6 a per-artifact review is fast feedback, not the final gate.*
 
 ## 6. Checklist
 - [ ] Discovery Facts Sheet checked for and used if available; its absence explicitly flagged if not

@@ -41,8 +41,8 @@ Reviews **one hands-on build artifact** in isolation — a Jupyter notebook, a s
 ## 2. How this runs
 
 - Launched as the `acceler-post-sales:code-demo-reviewer` agent (`agents/code-demo-reviewer.md`) — may run/execute code via Bash to verify §1.1, but is read-only by tool restriction (`disallowedTools: Write, Edit, NotebookEdit`) on the artifact itself. No visibility into the generating agent's reasoning or other hats' findings.
-- Given: the notebook/code file(s) and the session's stated learning objectives (Curriculum KG / Day-by-Day doc — ask if missing, never invent).
-- Output: `{cell/file/line, rule, verdict: PASS|FAIL, evidence, suggested_fix}`.
+- Given: the notebook, code file(s) or build guide, the session's stated learning objectives, and the mode, scope and light brief path when the handoff or the human gives them. **Corrected 2026-10-01:** objectives come from the approved Lesson Plan / Facts Sheet where they exist, otherwise from `Outputs/[Client]/light-brief.md`'s objectives outline, per `agent-loops/SKILL.md` §4. Stop and ask only if none of these exist, never invent them.
+- Output: `{cell/file/line/step, rule, verdict: PASS|FAIL, evidence, suggested_fix}`.
 - Check every FAIL against §4 Memories before surfacing it.
 
 ---
@@ -70,12 +70,14 @@ Follows the shared mechanics in `skills/agent-loops/SKILL.md` in full, using the
 
 | Verdict | Condition |
 |---|---|
-| ✅ Approve | All §1 rules PASS, directly or after an approved fix |
+| ✅ Approve | All §1 rules and the `agent-loops` baseline (§2a, §2a-1, §2b, §4) PASS, directly or after an approved fix |
 | 💬 Comment | Only dismissed/subjective findings remain |
 | 🔴 Request Changes | Any FAIL didn't converge within 2 fix rounds |
 
+*This verdict is a recommendation, not a ship decision. A human still signs off per `agent-loops/SKILL.md` §2, and per `content-generation/SKILL.md` §6 a per-artifact review is not the final gate, the `content-review` bundle pass still has to run.*
+
 ## 6. Checklist
-- [ ] Objectives sourced from the real Curriculum KG / Day-by-Day doc, not invented
+- [ ] Objectives sourced from the approved Lesson Plan / Facts Sheet, or from the light brief's objectives outline where those don't exist (`agent-loops/SKILL.md` §4), not invented
 - [ ] Every finding checked against §4 Memories before being surfaced
 - [ ] No fix applied without explicit human approval
 - [ ] No finding exceeded 2 fix rounds before escalating
