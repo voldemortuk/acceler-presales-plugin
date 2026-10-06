@@ -5,6 +5,12 @@ This repo hosts two plugins in one marketplace: `acceler-presales` (root) and `a
 ## acceler-presales [0.6.8] — 2026-10-04
 - Automated Knowledge Graph refresh (dynamic sync from Google Drive + instructor sheets).
 
+## acceler-post-sales [0.4.8] — 2026-10-06
+
+### Works for someone who only installed the plugin
+- **Save folder when there is no local copy of the repo** (`content-generation/SKILL.md` §1a). The save rule looked for the plugin's own folder under the work folder, which only exists on a maintainer's machine. Someone who installed from GitHub now gets their outputs in `Post-Sales Outputs/[Client]/...` inside the folder they opened Claude in, and is told the full path. Outputs are never saved inside the installed plugin copy, which is replaced on every update. Reference files (template backgrounds, fonts, logo, catalog) are read from the installed copy.
+- **Reading a reference a person hands over** (`content-generation/SKILL.md` §6b). States what a Google Slides link, a PowerPoint file and a PDF each deliver (tested on real decks), that the reference supplies content while the house template supplies the look, and that anything that could not be carried over (diagrams, screenshots, speaker notes) must be listed for the person, never dropped silently.
+
 ## acceler-post-sales [0.4.7] — 2026-10-01
 
 ### Picking up an engagement someone else started

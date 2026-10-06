@@ -1,7 +1,7 @@
 {
   "name": "acceler-post-sales",
   "displayName": "Acceler Atlas · Delivery",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "description": "Acceler B2B post-sales / delivery pipeline. Takes a closed deal from discovery to delivery: discovery facts, onboarding form, deep research, lesson plan, instructor roster, quizzes, demos, slide plan, live session deck, orientation, closing ceremony, assignment, project, hands-on guide, learner recap and stakeholder impact report. Every stage has its own reviewer agent with a human-approved fix loop. Each step runs as part of the full flow or on its own, as a fresh build, an adaptation of a real past artifact, or a quick tweak. Companion to acceler-presales (Acceler Atlas) in the same repo and marketplace.",
   "author": {
     "name": "Utkarsh Raj",

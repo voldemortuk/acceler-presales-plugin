@@ -46,6 +46,12 @@ A generation skill never invents its way around a missing upstream stage. If Dee
 2. Build the full path as `<that folder>/post-sales/Outputs/[Client]/...`, never a bare `Outputs/[Client]/...` left for the shell to resolve on its own.
 3. After saving, read the file back from that exact resolved path to confirm it actually landed there before declaring the step done, the same self-verification discipline §3 already requires for mechanical facts, applied here to the save location itself.
 
+**When there is no local copy of the plugin repo (added 2026-10-06).** Step 1 assumes a full copy of the repo sits somewhere under the folder Claude was opened in. That is true for whoever maintains the plugin, and false for most people: someone who installed the plugin from GitHub through `/plugin install` has the commands, but no `post-sales/` folder in their work area. For them, do this instead, and say in one line which case applies:
+- **Outputs:** save under `Post-Sales Outputs/[Client]/...` inside the folder Claude was opened in (the person's own work folder), creating it if needed. Same sub-folders and file names as the normal `Outputs/[Client]/` layout. Tell the person the full path. Read prior-stage files from there too.
+- **Never save outputs inside the installed plugin copy** (`~/.claude/plugins/cache/...`). That folder is replaced on every plugin update, anything saved there is lost or left behind in an old version's folder.
+- **Plugin reference files** (everything this plugin's skills call `post-sales/knowledge/...`: the engagement catalog, brand assets, the deck reference with its background images and fonts) are read from the installed plugin copy instead, the folder this skill file itself was loaded from, typically `~/.claude/plugins/cache/acceler-local/acceler-post-sales/<version>/knowledge/...`. Copy what an output needs (backgrounds, fonts, logo) into the output's own `assets/` folder as usual.
+- Everything else in this file is unchanged: the Drive folders in §1b, the pick-up check in §6c, and the read-back after saving all apply to the fallback folder exactly as they do to `Outputs/[Client]/`.
+
 ---
 
 ## 1b. Also saving to Google Drive, and where
@@ -220,6 +226,15 @@ Once a generation skill produces its artifact, it hands off to the matching revi
 
 **Mode 2, adapt from a real reference.** The human says, in effect, "this one's basically like that other one, with these differences," or hands over a real file on the spot, one that wasn't produced by this engagement's own pipeline at all, a past engagement's real artifact, or something entirely external. This is the same real approach already built for `orientation-generation` and `closing-ceremony-generation` (copy the real reference, swap only what's actually different), generalized here so any artifact type can use it, not just those two. The reference can come from `engagement-catalog.md`, or be handed over directly at runtime, either is fine, same as any other best-effort precedent input per §2. **This still gets the full review in §6, the same bar as Mode 1, no shortcut.** Real evidence for why: the two real defects found in Orientation's first live run (a leftover duplicate slide, a formatting-collapse bug) weren't in the original reference, they got introduced during the adapting step itself. Being grounded in something real doesn't mean the adaptation was done correctly, only a full check confirms that.
 
+**Reading the reference a human hands over (added 2026-10-06, each form tested on a real deck).** A reference rarely arrives as one of this plugin's own HTML files. The three forms people actually have, and what each one gives:
+- **A Google Slides link**, read through the session's Drive access: all the text, slide by slide. No pictures, no diagrams, no layout, and speaker notes did not come through in testing. Text inside a slide can arrive out of order (answer options before their question), so re-read a slide's logic before relying on it. Needs Drive connected and the person's access to the file.
+- **A PowerPoint file (.pptx):** all text, speaker notes, and the pictures, which can be extracted as image files. Fastest with Python (`python-pptx`), still readable without it by unzipping the file.
+- **A PDF:** the text, and each slide can be *seen* as a page, so layout, diagrams and screenshots are understood. The pictures cannot be lifted out as separate image files.
+
+Whatever the form, **the reference supplies content and structure, this plugin's own template supplies the look.** The result is a new artifact in the house template, not an edit of the person's Slides or PowerPoint file (the two exceptions are Orientation and Closing, which edit a real PPTX in place per §1e and need Python). Say that up front if the person seems to expect their own file back.
+
+**Always report what could not be carried over.** Diagrams, screenshots, photos, embedded videos, animations and anything else the chosen form didn't deliver get listed for the human at the end of the run, slide by slide ("reference slide 14: architecture diagram, not carried over, add as an image or tell me what it shows"), never dropped silently. If the reference has important visuals and arrived as a Slides link, suggest the PDF or PowerPoint export instead before building.
+
 **Mode 3, tweak something that already exists for this exact engagement.** The human already has a real version of this artifact, generated by this pipeline earlier, or handed over as-is, and wants specific, named changes made to it, not a rebuild. Apply only the described changes, preserve everything else untouched, the same discipline `content-fixer` already applies to an approved reviewer finding. **This gets a light, targeted check scoped to just what changed**, not a full re-review of the whole artifact, that would be real waste with no added safety. But it's not zero-review either, confirm the specific change actually landed, and that nothing else moved, the same self-verification discipline §3 already requires elsewhere.
 
 **A standalone request is not a fourth mode.** "Just build me the demo file" with nothing upstream and no reference is still Mode 1, a fresh build, only without the earlier stages behind it. §6c's light brief is what stands in for them.
@@ -252,6 +267,8 @@ Once a generation skill produces its artifact, it hands off to the matching revi
 
 ## 7. Checklist
 - [ ] Plugin root located via the `post-sales/.claude-plugin/plugin.json` anchor, save path built from that, never a bare relative `Outputs/[Client]/...` left for the shell to resolve
+- [ ] If no local copy of the plugin repo exists, outputs went to `Post-Sales Outputs/[Client]/...` in the person's work folder (never into the installed plugin copy), and the person was told the full path
+- [ ] For a handed-over reference (Slides link, PowerPoint or PDF): everything that could not be carried over was listed for the human, nothing dropped silently
 - [ ] Saved file read back from its resolved absolute path to confirm it actually landed there
 - [ ] Run ended with the list of produced files and the Drive folder each belongs in per §1b (learner/client-facing to `B2B AI Programs`, working docs to `PostSalesPluginOutput`, never mixed), with nothing uploaded unless a human asked for it in v1
 - [ ] Day-count in any Drive path matches this engagement's actual proposal length, never hardcoded to 4
