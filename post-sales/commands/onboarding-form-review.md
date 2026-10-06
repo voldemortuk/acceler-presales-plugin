@@ -3,6 +3,8 @@ description: "PIPELINE GATE (Stage 1). Review one Learner Onboarding Form for wh
 argument-hint: "<path to the onboarding form, and the Discovery Facts Sheet if available> + client/program name"
 ---
 
+**End every run with the run notes (added 2026-10-06):** append an entry to the client's `run-notes.md`, per `skills/content-generation/SKILL.md` §6d: each finding and what happened to it (approved and fixed, dismissed with the person's reason, escalated), and anything the person changed by hand.
+
 Review this onboarding form against `skills/onboarding-form-review/SKILL.md`.
 
 ## Input

@@ -250,6 +250,7 @@ Text colors are §2.0 tokens: name, headings and section labels in `--text-headi
 Rules:
 - Speaker notes: ~60 seconds. Establish credibility, then move.
 - Two section blocks (Career Highlights, Academic & Teaching) is the confirmed real pattern, don't add more and dilute it.
+- **Where the instructor's photo comes from, in this order (added 2026-10-06):** (1) a photo the person hands over; (2) the reference or earlier deck, when it is a PowerPoint file, the photo can be extracted from it, confirm it is the right person before using it; (3) an earlier output for this same instructor already saved under this client's outputs. A Google Slides link or a PDF cannot supply the photo. If none of these gives one, use the initials placeholder and list "instructor photo" under what the person still has to add. Never use a photo found on the web, and never guess. The Knowledge Graph's instructor data carries no photos today (name, topics and clients only), fetching from it is a v2 item.
 - Employer badges are a simple, real, low-effort credibility signal, use them whenever the instructor's real background includes recognizable names, don't fabricate ones that aren't real.
 
 ### 3.3 Pipeline (3 steps), alternate only (Hungary-era)

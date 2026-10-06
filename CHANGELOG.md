@@ -5,6 +5,12 @@ This repo hosts two plugins in one marketplace: `acceler-presales` (root) and `a
 ## acceler-presales [0.6.8] — 2026-10-04
 - Automated Knowledge Graph refresh (dynamic sync from Google Drive + instructor sheets).
 
+## acceler-post-sales [0.4.9] — 2026-10-06
+
+### Run notes, and where the instructor photo comes from
+- **Run notes at the end of every run** (`content-generation/SKILL.md` §6d). A fix approved on someone's laptop fixes that one file, the plugin's instructions don't change. Each run now appends a short entry to the client's `run-notes.md`: what each reviewer found and what happened to it, what the person changed by hand that no reviewer raised, and what could not be carried over from a reference. The file belongs in `PostSalesPluginOutput` with the other working files, so maintainers can read it and turn repeat problems into rules. Only maintainers edit the plugin; doing this automatically, through a shared memory, is v2.
+- **Instructor photo source order** (`live-session-deck/SKILL.md` §3.2): a photo the person gives, else the photo from a PowerPoint reference deck, else an earlier output for the same instructor, else initials and a line in "still to add". A Slides link or PDF cannot supply it, and the Knowledge Graph has no photos yet.
+
 ## acceler-post-sales [0.4.8] — 2026-10-06
 
 ### Works for someone who only installed the plugin

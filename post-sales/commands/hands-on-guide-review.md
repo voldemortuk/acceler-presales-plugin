@@ -3,6 +3,8 @@ description: "POST-SALES / delivery quality gate. Review one hands-on/setup guid
 argument-hint: "<path to the hands-on/setup guide, or 'review last'> + the client/program/day + that day's code-demo/deck paths if available (for the tool-alignment check)"
 ---
 
+**End every run with the run notes (added 2026-10-06):** append an entry to the client's `run-notes.md`, per `skills/content-generation/SKILL.md` §6d: each finding and what happened to it (approved and fixed, dismissed with the person's reason, escalated), and anything the person changed by hand.
+
 Review this hands-on/setup guide against `skills/hands-on-guide-review/SKILL.md`.
 
 ## Input

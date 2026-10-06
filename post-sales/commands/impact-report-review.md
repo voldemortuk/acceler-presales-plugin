@@ -3,6 +3,8 @@ description: "POST-DELIVERY quality gate. Review one stakeholder-facing day-N im
 argument-hint: "<path to the report HTML, plus the chat log/transcript and KPI source numbers for verification> + client/program/day"
 ---
 
+**End every run with the run notes (added 2026-10-06):** append an entry to the client's `run-notes.md`, per `skills/content-generation/SKILL.md` §6d: each finding and what happened to it (approved and fixed, dismissed with the person's reason, escalated), and anything the person changed by hand.
+
 Review this impact report against `skills/impact-report-review/SKILL.md`.
 
 ## Input

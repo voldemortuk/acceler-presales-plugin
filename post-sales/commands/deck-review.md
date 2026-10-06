@@ -3,6 +3,8 @@ description: "POST-SALES / delivery quality gate. Review one session deck for fo
 argument-hint: "<path to the deck, or 'review last' to use the deck generated earlier in this session> + the client/program/day"
 ---
 
+**End every run with the run notes (added 2026-10-06):** append an entry to the client's `run-notes.md`, per `skills/content-generation/SKILL.md` §6d: each finding and what happened to it (approved and fixed, dismissed with the person's reason, escalated), and anything the person changed by hand.
+
 Review this deck against `skills/deck-review/SKILL.md`.
 
 ## Input

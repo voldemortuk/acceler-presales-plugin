@@ -111,6 +111,7 @@ PostSalesPluginOutput/
         day-1-in-session.docx ... day-N-in-session.docx
       dry-run-feedback.md
       light-brief.md                         (only in adapt or standalone runs, per §6c)
+      run-notes.md                           (one entry per run, per §6d)
 ```
 
 **The known-programs list, a required step, not optional.** Utkarsh's Curriculum Graph only recognizes a `B2B AI Programs` subfolder as real delivered content if its exact name is in `B2B_CONTENT_PROGRAM_CLIENTS` (`acceler-kg-sync`, `sync/build_curriculum_html.py`, also mirrored in `sync/export_curriculum.py`). Creating a brand-new client/program folder there without also adding it to that list means the graph will silently never show it, no error, nothing visibly broken, it just never appears. So: before saving anything to a `B2B AI Programs` folder that doesn't already exist there, either add that exact folder name to the list yourself (prepared as part of the batched `acceler-kg-sync` change, not pushed separately) or clearly tell the user this step still needs doing. Never leave it silently undone.
@@ -265,6 +266,31 @@ Whatever the form, **the reference supplies content and structure, this plugin's
 
 ---
 
+## 6d. Run notes, written at the end of every run
+
+**Added 2026-10-06, per Tanmaya.** When a reviewer finds something and a person approves the fix, that one file gets fixed. The plugin's own instructions do not change, so the same mistake can come back on the next client, on someone else's laptop. For the lesson to reach the instructions, a maintainer has to hear about it. Until that is automatic (v2, a shared memory), the bridge is a plain note file that travels with the client's other working files.
+
+**What to do.** At the end of any run that built, adapted, tweaked or reviewed something, add an entry to `Outputs/[Client]/run-notes.md` (or `Post-Sales Outputs/[Client]/run-notes.md`, per §1a), creating the file if it isn't there. Append, never overwrite. One entry per run, short:
+
+```
+## 2026-10-06 · session-deck · Day 1 · Mode: Adapt · plugin 0.4.9
+Built: session-deck/day-1/index.html (7 slides)
+Reviewer findings:
+- deck-review §1.1, slide 7: demo button links to a guide that doesn't exist yet. Approved, fixed.
+- deck-review §2a, slide 5: "PEX" not explained. Dismissed by the person: "Ferguson engineers use this daily."
+Changed by the person, not raised by a reviewer:
+- slide 9 cut from 6 bullets to 3, "too wordy"
+Not carried over from the reference: architecture diagram (reference slide 14)
+```
+
+- **Record three things the instructions can learn from:** what each reviewer found and what happened to it (approved and fixed, dismissed with the person's reason, or escalated), what the person asked to change that no reviewer raised, and what couldn't be carried over from a reference. The second one matters most, it is a gap in the reviewer.
+- **Keep out anything sensitive:** no credentials, no learner personal data, no client confidential figures. Describe the problem, don't paste the content.
+- **Where it belongs:** `PostSalesPluginOutput` in Drive, in the client's folder, with the other working files (§1b). It reaches the maintainers when the person's files are uploaded.
+- **Dismissals go here too.** A review skill's own Memories section only lasts on a maintainer's copy of the repo. On an installed copy it is local to that laptop and replaced at the next update, so a dismissal is recorded in the run notes, where a maintainer can see it and add it to the real Memories log.
+- **This does not change any skill.** Maintainers read run notes across clients, and when the same rule has failed 3 or more times, add it to `generation-learnings/` and the reviewer's rubric per `agent-loops/SKILL.md` §9, then ship a version. Only maintainers edit the plugin.
+
+---
+
 ## 7. Checklist
 - [ ] Plugin root located via the `post-sales/.claude-plugin/plugin.json` anchor, save path built from that, never a bare relative `Outputs/[Client]/...` left for the shell to resolve
 - [ ] If no local copy of the plugin repo exists, outputs went to `Post-Sales Outputs/[Client]/...` in the person's work folder (never into the installed plugin copy), and the person was told the full path
@@ -281,6 +307,7 @@ Whatever the form, **the reference supplies content and structure, this plugin's
 - [ ] When the local `Outputs/[Client]/` folder was empty or incomplete, the client's Drive folders were checked before any stage was called missing, and anything used from there was confirmed with the human and saved locally
 - [ ] Missing upstream stage in a fresh pipeline build means stop and ask (run the stage, or go standalone with a light brief), never a silent inline stand-in; in adapt or standalone mode a light brief is written and shown instead, per §6c
 - [ ] Mode, scope and the light brief's path passed to the reviewer at handoff
+- [ ] Run ended with an entry appended to `run-notes.md` per §6d: reviewer findings and what happened to each, changes the person asked for by hand, anything not carried over, nothing sensitive
 - [ ] Only the content types this engagement actually needs get built, not every type by default
 - [ ] Mechanically checkable facts (durations, counts, cross-references) self-verified before handoff
 - [ ] If an upstream input has a newer version than what this output was last checked against, re-verified against the current version, not assumed still fine from a prior round, per §3a

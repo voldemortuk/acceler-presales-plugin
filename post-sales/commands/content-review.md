@@ -3,6 +3,8 @@ description: "POST-SALES / delivery quality gate. Session-level content review: 
 argument-hint: "<paths to the session's artifact bundle — deck/notebook-or-code/MCQs/assignment/hands-on guide/project, whichever are present> + the aggregated onboarding responses and Discovery Facts Sheet if available + client/program/day + risk tier (high-stakes or standard)"
 ---
 
+**End every run with the run notes (added 2026-10-06):** append an entry to the client's `run-notes.md`, per `skills/content-generation/SKILL.md` §6d: each finding and what happened to it (approved and fixed, dismissed with the person's reason, escalated), and anything the person changed by hand.
+
 Run the full Acceler content-review panel against this session's bundle.
 
 ## Input

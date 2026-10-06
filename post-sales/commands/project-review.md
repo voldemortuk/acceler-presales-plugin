@@ -3,6 +3,8 @@ description: "POST-SALES / delivery quality gate. Review one capstone/multi-mile
 argument-hint: "<path to the project guide + reference solution if available, or 'review last'> + the client/program/day"
 ---
 
+**End every run with the run notes (added 2026-10-06):** append an entry to the client's `run-notes.md`, per `skills/content-generation/SKILL.md` §6d: each finding and what happened to it (approved and fixed, dismissed with the person's reason, escalated), and anything the person changed by hand.
+
 Review this project against `skills/project-review/SKILL.md`.
 
 ## Input

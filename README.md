@@ -281,4 +281,4 @@ cd "$HOME/acceler-presales-plugin" && git add -A && git commit -m "KG refresh" &
 
 ---
 
-*acceler-presales (Acceler Atlas) v0.6.7 · acceler-post-sales (Acceler Atlas · Delivery) v0.4.8 · Oct 2026 · Utkarsh Raj · Acceler / Interview Kickstart B2B · [CHANGELOG](CHANGELOG.md) · [CONTRIBUTING](CONTRIBUTING.md)*
+*acceler-presales (Acceler Atlas) v0.6.7 · acceler-post-sales (Acceler Atlas · Delivery) v0.4.9 · Oct 2026 · Utkarsh Raj · Acceler / Interview Kickstart B2B · [CHANGELOG](CHANGELOG.md) · [CONTRIBUTING](CONTRIBUTING.md)*

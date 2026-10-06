@@ -3,6 +3,8 @@ description: "POST-SALES / delivery quality gate. Review a session's content bun
 argument-hint: "<paths to the session's content bundle, the aggregated onboarding form responses for this cohort, and the Discovery Facts Sheet if available> + client/program/day"
 ---
 
+**End every run with the run notes (added 2026-10-06):** append an entry to the client's `run-notes.md`, per `skills/content-generation/SKILL.md` §6d: each finding and what happened to it (approved and fixed, dismissed with the person's reason, escalated), and anything the person changed by hand.
+
 Review this session's content bundle against `skills/audience-fit-review/SKILL.md`.
 
 ## Input

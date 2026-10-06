@@ -3,6 +3,8 @@ description: "POST-DELIVERY quality gate. Review one learner-facing day-N recap 
 argument-hint: "<path to the recap HTML, plus the session deck/notes and chat log/transcript for verification> + client/program/day"
 ---
 
+**End every run with the run notes (added 2026-10-06):** append an entry to the client's `run-notes.md`, per `skills/content-generation/SKILL.md` §6d: each finding and what happened to it (approved and fixed, dismissed with the person's reason, escalated), and anything the person changed by hand.
+
 Review this session recap against `skills/session-recap-review/SKILL.md`.
 
 ## Input
